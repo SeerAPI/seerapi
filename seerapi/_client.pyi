@@ -253,6 +253,10 @@ class SeerAPI:
     async def get(self, resource_name: Literal['emoji'], id: int) -> M.Emoji: ...
     @overload
     async def get(
+        self, resource_name: Literal['peak_season'], id: int
+    ) -> M.PeakSeason: ...
+    @overload
+    async def get(
         self, resource_name: Literal['error_code'], id: int
     ) -> M.ErrorCode: ...
     @overload
@@ -521,6 +525,9 @@ class SeerAPI:
         self, resource_name: Literal['error_code'], page_info: PageInfo
     ) -> PagedResponse[M.ErrorCode]: ...
     @overload
+    async def paginated_list(
+        self, resource_name: Literal['peak_season'], page_info: PageInfo
+    ) -> PagedResponse[M.PeakSeason]: ...
     @overload
     async def paginated_list(
         self, resource_name: type[T_ModelInstance], page_info: PageInfo
@@ -747,44 +754,48 @@ class SeerAPI:
     ) -> AsyncGenerator[M.PeakExpertPool, None]: ...
     @overload
     async def list(
-        self, resource_name: Literal['glossary_entry'], page_info: PageInfo
-    ) -> PagedResponse[M.GlossaryEntry]: ...
+        self, resource_name: Literal['peak_season']
+    ) -> AsyncGenerator[M.PeakSeason, None]: ...
     @overload
     async def list(
-        self, resource_name: Literal['pet_advance'], page_info: PageInfo
-    ) -> PagedResponse[M.PetAdvance]: ...
+        self, resource_name: Literal['glossary_entry']
+    ) -> AsyncGenerator[M.GlossaryEntry, None]: ...
     @overload
     async def list(
-        self, resource_name: Literal['peak_pool_vote'], page_info: PageInfo
-    ) -> PagedResponse[M.PeakPoolVote]: ...
+        self, resource_name: Literal['pet_advance']
+    ) -> AsyncGenerator[M.PetAdvance, None]: ...
     @overload
     async def list(
-        self, resource_name: Literal['avatar_head'], page_info: PageInfo
-    ) -> PagedResponse[M.AvatarHead]: ...
+        self, resource_name: Literal['peak_pool_vote']
+    ) -> AsyncGenerator[M.PeakPoolVote, None]: ...
     @overload
     async def list(
-        self, resource_name: Literal['avatar_frame'], page_info: PageInfo
-    ) -> PagedResponse[M.AvatarFrame]: ...
+        self, resource_name: Literal['avatar_head']
+    ) -> AsyncGenerator[M.AvatarHead, None]: ...
     @overload
     async def list(
-        self, resource_name: Literal['namecard_background'], page_info: PageInfo
-    ) -> PagedResponse[M.NamecardBackground]: ...
+        self, resource_name: Literal['avatar_frame']
+    ) -> AsyncGenerator[M.AvatarFrame, None]: ...
     @overload
     async def list(
-        self, resource_name: Literal['nickname_background'], page_info: PageInfo
-    ) -> PagedResponse[M.NicknameBackground]: ...
+        self, resource_name: Literal['namecard_background']
+    ) -> AsyncGenerator[M.NamecardBackground, None]: ...
     @overload
     async def list(
-        self, resource_name: Literal['homepage_background'], page_info: PageInfo
-    ) -> PagedResponse[M.HomepageBackground]: ...
+        self, resource_name: Literal['nickname_background']
+    ) -> AsyncGenerator[M.NicknameBackground, None]: ...
     @overload
     async def list(
-        self, resource_name: Literal['emoji'], page_info: PageInfo
-    ) -> PagedResponse[M.Emoji]: ...
+        self, resource_name: Literal['homepage_background']
+    ) -> AsyncGenerator[M.HomepageBackground, None]: ...
     @overload
     async def list(
-        self, resource_name: Literal['error_code'], page_info: PageInfo
-    ) -> PagedResponse[M.ErrorCode]: ...
+        self, resource_name: Literal['emoji']
+    ) -> AsyncGenerator[M.Emoji, None]: ...
+    @overload
+    async def list(
+        self, resource_name: Literal['error_code']
+    ) -> AsyncGenerator[M.ErrorCode, None]: ...
     @overload
     async def list(
         self, resource_name: type[T_ModelInstance]

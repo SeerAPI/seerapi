@@ -74,6 +74,7 @@ ModelName: TypeAlias = Literal[
     'peak_expert_pool',
     'peak_pool_vote',
     'pet_advance',
+    'peak_season',
 ]
 
 ModelInstance: TypeAlias = BaseResModel
