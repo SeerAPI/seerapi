@@ -1,6 +1,6 @@
 [project]
 name = "seerapi"
-version = "105.0.0"
+version = "105.1.0"
 description = "SeerAPI Python Client"
 authors = [{ name = "Nattsu39", email = "Nattsu39@outlook.com" }]
 license = { file = "LICENSE" }
