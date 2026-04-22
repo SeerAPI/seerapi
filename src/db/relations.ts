@@ -22,6 +22,10 @@ export const relations = defineRelations(schema, (r) => ({
 		petDiyStatsRanges: r.many.petDiyStatsRange({
 			alias: "petDiyStatsRange_id_pet_id"
 		}),
+		peakPoolVote: r.one.peakPoolVote({
+			from: r.pet.peakPoolVoteId,
+			to: r.peakPoolVote.id
+		}),
 		peakExpertPool: r.one.peakExpertPool({
 			from: r.pet.peakExpertPoolId,
 			to: r.peakExpertPool.id
@@ -65,13 +69,19 @@ export const relations = defineRelations(schema, (r) => ({
 			from: r.pet.typeId,
 			to: r.elementTypeCombination.id
 		}),
+		glossaryEntries: r.many.glossaryEntry(),
 		petSkinCategories: r.many.petSkinCategory(),
 		petEncyclopediaEntries: r.many.petEncyclopediaEntry(),
 		petArchiveStoryBooks: r.many.petArchiveStoryBook(),
 		mintmarks: r.many.mintmark(),
 		suitBonuses: r.many.suitBonus(),
+		soulmarksViaPetAdvance: r.many.soulmark({
+			alias: "soulmark_id_pet_id_via_petAdvance"
+		}),
+		soulmarksViaPetsoulmarklink: r.many.soulmark({
+			alias: "soulmark_id_pet_id_via_petsoulmarklink"
+		}),
 		skillinpetorms: r.many.skillinpetorm(),
-		soulmarks: r.many.soulmark(),
 	},
 	petYieldingEv: {
 		pet: r.one.pet({
@@ -93,6 +103,9 @@ export const relations = defineRelations(schema, (r) => ({
 			alias: "pet_diyStatsId_petDiyStatsRange_id"
 		}),
 	},
+	peakPoolVote: {
+		pets: r.many.pet(),
+	},
 	peakExpertPool: {
 		pets: r.many.pet(),
 	},
@@ -113,8 +126,8 @@ export const relations = defineRelations(schema, (r) => ({
 	},
 	elementTypeCombination: {
 		pets: r.many.pet(),
-		skills: r.many.skill(),
 		skillStoneCategories: r.many.skillStoneCategory(),
+		skills: r.many.skill(),
 	},
 	eidEffectInUse: {
 		eidEffect: r.one.eidEffect({
@@ -186,6 +199,12 @@ export const relations = defineRelations(schema, (r) => ({
 	},
 	battleEffect: {
 		battleEffectTypes: r.many.battleEffectType(),
+	},
+	glossaryEntry: {
+		pets: r.many.pet({
+			from: r.glossaryEntry.id.through(r.petglossaryentrylink.glossaryEntryId),
+			to: r.pet.id.through(r.petglossaryentrylink.petId)
+		}),
 	},
 	item: {
 		itemCategory: r.one.itemCategory({
@@ -369,39 +388,17 @@ export const relations = defineRelations(schema, (r) => ({
 			from: r.soulmark.id.through(r.soulmark.intensifiedToId),
 			to: r.eidEffectInUse.id.through(r.soulmark.effectInUseId)
 		}),
-		pets: r.many.pet({
+		petsViaPetAdvance: r.many.pet({
+			from: r.soulmark.id.through(r.petAdvance.soulmarkId),
+			to: r.pet.id.through(r.petAdvance.petId),
+			alias: "soulmark_id_pet_id_via_petAdvance"
+		}),
+		petsViaPetsoulmarklink: r.many.pet({
 			from: r.soulmark.id.through(r.petsoulmarklink.soulmarkId),
-			to: r.pet.id.through(r.petsoulmarklink.petId)
+			to: r.pet.id.through(r.petsoulmarklink.petId),
+			alias: "soulmark_id_pet_id_via_petsoulmarklink"
 		}),
 		soulmarkTags: r.many.soulmarkTag(),
-	},
-	skill: {
-		skillHideEffect: r.one.skillHideEffect({
-			from: r.skill.hideEffectId,
-			to: r.skillHideEffect.id
-		}),
-		elementTypeCombination: r.one.elementTypeCombination({
-			from: r.skill.typeId,
-			to: r.elementTypeCombination.id
-		}),
-		skillCategory: r.one.skillCategory({
-			from: r.skill.categoryId,
-			to: r.skillCategory.id
-		}),
-		skillinpetorms: r.many.skillinpetorm(),
-		skillEffectInUsesViaSkilleffectlink: r.many.skillEffectInUse({
-			alias: "skillEffectInUse_id_skill_id_via_skilleffectlink"
-		}),
-		skillEffectInUsesViaSkillfriendskilleffectlink: r.many.skillEffectInUse({
-			alias: "skillEffectInUse_id_skill_id_via_skillfriendskilleffectlink"
-		}),
-		mintmarks: r.many.mintmark(),
-	},
-	skillHideEffect: {
-		skills: r.many.skill(),
-	},
-	skillCategory: {
-		skills: r.many.skill(),
 	},
 	skillActivationItem: {
 		item: r.one.item({
@@ -533,6 +530,70 @@ export const relations = defineRelations(schema, (r) => ({
 			to: r.gem.id
 		}),
 	},
+	soulmarkTag: {
+		soulmarks: r.many.soulmark({
+			from: r.soulmarkTag.id.through(r.soulmarktaglink.tagId),
+			to: r.soulmark.id.through(r.soulmarktaglink.soulmarkId)
+		}),
+	},
+	titleAttrBonus: {
+		titlePart: r.one.titlePart({
+			from: r.titleAttrBonus.id,
+			to: r.titlePart.id
+		}),
+	},
+	petAdvanceBaseStats: {
+		petAdvance: r.one.petAdvance({
+			from: r.petAdvanceBaseStats.id,
+			to: r.petAdvance.id
+		}),
+	},
+	petAdvance: {
+		petAdvanceBaseStats: r.many.petAdvanceBaseStats(),
+		skills: r.many.skill(),
+	},
+	skill: {
+		petAdvance: r.one.petAdvance({
+			from: r.skill.advanceId,
+			to: r.petAdvance.id
+		}),
+		skillHideEffect: r.one.skillHideEffect({
+			from: r.skill.hideEffectId,
+			to: r.skillHideEffect.id
+		}),
+		elementTypeCombination: r.one.elementTypeCombination({
+			from: r.skill.typeId,
+			to: r.elementTypeCombination.id
+		}),
+		skillCategory: r.one.skillCategory({
+			from: r.skill.categoryId,
+			to: r.skillCategory.id
+		}),
+		skillinpetorms: r.many.skillinpetorm(),
+		skillEffectInUsesViaSkilleffectlink: r.many.skillEffectInUse({
+			alias: "skillEffectInUse_id_skill_id_via_skilleffectlink"
+		}),
+		skillEffectInUsesViaSkillfriendskilleffectlink: r.many.skillEffectInUse({
+			alias: "skillEffectInUse_id_skill_id_via_skillfriendskilleffectlink"
+		}),
+		mintmarks: r.many.mintmark(),
+	},
+	skillHideEffect: {
+		skills: r.many.skill(),
+	},
+	skillCategory: {
+		skills: r.many.skill(),
+	},
+	skillStoneEffect: {
+		skillStone: r.one.skillStone({
+			from: r.skillStoneEffect.skillStoneId,
+			to: r.skillStone.id
+		}),
+		skillEffectInUses: r.many.skillEffectInUse(),
+	},
+	skillStone: {
+		skillStoneEffects: r.many.skillStoneEffect(),
+	},
 	skillinpetorm: {
 		skillActivationItem: r.one.skillActivationItem({
 			from: r.skillinpetorm.skillActivationItemId,
@@ -546,27 +607,5 @@ export const relations = defineRelations(schema, (r) => ({
 			from: r.skillinpetorm.skillId,
 			to: r.skill.id
 		}),
-	},
-	soulmarkTag: {
-		soulmarks: r.many.soulmark({
-			from: r.soulmarkTag.id.through(r.soulmarktaglink.tagId),
-			to: r.soulmark.id.through(r.soulmarktaglink.soulmarkId)
-		}),
-	},
-	titleAttrBonus: {
-		titlePart: r.one.titlePart({
-			from: r.titleAttrBonus.id,
-			to: r.titlePart.id
-		}),
-	},
-	skillStoneEffect: {
-		skillStone: r.one.skillStone({
-			from: r.skillStoneEffect.skillStoneId,
-			to: r.skillStone.id
-		}),
-		skillEffectInUses: r.many.skillEffectInUse(),
-	},
-	skillStone: {
-		skillStoneEffects: r.many.skillStoneEffect(),
 	},
 }))

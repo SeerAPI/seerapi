@@ -23,6 +23,60 @@ export const battleEffectType = sqliteTable("battle_effect_type", {
 	name: text().notNull(),
 });
 
+export const avatarHead = sqliteTable("avatar_head", {
+	id: integer().notNull(),
+	name: text().notNull(),
+	desc: text().notNull(),
+	iconId: integer("icon_id").notNull(),
+},
+(table) => [primaryKey({ columns: [table.id, table.iconId], name: "avatar_head_pk"}),
+]);
+
+export const avatarFrame = sqliteTable("avatar_frame", {
+	id: integer().notNull(),
+	name: text().notNull(),
+	desc: text().notNull(),
+	iconId: integer("icon_id").notNull(),
+},
+(table) => [primaryKey({ columns: [table.id, table.iconId], name: "avatar_frame_pk"}),
+]);
+
+export const namecardBackground = sqliteTable("namecard_background", {
+	id: integer().notNull(),
+	name: text().notNull(),
+	desc: text().notNull(),
+	iconId: integer("icon_id").notNull(),
+},
+(table) => [primaryKey({ columns: [table.id, table.iconId], name: "namecard_background_pk"}),
+]);
+
+export const nicknameBackground = sqliteTable("nickname_background", {
+	id: integer().notNull(),
+	name: text().notNull(),
+	desc: text().notNull(),
+	iconId: integer("icon_id").notNull(),
+},
+(table) => [primaryKey({ columns: [table.id, table.iconId], name: "nickname_background_pk"}),
+]);
+
+export const homepageBackground = sqliteTable("homepage_background", {
+	id: integer().notNull(),
+	name: text().notNull(),
+	desc: text().notNull(),
+	iconId: integer("icon_id").notNull(),
+},
+(table) => [primaryKey({ columns: [table.id, table.iconId], name: "homepage_background_pk"}),
+]);
+
+export const emoji = sqliteTable("emoji", {
+	id: integer().notNull(),
+	name: text().notNull(),
+	desc: text().notNull(),
+	iconId: integer("icon_id").notNull(),
+},
+(table) => [primaryKey({ columns: [table.id, table.iconId], name: "emoji_pk"}),
+]);
+
 export const petEffectGroup = sqliteTable("pet_effect_group", {
 	id: integer().primaryKey(),
 	name: text().notNull(),
@@ -32,6 +86,19 @@ export const elementType = sqliteTable("element_type", {
 	id: integer().primaryKey(),
 	name: text().notNull(),
 	nameEn: text("name_en").notNull(),
+});
+
+export const errorCode = sqliteTable("error_code", {
+	id: integer().primaryKey(),
+	name: text().notNull(),
+	message: text().notNull(),
+});
+
+export const glossaryEntry = sqliteTable("glossary_entry", {
+	id: integer().primaryKey(),
+	name: text().notNull(),
+	desc: text().notNull(),
+	kind: integer().notNull(),
 });
 
 export const itemCategory = sqliteTable("item_category", {
@@ -148,6 +215,7 @@ export const pet = sqliteTable("pet", {
 	diyStatsId: integer("diy_stats_id").references((): AnySQLiteColumn => petDiyStatsRange.id),
 	peakPoolId: integer("peak_pool_id").references(() => peakPool.id),
 	peakExpertPoolId: integer("peak_expert_pool_id").references(() => peakExpertPool.id),
+	peakPoolVoteId: integer("peak_pool_vote_id").references(() => peakPoolVote.id),
 });
 
 export const petClass = sqliteTable("pet_class", {
@@ -202,6 +270,7 @@ export const skillEffectType = sqliteTable("skill_effect_type", {
 	argsNum: integer("args_num").notNull(),
 	info: text().notNull(),
 	infoFormattingAdjustment: text("info_formatting_adjustment"),
+	analyzeInfo: text("analyze_info").notNull(),
 	pveEffective: numeric("pve_effective").notNull(),
 });
 
@@ -291,6 +360,12 @@ export const nature = sqliteTable("nature", {
 	des2: text().notNull(),
 });
 
+export const peakSeason = sqliteTable("peak_season", {
+	id: integer().primaryKey(),
+	startTime: numeric("start_time").notNull(),
+	endTime: numeric("end_time").notNull(),
+});
+
 export const peakPool = sqliteTable("peak_pool", {
 	id: integer().primaryKey(),
 	count: integer().notNull(),
@@ -305,6 +380,14 @@ export const peakExpertPool = sqliteTable("peak_expert_pool", {
 	endTime: numeric("end_time").notNull(),
 });
 
+export const peakPoolVote = sqliteTable("peak_pool_vote", {
+	id: integer().primaryKey(),
+	startTime: numeric("start_time").notNull(),
+	endTime: numeric("end_time").notNull(),
+	count: integer().notNull(),
+	subkey: integer().notNull(),
+});
+
 export const eidEffectInUse = sqliteTable("eid_effect_in_use", {
 	id: integer().primaryKey(),
 	effectArgs: customType({ dataType: () => 'JSON' })("effect_args"),
@@ -314,6 +397,7 @@ export const eidEffectInUse = sqliteTable("eid_effect_in_use", {
 export const skillEffectInUse = sqliteTable("skill_effect_in_use", {
 	id: integer().primaryKey(),
 	info: text().notNull(),
+	analyzeInfo: text("analyze_info").notNull(),
 	args: customType({ dataType: () => 'JSON' })().notNull(),
 	effectId: integer("effect_id").notNull().references(() => skillEffectType.id),
 });
@@ -341,6 +425,20 @@ export const elementTypeCombination = sqliteTable("element_type_combination", {
 	secondaryId: integer("secondary_id").references(() => elementType.id),
 	isDouble: numeric("is_double").notNull(),
 });
+
+export const glossaryentrylink = sqliteTable("glossaryentrylink", {
+	sourceId: integer("source_id").notNull().references(() => glossaryEntry.id),
+	targetId: integer("target_id").notNull().references(() => glossaryEntry.id),
+},
+(table) => [primaryKey({ columns: [table.sourceId, table.targetId], name: "glossaryentrylink_pk"}),
+]);
+
+export const petglossaryentrylink = sqliteTable("petglossaryentrylink", {
+	petId: integer("pet_id").notNull().references(() => pet.id),
+	glossaryEntryId: integer("glossary_entry_id").notNull().references(() => glossaryEntry.id),
+},
+(table) => [primaryKey({ columns: [table.petId, table.glossaryEntryId], name: "petglossaryentrylink_pk"}),
+]);
 
 export const item = sqliteTable("item", {
 	id: integer().primaryKey(),
@@ -485,6 +583,7 @@ export const soulmark = sqliteTable("soulmark", {
 	id: integer().primaryKey(),
 	desc: text().notNull(),
 	descFormattingAdjustment: text("desc_formatting_adjustment"),
+	analyzeDesc: text("analyze_desc"),
 	pveEffective: numeric("pve_effective"),
 	intensified: numeric().notNull(),
 	isAdv: numeric("is_adv").notNull(),
@@ -498,22 +597,6 @@ export const effectparamlink = sqliteTable("effectparamlink", {
 },
 (table) => [primaryKey({ columns: [table.effectId, table.paramInTypeId], name: "effectparamlink_pk"}),
 ]);
-
-export const skill = sqliteTable("skill", {
-	id: integer().primaryKey(),
-	name: text().notNull(),
-	power: integer().notNull(),
-	maxPp: integer("max_pp").notNull(),
-	accuracy: integer().notNull(),
-	critRate: real("crit_rate"),
-	priority: integer().notNull(),
-	mustHit: numeric("must_hit").notNull(),
-	atkNum: integer("atk_num").notNull(),
-	info: text(),
-	categoryId: integer("category_id").notNull().references(() => skillCategory.id),
-	typeId: integer("type_id").notNull().references(() => elementTypeCombination.id),
-	hideEffectId: integer("hide_effect_id").references(() => skillHideEffect.id),
-});
 
 export const skillActivationItem = sqliteTable("skill_activation_item", {
 	id: integer().primaryKey().references(() => item.id),
@@ -616,17 +699,11 @@ export const gemGen2Part = sqliteTable("gem_gen2_part", {
 	upgradeCost: integer("upgrade_cost").notNull(),
 });
 
-export const skillinpetorm = sqliteTable("skillinpetorm", {
-	learningLevel: integer("learning_level"),
-	isSpecial: numeric("is_special").notNull(),
-	isAdvanced: numeric("is_advanced").notNull(),
-	isFifth: numeric("is_fifth").notNull(),
-	skillId: integer("skill_id").notNull().references(() => skill.id),
+export const petAdvance = sqliteTable("pet_advance", {
+	id: integer().primaryKey(),
 	petId: integer("pet_id").notNull().references(() => pet.id),
-	skillActivationItemId: integer("skill_activation_item_id").references(() => skillActivationItem.id),
-},
-(table) => [primaryKey({ columns: [table.skillId, table.petId], name: "skillinpetorm_pk"}),
-]);
+	soulmarkId: integer("soulmark_id").notNull().references(() => soulmark.id),
+});
 
 export const petsoulmarklink = sqliteTable("petsoulmarklink", {
 	petId: integer("pet_id").notNull().references(() => pet.id),
@@ -640,6 +717,77 @@ export const soulmarktaglink = sqliteTable("soulmarktaglink", {
 	tagId: integer("tag_id").notNull().references(() => soulmarkTag.id),
 },
 (table) => [primaryKey({ columns: [table.soulmarkId, table.tagId], name: "soulmarktaglink_pk"}),
+]);
+
+export const skillStone = sqliteTable("skill_stone", {
+	id: integer().primaryKey(),
+	name: text().notNull(),
+	rank: integer().notNull(),
+	power: integer().notNull(),
+	maxPp: integer("max_pp").notNull(),
+	accuracy: integer().notNull(),
+	categoryId: integer("category_id").notNull().references(() => skillStoneCategory.id),
+	itemId: integer("item_id").notNull().references(() => item.id),
+});
+
+export const titleAttrBonus = sqliteTable("title_attr_bonus", {
+	atk: numeric().notNull(),
+	def: numeric().notNull(),
+	spAtk: numeric("sp_atk").notNull(),
+	spDef: numeric("sp_def").notNull(),
+	spd: numeric().notNull(),
+	hp: numeric().notNull(),
+	percent: numeric().notNull(),
+	id: integer().primaryKey().references(() => titlePart.id),
+	total: numeric().notNull(),
+});
+
+export const petAdvanceBaseStats = sqliteTable("pet_advance_base_stats", {
+	atk: numeric().notNull(),
+	def: numeric().notNull(),
+	spAtk: numeric("sp_atk").notNull(),
+	spDef: numeric("sp_def").notNull(),
+	spd: numeric().notNull(),
+	hp: numeric().notNull(),
+	percent: numeric().notNull(),
+	id: integer().primaryKey().references(() => petAdvance.id),
+	total: numeric().notNull(),
+});
+
+export const skill = sqliteTable("skill", {
+	id: integer().primaryKey(),
+	name: text().notNull(),
+	power: integer().notNull(),
+	maxPp: integer("max_pp").notNull(),
+	accuracy: integer().notNull(),
+	critRate: real("crit_rate"),
+	priority: integer().notNull(),
+	mustHit: numeric("must_hit").notNull(),
+	atkNum: integer("atk_num").notNull(),
+	info: text(),
+	categoryId: integer("category_id").notNull().references(() => skillCategory.id),
+	typeId: integer("type_id").notNull().references(() => elementTypeCombination.id),
+	hideEffectId: integer("hide_effect_id").references(() => skillHideEffect.id),
+	advanceId: integer("advance_id").references(() => petAdvance.id),
+});
+
+export const skillStoneEffect = sqliteTable("skill_stone_effect", {
+	id: integer().primaryKey(),
+	innerId: integer("inner_id").notNull(),
+	prob: real().notNull(),
+	skillStoneId: integer("skill_stone_id").notNull().references(() => skillStone.id),
+});
+
+export const skillinpetorm = sqliteTable("skillinpetorm", {
+	learningLevel: integer("learning_level"),
+	isSpecial: numeric("is_special").notNull(),
+	isAdvanced: numeric("is_advanced").notNull(),
+	isFifth: numeric("is_fifth").notNull(),
+	skillId: integer("skill_id").notNull().references(() => skill.id),
+	petId: integer("pet_id").notNull().references(() => pet.id),
+	skillActivationItemId: integer("skill_activation_item_id").references(() => skillActivationItem.id),
+},
+(table) => [primaryKey({ columns: [table.skillId, table.petId], name: "skillinpetorm_pk"}),
 ]);
 
 export const skilleffectlink = sqliteTable("skilleffectlink", {
@@ -656,47 +804,17 @@ export const skillfriendskilleffectlink = sqliteTable("skillfriendskilleffectlin
 (table) => [primaryKey({ columns: [table.skillId, table.effectInUseId], name: "skillfriendskilleffectlink_pk"}),
 ]);
 
-export const skillStone = sqliteTable("skill_stone", {
-	id: integer().primaryKey(),
-	name: text().notNull(),
-	rank: integer().notNull(),
-	power: integer().notNull(),
-	maxPp: integer("max_pp").notNull(),
-	accuracy: integer().notNull(),
-	categoryId: integer("category_id").notNull().references(() => skillStoneCategory.id),
-	itemId: integer("item_id").notNull().references(() => item.id),
-});
+export const skillstoneeffectlink = sqliteTable("skillstoneeffectlink", {
+	skillStoneEffectId: integer("skill_stone_effect_id").notNull().references(() => skillStoneEffect.id),
+	effectInUseId: integer("effect_in_use_id").notNull().references(() => skillEffectInUse.id),
+},
+(table) => [primaryKey({ columns: [table.skillStoneEffectId, table.effectInUseId], name: "skillstoneeffectlink_pk"}),
+]);
 
 export const skillmintmarklink = sqliteTable("skillmintmarklink", {
 	skillId: integer("skill_id").notNull().references(() => skill.id),
 	mintmarkId: integer("mintmark_id").notNull().references(() => mintmark.id),
 },
 (table) => [primaryKey({ columns: [table.skillId, table.mintmarkId], name: "skillmintmarklink_pk"}),
-]);
-
-export const titleAttrBonus = sqliteTable("title_attr_bonus", {
-	atk: numeric().notNull(),
-	def: numeric().notNull(),
-	spAtk: numeric("sp_atk").notNull(),
-	spDef: numeric("sp_def").notNull(),
-	spd: numeric().notNull(),
-	hp: numeric().notNull(),
-	percent: numeric().notNull(),
-	id: integer().primaryKey().references(() => titlePart.id),
-	total: numeric().notNull(),
-});
-
-export const skillStoneEffect = sqliteTable("skill_stone_effect", {
-	id: integer().primaryKey(),
-	innerId: integer("inner_id").notNull(),
-	prob: real().notNull(),
-	skillStoneId: integer("skill_stone_id").notNull().references(() => skillStone.id),
-});
-
-export const skillstoneeffectlink = sqliteTable("skillstoneeffectlink", {
-	skillStoneEffectId: integer("skill_stone_effect_id").notNull().references(() => skillStoneEffect.id),
-	effectInUseId: integer("effect_in_use_id").notNull().references(() => skillEffectInUse.id),
-},
-(table) => [primaryKey({ columns: [table.skillStoneEffectId, table.effectInUseId], name: "skillstoneeffectlink_pk"}),
 ]);
 

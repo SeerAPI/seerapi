@@ -17,50 +17,6 @@ export type HashPartial = {
 };
 
 /**
- * ResourceRef
- *
- * API资源类
- */
-export type CommonResourceRef = {
-    /**
-     * Id
-     *
-     * 资源ID
-     */
-    id: number;
-    /**
-     * Url
-     *
-     * 资源URL
-     */
-    url: string;
-};
-
-/**
- * NamedResourceRef
- */
-export type CommonNamedResourceRef = {
-    /**
-     * Id
-     *
-     * 资源ID
-     */
-    id: number;
-    /**
-     * Url
-     *
-     * 资源URL
-     */
-    url: string;
-    /**
-     * Name
-     *
-     * 资源名称
-     */
-    name?: string | null;
-};
-
-/**
  * ApiResourceList
  *
  * API资源列表，兼容RFC 5988的Link标准
@@ -105,15 +61,6 @@ export type CommonApiResourceList = {
 };
 
 /**
- * NamedData
- */
-export type CommonNamedData = {
-    data: {
-        [key: string]: unknown;
-    };
-};
-
-/**
  * EidEffect
  */
 export type CommonEidEffect = {
@@ -146,6 +93,59 @@ export type CommonEidEffectInUse = {
      */
     effect_args?: Array<number> | null;
     effect: CommonResourceRef;
+};
+
+/**
+ * NamedData
+ */
+export type CommonNamedData = {
+    data: {
+        [key: string]: unknown;
+    };
+};
+
+/**
+ * NamedResourceRef
+ */
+export type CommonNamedResourceRef = {
+    /**
+     * Id
+     *
+     * 资源ID
+     */
+    id: number;
+    /**
+     * Url
+     *
+     * 资源URL
+     */
+    url: string;
+    /**
+     * Name
+     *
+     * 资源名称
+     */
+    name?: string | null;
+};
+
+/**
+ * ResourceRef
+ *
+ * API资源类
+ */
+export type CommonResourceRef = {
+    /**
+     * Id
+     *
+     * 资源ID
+     */
+    id: number;
+    /**
+     * Url
+     *
+     * 资源URL
+     */
+    url: string;
 };
 
 /**
@@ -214,6 +214,12 @@ export type CommonSkillEffectInUse = {
      * 技能效果描述
      */
     info: string;
+    /**
+     * Analyze Info
+     *
+     * 新版 Unity 端采用的格式化技能效果描述文本
+     */
+    analyze_info: string;
     /**
      * Args
      *
@@ -627,6 +633,226 @@ export type BattleEffectTypeNamedData = HashPartial & {
  * 状态类型资源列表
  */
 export type BattleEffectTypeList = CommonApiResourceList;
+
+/**
+ * 头像资源
+ */
+export type AvatarHead = HashPartial & {
+    /**
+     * Id
+     *
+     * 资源ID
+     */
+    id: number;
+    /**
+     * Name
+     *
+     * 资源名称
+     */
+    name: string;
+    /**
+     * Desc
+     *
+     * 资源描述
+     */
+    desc: string;
+    /**
+     * Icon Id
+     *
+     * 资源ID（对应profilephoto配置中的icon字段）
+     */
+    icon_id: number;
+};
+
+/**
+ * 名称映射头像资源
+ */
+export type AvatarHeadNamedData = HashPartial & {
+    data: {
+        [key: string]: AvatarHead;
+    };
+};
+
+/**
+ * 头像资源列表
+ */
+export type AvatarHeadList = CommonApiResourceList;
+
+/**
+ * 头像框资源
+ */
+export type AvatarFrame = HashPartial & {
+    /**
+     * Id
+     *
+     * 资源ID
+     */
+    id: number;
+    /**
+     * Name
+     *
+     * 资源名称
+     */
+    name: string;
+    /**
+     * Desc
+     *
+     * 资源描述
+     */
+    desc: string;
+    /**
+     * Icon Id
+     *
+     * 资源ID（对应profilephoto配置中的icon字段）
+     */
+    icon_id: number;
+};
+
+/**
+ * 名称映射头像框资源
+ */
+export type AvatarFrameNamedData = HashPartial & {
+    data: {
+        [key: string]: AvatarFrame;
+    };
+};
+
+/**
+ * 头像框资源列表
+ */
+export type AvatarFrameList = CommonApiResourceList;
+
+/**
+ * 名片背景资源
+ */
+export type NamecardBackground = HashPartial & {
+    /**
+     * Id
+     *
+     * 资源ID
+     */
+    id: number;
+    /**
+     * Name
+     *
+     * 资源名称
+     */
+    name: string;
+    /**
+     * Desc
+     *
+     * 资源描述
+     */
+    desc: string;
+    /**
+     * Icon Id
+     *
+     * 资源ID（对应profilephoto配置中的icon字段）
+     */
+    icon_id: number;
+};
+
+/**
+ * 名称映射名片背景资源
+ */
+export type NamecardBackgroundNamedData = HashPartial & {
+    data: {
+        [key: string]: NamecardBackground;
+    };
+};
+
+/**
+ * 名片背景资源列表
+ */
+export type NamecardBackgroundList = CommonApiResourceList;
+
+/**
+ * 昵称背景资源
+ */
+export type NicknameBackground = HashPartial & {
+    /**
+     * Id
+     *
+     * 资源ID
+     */
+    id: number;
+    /**
+     * Name
+     *
+     * 资源名称
+     */
+    name: string;
+    /**
+     * Desc
+     *
+     * 资源描述
+     */
+    desc: string;
+    /**
+     * Icon Id
+     *
+     * 资源ID（对应profilephoto配置中的icon字段）
+     */
+    icon_id: number;
+};
+
+/**
+ * 名称映射昵称背景资源
+ */
+export type NicknameBackgroundNamedData = HashPartial & {
+    data: {
+        [key: string]: NicknameBackground;
+    };
+};
+
+/**
+ * 昵称背景资源列表
+ */
+export type NicknameBackgroundList = CommonApiResourceList;
+
+/**
+ * 主页背景资源
+ */
+export type HomepageBackground = HashPartial & {
+    /**
+     * Id
+     *
+     * 资源ID
+     */
+    id: number;
+    /**
+     * Name
+     *
+     * 资源名称
+     */
+    name: string;
+    /**
+     * Desc
+     *
+     * 资源描述
+     */
+    desc: string;
+    /**
+     * Icon Id
+     *
+     * 资源ID（对应profilephoto配置中的icon字段）
+     */
+    icon_id: number;
+};
+
+/**
+ * 名称映射主页背景资源
+ */
+export type HomepageBackgroundNamedData = HashPartial & {
+    data: {
+        [key: string]: HomepageBackground;
+    };
+};
+
+/**
+ * 主页背景资源列表
+ */
+export type HomepageBackgroundList = CommonApiResourceList;
 
 /**
  * 特性资源
@@ -1144,9 +1370,15 @@ export type Soulmark = HashPartial & {
     /**
      * Desc Formatting Adjustment
      *
-     * 魂印描述的"可格式化版本"，用于呈现Unity端中的描述排版形式
+     * Unity 客户端历史格式的魂印描述文本（部分旧魂印专用，应优先使用 analyze_desc 字段）
      */
     desc_formatting_adjustment?: string | null;
+    /**
+     * Analyze Desc
+     *
+     * 当前 Unity 端采用的格式化魂印描述文本
+     */
+    analyze_desc?: string | null;
     /**
      * Pve Effective
      *
@@ -1195,6 +1427,10 @@ export type Soulmark = HashPartial & {
      * 强化前的魂印资源，该字段仅在该魂印是强化/觉醒魂印时有效
      */
     from: CommonResourceRef | null;
+    /**
+     * 觉醒后的魂印资源，该字段仅在该魂印是神谕觉醒魂印时有效
+     */
+    advance?: CommonResourceRef | null;
 };
 
 /**
@@ -1329,6 +1565,100 @@ export type ElementTypeCombinationNamedData = HashPartial & {
  * 属性组合资源列表
  */
 export type ElementTypeCombinationList = CommonApiResourceList;
+
+/**
+ * 错误码资源
+ */
+export type ErrorCode = HashPartial & {
+    /**
+     * Id
+     *
+     * 资源ID
+     */
+    id: number;
+    /**
+     * Name
+     *
+     * 名称
+     */
+    name: string;
+    /**
+     * Message
+     *
+     * 错误消息
+     */
+    message: string;
+};
+
+/**
+ * 名称映射错误码资源
+ */
+export type ErrorCodeNamedData = HashPartial & {
+    data: {
+        [key: string]: ErrorCode;
+    };
+};
+
+/**
+ * 错误码资源列表
+ */
+export type ErrorCodeList = CommonApiResourceList;
+
+/**
+ * 术语条目资源
+ */
+export type GlossaryEntry = HashPartial & {
+    /**
+     * Id
+     *
+     * 术语ID
+     */
+    id: number;
+    /**
+     * Name
+     *
+     * 术语名称
+     */
+    name: string;
+    /**
+     * Desc
+     *
+     * 术语描述
+     */
+    desc: string;
+    /**
+     * Kind
+     *
+     * 术语类型，数值对应的类型尚不明确，这里暂时保留原始值
+     */
+    kind: number;
+    /**
+     * Link
+     *
+     * 术语链接，用于指示显示该术语时应同时显示的其他术语
+     */
+    link?: Array<CommonResourceRef> | null;
+    /**
+     * Pet
+     *
+     * 用于指示该术语是否是特定精灵专属的
+     */
+    pet?: Array<CommonResourceRef> | null;
+};
+
+/**
+ * 名称映射术语条目资源
+ */
+export type GlossaryEntryNamedData = HashPartial & {
+    data: {
+        [key: string]: GlossaryEntry;
+    };
+};
+
+/**
+ * 术语条目资源列表
+ */
+export type GlossaryEntryList = CommonApiResourceList;
 
 /**
  * 宝石资源
@@ -2200,6 +2530,35 @@ export type NatureNamedData = HashPartial & {
 export type NatureList = CommonApiResourceList;
 
 /**
+ * 巅峰圣战赛季资源
+ */
+export type PeakSeason = HashPartial & {
+    /**
+     * Id
+     *
+     * 该赛季的ID，固定为1
+     */
+    id: number;
+    /**
+     * Start Time
+     *
+     * 该赛季的开始时间
+     */
+    start_time: Date;
+    /**
+     * End Time
+     *
+     * 该赛季的结束时间，由 `start_time`加上固定时长计算得出，游戏内没有准确数据
+     */
+    end_time: Date;
+};
+
+/**
+ * 巅峰圣战赛季资源列表
+ */
+export type PeakSeasonList = CommonApiResourceList;
+
+/**
  * 巅峰禁限池资源
  */
 export type PeakPool = HashPartial & {
@@ -2280,6 +2639,53 @@ export type PeakExpertPool = HashPartial & {
  * 巅峰专家模式禁限池资源列表
  */
 export type PeakExpertPoolList = CommonApiResourceList;
+
+/**
+ * 巅峰圣战禁限池票选资源
+ */
+export type PeakPoolVote = HashPartial & {
+    /**
+     * Id
+     *
+     * 资源ID
+     */
+    id: number;
+    /**
+     * Start Time
+     *
+     * 本轮票选的开始时间
+     */
+    start_time: Date;
+    /**
+     * End Time
+     *
+     * 本轮票选的截至时间
+     */
+    end_time: Date;
+    /**
+     * Count
+     *
+     * 票选的精灵的限制数量
+     */
+    count: number;
+    /**
+     * Subkey
+     *
+     * 票选数据子键，用于其他工具获取投票结果
+     */
+    subkey: number;
+    /**
+     * Pet
+     *
+     * 参与投票的精灵
+     */
+    pet?: Array<CommonResourceRef>;
+};
+
+/**
+ * 巅峰圣战禁限池票选资源列表
+ */
+export type PeakPoolVoteList = CommonApiResourceList;
 
 /**
  * 精灵资源
@@ -2438,6 +2844,16 @@ export type Pet = HashPartial & {
      * 精灵所属巅峰专家池
      */
     peak_expert_pool?: CommonResourceRef | null;
+    /**
+     * Peak Pool Vote Id
+     *
+     * 精灵所属巅峰池票选ID
+     */
+    peak_pool_vote_id?: number | null;
+    /**
+     * 精灵觉醒信息
+     */
+    advance?: CommonResourceRef | null;
 };
 
 /**
@@ -2644,6 +3060,30 @@ export type PetMountTypeNamedData = HashPartial & {
  * 精灵坐骑类型分类资源列表
  */
 export type PetMountTypeList = CommonApiResourceList;
+
+/**
+ * 精灵神谕觉醒信息资源
+ */
+export type PetAdvance = HashPartial & {
+    /**
+     * Id
+     */
+    id: number;
+    pet: CommonResourceRef;
+    /**
+     * Skill
+     *
+     * 完成觉醒可开启的技能
+     */
+    skill: Array<CommonResourceRef>;
+    soulmark: CommonResourceRef;
+    base_stats: CommonSixAttributes;
+};
+
+/**
+ * 精灵神谕觉醒信息资源列表
+ */
+export type PetAdvanceList = CommonApiResourceList;
 
 /**
  * 精灵皮肤资源
@@ -2909,6 +3349,10 @@ export type Skill = HashPartial & {
      * 技能隐藏效果
      */
     hide_effect?: CommonResourceRef | null;
+    /**
+     * 技能觉醒信息，仅在该技能是通过神谕觉醒开启的技能时生效
+     */
+    advance?: CommonResourceRef | null;
 };
 
 /**
@@ -2953,6 +3397,12 @@ export type SkillEffectType = HashPartial & {
      * 效果描述的"可格式化版本"，用于呈现Unity端中的多行描述形式
      */
     info_formatting_adjustment?: string | null;
+    /**
+     * Analyze Info
+     *
+     * 新版 Unity 端采用的格式化技能效果描述文本
+     */
+    analyze_info: string;
     /**
      * Pve Effective
      *
@@ -3226,6 +3676,26 @@ export type RootIndex = HashPartial & {
      */
     battle_effect_type: string;
     /**
+     * avatar_head Path
+     */
+    avatar_head: string;
+    /**
+     * avatar_frame Path
+     */
+    avatar_frame: string;
+    /**
+     * namecard_background Path
+     */
+    namecard_background: string;
+    /**
+     * nickname_background Path
+     */
+    nickname_background: string;
+    /**
+     * homepage_background Path
+     */
+    homepage_background: string;
+    /**
      * pet_effect Path
      */
     pet_effect: string;
@@ -3277,6 +3747,14 @@ export type RootIndex = HashPartial & {
      * element_type_combination Path
      */
     element_type_combination: string;
+    /**
+     * error_code Path
+     */
+    error_code: string;
+    /**
+     * glossary_entry Path
+     */
+    glossary_entry: string;
     /**
      * gem Path
      */
@@ -3342,6 +3820,10 @@ export type RootIndex = HashPartial & {
      */
     nature: string;
     /**
+     * peak_season Path
+     */
+    peak_season: string;
+    /**
      * peak_pool Path
      */
     peak_pool: string;
@@ -3349,6 +3831,10 @@ export type RootIndex = HashPartial & {
      * peak_expert_pool Path
      */
     peak_expert_pool: string;
+    /**
+     * peak_pool_vote Path
+     */
+    peak_pool_vote: string;
     /**
      * pet Path
      */
@@ -3369,6 +3855,10 @@ export type RootIndex = HashPartial & {
      * pet_mount_type Path
      */
     pet_mount_type: string;
+    /**
+     * pet_advance Path
+     */
+    pet_advance: string;
     /**
      * pet_skin Path
      */
@@ -3899,6 +4389,341 @@ export type GetBattleEffectTypeListResponses = {
 };
 
 export type GetBattleEffectTypeListResponse = GetBattleEffectTypeListResponses[keyof GetBattleEffectTypeListResponses];
+
+export type GetAvatarHeadByIdData = {
+    body?: never;
+    path: {
+        /**
+         * 资源 ID
+         */
+        id: number;
+    };
+    query?: never;
+    url: 'v1/avatar_head/{id}';
+};
+
+export type GetAvatarHeadByIdResponses = {
+    /**
+     * OK
+     */
+    200: AvatarHead;
+};
+
+export type GetAvatarHeadByIdResponse = GetAvatarHeadByIdResponses[keyof GetAvatarHeadByIdResponses];
+
+export type GetAvatarHeadByNameData = {
+    body?: never;
+    path: {
+        /**
+         * 资源名称
+         */
+        name: string;
+    };
+    query?: never;
+    url: 'v1/avatar_head/{name}';
+};
+
+export type GetAvatarHeadByNameResponses = {
+    /**
+     * OK
+     */
+    200: AvatarHeadNamedData;
+};
+
+export type GetAvatarHeadByNameResponse = GetAvatarHeadByNameResponses[keyof GetAvatarHeadByNameResponses];
+
+export type GetAvatarHeadListData = {
+    body?: never;
+    path?: never;
+    query?: {
+        /**
+         * 从哪个位置开始返回结果
+         */
+        offset?: number;
+        /**
+         * 每页返回的最大结果数
+         */
+        limit?: number;
+    };
+    url: 'v1/avatar_head/';
+};
+
+export type GetAvatarHeadListResponses = {
+    /**
+     * OK
+     */
+    200: AvatarHeadList;
+};
+
+export type GetAvatarHeadListResponse = GetAvatarHeadListResponses[keyof GetAvatarHeadListResponses];
+
+export type GetAvatarFrameByIdData = {
+    body?: never;
+    path: {
+        /**
+         * 资源 ID
+         */
+        id: number;
+    };
+    query?: never;
+    url: 'v1/avatar_frame/{id}';
+};
+
+export type GetAvatarFrameByIdResponses = {
+    /**
+     * OK
+     */
+    200: AvatarFrame;
+};
+
+export type GetAvatarFrameByIdResponse = GetAvatarFrameByIdResponses[keyof GetAvatarFrameByIdResponses];
+
+export type GetAvatarFrameByNameData = {
+    body?: never;
+    path: {
+        /**
+         * 资源名称
+         */
+        name: string;
+    };
+    query?: never;
+    url: 'v1/avatar_frame/{name}';
+};
+
+export type GetAvatarFrameByNameResponses = {
+    /**
+     * OK
+     */
+    200: AvatarFrameNamedData;
+};
+
+export type GetAvatarFrameByNameResponse = GetAvatarFrameByNameResponses[keyof GetAvatarFrameByNameResponses];
+
+export type GetAvatarFrameListData = {
+    body?: never;
+    path?: never;
+    query?: {
+        /**
+         * 从哪个位置开始返回结果
+         */
+        offset?: number;
+        /**
+         * 每页返回的最大结果数
+         */
+        limit?: number;
+    };
+    url: 'v1/avatar_frame/';
+};
+
+export type GetAvatarFrameListResponses = {
+    /**
+     * OK
+     */
+    200: AvatarFrameList;
+};
+
+export type GetAvatarFrameListResponse = GetAvatarFrameListResponses[keyof GetAvatarFrameListResponses];
+
+export type GetNamecardBackgroundByIdData = {
+    body?: never;
+    path: {
+        /**
+         * 资源 ID
+         */
+        id: number;
+    };
+    query?: never;
+    url: 'v1/namecard_background/{id}';
+};
+
+export type GetNamecardBackgroundByIdResponses = {
+    /**
+     * OK
+     */
+    200: NamecardBackground;
+};
+
+export type GetNamecardBackgroundByIdResponse = GetNamecardBackgroundByIdResponses[keyof GetNamecardBackgroundByIdResponses];
+
+export type GetNamecardBackgroundByNameData = {
+    body?: never;
+    path: {
+        /**
+         * 资源名称
+         */
+        name: string;
+    };
+    query?: never;
+    url: 'v1/namecard_background/{name}';
+};
+
+export type GetNamecardBackgroundByNameResponses = {
+    /**
+     * OK
+     */
+    200: NamecardBackgroundNamedData;
+};
+
+export type GetNamecardBackgroundByNameResponse = GetNamecardBackgroundByNameResponses[keyof GetNamecardBackgroundByNameResponses];
+
+export type GetNamecardBackgroundListData = {
+    body?: never;
+    path?: never;
+    query?: {
+        /**
+         * 从哪个位置开始返回结果
+         */
+        offset?: number;
+        /**
+         * 每页返回的最大结果数
+         */
+        limit?: number;
+    };
+    url: 'v1/namecard_background/';
+};
+
+export type GetNamecardBackgroundListResponses = {
+    /**
+     * OK
+     */
+    200: NamecardBackgroundList;
+};
+
+export type GetNamecardBackgroundListResponse = GetNamecardBackgroundListResponses[keyof GetNamecardBackgroundListResponses];
+
+export type GetNicknameBackgroundByIdData = {
+    body?: never;
+    path: {
+        /**
+         * 资源 ID
+         */
+        id: number;
+    };
+    query?: never;
+    url: 'v1/nickname_background/{id}';
+};
+
+export type GetNicknameBackgroundByIdResponses = {
+    /**
+     * OK
+     */
+    200: NicknameBackground;
+};
+
+export type GetNicknameBackgroundByIdResponse = GetNicknameBackgroundByIdResponses[keyof GetNicknameBackgroundByIdResponses];
+
+export type GetNicknameBackgroundByNameData = {
+    body?: never;
+    path: {
+        /**
+         * 资源名称
+         */
+        name: string;
+    };
+    query?: never;
+    url: 'v1/nickname_background/{name}';
+};
+
+export type GetNicknameBackgroundByNameResponses = {
+    /**
+     * OK
+     */
+    200: NicknameBackgroundNamedData;
+};
+
+export type GetNicknameBackgroundByNameResponse = GetNicknameBackgroundByNameResponses[keyof GetNicknameBackgroundByNameResponses];
+
+export type GetNicknameBackgroundListData = {
+    body?: never;
+    path?: never;
+    query?: {
+        /**
+         * 从哪个位置开始返回结果
+         */
+        offset?: number;
+        /**
+         * 每页返回的最大结果数
+         */
+        limit?: number;
+    };
+    url: 'v1/nickname_background/';
+};
+
+export type GetNicknameBackgroundListResponses = {
+    /**
+     * OK
+     */
+    200: NicknameBackgroundList;
+};
+
+export type GetNicknameBackgroundListResponse = GetNicknameBackgroundListResponses[keyof GetNicknameBackgroundListResponses];
+
+export type GetHomepageBackgroundByIdData = {
+    body?: never;
+    path: {
+        /**
+         * 资源 ID
+         */
+        id: number;
+    };
+    query?: never;
+    url: 'v1/homepage_background/{id}';
+};
+
+export type GetHomepageBackgroundByIdResponses = {
+    /**
+     * OK
+     */
+    200: HomepageBackground;
+};
+
+export type GetHomepageBackgroundByIdResponse = GetHomepageBackgroundByIdResponses[keyof GetHomepageBackgroundByIdResponses];
+
+export type GetHomepageBackgroundByNameData = {
+    body?: never;
+    path: {
+        /**
+         * 资源名称
+         */
+        name: string;
+    };
+    query?: never;
+    url: 'v1/homepage_background/{name}';
+};
+
+export type GetHomepageBackgroundByNameResponses = {
+    /**
+     * OK
+     */
+    200: HomepageBackgroundNamedData;
+};
+
+export type GetHomepageBackgroundByNameResponse = GetHomepageBackgroundByNameResponses[keyof GetHomepageBackgroundByNameResponses];
+
+export type GetHomepageBackgroundListData = {
+    body?: never;
+    path?: never;
+    query?: {
+        /**
+         * 从哪个位置开始返回结果
+         */
+        offset?: number;
+        /**
+         * 每页返回的最大结果数
+         */
+        limit?: number;
+    };
+    url: 'v1/homepage_background/';
+};
+
+export type GetHomepageBackgroundListResponses = {
+    /**
+     * OK
+     */
+    200: HomepageBackgroundList;
+};
+
+export type GetHomepageBackgroundListResponse = GetHomepageBackgroundListResponses[keyof GetHomepageBackgroundListResponses];
 
 export type GetPetEffectByIdData = {
     body?: never;
@@ -4728,6 +5553,140 @@ export type GetElementTypeCombinationListResponses = {
 };
 
 export type GetElementTypeCombinationListResponse = GetElementTypeCombinationListResponses[keyof GetElementTypeCombinationListResponses];
+
+export type GetErrorCodeByIdData = {
+    body?: never;
+    path: {
+        /**
+         * 资源 ID
+         */
+        id: number;
+    };
+    query?: never;
+    url: 'v1/error_code/{id}';
+};
+
+export type GetErrorCodeByIdResponses = {
+    /**
+     * OK
+     */
+    200: ErrorCode;
+};
+
+export type GetErrorCodeByIdResponse = GetErrorCodeByIdResponses[keyof GetErrorCodeByIdResponses];
+
+export type GetErrorCodeByNameData = {
+    body?: never;
+    path: {
+        /**
+         * 资源名称
+         */
+        name: string;
+    };
+    query?: never;
+    url: 'v1/error_code/{name}';
+};
+
+export type GetErrorCodeByNameResponses = {
+    /**
+     * OK
+     */
+    200: ErrorCodeNamedData;
+};
+
+export type GetErrorCodeByNameResponse = GetErrorCodeByNameResponses[keyof GetErrorCodeByNameResponses];
+
+export type GetErrorCodeListData = {
+    body?: never;
+    path?: never;
+    query?: {
+        /**
+         * 从哪个位置开始返回结果
+         */
+        offset?: number;
+        /**
+         * 每页返回的最大结果数
+         */
+        limit?: number;
+    };
+    url: 'v1/error_code/';
+};
+
+export type GetErrorCodeListResponses = {
+    /**
+     * OK
+     */
+    200: ErrorCodeList;
+};
+
+export type GetErrorCodeListResponse = GetErrorCodeListResponses[keyof GetErrorCodeListResponses];
+
+export type GetGlossaryEntryByIdData = {
+    body?: never;
+    path: {
+        /**
+         * 资源 ID
+         */
+        id: number;
+    };
+    query?: never;
+    url: 'v1/glossary_entry/{id}';
+};
+
+export type GetGlossaryEntryByIdResponses = {
+    /**
+     * OK
+     */
+    200: GlossaryEntry;
+};
+
+export type GetGlossaryEntryByIdResponse = GetGlossaryEntryByIdResponses[keyof GetGlossaryEntryByIdResponses];
+
+export type GetGlossaryEntryByNameData = {
+    body?: never;
+    path: {
+        /**
+         * 资源名称
+         */
+        name: string;
+    };
+    query?: never;
+    url: 'v1/glossary_entry/{name}';
+};
+
+export type GetGlossaryEntryByNameResponses = {
+    /**
+     * OK
+     */
+    200: GlossaryEntryNamedData;
+};
+
+export type GetGlossaryEntryByNameResponse = GetGlossaryEntryByNameResponses[keyof GetGlossaryEntryByNameResponses];
+
+export type GetGlossaryEntryListData = {
+    body?: never;
+    path?: never;
+    query?: {
+        /**
+         * 从哪个位置开始返回结果
+         */
+        offset?: number;
+        /**
+         * 每页返回的最大结果数
+         */
+        limit?: number;
+    };
+    url: 'v1/glossary_entry/';
+};
+
+export type GetGlossaryEntryListResponses = {
+    /**
+     * OK
+     */
+    200: GlossaryEntryList;
+};
+
+export type GetGlossaryEntryListResponse = GetGlossaryEntryListResponses[keyof GetGlossaryEntryListResponses];
 
 export type GetGemByIdData = {
     body?: never;
@@ -5759,6 +6718,52 @@ export type GetNatureListResponses = {
 
 export type GetNatureListResponse = GetNatureListResponses[keyof GetNatureListResponses];
 
+export type GetPeakSeasonByIdData = {
+    body?: never;
+    path: {
+        /**
+         * 资源 ID
+         */
+        id: number;
+    };
+    query?: never;
+    url: 'v1/peak_season/{id}';
+};
+
+export type GetPeakSeasonByIdResponses = {
+    /**
+     * OK
+     */
+    200: PeakSeason;
+};
+
+export type GetPeakSeasonByIdResponse = GetPeakSeasonByIdResponses[keyof GetPeakSeasonByIdResponses];
+
+export type GetPeakSeasonListData = {
+    body?: never;
+    path?: never;
+    query?: {
+        /**
+         * 从哪个位置开始返回结果
+         */
+        offset?: number;
+        /**
+         * 每页返回的最大结果数
+         */
+        limit?: number;
+    };
+    url: 'v1/peak_season/';
+};
+
+export type GetPeakSeasonListResponses = {
+    /**
+     * OK
+     */
+    200: PeakSeasonList;
+};
+
+export type GetPeakSeasonListResponse = GetPeakSeasonListResponses[keyof GetPeakSeasonListResponses];
+
 export type GetPeakPoolByIdData = {
     body?: never;
     path: {
@@ -5850,6 +6855,52 @@ export type GetPeakExpertPoolListResponses = {
 };
 
 export type GetPeakExpertPoolListResponse = GetPeakExpertPoolListResponses[keyof GetPeakExpertPoolListResponses];
+
+export type GetPeakPoolVoteByIdData = {
+    body?: never;
+    path: {
+        /**
+         * 资源 ID
+         */
+        id: number;
+    };
+    query?: never;
+    url: 'v1/peak_pool_vote/{id}';
+};
+
+export type GetPeakPoolVoteByIdResponses = {
+    /**
+     * OK
+     */
+    200: PeakPoolVote;
+};
+
+export type GetPeakPoolVoteByIdResponse = GetPeakPoolVoteByIdResponses[keyof GetPeakPoolVoteByIdResponses];
+
+export type GetPeakPoolVoteListData = {
+    body?: never;
+    path?: never;
+    query?: {
+        /**
+         * 从哪个位置开始返回结果
+         */
+        offset?: number;
+        /**
+         * 每页返回的最大结果数
+         */
+        limit?: number;
+    };
+    url: 'v1/peak_pool_vote/';
+};
+
+export type GetPeakPoolVoteListResponses = {
+    /**
+     * OK
+     */
+    200: PeakPoolVoteList;
+};
+
+export type GetPeakPoolVoteListResponse = GetPeakPoolVoteListResponses[keyof GetPeakPoolVoteListResponses];
 
 export type GetPetByIdData = {
     body?: never;
@@ -6164,6 +7215,52 @@ export type GetPetMountTypeListResponses = {
 };
 
 export type GetPetMountTypeListResponse = GetPetMountTypeListResponses[keyof GetPetMountTypeListResponses];
+
+export type GetPetAdvanceByIdData = {
+    body?: never;
+    path: {
+        /**
+         * 资源 ID
+         */
+        id: number;
+    };
+    query?: never;
+    url: 'v1/pet_advance/{id}';
+};
+
+export type GetPetAdvanceByIdResponses = {
+    /**
+     * OK
+     */
+    200: PetAdvance;
+};
+
+export type GetPetAdvanceByIdResponse = GetPetAdvanceByIdResponses[keyof GetPetAdvanceByIdResponses];
+
+export type GetPetAdvanceListData = {
+    body?: never;
+    path?: never;
+    query?: {
+        /**
+         * 从哪个位置开始返回结果
+         */
+        offset?: number;
+        /**
+         * 每页返回的最大结果数
+         */
+        limit?: number;
+    };
+    url: 'v1/pet_advance/';
+};
+
+export type GetPetAdvanceListResponses = {
+    /**
+     * OK
+     */
+    200: PetAdvanceList;
+};
+
+export type GetPetAdvanceListResponse = GetPetAdvanceListResponses[keyof GetPetAdvanceListResponses];
 
 export type GetPetSkinByIdData = {
     body?: never;
