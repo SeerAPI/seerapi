@@ -377,7 +377,7 @@ wheels = [
 
 [[package]]
 name = "seerapi"
-version = "105.1.0"
+version = "106.0.0"
 source = { virtual = "." }
 dependencies = [
     { name = "hishel", extra = ["httpx"] },
