@@ -1235,6 +1235,7 @@ API_COMMENTS: dict[type[BaseResModel], APIComment] = {
 						'url': 'https://api.seerapi.com/v1/eid_effect/2426',
 					},
 				},
+				'effect_alias': 'alias_2426_1_0',
 				'tag': [
 					{'id': 6, 'url': 'https://api.seerapi.com/v1/soulmark_tag/6'},
 					{'id': 15, 'url': 'https://api.seerapi.com/v1/soulmark_tag/15'},

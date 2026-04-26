@@ -17,7 +17,7 @@ if TYPE_CHECKING:
 
 def _generate_soulmark_alias(effect: EidEffectInUse) -> str | None:
 	return '_'.join(
-		[str(arg) for arg in [effect.effect.id, *(effect.effect_args or [])]]
+		[str(arg) for arg in ['alias', effect.effect.id, *(effect.effect_args or [])]]
 	)
 
 
