@@ -1,0 +1,90 @@
+name: CI
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  lint-python:
+    name: Lint & type-check (${{ matrix.python-version }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.10", "3.11", "3.12", "3.13"]
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          version: "latest"
+
+      - name: Set up Python ${{ matrix.python-version }}
+        run: uv python install ${{ matrix.python-version }}
+
+      - name: Install dependencies
+        run: uv sync --all-packages
+
+      - name: Ruff check
+        run: uv run ruff check packages/seerapi-models packages/seerapi-python packages/solaris
+
+      - name: Ruff format check
+        run: uv run ruff format --check packages/seerapi-models packages/seerapi-python packages/solaris
+
+      - name: Install pyright
+        run: pip install pyright
+
+      - name: Pyright
+        run: pyright packages/seerapi-models/seerapi_models packages/seerapi-python/seerapi packages/solaris/solaris
+
+  test-python:
+    name: Tests (${{ matrix.python-version }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.10", "3.11", "3.12", "3.13"]
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          version: "latest"
+
+      - name: Set up Python ${{ matrix.python-version }}
+        run: uv python install ${{ matrix.python-version }}
+
+      - name: Install dependencies
+        run: uv sync --all-packages
+
+      - name: Run pytest
+        run: uv run pytest packages/seerapi-models/tests packages/solaris/tests -v
+
+  check-ts:
+    name: TypeScript check & build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: "latest"
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version: "24"
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build (openapi-ts + tsc)
+        run: pnpm -r run build

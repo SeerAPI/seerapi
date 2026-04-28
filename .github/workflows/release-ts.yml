@@ -1,0 +1,95 @@
+name: Release TypeScript
+
+on:
+  push:
+    tags:
+      - "v*"
+      - "seerapi-ts/v*"
+
+jobs:
+  parse-tag:
+    name: Parse tag
+    runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.parse.outputs.version }}
+      should_publish: ${{ steps.parse.outputs.should_publish }}
+    steps:
+      - name: Parse tag name
+        id: parse
+        run: |
+          TAG="${{ github.ref_name }}"
+          if [[ "$TAG" == *"/v"* ]]; then
+            PACKAGE="${TAG%%/v*}"
+            VERSION="${TAG##*/v}"
+            if [ "$PACKAGE" = "seerapi-ts" ]; then
+              SHOULD_PUBLISH=true
+            else
+              SHOULD_PUBLISH=false
+            fi
+          else
+            # 全量发布: v106.0.1 — 包含 seerapi-ts
+            VERSION="${TAG#v}"
+            SHOULD_PUBLISH=true
+          fi
+          echo "should_publish=$SHOULD_PUBLISH" >> $GITHUB_OUTPUT
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+          echo "Tag: $TAG, version=$VERSION, publish=$SHOULD_PUBLISH"
+
+  release:
+    name: Release @seerapi/client
+    needs: parse-tag
+    if: needs.parse-tag.outputs.should_publish == 'true'
+    runs-on: ubuntu-latest
+    environment:
+      name: npm
+    permissions:
+      contents: write
+      id-token: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: "latest"
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version: "24"
+          registry-url: "https://registry.npmjs.org"
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Verify version match
+        working-directory: packages/seerapi-ts
+        run: |
+          PKG_VERSION=$(node -p "require('./package.json').version")
+          TAG_VERSION="${{ needs.parse-tag.outputs.version }}"
+          if [ "$PKG_VERSION" != "$TAG_VERSION" ]; then
+            echo "Error: package.json version ($PKG_VERSION) does not match tag version ($TAG_VERSION)"
+            exit 1
+          fi
+          echo "Version verified: $PKG_VERSION"
+
+      - name: Build
+        working-directory: packages/seerapi-ts
+        run: pnpm run build
+
+      - name: Publish to npm
+        working-directory: packages/seerapi-ts
+        run: pnpm publish --access public --no-git-checks
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          name: "@seerapi/client v${{ needs.parse-tag.outputs.version }}"
+          tag_name: ${{ github.ref_name }}
+          files: packages/seerapi-ts/dist/*
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

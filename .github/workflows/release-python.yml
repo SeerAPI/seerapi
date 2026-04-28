@@ -1,0 +1,94 @@
+name: Release Python
+
+on:
+  push:
+    tags:
+      - "v*"
+      - "seerapi-models/v*"
+      - "seerapi-python/v*"
+      - "solaris/v*"
+
+jobs:
+  parse-tag:
+    name: Parse tag
+    runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.parse.outputs.version }}
+      targets: ${{ steps.parse.outputs.targets }}
+    steps:
+      - name: Parse tag name
+        id: parse
+        run: |
+          TAG="${{ github.ref_name }}"
+          if [[ "$TAG" == *"/v"* ]]; then
+            # 单包发布: seerapi-models/v106.0.1
+            PACKAGE="${TAG%%/v*}"
+            VERSION="${TAG##*/v}"
+            TARGETS_JSON="[\"$PACKAGE\"]"
+            echo "targets=$TARGETS_JSON" >> $GITHUB_OUTPUT
+            echo "version=$VERSION" >> $GITHUB_OUTPUT
+          else
+            # 全量发布: v106.0.1
+            VERSION="${TAG#v}"
+            TARGETS_JSON="[\"seerapi-models\", \"seerapi-python\", \"solaris\"]"
+            echo "targets=$TARGETS_JSON" >> $GITHUB_OUTPUT
+            echo "version=$VERSION" >> $GITHUB_OUTPUT
+          fi
+          echo "Targets: $TARGETS_JSON, version=$VERSION"
+
+  release:
+    name: Release ${{ matrix.package }}
+    needs: parse-tag
+    runs-on: ubuntu-latest
+    environment:
+      name: pypi
+    permissions:
+      id-token: write
+      contents: write
+    strategy:
+      fail-fast: false
+      matrix:
+        package: ${{ fromJson(needs.parse-tag.outputs.targets) }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          version: "latest"
+
+      - name: Set up Python
+        run: uv python install 3.12
+
+      - name: Verify version match
+        working-directory: packages/${{ matrix.package }}
+        run: |
+          PROJECT_VERSION=$(uv version --short)
+          TAG_VERSION="${{ needs.parse-tag.outputs.version }}"
+          if [ "$PROJECT_VERSION" != "$TAG_VERSION" ]; then
+            echo "Error: pyproject.toml version ($PROJECT_VERSION) does not match tag version ($TAG_VERSION)"
+            exit 1
+          fi
+          echo "Version verified: $PROJECT_VERSION"
+
+      - name: Build
+        working-directory: packages/${{ matrix.package }}
+        run: uv build
+
+      - name: Publish to PyPI
+        working-directory: packages/${{ matrix.package }}
+        run: uv publish
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          name: "${{ matrix.package }} v${{ needs.parse-tag.outputs.version }}"
+          tag_name: ${{ github.ref_name }}
+          files: packages/${{ matrix.package }}/dist/*
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
