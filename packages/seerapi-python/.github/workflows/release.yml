@@ -1,0 +1,90 @@
+name: 发布到 PyPI 和 GitHub Release
+
+on:
+  push:
+    tags:
+      - "v*" # 当推送 v 开头的 tag 时触发，如 v1.0.0
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    environment:
+      name: pypi
+    permissions:
+      id-token: write
+      contents: write
+    steps:
+      - name: 检出代码
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # 获取完整历史记录用于生成变更日志
+
+      - name: 安装 uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          version: "latest"
+
+      - name: 设置 Python
+        run: uv python install 3.12
+
+      - name: 获取 tag 版本
+        id: get_version
+        run: |
+          echo "VERSION=${GITHUB_REF#refs/tags/v}" >> $GITHUB_OUTPUT
+          echo "TAG=${GITHUB_REF#refs/tags/}" >> $GITHUB_OUTPUT
+
+      - name: 验证版本号匹配
+        run: |
+          PROJECT_VERSION=$(uv version --short)
+          if [ "$PROJECT_VERSION" != "${{ steps.get_version.outputs.VERSION }}" ]; then
+            echo "错误: pyproject.toml 中的版本 ($PROJECT_VERSION) 与 tag 版本 (${{ steps.get_version.outputs.VERSION }}) 不匹配"
+            exit 1
+          fi
+          echo "版本验证通过: $PROJECT_VERSION"
+
+      - name: 构建包
+        run: uv build
+
+      - name: 发布到 PyPI
+        run: uv publish
+
+      # - name: 生成变更日志
+      #   id: changelog
+      #   run: |
+      #     # 获取上一个 tag
+      #     PREVIOUS_TAG=$(git tag --sort=-version:refname | grep -A1 "${{ steps.get_version.outputs.TAG }}" | tail -n1)
+
+      #     # 如果没有上一个 tag，使用第一次提交
+      #     if [ -z "$PREVIOUS_TAG" ] || [ "$PREVIOUS_TAG" = "${{ steps.get_version.outputs.TAG }}" ]; then
+      #       PREVIOUS_TAG=$(git rev-list --max-parents=0 HEAD)
+      #     fi
+
+      #     # 生成变更日志
+      #     CHANGELOG=$(git log $PREVIOUS_TAG..${{ steps.get_version.outputs.TAG }} --pretty=format:"- %s (%h)" --no-merges)
+
+      #     # 保存到文件
+      #     echo "## 变更内容" > CHANGELOG.md
+      #     echo "" >> CHANGELOG.md
+      #     echo "$CHANGELOG" >> CHANGELOG.md
+
+      #     # 如果变更日志为空，添加默认内容
+      #     if [ -z "$CHANGELOG" ]; then
+      #       echo "- 初始版本发布" >> CHANGELOG.md
+      #     fi
+
+      - name: 创建 GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          name: Release ${{ steps.get_version.outputs.TAG }}
+          # body_path: CHANGELOG.md
+          files: dist/*
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: 发布成功通知
+        run: |
+          echo "✅ 成功发布版本 ${{ steps.get_version.outputs.VERSION }}"
+          echo "📦 PyPI: https://pypi.org/project/seerapi/${{ steps.get_version.outputs.VERSION }}/"
+          echo "🎉 GitHub Release: https://github.com/${{ github.repository }}/releases/tag/${{ steps.get_version.outputs.TAG }}"
