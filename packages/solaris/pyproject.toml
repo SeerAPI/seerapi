@@ -28,8 +28,8 @@ solaris = "solaris.__main__:main"
 module-root = ""
 module-name = "solaris"
 
-# [tool.uv.sources]
-# seerapi-models = { path = "../models", editable = true }
+[tool.uv.sources]
+seerapi-models = { workspace = true }
 
 [tool.pyright]
 pythonVersion = "3.10"

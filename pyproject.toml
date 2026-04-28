@@ -1,0 +1,12 @@
+[project]
+name = "seerapi-monorepo"
+version = "106.0.0"
+description = "SeerAPI Monorepo"
+requires-python = ">=3.10"
+
+[tool.uv.workspace]
+members = [
+    "packages/seerapi-models",
+    "packages/seerapi-python",
+    "packages/solaris",
+]

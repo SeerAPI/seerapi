@@ -1,3 +1,7 @@
+[build-system]
+requires = ["uv_build>=0.8.14,<0.9.0"]
+build-backend = "uv_build"
+
 [project]
 name = "seerapi"
 version = "106.0.0"
@@ -32,8 +36,8 @@ Repository = "https://github.com/SeerAPI/seerapi-python"
 module-root = ""
 module-name = "seerapi"
 
-# [tool.uv.sources]
-# seerapi-models = { path = "../models", editable = true }
+[tool.uv.sources]
+seerapi-models = { workspace = true }
 
 [tool.pyright]
 pythonVersion = "3.10"

@@ -1,0 +1,8 @@
+{
+  "name": "seerapi-monorepo",
+  "private": true,
+  "scripts": {
+    "build:ts": "pnpm -r --filter @seerapi/client build",
+    "clean:ts": "pnpm -r --filter @seerapi/client clean"
+  }
+}
