@@ -1,0 +1,46 @@
+{
+  "name": "@seerapi/client",
+  "version": "105.1.0",
+  "description": "SeerAPI TypeScript SDK, generated with @hey-api/openapi-ts",
+  "license": "MIT",
+  "author": "Nattsu39 <Nattsu39@outlook.com> (https://github.com/Nattsu39)",
+  "repository": "https://github.com/SeerAPI/seerapi-ts.git",
+  "homepage": "https://docs.seerapi.com",
+  "keywords": [
+    "seerapi",
+    "sdk",
+    "typescript"
+  ],
+  "type": "module",
+  "exports": {
+    ".": "./dist/client/index.js",
+    "./db": "./dist/db/index.js",
+    "./db/*": "./dist/db/*.js",
+    "./client": "./dist/client/index.js"
+  },
+  "files": [
+    "dist/**/*",
+    "LICENSE",
+    "README*.md"
+  ],
+  "scripts": {
+    "prepublishOnly": "npm run build",
+    "openapi-ts": "openapi-ts",
+    "build": "rimraf dist && openapi-ts && tsc",
+    "clean": "rimraf dist"
+  },
+  "devDependencies": {
+    "@hey-api/openapi-ts": "0.90.1",
+    "@types/node": "^24.1.0",
+    "drizzle-kit": "^1.0.0-beta.14-a36c63d",
+    "rimraf": "^6.0.1",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "@libsql/client": "^0.17.0",
+    "axios": "^1.13.2",
+    "dotenv": "^17.2.3",
+    "drizzle-orm": "^1.0.0-beta.14-a36c63d"
+  }
+}
