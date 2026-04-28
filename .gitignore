@@ -14,9 +14,6 @@ build/
 .venv/
 venv/
 
-# uv
-uv.lock
-
 # Node / pnpm
 node_modules/
 *.tsbuildinfo
@@ -32,3 +29,6 @@ Thumbs.db
 
 # Output
 packages/solaris/output/
+
+# Claude Code
+.claude/
