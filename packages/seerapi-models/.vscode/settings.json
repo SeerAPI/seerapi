@@ -1,0 +1,10 @@
+{
+	"ruff.nativeServer": "off",
+	"ruff.trace.server": "off",
+	"editor.defaultFormatter": "charliermarsh.ruff",
+	"editor.formatOnSave": true,
+	"basedpyright.analysis.inlayHints.callArgumentNames": false,
+	"basedpyright.analysis.inlayHints.callArgumentNamesMatching": false,
+	"basedpyright.analysis.inlayHints.variableTypes": false,
+	"basedpyright.analysis.autoImportCompletions": false
+}
