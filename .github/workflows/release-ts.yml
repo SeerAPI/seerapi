@@ -27,7 +27,7 @@ jobs:
               SHOULD_PUBLISH=false
             fi
           else
-            # 全量发布: v106.0.1 — 包含 seerapi-ts
+            # 全量发布
             VERSION="${TAG#v}"
             SHOULD_PUBLISH=true
           fi

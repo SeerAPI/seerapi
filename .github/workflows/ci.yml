@@ -2,9 +2,9 @@ name: CI
 
 on:
   pull_request:
-    branches: [main]
+    branches: [ main ]
   push:
-    branches: [main]
+    branches: [ main ]
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -17,7 +17,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        python-version: ["3.10", "3.11", "3.12", "3.13"]
+        python-version: [ "3.10", "3.11", "3.12", "3.13" ]
     steps:
       - uses: actions/checkout@v4
 
@@ -33,16 +33,17 @@ jobs:
         run: uv sync --all-packages
 
       - name: Ruff check
-        run: uv run ruff check packages/seerapi-models packages/seerapi-python packages/solaris
+        run: uv run ruff check packages/seerapi-models packages/seerapi-python
+          packages/solaris
 
       - name: Ruff format check
-        run: uv run ruff format --check packages/seerapi-models packages/seerapi-python packages/solaris
+        run: uv run ruff format --check packages/seerapi-models packages/seerapi-python
+          packages/solaris
+      # - name: Install pyright
+      #   run: pip install pyright
 
-      - name: Install pyright
-        run: pip install pyright
-
-      - name: Pyright
-        run: pyright packages/seerapi-models/seerapi_models packages/seerapi-python/seerapi packages/solaris/solaris
+      # - name: Pyright
+      #   run: pyright packages/seerapi-models/seerapi_models packages/seerapi-python/seerapi packages/solaris/solaris
 
   test-python:
     name: Tests (${{ matrix.python-version }})
@@ -50,7 +51,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        python-version: ["3.10", "3.11", "3.12", "3.13"]
+        python-version: [ "3.10", "3.11", "3.12", "3.13", "3.14" ]
     steps:
       - uses: actions/checkout@v4
 

@@ -11,7 +11,7 @@
 
 ## 简介
 
-Solaris 是 SeerAPI 的核心部分，用于解析和整理赛尔号三平台（Flash、HTML5、Unity）客户端数据。通过标准化的数据处理流程，将原始客户端数据转换为 [seerapi-models](https://github.com/SeerAPI/seerapi-models) 定义的标准结构，并输出为 JSON 文件、数据库记录和相关资源文件。
+Solaris 是 SeerAPI 的核心部分，用于解析和整理赛尔号三平台（Flash、HTML5、Unity）客户端数据。通过标准化的数据处理流程，将原始客户端数据转换为 [seerapi-models](https://github.com/SeerAPI/seerapi/tree/main/packages/seerapi-models) 定义的标准结构，并输出为 JSON 文件、数据库记录和相关资源文件。
 
 ## 功能特性
 
@@ -23,12 +23,14 @@ Solaris 是 SeerAPI 的核心部分，用于解析和整理赛尔号三平台（
 
 ## 安装
 
-确保你的 Python 版本 >= 3.10，然后安装 Solaris，这里使用 [uv](https://docs.astral.sh/uv/getting-started/installation/) 进行安装：
+确保你的 Python 版本 >= 3.10，然后安装 Solaris。推荐从 monorepo 安装：
 
 ```bash
-# 从源码安装
-git clone https://github.com/SeerAPI/solaris.git
-cd solaris
+# 克隆 monorepo
+git clone https://github.com/SeerAPI/seerapi.git
+cd seerapi
+
+# 安装依赖
 uv sync
 ```
 
@@ -39,17 +41,11 @@ Solaris 提供了两个主要命令：`parse` 和 `analyze`。
 ### 基本用法
 
 ```bash
-# 激活虚拟环境 (Linux/MacOS)
-source .venv/bin/activate
-
-# 激活虚拟环境 (Windows)
-.venv\Scripts\activate
-
 # 查看帮助
-solaris --help
+uv run solaris --help
 
 # 查看版本
-solaris --version
+uv run solaris --version
 ```
 
 ### 数据解析 (parse)
@@ -144,15 +140,21 @@ export SOLARIS_API_PATCH_VERSION="v1beta"
 ## 项目结构
 
 ```
-solaris/
-├── analyze/          # 数据分析模块
-├── cli/             # 命令行接口
-│   ├── analyze.py   # analyze 命令实现
-│   └── parse.py     # parse 命令实现
-├── parse/           # 数据解析模块
-├── settings.py      # 配置管理
-├── typing.py        # 类型定义
-└── utils.py         # 工具函数
+packages/solaris/
+├── solaris/
+│   ├── analyze/          # 数据分析模块
+│   ├── cli/              # 命令行接口
+│   │   ├── analyze.py    # analyze 命令实现
+│   │   └── parse.py      # parse 命令实现
+│   ├── parse/            # 数据解析模块
+│   ├── settings.py       # 配置管理
+│   ├── typing.py         # 类型定义
+│   └── utils.py          # 工具函数
+├── docs/                 # 开发文档
+│   ├── PARSER_GUIDE.md
+│   ├── ANALYZER_GUIDE.md
+│   └── README.md
+└── pyproject.toml
 ```
 
 ## 输出格式
@@ -178,7 +180,7 @@ solaris/
 
 ```bash
 # 安装开发依赖
-uv sync --dev
+uv sync
 
 # 代码检查
 uv run ruff check .

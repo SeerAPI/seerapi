@@ -286,15 +286,15 @@ asyncio.run(safe_get_pet(999999))
 ### 安装开发依赖
 
 ```bash
-# 克隆仓库
-git clone https://github.com/your-org/seerapi-python.git
-cd seerapi-python
+# 克隆 monorepo
+git clone https://github.com/SeerAPI/seerapi.git
+cd seerapi
 
 # 使用 uv 安装依赖（推荐）
 uv sync
 
-# 或使用 pip
-pip install -e .
+# 仅在本包环境中运行
+uv run --package seerapi-python python
 ```
 
 ### 代码风格
@@ -320,7 +320,7 @@ ruff check --fix .
 
 - [httpx](https://www.python-httpx.org/) - 现代化的 HTTP 客户端
 - [hishel](https://hishel.com/) - HTTP 缓存库
-- [seerapi-models](https://github.com/SeerAPI/seerapi-models) - SeerAPI 数据模型
+- [seerapi-models](https://github.com/SeerAPI/seerapi/tree/main/packages/seerapi-models) - SeerAPI 数据模型（同一 monorepo）
 
 ## 许可证
 

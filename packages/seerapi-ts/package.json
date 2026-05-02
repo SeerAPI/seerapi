@@ -4,7 +4,7 @@
   "description": "SeerAPI TypeScript SDK, generated with @hey-api/openapi-ts",
   "license": "MIT",
   "author": "Nattsu39 <Nattsu39@outlook.com> (https://github.com/Nattsu39)",
-  "repository": "https://github.com/SeerAPI/seerapi-ts.git",
+  "repository": "https://github.com/SeerAPI/seerapi.git",
   "homepage": "https://docs.seerapi.com",
   "keywords": [
     "seerapi",
@@ -26,11 +26,12 @@
   "scripts": {
     "prepublishOnly": "npm run build",
     "openapi-ts": "openapi-ts",
-    "build": "rimraf dist && openapi-ts && tsc",
+    "orm-sync": "drizzle-kit pull && mv drizzle/*.ts src/db/",
+    "build": "npm run clean && npm run openapi-ts && npm run orm-sync && tsc",
     "clean": "rimraf dist"
   },
   "devDependencies": {
-    "@hey-api/openapi-ts": "0.90.1",
+    "@hey-api/openapi-ts": "0.97.0",
     "@types/node": "^24.1.0",
     "drizzle-kit": "^1.0.0-beta.14-a36c63d",
     "rimraf": "^6.0.1",

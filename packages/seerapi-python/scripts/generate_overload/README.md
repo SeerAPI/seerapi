@@ -301,11 +301,11 @@ uv run ruff format output.py
 
 ```bash
 # 查看所有示例
-cd /workspaces/SeerAPI/seerapi-python
-uv run python generate_overloads.py
+cd /workspaces/SeerAPI/seerapi/packages/seerapi-python
+uv run python scripts/generate_overload/generate_overloads.py
 
 # 生成并格式化
-uv run python generate_overloads.py | uv run ruff format -
+uv run python scripts/generate_overload/generate_overloads.py | uv run ruff format -
 ```
 
 ## 进阶用法

@@ -10,25 +10,22 @@ authors = [{ name = "Nattsu39", email = "Nattsu39@outlook.com" }]
 license = { file = "LICENSE" }
 keywords = ["seerapi", "models", "orm"]
 classifiers = [
-    "Operating System :: OS Independent",
-    "Intended Audience :: Developers",
-    "License :: OSI Approved :: MIT License",
-    "Programming Language :: Python :: 3.10",
-    "Programming Language :: Python :: 3.11",
-    "Programming Language :: Python :: 3.12",
-    "Programming Language :: Python :: 3.13",
-    "Programming Language :: Python :: 3.14",
+  "Operating System :: OS Independent",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Programming Language :: Python :: 3.14",
 ]
 readme = "README.md"
 requires-python = ">=3.10"
-dependencies = [
-    "pydantic>=2.12.5",
-    "sqlmodel>=0.0.35",
-]
+dependencies = ["pydantic>=2.12.5", "sqlmodel>=0.0.35"]
 
 [project.urls]
-Homepage = "https://github.com/SeerAPI/seerapi-models"
-Repository = "https://github.com/SeerAPI/seerapi-models"
+Homepage = "https://github.com/SeerAPI/seerapi"
+Repository = "https://github.com/SeerAPI/seerapi"
 
 [tool.uv.build-backend]
 module-root = ""
@@ -90,6 +87,4 @@ fixture-parentheses = false
 mark-parentheses = false
 
 [dependency-groups]
-dev = [
-    "pytest>=9.0.1",
-]
+dev = ["pytest>=9.0.1"]

@@ -63,5 +63,5 @@ async function queryDb() {
 
 ## 相关链接
 
-- [GitHub 仓库](https://github.com/SeerAPI/seerapi-ts)
+- [GitHub 仓库](https://github.com/SeerAPI/seerapi/tree/main/packages/seerapi-ts)
 

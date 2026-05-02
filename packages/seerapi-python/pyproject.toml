@@ -29,8 +29,8 @@ dependencies = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/SeerAPI/seerapi-python"
-Repository = "https://github.com/SeerAPI/seerapi-python"
+Homepage = "https://github.com/SeerAPI/seerapi"
+Repository = "https://github.com/SeerAPI/seerapi"
 
 [tool.uv.build-backend]
 module-root = ""
