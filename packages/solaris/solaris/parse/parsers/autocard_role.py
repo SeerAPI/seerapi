@@ -20,6 +20,7 @@ class AutocardRoleInfo(TypedDict):
     display: int
     health: int
     id: int
+    nature: int
     pic_id: int
     skill_cost_num: int
     skill_game_limit: int
@@ -62,6 +63,7 @@ class AutocardRoleParser(BaseParser[AutocardRoleConfig]):
             health = reader.ReadSignedInt()
             id_val = reader.ReadSignedInt()
             name = reader.ReadUTFBytesWithLength()
+            nature = reader.ReadSignedInt()
             pic_id = reader.ReadSignedInt()
             skill_cost_num = reader.ReadSignedInt()
             skill_game_limit = reader.ReadSignedInt()
@@ -85,6 +87,7 @@ class AutocardRoleParser(BaseParser[AutocardRoleConfig]):
                     display=display,
                     health=health,
                     id=id_val,
+                    nature=nature,
                     pic_id=pic_id,
                     skill_cost_num=skill_cost_num,
                     skill_game_limit=skill_game_limit,
