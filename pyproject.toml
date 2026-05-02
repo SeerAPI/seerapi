@@ -10,3 +10,14 @@ members = [
     "packages/seerapi-python",
     "packages/solaris",
 ]
+
+[dependency-groups]
+tests = ["pytest>=9.0.1"]
+docs = [
+    "markdown-include-variants>=0.0.5",
+    "mdx-include>=1.4.2",
+    "mkdocs-git-revision-date-localized-plugin>=1.5.0",
+    "mkdocs-material>=9.7.0",
+    "pymdown-extensions>=10.17.1",
+]
+dev = [{ include-group = "tests" }, { include-group = "docs" }, "ruff>=0.13.0"]
