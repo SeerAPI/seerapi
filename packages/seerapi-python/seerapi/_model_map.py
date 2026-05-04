@@ -1,6 +1,5 @@
-import seerapi_models as M
-
 from seerapi._typing import ModelName, ModelType
+import seerapi_models as M
 
 MODEL_MAP: dict[ModelName, ModelType] = {
     'achievement': M.Achievement,

@@ -58,7 +58,8 @@ class Soulmark(SoulmarkBase, ConvertToORM['SoulmarkORM']):
     pet: list[ResourceRef['Pet']] = Field(description='可持有该魂印的精灵ID')
     effect: EidEffectInUse | None = Field(description='魂印效果')
     effect_alias: str | None = Field(
-        default=None, description='效果别名，命名规则为：alias_[效果ID]_[参数1]_[参数2]_…'
+        default=None,
+        description='效果别名，命名规则为：alias_[效果ID]_[参数1]_[参数2]_…',
     )
     tag: list[ResourceRef['SoulmarkTagCategory']] = Field(
         description='魂印标签，例如强攻，断回合等'

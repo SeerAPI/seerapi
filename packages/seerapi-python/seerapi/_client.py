@@ -5,7 +5,6 @@ from typing_extensions import Self
 from hishel.httpx import AsyncCacheClient
 from httpx import URL
 from httpx._urls import QueryParams
-from seerapi_models.common import NamedData, ResourceRef
 
 from seerapi._model_map import (
     MODEL_MAP,
@@ -18,6 +17,7 @@ from seerapi._typing import (
     T_ModelInstance,
     T_NamedModelInstance,
 )
+from seerapi_models.common import NamedData, ResourceRef
 
 
 def _parse_url_params(url: str) -> QueryParams:

@@ -28,11 +28,11 @@ class AutoCardRecomParser(BaseParser[AutoCardRecomConfig]):
 
     @classmethod
     def source_config_filename(cls) -> str:
-        return "autoCardRecom.bytes"
+        return 'autoCardRecom.bytes'
 
     @classmethod
     def parsed_config_filename(cls) -> str:
-        return "autoCardRecom.json"
+        return 'autoCardRecom.json'
 
     def parse(self, data: bytes) -> AutoCardRecomConfig:
         reader = BytesReader(data)
@@ -50,7 +50,7 @@ class AutoCardRecomParser(BaseParser[AutoCardRecomConfig]):
             pet_card_id = reader.ReadUTFBytesWithLength()
             title = reader.ReadUTFBytesWithLength()
 
-            result["data"].append(
+            result['data'].append(
                 AutoCardRecomInfo(
                     ma_card_id=ma_card_id,
                     pet_card_id=pet_card_id,

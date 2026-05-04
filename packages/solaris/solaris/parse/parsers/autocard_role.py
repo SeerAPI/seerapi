@@ -40,11 +40,11 @@ class AutocardRoleParser(BaseParser[AutocardRoleConfig]):
 
     @classmethod
     def source_config_filename(cls) -> str:
-        return "autocardRole.bytes"
+        return 'autocardRole.bytes'
 
     @classmethod
     def parsed_config_filename(cls) -> str:
-        return "autocardRole.json"
+        return 'autocardRole.json'
 
     def parse(self, data: bytes) -> AutocardRoleConfig:
         reader = BytesReader(data)
@@ -74,7 +74,7 @@ class AutocardRoleParser(BaseParser[AutocardRoleConfig]):
             skill_type = reader.ReadSignedInt()
             skill_upgrade = reader.ReadUTFBytesWithLength()
 
-            result["data"].append(
+            result['data'].append(
                 AutocardRoleInfo(
                     buff_id=buff_id,
                     buff_param=buff_param,

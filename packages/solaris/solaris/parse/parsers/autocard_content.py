@@ -41,11 +41,11 @@ class AutocardContentParser(BaseParser[AutocardContentConfig]):
 
     @classmethod
     def source_config_filename(cls) -> str:
-        return "autocardContent.bytes"
+        return 'autocardContent.bytes'
 
     @classmethod
     def parsed_config_filename(cls) -> str:
-        return "autocardContent.json"
+        return 'autocardContent.json'
 
     def parse(self, data: bytes) -> AutocardContentConfig:
         reader = BytesReader(data)
@@ -76,7 +76,7 @@ class AutocardContentParser(BaseParser[AutocardContentConfig]):
             subtype = reader.ReadSignedInt()
             type_val = reader.ReadSignedInt()
 
-            result["data"].append(
+            result['data'].append(
                 AutocardContentInfo(
                     buff_id=buff_id,
                     buff_param=buff_param,

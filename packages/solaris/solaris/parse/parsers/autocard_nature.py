@@ -25,11 +25,11 @@ class AutocardNatureParser(BaseParser[AutocardNatureConfig]):
 
     @classmethod
     def source_config_filename(cls) -> str:
-        return "autocardNature.bytes"
+        return 'autocardNature.bytes'
 
     @classmethod
     def parsed_config_filename(cls) -> str:
-        return "autocardNature.json"
+        return 'autocardNature.json'
 
     def parse(self, data: bytes) -> AutocardNatureConfig:
         reader = BytesReader(data)
@@ -44,7 +44,7 @@ class AutocardNatureParser(BaseParser[AutocardNatureConfig]):
             name = reader.ReadUTFBytesWithLength()
             pic_id = reader.ReadUTFBytesWithLength()
 
-            result["data"].append(
+            result['data'].append(
                 AutocardNatureInfo(id=id_val, name=name, pic_id=pic_id)
             )
 

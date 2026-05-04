@@ -39,15 +39,15 @@ class MintmarkElevareParser(BaseParser[MintmarkElevareConfig]):
 
     @classmethod
     def source_config_filename(cls) -> str:
-        return "mintmarkElevare.bytes"
+        return 'mintmarkElevare.bytes'
 
     @classmethod
     def parsed_config_filename(cls) -> str:
-        return "mintmarkElevare.json"
+        return 'mintmarkElevare.json'
 
     def parse(self, data: bytes) -> MintmarkElevareConfig:
         reader = BytesReader(data)
-        result: MintmarkElevareConfig = {"mintmark_elevare": {"mintmark_elevare": []}}
+        result: MintmarkElevareConfig = {'mintmark_elevare': {'mintmark_elevare': []}}
 
         if reader.ReadBoolean():
             elevare_count = reader.ReadSignedInt()
@@ -67,15 +67,15 @@ class MintmarkElevareParser(BaseParser[MintmarkElevareConfig]):
                 type_value = reader.ReadSignedInt()
 
                 elevare_item: MintmarkElevareInfo = {
-                    "desc": desc,
-                    "cost": cost_list,
-                    "elevare_mintmark": elevare_mintmark,
-                    "id": id_value,
-                    "origin_mintmark": origin_mintmark,
-                    "primum_mintmark": primum_mintmark,
-                    "statinfo": statinfo,
-                    "type": type_value,
+                    'desc': desc,
+                    'cost': cost_list,
+                    'elevare_mintmark': elevare_mintmark,
+                    'id': id_value,
+                    'origin_mintmark': origin_mintmark,
+                    'primum_mintmark': primum_mintmark,
+                    'statinfo': statinfo,
+                    'type': type_value,
                 }
-                result["mintmark_elevare"]["mintmark_elevare"].append(elevare_item)
+                result['mintmark_elevare']['mintmark_elevare'].append(elevare_item)
 
         return result

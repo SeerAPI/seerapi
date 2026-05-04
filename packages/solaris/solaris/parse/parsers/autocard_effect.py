@@ -25,11 +25,11 @@ class AutocardEffectParser(BaseParser[AutocardEffectConfig]):
 
     @classmethod
     def source_config_filename(cls) -> str:
-        return "autocardEffect.bytes"
+        return 'autocardEffect.bytes'
 
     @classmethod
     def parsed_config_filename(cls) -> str:
-        return "autocardEffect.json"
+        return 'autocardEffect.json'
 
     def parse(self, data: bytes) -> AutocardEffectConfig:
         reader = BytesReader(data)
@@ -44,7 +44,7 @@ class AutocardEffectParser(BaseParser[AutocardEffectConfig]):
             param = reader.ReadUTFBytesWithLength()
             param_des = reader.ReadUTFBytesWithLength()
 
-            result["data"].append(
+            result['data'].append(
                 AutocardEffectInfo(id=id_val, param=param, param_des=param_des)
             )
 

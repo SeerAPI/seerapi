@@ -28,11 +28,11 @@ class AutocardSkinParser(BaseParser[AutocardSkinConfig]):
 
     @classmethod
     def source_config_filename(cls) -> str:
-        return "autocardSkin.bytes"
+        return 'autocardSkin.bytes'
 
     @classmethod
     def parsed_config_filename(cls) -> str:
-        return "autocardSkin.json"
+        return 'autocardSkin.json'
 
     def parse(self, data: bytes) -> AutocardSkinConfig:
         reader = BytesReader(data)
@@ -50,7 +50,7 @@ class AutocardSkinParser(BaseParser[AutocardSkinConfig]):
             skin_name = reader.ReadUTFBytesWithLength()
             type_val = reader.ReadSignedInt()
 
-            result["data"].append(
+            result['data'].append(
                 AutocardSkinInfo(
                     name=name,
                     skin_name=skin_name,

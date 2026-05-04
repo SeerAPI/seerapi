@@ -32,11 +32,11 @@ class AutocardPlayerParser(BaseParser[AutocardPlayerConfig]):
 
     @classmethod
     def source_config_filename(cls) -> str:
-        return "autocardPlayer.bytes"
+        return 'autocardPlayer.bytes'
 
     @classmethod
     def parsed_config_filename(cls) -> str:
-        return "autocardPlayer.json"
+        return 'autocardPlayer.json'
 
     def parse(self, data: bytes) -> AutocardPlayerConfig:
         reader = BytesReader(data)
@@ -58,7 +58,7 @@ class AutocardPlayerParser(BaseParser[AutocardPlayerConfig]):
             rarity = reader.ReadSignedInt()
             resource = reader.ReadUTFBytesWithLength()
 
-            result["data"].append(
+            result['data'].append(
                 AutocardPlayerInfo(
                     action_1=action_1,
                     action_2=action_2,

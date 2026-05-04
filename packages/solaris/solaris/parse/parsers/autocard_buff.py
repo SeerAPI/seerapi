@@ -29,11 +29,11 @@ class AutocardBuffParser(BaseParser[AutocardBuffConfig]):
 
     @classmethod
     def source_config_filename(cls) -> str:
-        return "autocardBuff.bytes"
+        return 'autocardBuff.bytes'
 
     @classmethod
     def parsed_config_filename(cls) -> str:
-        return "autocardBuff.json"
+        return 'autocardBuff.json'
 
     def parse(self, data: bytes) -> AutocardBuffConfig:
         reader = BytesReader(data)
@@ -52,7 +52,7 @@ class AutocardBuffParser(BaseParser[AutocardBuffConfig]):
             param = reader.ReadUTFBytesWithLength()
             param_des = reader.ReadUTFBytesWithLength()
 
-            result["data"].append(
+            result['data'].append(
                 AutocardBuffInfo(
                     effect_icon=effect_icon,
                     object=object_val,

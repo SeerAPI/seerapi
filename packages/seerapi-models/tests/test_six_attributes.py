@@ -73,7 +73,7 @@ class TestFromString:
 
     def test_from_string_invalid_format(self):
         """测试无效格式的字符串（应抛出 ValueError）"""
-        with pytest.raises(ValueError):
+        with pytest.raises(ValueError):  # noqa: PT011
             SixAttributes.from_string('a b c d e f')
 
     def test_from_string_with_zeros(self):

@@ -25,11 +25,11 @@ class AutocardConditionParser(BaseParser[AutocardConditionConfig]):
 
     @classmethod
     def source_config_filename(cls) -> str:
-        return "autocardCondition.bytes"
+        return 'autocardCondition.bytes'
 
     @classmethod
     def parsed_config_filename(cls) -> str:
-        return "autocardCondition.json"
+        return 'autocardCondition.json'
 
     def parse(self, data: bytes) -> AutocardConditionConfig:
         reader = BytesReader(data)
@@ -44,7 +44,7 @@ class AutocardConditionParser(BaseParser[AutocardConditionConfig]):
             param = reader.ReadUTFBytesWithLength()
             param_des = reader.ReadUTFBytesWithLength()
 
-            result["data"].append(
+            result['data'].append(
                 AutocardConditionInfo(id=id_val, param=param, param_des=param_des)
             )
 

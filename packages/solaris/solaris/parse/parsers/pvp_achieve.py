@@ -20,15 +20,15 @@ class PvpAchieveConfig(TypedDict):
 class PvpAchieveParser(BaseParser[PvpAchieveConfig]):
     @classmethod
     def source_config_filename(cls) -> str:
-        return "pvp_achieve.bytes"
+        return 'pvp_achieve.bytes'
 
     @classmethod
     def parsed_config_filename(cls) -> str:
-        return "pvpAchieve.json"
+        return 'pvpAchieve.json'
 
     def parse(self, data: bytes) -> PvpAchieveConfig:
         reader = BytesReader(data)
-        result: PvpAchieveConfig = {"data": []}
+        result: PvpAchieveConfig = {'data': []}
 
         if not reader.ReadBoolean():
             return result
@@ -36,13 +36,13 @@ class PvpAchieveParser(BaseParser[PvpAchieveConfig]):
         count = reader.ReadSignedInt()
         for _ in range(count):
             info: PvpAchieveInfo = {
-                "describe": reader.ReadUTFBytesWithLength(),
-                "foreverType": reader.ReadSignedInt(),
-                "id": reader.ReadSignedInt(),
-                "rewardinfo": reader.ReadUTFBytesWithLength(),
-                "title": reader.ReadUTFBytesWithLength(),
-                "value": reader.ReadSignedInt(),
+                'describe': reader.ReadUTFBytesWithLength(),
+                'foreverType': reader.ReadSignedInt(),
+                'id': reader.ReadSignedInt(),
+                'rewardinfo': reader.ReadUTFBytesWithLength(),
+                'title': reader.ReadUTFBytesWithLength(),
+                'value': reader.ReadSignedInt(),
             }
-            result["data"].append(info)
+            result['data'].append(info)
 
         return result

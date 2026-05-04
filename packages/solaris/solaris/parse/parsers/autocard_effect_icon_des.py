@@ -26,11 +26,11 @@ class AutocardEffectIconDesParser(BaseParser[AutocardEffectIconDesConfig]):
 
     @classmethod
     def source_config_filename(cls) -> str:
-        return "autocardEffectIconDes.bytes"
+        return 'autocardEffectIconDes.bytes'
 
     @classmethod
     def parsed_config_filename(cls) -> str:
-        return "autocardEffectIconDes.json"
+        return 'autocardEffectIconDes.json'
 
     def parse(self, data: bytes) -> AutocardEffectIconDesConfig:
         reader = BytesReader(data)
@@ -46,7 +46,7 @@ class AutocardEffectIconDesParser(BaseParser[AutocardEffectIconDesConfig]):
             name = reader.ReadUTFBytesWithLength()
             resource_name = reader.ReadUTFBytesWithLength()
 
-            result["data"].append(
+            result['data'].append(
                 AutocardEffectIconDesInfo(
                     des=des,
                     name=name,

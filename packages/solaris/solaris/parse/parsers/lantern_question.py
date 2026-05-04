@@ -31,15 +31,15 @@ class LanternQuestionConfig(TypedDict):
 class LanternQuestionParser(BaseParser[LanternQuestionConfig]):
     @classmethod
     def source_config_filename(cls) -> str:
-        return "lanternQuestion.bytes"
+        return 'lanternQuestion.bytes'
 
     @classmethod
     def parsed_config_filename(cls) -> str:
-        return "lanternQuestion.json"
+        return 'lanternQuestion.json'
 
     def parse(self, data: bytes) -> LanternQuestionConfig:
         reader = BytesReader(data)
-        result: LanternQuestionConfig = {"root": {"lantern_question": []}}
+        result: LanternQuestionConfig = {'root': {'lantern_question': []}}
 
         if not reader.ReadBoolean():
             return result
@@ -48,15 +48,15 @@ class LanternQuestionParser(BaseParser[LanternQuestionConfig]):
 
         for _ in range(count):
             item: LanternQuestionItem = {
-                "achoose": reader.ReadUTFBytesWithLength(),
-                "bchoose": reader.ReadUTFBytesWithLength(),
-                "cchoose": reader.ReadUTFBytesWithLength(),
-                "dchoose": reader.ReadUTFBytesWithLength(),
-                "answer": reader.ReadSignedInt(),
-                "describe": reader.ReadUTFBytesWithLength(),
-                "id": reader.ReadSignedInt(),
-                "title": reader.ReadSignedInt(),
+                'achoose': reader.ReadUTFBytesWithLength(),
+                'bchoose': reader.ReadUTFBytesWithLength(),
+                'cchoose': reader.ReadUTFBytesWithLength(),
+                'dchoose': reader.ReadUTFBytesWithLength(),
+                'answer': reader.ReadSignedInt(),
+                'describe': reader.ReadUTFBytesWithLength(),
+                'id': reader.ReadSignedInt(),
+                'title': reader.ReadSignedInt(),
             }
-            result["root"]["lantern_question"].append(item)
+            result['root']['lantern_question'].append(item)
 
         return result
