@@ -5,8 +5,21 @@ build-backend = "uv_build"
 [project]
 name = "seerapi-solaris"
 version = "106.0.0"
-description = "Add your description here"
+description = "支持Unity端解析的赛尔号客户端数据解析/整理工具"
+authors = [{ name = "Nattsu39", email = "Nattsu39@outlook.com" }]
 readme = "README.md"
+keywords = ["seerapi"]
+license = { file = "LICENSE" }
+classifiers = [
+  "Operating System :: OS Independent",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Programming Language :: Python :: 3.14",
+]
 requires-python = ">=3.10"
 dependencies = [
   "anycrc>=1.3.5",
@@ -20,6 +33,9 @@ dependencies = [
   "tqdm>=4.67.1",
   "xmltodict>=1.0.2",
 ]
+[project.urls]
+Homepage = "https://github.com/SeerAPI/seerapi"
+Repository = "https://github.com/SeerAPI/seerapi"
 
 [project.scripts]
 solaris = "solaris.__main__:main"
