@@ -8,6 +8,53 @@ from solaris.utils import change_workdir, import_all_classes
 PARSER_DEFAULT_PACKAGE_NAME = 'solaris.parse.parsers'
 
 
+def _format_parser_error(parser_cls: type[BaseParser], exc: Exception) -> str:
+    """格式化 parser 解析错误信息，包含 parser 内部的报错位置"""
+    import inspect
+    import traceback
+
+    tb = traceback.extract_tb(exc.__traceback__)
+    if not tb:
+        return f'{parser_cls.__name__} 解析失败: {exc.__class__.__name__}: {exc}'
+
+    try:
+        parser_file = Path(inspect.getfile(parser_cls)).resolve()
+    except (TypeError, OSError):
+        parser_file = None
+
+    target_frame = None
+    if parser_file:
+        for frame in reversed(tb):
+            if Path(frame.filename).resolve() == parser_file:
+                target_frame = frame
+                break
+
+    if target_frame is None:
+        target_frame = tb[-1]
+
+    location = f'{target_frame.filename}:{target_frame.lineno} in {target_frame.name}'
+    return (
+        f'{parser_cls.__name__} 解析失败 ({location}): {exc.__class__.__name__}: {exc}'
+    )
+
+
+class ParserExecutionError(Exception):
+    """解析器执行异常
+
+    当解析器执行过程中发生异常时抛出，包含解析器内部的报错位置
+    """
+
+    def __init__(self, message: str) -> None:
+        super().__init__(message)
+        self.message = message
+
+    def __str__(self) -> str:
+        return self.message
+
+    def __repr__(self) -> str:
+        return f'ParserExecutionError([{self.message}])'
+
+
 def import_parser_classes(
     package_name: str = PARSER_DEFAULT_PACKAGE_NAME,
 ) -> list[type[BaseParser]]:
@@ -76,20 +123,30 @@ def run_all_parser(
     output_dir: Path,
 ) -> None:
     """运行所有解析器
-
     Args:
             parser_classes: 解析器类列表
             source_dir: 源配置文件目录
             output_dir: 解析结果输出目录
     """
 
+    exceptions: list[tuple[type[BaseParser], Exception]] = []
     parsed_data = {}
     with change_workdir(source_dir):
         for parser_cls in parser_classes:
             parser = parser_cls()
             data = parser.load_source_config()
-            parsed_data[parser_cls] = parser.parse(data)
+            try:
+                parsed_data[parser_cls] = parser.parse(data)
+            except Exception as e:
+                exceptions.append((parser_cls, e))
 
+    if exceptions:
+        raise ParserExecutionError(
+            '解析器执行异常，共发生 {len(exceptions)} 个异常:\n'
+            + '\n'.join(
+                _format_parser_error(parser_cls, e) for parser_cls, e in exceptions
+            )
+        )
     with change_workdir(output_dir):
         for parser_cls in parser_classes:
             parser = parser_cls()
