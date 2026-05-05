@@ -40,7 +40,7 @@ uv run solaris --help
 # 运行单个包的测试
 uv run --package seerapi-models pytest
 uv run --package seerapi-python pytest
-uv run --package solaris pytest
+uv run --package seerapi-solaris pytest
 
 # 代码检查
 uv run ruff check .

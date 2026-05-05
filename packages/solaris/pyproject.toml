@@ -3,7 +3,7 @@ requires = ["uv_build>=0.8.14,<0.9.0"]
 build-backend = "uv_build"
 
 [project]
-name = "solaris"
+name = "seerapi-solaris"
 version = "106.0.0"
 description = "Add your description here"
 readme = "README.md"

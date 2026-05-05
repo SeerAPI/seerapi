@@ -23,15 +23,13 @@ Solaris 是 SeerAPI 的核心部分，用于解析和整理赛尔号三平台（
 
 ## 安装
 
-确保你的 Python 版本 >= 3.10，然后安装 Solaris。推荐从 monorepo 安装：
+确保你的 Python 版本 >= 3.10，然后安装 Solaris。
 
 ```bash
-# 克隆 monorepo
-git clone https://github.com/SeerAPI/seerapi.git
-cd seerapi
+pip install seerapi-solaris
 
-# 安装依赖
-uv sync
+# 如果你使用 uv
+uv add seerapi-solaris
 ```
 
 ## 使用方法
