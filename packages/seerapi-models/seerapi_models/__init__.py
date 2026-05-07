@@ -42,6 +42,7 @@ from .effect import (
 from .element_type import (
     ElementType,
     ElementTypeORM,
+    ElementTypeRelationORM,
     TypeCombination,
     TypeCombinationORM,
 )
@@ -201,6 +202,7 @@ __all__ = [
     'EidEffect',
     'ElementType',
     'ElementTypeORM',
+    'ElementTypeRelationORM',
     'Emoji',
     'EmojiORM',
     'EnergyBead',

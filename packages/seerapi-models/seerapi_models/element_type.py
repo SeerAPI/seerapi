@@ -1,9 +1,13 @@
 from typing import TYPE_CHECKING
 
 from pydantic import computed_field
-from sqlmodel import Boolean, Column, Computed, Field, Relationship
+from sqlmodel import Boolean, Column, Computed, Field, Float, Relationship, SQLModel
 
-from seerapi_models.build_model import BaseResModel, ConvertToORM
+from seerapi_models.build_model import (
+    BaseResModel,
+    BaseResModelWithOptionalId,
+    ConvertToORM,
+)
 from seerapi_models.common import ResourceRef
 
 if TYPE_CHECKING:
@@ -12,7 +16,45 @@ if TYPE_CHECKING:
     from .skill import SkillORM
 
 
-class ElementType(BaseResModel, ConvertToORM['ElementTypeORM']):
+class ElementTypeRelation(BaseResModelWithOptionalId):
+    target_type: ResourceRef['ElementType'] = Field(description='目标属性')
+    multiple: float = Field(description='克制倍率')
+
+    @classmethod
+    def resource_name(cls) -> str:
+        return 'element_type_relation'
+
+
+class ElementTypeRelationORM(SQLModel, table=True):
+    """单属性克制关系表。双属性克制倍率由公式计算得出。"""
+
+    source_id: int = Field(
+        foreign_key='element_type.id', description='攻击方属性', primary_key=True
+    )
+    target_id: int = Field(
+        foreign_key='element_type.id', description='防御方属性', primary_key=True
+    )
+    multiple: float = Field(sa_type=Float, description='克制倍率')
+
+    source: 'ElementTypeORM' = Relationship(
+        back_populates='attack_relations',
+        sa_relationship_kwargs={
+            'primaryjoin': 'ElementTypeRelationORM.source_id == ElementTypeORM.id',
+        },
+    )
+    target: 'ElementTypeORM' = Relationship(
+        back_populates='defense_relations',
+        sa_relationship_kwargs={
+            'primaryjoin': 'ElementTypeRelationORM.target_id == ElementTypeORM.id',
+        },
+    )
+
+    @classmethod
+    def resource_name(cls) -> str:
+        return 'element_type_relation'
+
+
+class ElementTypeBase(BaseResModel):
     name: str = Field(description='属性中文名')
     name_en: str = Field(description='属性英文名')
 
@@ -20,19 +62,49 @@ class ElementType(BaseResModel, ConvertToORM['ElementTypeORM']):
     def resource_name(cls) -> str:
         return 'element_type'
 
+
+class ElementType(ElementTypeBase, ConvertToORM['ElementTypeORM']):
+    relations: list[ElementTypeRelation] = Field(
+        default_factory=list, description='属性克制关系'
+    )
+
     @classmethod
     def get_orm_model(cls) -> type['ElementTypeORM']:
         return ElementTypeORM
 
     def to_orm(self) -> 'ElementTypeORM':
-        return ElementTypeORM(
+        orm = ElementTypeORM(
             id=self.id,
             name=self.name,
             name_en=self.name_en,
+            attack_relations=[
+                ElementTypeRelationORM(
+                    source_id=self.id,
+                    target_id=rel.target_type.id,
+                    multiple=rel.multiple,
+                )
+                for rel in self.relations
+            ],
         )
+        return orm
 
 
-class ElementTypeORM(ElementType, table=True):
+class ElementTypeORM(ElementTypeBase, table=True):
+    attack_relations: list['ElementTypeRelationORM'] = Relationship(
+        back_populates='source',
+        sa_relationship_kwargs={
+            'primaryjoin': 'ElementTypeORM.id == ElementTypeRelationORM.source_id',
+            'cascade': 'all, delete-orphan',
+        },
+    )
+    defense_relations: list['ElementTypeRelationORM'] = Relationship(
+        back_populates='target',
+        sa_relationship_kwargs={
+            'primaryjoin': 'ElementTypeORM.id == ElementTypeRelationORM.target_id',
+            'viewonly': True,
+        },
+    )
+
     primary_combination: list['TypeCombinationORM'] = Relationship(
         back_populates='primary',
         sa_relationship_kwargs={
