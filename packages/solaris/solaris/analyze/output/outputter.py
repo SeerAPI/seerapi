@@ -640,7 +640,7 @@ class JsonOutputter(DataOutputterProtocol):
         )
         for id, model in data.items():
             if name := name_generator(model):
-                name_data[str(name)].data[id] = model
+                name_data[name.strip()].data[id] = model
 
         return name_data
 

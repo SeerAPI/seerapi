@@ -138,9 +138,9 @@ class DataLoader(ABC):
     @classmethod
     def _load_data(cls, path: str | Path) -> JSONObject:
         """加载数据，优先尝试以JSON格式加载，如果失败则尝试以XML格式加载"""
-        data = Path(path).read_text()
+        data = Path(path).read_text(encoding='utf-8')
         try:
-            return json.loads(Path(path).read_text())
+            return json.loads(data)
         except json.JSONDecodeError:
             return xmltodict.parse(
                 data,
