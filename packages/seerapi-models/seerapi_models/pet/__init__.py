@@ -16,7 +16,16 @@ from .pet import (
     YieldingEvORM,
 )
 from .pet_advance import PetAdvance, PetAdvanceORM
-from .pet_skin import PetSkin, PetSkinCategory, PetSkinCategoryORM, PetSkinORM
+from .pet_skin import (
+    PetSkin,
+    PetSkinCategory,
+    PetSkinCategoryORM,
+    PetSkinORM,
+    PetSkinSeries,
+    PetSkinSeriesORM,
+    PetSkinSeriesSubType,
+    PetSkinSeriesSubTypeORM,
+)
 from .petbook import (
     PetArchiveStoryBook,
     PetArchiveStoryBookORM,
@@ -50,6 +59,10 @@ __all__ = [
     'PetSkinCategory',
     'PetSkinCategoryORM',
     'PetSkinORM',
+    'PetSkinSeries',
+    'PetSkinSeriesORM',
+    'PetSkinSeriesSubType',
+    'PetSkinSeriesSubTypeORM',
     'PetVipBuffCategory',
     'PetVipBuffORM',
     'SkillInPet',
