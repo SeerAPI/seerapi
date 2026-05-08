@@ -15,11 +15,11 @@ class PetSkinRewardtypeInfo(TypedDict):
     type: int
 
 
-class _Data(TypedDict):
+class PetSkinRewardtypeConfig(TypedDict):
     data: list[PetSkinRewardtypeInfo]
 
 
-class PetSkinRewardtypeParser(BaseParser[_Data]):
+class PetSkinRewardtypeParser(BaseParser[PetSkinRewardtypeConfig]):
     @classmethod
     def source_config_filename(cls) -> str:
         return 'pet_skin_rewardtype.bytes'
@@ -28,9 +28,9 @@ class PetSkinRewardtypeParser(BaseParser[_Data]):
     def parsed_config_filename(cls) -> str:
         return 'petSkinRewardtype.json'
 
-    def parse(self, data: bytes) -> _Data:
+    def parse(self, data: bytes) -> PetSkinRewardtypeConfig:
         reader = BytesReader(data)
-        result: _Data = {'data': []}
+        result: PetSkinRewardtypeConfig = {'data': []}
 
         if not reader.ReadBoolean():
             return result

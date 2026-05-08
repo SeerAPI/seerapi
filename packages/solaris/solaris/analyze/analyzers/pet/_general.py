@@ -15,6 +15,10 @@ if TYPE_CHECKING:
     from solaris.parse.parsers.effect_icon import EffectIconItem
     from solaris.parse.parsers.monsters import MonsterItem
     from solaris.parse.parsers.pet_skin import PetSkinConfig, _SkinItem
+    from solaris.parse.parsers.pet_skin_rewardtype import (
+        PetSkinRewardtypeConfig,
+        PetSkinRewardtypeInfo,
+    )
     from solaris.parse.parsers.petbook import ArchivesStoryConfig, ArchivesStoryInfo
     from solaris.parse.parsers.sp_hide_moves import SpHideMovesConfig, SpMovesItem
 
@@ -32,6 +36,7 @@ general_import_config = DataImportConfig(
         'pvpBan.json',
         'pvpBanExpert.json',
         'awakenDetail.json',
+        'petSkinRewardtype.json',
     ),
     flash_paths=(
         'config.xml.PetXMLInfo.xml',
@@ -97,6 +102,13 @@ class BasePetAnalyzer(BaseDataSourcePostAnalyzer):
     def pet_skin_data(self) -> dict[int, '_SkinItem']:
         data: PetSkinConfig = self._get_data('unity', 'petSkin.json')
         return {skin['id']: skin for skin in data['pet_skins']['skin']}
+
+    @cached_property
+    def pet_skin_reward_data(self) -> dict[int, 'PetSkinRewardtypeInfo']:
+        data: 'PetSkinRewardtypeConfig' = self._get_data(
+            'unity', 'petSkinRewardtype.json'
+        )
+        return {reward['id']: reward for reward in data['data']}
 
     @cached_property
     def skill_activation_data(self) -> dict[int, 'SpMovesItem']:
