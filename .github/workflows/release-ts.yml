@@ -35,10 +35,43 @@ jobs:
           echo "version=$VERSION" >> $GITHUB_OUTPUT
           echo "Tag: $TAG, version=$VERSION, publish=$SHOULD_PUBLISH"
 
-  release:
-    name: Release @seerapi/client
+  generate-schema:
+    name: Generate schema data
     needs: parse-tag
     if: needs.parse-tag.outputs.should_publish == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          version: "latest"
+
+      - name: Set up Python
+        run: uv python install 3.13
+
+      - name: Install dependencies
+        run: uv sync --all-packages
+
+      - name: Generate OpenAPI schema
+        run: uv run solaris analyze openapi --api-url https://api.seerapi.com --api-version v1
+
+      - name: Generate schema-only DB
+        run: uv run python scripts/create_schema_db.py
+
+      - name: Upload schema artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: solaris-schema-data
+          path: |
+            output/v1/openapi.json
+            schema-only.db
+          retention-days: 1
+
+  release:
+    name: Release @seerapi/client
+    needs: [parse-tag, generate-schema]
     runs-on: ubuntu-latest
     environment:
       name: npm
@@ -50,6 +83,11 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+
+      - name: Download schema artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: solaris-schema-data
 
       - uses: pnpm/action-setup@v4
         with:
@@ -77,6 +115,9 @@ jobs:
 
       - name: Build
         working-directory: packages/seerapi-ts
+        env:
+          OPENAPI_INPUT: ${{ github.workspace }}/output/v1/openapi.json
+          DB_FILE_NAME: file:${{ github.workspace }}/schema-only.db
         run: pnpm run build
 
       - name: Publish to npm
