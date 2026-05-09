@@ -315,10 +315,201 @@ API_COMMENTS: dict[type[BaseResModel], APIComment] = {
     M.ElementType: APIComment(
         name_en='element_type',
         name_cn='属性',
-        examples=[{'id': 16, 'name': '圣灵', 'name_en': 'saint', 'hash': '9062249d'}],
+        examples=[
+            {
+                'id': 16,
+                'name': '圣灵',
+                'name_en': 'saint',
+                'relations': [
+                    {
+                        'target_type': {
+                            'id': 1,
+                            'url': 'https://api.seerapi.com/v1/element_type/1',
+                        },
+                        'multiple': 2.0,
+                    },
+                    {
+                        'target_type': {
+                            'id': 2,
+                            'url': 'https://api.seerapi.com/v1/element_type/2',
+                        },
+                        'multiple': 2.0,
+                    },
+                    {
+                        'target_type': {
+                            'id': 3,
+                            'url': 'https://api.seerapi.com/v1/element_type/3',
+                        },
+                        'multiple': 2.0,
+                    },
+                    {
+                        'target_type': {
+                            'id': 4,
+                            'url': 'https://api.seerapi.com/v1/element_type/4',
+                        },
+                        'multiple': 1.0,
+                    },
+                    {
+                        'target_type': {
+                            'id': 5,
+                            'url': 'https://api.seerapi.com/v1/element_type/5',
+                        },
+                        'multiple': 2.0,
+                    },
+                    {
+                        'target_type': {
+                            'id': 6,
+                            'url': 'https://api.seerapi.com/v1/element_type/6',
+                        },
+                        'multiple': 1.0,
+                    },
+                    {
+                        'target_type': {
+                            'id': 7,
+                            'url': 'https://api.seerapi.com/v1/element_type/7',
+                        },
+                        'multiple': 1.0,
+                    },
+                    {
+                        'target_type': {
+                            'id': 8,
+                            'url': 'https://api.seerapi.com/v1/element_type/8',
+                        },
+                        'multiple': 1.0,
+                    },
+                    {
+                        'target_type': {
+                            'id': 9,
+                            'url': 'https://api.seerapi.com/v1/element_type/9',
+                        },
+                        'multiple': 2.0,
+                    },
+                    {
+                        'target_type': {
+                            'id': 10,
+                            'url': 'https://api.seerapi.com/v1/element_type/10',
+                        },
+                        'multiple': 1.0,
+                    },
+                    {
+                        'target_type': {
+                            'id': 11,
+                            'url': 'https://api.seerapi.com/v1/element_type/11',
+                        },
+                        'multiple': 0.5,
+                    },
+                    {
+                        'target_type': {
+                            'id': 12,
+                            'url': 'https://api.seerapi.com/v1/element_type/12',
+                        },
+                        'multiple': 1.0,
+                    },
+                    {
+                        'target_type': {
+                            'id': 13,
+                            'url': 'https://api.seerapi.com/v1/element_type/13',
+                        },
+                        'multiple': 1.0,
+                    },
+                    {
+                        'target_type': {
+                            'id': 14,
+                            'url': 'https://api.seerapi.com/v1/element_type/14',
+                        },
+                        'multiple': 0.5,
+                    },
+                    {
+                        'target_type': {
+                            'id': 15,
+                            'url': 'https://api.seerapi.com/v1/element_type/15',
+                        },
+                        'multiple': 0.5,
+                    },
+                    {
+                        'target_type': {
+                            'id': 16,
+                            'url': 'https://api.seerapi.com/v1/element_type/16',
+                        },
+                        'multiple': 1.0,
+                    },
+                    {
+                        'target_type': {
+                            'id': 17,
+                            'url': 'https://api.seerapi.com/v1/element_type/17',
+                        },
+                        'multiple': 1.0,
+                    },
+                    {
+                        'target_type': {
+                            'id': 18,
+                            'url': 'https://api.seerapi.com/v1/element_type/18',
+                        },
+                        'multiple': 2.0,
+                    },
+                    {
+                        'target_type': {
+                            'id': 19,
+                            'url': 'https://api.seerapi.com/v1/element_type/19',
+                        },
+                        'multiple': 1.0,
+                    },
+                    {
+                        'target_type': {
+                            'id': 20,
+                            'url': 'https://api.seerapi.com/v1/element_type/20',
+                        },
+                        'multiple': 1.0,
+                    },
+                    {
+                        'target_type': {
+                            'id': 221,
+                            'url': 'https://api.seerapi.com/v1/element_type/221',
+                        },
+                        'multiple': 1.0,
+                    },
+                    {
+                        'target_type': {
+                            'id': 222,
+                            'url': 'https://api.seerapi.com/v1/element_type/222',
+                        },
+                        'multiple': 1.0,
+                    },
+                    {
+                        'target_type': {
+                            'id': 223,
+                            'url': 'https://api.seerapi.com/v1/element_type/223',
+                        },
+                        'multiple': 1.0,
+                    },
+                    {
+                        'target_type': {
+                            'id': 224,
+                            'url': 'https://api.seerapi.com/v1/element_type/224',
+                        },
+                        'multiple': 0.5,
+                    },
+                    {
+                        'target_type': {
+                            'id': 225,
+                            'url': 'https://api.seerapi.com/v1/element_type/225',
+                        },
+                        'multiple': 1.0,
+                    },
+                    {
+                        'target_type': {
+                            'id': 226,
+                            'url': 'https://api.seerapi.com/v1/element_type/226',
+                        },
+                        'multiple': 2.0,
+                    },
+                ],
+                'hash': 'd6e790aa',
+            }
+        ],
         tags=['属性'],
-        description='属性资源，该资源仅作为基础资源，保存属性克制关系（TODO）等数据。'
-        '不包含双属性数据，实际使用时请使用 TypeCombination 资源。',
+        description='属性资源，该资源仅作为基础资源，保存属性克制关系等数据。'
+        '本资源仅包含单属性数据，推荐仅用于属性关系计算，如需获取完整属性信息（包括双属性），请优先使用 TypeCombination 资源。',
     ),
     M.TypeCombination: APIComment(
         name_en='element_type_combination',
@@ -1189,12 +1380,18 @@ API_COMMENTS: dict[type[BaseResModel], APIComment] = {
                 'name': '世界之脉·圣灵谱尼',
                 'resource_id': 1400774,
                 'enemy_resource_id': None,
+                'card_price': None,
                 'pet': {'id': 5000, 'url': 'https://api.seerapi.com/v1/pet/5000'},
                 'category': {
                     'id': 19,
                     'url': 'https://api.seerapi.com/v1/pet_skin_category/19',
                 },
-                'hash': '1ba76eb6',
+                'series': {
+                    'id': 13,
+                    'url': 'https://api.seerapi.com/v1/pet_skin_series/13',
+                },
+                'sub_type': None,
+                'hash': '1dca20ae',
             }
         ],
         tags=['皮肤', '精灵'],
@@ -1203,7 +1400,7 @@ API_COMMENTS: dict[type[BaseResModel], APIComment] = {
     ),
     M.PetSkinCategory: APIComment(
         name_en='pet_skin_category',
-        name_cn='精灵皮肤系列',
+        name_cn='精灵皮肤类型',
         examples=[
             {
                 'id': 19,
@@ -1215,7 +1412,191 @@ API_COMMENTS: dict[type[BaseResModel], APIComment] = {
             }
         ],
         tags=['皮肤', '精灵', '分类'],
-        description='精灵皮肤系列，用于分类不同系列的精灵皮肤。由于皮肤分类的名称在游戏内是硬编码的，暂不支持获取。',
+        description='精灵皮肤类型，由于皮肤类型的名称在游戏内是硬编码的，暂不支持获取。',
+    ),
+    M.PetSkinSeries: APIComment(
+        name_en='pet_skin_series',
+        name_cn='精灵皮肤系列',
+        examples=[
+            {
+                'id': 1,
+                'name': '巅峰时装',
+                'skins': [
+                    {'id': 3, 'url': 'https://api.seerapi.com/v1/pet_skin/3'},
+                    {'id': 151, 'url': 'https://api.seerapi.com/v1/pet_skin/151'},
+                    {'id': 159, 'url': 'https://api.seerapi.com/v1/pet_skin/159'},
+                    {'id': 163, 'url': 'https://api.seerapi.com/v1/pet_skin/163'},
+                    {'id': 172, 'url': 'https://api.seerapi.com/v1/pet_skin/172'},
+                    {'id': 182, 'url': 'https://api.seerapi.com/v1/pet_skin/182'},
+                    {'id': 193, 'url': 'https://api.seerapi.com/v1/pet_skin/193'},
+                    {'id': 198, 'url': 'https://api.seerapi.com/v1/pet_skin/198'},
+                    {'id': 201, 'url': 'https://api.seerapi.com/v1/pet_skin/201'},
+                    {'id': 205, 'url': 'https://api.seerapi.com/v1/pet_skin/205'},
+                    {'id': 206, 'url': 'https://api.seerapi.com/v1/pet_skin/206'},
+                    {'id': 208, 'url': 'https://api.seerapi.com/v1/pet_skin/208'},
+                    {'id': 210, 'url': 'https://api.seerapi.com/v1/pet_skin/210'},
+                    {'id': 215, 'url': 'https://api.seerapi.com/v1/pet_skin/215'},
+                    {'id': 218, 'url': 'https://api.seerapi.com/v1/pet_skin/218'},
+                    {'id': 219, 'url': 'https://api.seerapi.com/v1/pet_skin/219'},
+                    {'id': 221, 'url': 'https://api.seerapi.com/v1/pet_skin/221'},
+                    {'id': 225, 'url': 'https://api.seerapi.com/v1/pet_skin/225'},
+                    {'id': 231, 'url': 'https://api.seerapi.com/v1/pet_skin/231'},
+                    {'id': 233, 'url': 'https://api.seerapi.com/v1/pet_skin/233'},
+                    {'id': 235, 'url': 'https://api.seerapi.com/v1/pet_skin/235'},
+                    {'id': 237, 'url': 'https://api.seerapi.com/v1/pet_skin/237'},
+                    {'id': 248, 'url': 'https://api.seerapi.com/v1/pet_skin/248'},
+                    {'id': 251, 'url': 'https://api.seerapi.com/v1/pet_skin/251'},
+                    {'id': 254, 'url': 'https://api.seerapi.com/v1/pet_skin/254'},
+                    {'id': 257, 'url': 'https://api.seerapi.com/v1/pet_skin/257'},
+                    {'id': 269, 'url': 'https://api.seerapi.com/v1/pet_skin/269'},
+                    {'id': 277, 'url': 'https://api.seerapi.com/v1/pet_skin/277'},
+                    {'id': 278, 'url': 'https://api.seerapi.com/v1/pet_skin/278'},
+                    {'id': 284, 'url': 'https://api.seerapi.com/v1/pet_skin/284'},
+                    {'id': 287, 'url': 'https://api.seerapi.com/v1/pet_skin/287'},
+                    {'id': 289, 'url': 'https://api.seerapi.com/v1/pet_skin/289'},
+                    {'id': 292, 'url': 'https://api.seerapi.com/v1/pet_skin/292'},
+                    {'id': 296, 'url': 'https://api.seerapi.com/v1/pet_skin/296'},
+                    {'id': 298, 'url': 'https://api.seerapi.com/v1/pet_skin/298'},
+                    {'id': 300, 'url': 'https://api.seerapi.com/v1/pet_skin/300'},
+                    {'id': 312, 'url': 'https://api.seerapi.com/v1/pet_skin/312'},
+                    {'id': 318, 'url': 'https://api.seerapi.com/v1/pet_skin/318'},
+                    {'id': 325, 'url': 'https://api.seerapi.com/v1/pet_skin/325'},
+                    {'id': 327, 'url': 'https://api.seerapi.com/v1/pet_skin/327'},
+                    {'id': 329, 'url': 'https://api.seerapi.com/v1/pet_skin/329'},
+                    {'id': 330, 'url': 'https://api.seerapi.com/v1/pet_skin/330'},
+                    {'id': 340, 'url': 'https://api.seerapi.com/v1/pet_skin/340'},
+                    {'id': 342, 'url': 'https://api.seerapi.com/v1/pet_skin/342'},
+                    {'id': 346, 'url': 'https://api.seerapi.com/v1/pet_skin/346'},
+                    {'id': 350, 'url': 'https://api.seerapi.com/v1/pet_skin/350'},
+                    {'id': 352, 'url': 'https://api.seerapi.com/v1/pet_skin/352'},
+                    {'id': 356, 'url': 'https://api.seerapi.com/v1/pet_skin/356'},
+                    {'id': 360, 'url': 'https://api.seerapi.com/v1/pet_skin/360'},
+                    {'id': 362, 'url': 'https://api.seerapi.com/v1/pet_skin/362'},
+                    {'id': 366, 'url': 'https://api.seerapi.com/v1/pet_skin/366'},
+                    {'id': 370, 'url': 'https://api.seerapi.com/v1/pet_skin/370'},
+                    {'id': 373, 'url': 'https://api.seerapi.com/v1/pet_skin/373'},
+                    {'id': 375, 'url': 'https://api.seerapi.com/v1/pet_skin/375'},
+                    {'id': 377, 'url': 'https://api.seerapi.com/v1/pet_skin/377'},
+                    {'id': 382, 'url': 'https://api.seerapi.com/v1/pet_skin/382'},
+                    {'id': 385, 'url': 'https://api.seerapi.com/v1/pet_skin/385'},
+                    {'id': 389, 'url': 'https://api.seerapi.com/v1/pet_skin/389'},
+                    {'id': 391, 'url': 'https://api.seerapi.com/v1/pet_skin/391'},
+                    {'id': 397, 'url': 'https://api.seerapi.com/v1/pet_skin/397'},
+                    {'id': 400, 'url': 'https://api.seerapi.com/v1/pet_skin/400'},
+                    {'id': 414, 'url': 'https://api.seerapi.com/v1/pet_skin/414'},
+                    {'id': 419, 'url': 'https://api.seerapi.com/v1/pet_skin/419'},
+                    {'id': 421, 'url': 'https://api.seerapi.com/v1/pet_skin/421'},
+                    {'id': 430, 'url': 'https://api.seerapi.com/v1/pet_skin/430'},
+                    {'id': 437, 'url': 'https://api.seerapi.com/v1/pet_skin/437'},
+                    {'id': 445, 'url': 'https://api.seerapi.com/v1/pet_skin/445'},
+                    {'id': 450, 'url': 'https://api.seerapi.com/v1/pet_skin/450'},
+                    {'id': 454, 'url': 'https://api.seerapi.com/v1/pet_skin/454'},
+                    {'id': 457, 'url': 'https://api.seerapi.com/v1/pet_skin/457'},
+                    {'id': 460, 'url': 'https://api.seerapi.com/v1/pet_skin/460'},
+                    {'id': 477, 'url': 'https://api.seerapi.com/v1/pet_skin/477'},
+                    {'id': 482, 'url': 'https://api.seerapi.com/v1/pet_skin/482'},
+                    {'id': 490, 'url': 'https://api.seerapi.com/v1/pet_skin/490'},
+                    {'id': 496, 'url': 'https://api.seerapi.com/v1/pet_skin/496'},
+                    {'id': 500, 'url': 'https://api.seerapi.com/v1/pet_skin/500'},
+                    {'id': 505, 'url': 'https://api.seerapi.com/v1/pet_skin/505'},
+                    {'id': 514, 'url': 'https://api.seerapi.com/v1/pet_skin/514'},
+                    {'id': 522, 'url': 'https://api.seerapi.com/v1/pet_skin/522'},
+                    {'id': 527, 'url': 'https://api.seerapi.com/v1/pet_skin/527'},
+                    {'id': 532, 'url': 'https://api.seerapi.com/v1/pet_skin/532'},
+                    {'id': 537, 'url': 'https://api.seerapi.com/v1/pet_skin/537'},
+                    {'id': 543, 'url': 'https://api.seerapi.com/v1/pet_skin/543'},
+                    {'id': 554, 'url': 'https://api.seerapi.com/v1/pet_skin/554'},
+                    {'id': 559, 'url': 'https://api.seerapi.com/v1/pet_skin/559'},
+                    {'id': 571, 'url': 'https://api.seerapi.com/v1/pet_skin/571'},
+                    {'id': 572, 'url': 'https://api.seerapi.com/v1/pet_skin/572'},
+                    {'id': 578, 'url': 'https://api.seerapi.com/v1/pet_skin/578'},
+                    {'id': 583, 'url': 'https://api.seerapi.com/v1/pet_skin/583'},
+                    {'id': 587, 'url': 'https://api.seerapi.com/v1/pet_skin/587'},
+                    {'id': 606, 'url': 'https://api.seerapi.com/v1/pet_skin/606'},
+                    {'id': 635, 'url': 'https://api.seerapi.com/v1/pet_skin/635'},
+                    {'id': 661, 'url': 'https://api.seerapi.com/v1/pet_skin/661'},
+                    {'id': 685, 'url': 'https://api.seerapi.com/v1/pet_skin/685'},
+                    {'id': 711, 'url': 'https://api.seerapi.com/v1/pet_skin/711'},
+                    {'id': 741, 'url': 'https://api.seerapi.com/v1/pet_skin/741'},
+                    {'id': 763, 'url': 'https://api.seerapi.com/v1/pet_skin/763'},
+                    {'id': 789, 'url': 'https://api.seerapi.com/v1/pet_skin/789'},
+                    {'id': 824, 'url': 'https://api.seerapi.com/v1/pet_skin/824'},
+                ],
+                'sub_types': [
+                    {
+                        'id': 1001,
+                        'url': 'https://api.seerapi.com/v1/pet_skin_series_sub_type/1001',
+                    },
+                    {
+                        'id': 1002,
+                        'url': 'https://api.seerapi.com/v1/pet_skin_series_sub_type/1002',
+                    },
+                    {
+                        'id': 1003,
+                        'url': 'https://api.seerapi.com/v1/pet_skin_series_sub_type/1003',
+                    },
+                    {
+                        'id': 1004,
+                        'url': 'https://api.seerapi.com/v1/pet_skin_series_sub_type/1004',
+                    },
+                    {
+                        'id': 1005,
+                        'url': 'https://api.seerapi.com/v1/pet_skin_series_sub_type/1005',
+                    },
+                    {
+                        'id': 1006,
+                        'url': 'https://api.seerapi.com/v1/pet_skin_series_sub_type/1006',
+                    },
+                    {
+                        'id': 1007,
+                        'url': 'https://api.seerapi.com/v1/pet_skin_series_sub_type/1007',
+                    },
+                    {
+                        'id': 1008,
+                        'url': 'https://api.seerapi.com/v1/pet_skin_series_sub_type/1008',
+                    },
+                    {
+                        'id': 1009,
+                        'url': 'https://api.seerapi.com/v1/pet_skin_series_sub_type/1009',
+                    },
+                    {
+                        'id': 1010,
+                        'url': 'https://api.seerapi.com/v1/pet_skin_series_sub_type/1010',
+                    },
+                    {
+                        'id': 1011,
+                        'url': 'https://api.seerapi.com/v1/pet_skin_series_sub_type/1011',
+                    },
+                ],
+                'hash': 'c2b3a350',
+            }
+        ],
+        tags=['皮肤', '精灵', '分类'],
+        description='精灵皮肤系列，该资源对应Unity端皮肤图鉴中的系列信息。',
+    ),
+    M.PetSkinSeriesSubType: APIComment(
+        name_en='pet_skin_series_sub_type',
+        name_cn='精灵皮肤系列子类型',
+        examples=[
+            {
+                'id': 1001,
+                'name': '2016',
+                'series': {
+                    'id': 1,
+                    'url': 'https://api.seerapi.com/v1/pet_skin_series/1',
+                },
+                'skins': [
+                    {'id': 3, 'url': 'https://api.seerapi.com/v1/pet_skin/3'},
+                    {'id': 151, 'url': 'https://api.seerapi.com/v1/pet_skin/151'},
+                    {'id': 159, 'url': 'https://api.seerapi.com/v1/pet_skin/159'},
+                    {'id': 163, 'url': 'https://api.seerapi.com/v1/pet_skin/163'},
+                    {'id': 172, 'url': 'https://api.seerapi.com/v1/pet_skin/172'},
+                ],
+                'hash': 'ef9e1137',
+            }
+        ],
+        tags=['皮肤', '精灵', '分类'],
+        description='精灵皮肤系列子类型，该资源对应Unity端皮肤图鉴中的系列子类型信息（例如巅峰战姬-2016）。',
     ),
     M.Soulmark: APIComment(
         name_en='soulmark',
