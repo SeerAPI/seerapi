@@ -246,6 +246,11 @@ export const petMountType = sqliteTable("pet_mount_type", {
 	description: text().notNull(),
 });
 
+export const petSkinSeries = sqliteTable("pet_skin_series", {
+	id: integer().primaryKey(),
+	name: text().notNull(),
+});
+
 export const petSkinCategory = sqliteTable("pet_skin_category", {
 	id: integer().primaryKey(),
 });
@@ -417,6 +422,14 @@ export const battleeffectcategorylink = sqliteTable("battleeffectcategorylink", 
 (table) => [primaryKey({ columns: [table.battleEffectId, table.typeId], name: "battleeffectcategorylink_pk"}),
 ]);
 
+export const elementtyperelationorm = sqliteTable("elementtyperelationorm", {
+	sourceId: integer("source_id").notNull().references(() => elementType.id),
+	targetId: integer("target_id").notNull().references(() => elementType.id),
+	multiple: real().notNull(),
+},
+(table) => [primaryKey({ columns: [table.sourceId, table.targetId], name: "elementtyperelationorm_pk"}),
+]);
+
 export const elementTypeCombination = sqliteTable("element_type_combination", {
 	id: integer().primaryKey(),
 	name: text().notNull(),
@@ -454,13 +467,10 @@ export const gemCategory = sqliteTable("gem_category", {
 	generationId: integer("generation_id").notNull().references(() => gemGenerationCategory.id),
 });
 
-export const petSkin = sqliteTable("pet_skin", {
+export const petSkinSeriesSubType = sqliteTable("pet_skin_series_sub_type", {
 	id: integer().primaryKey(),
 	name: text().notNull(),
-	resourceId: integer("resource_id").notNull(),
-	enemyResourceId: integer("enemy_resource_id"),
-	petId: integer("pet_id").notNull().references(() => pet.id),
-	categoryId: integer("category_id").notNull().references(() => petSkinCategory.id),
+	seriesId: integer("series_id").notNull().references(() => petSkinSeries.id),
 });
 
 export const petEncyclopediaEntry = sqliteTable("pet_encyclopedia_entry", {
@@ -577,6 +587,18 @@ export const gem = sqliteTable("gem", {
 	nextLevelGemId: integer("next_level_gem_id").references((): AnySQLiteColumn => gem.id),
 	categoryId: integer("category_id").notNull().references(() => gemCategory.id),
 	skillEffectInUseId: integer("skill_effect_in_use_id").references(() => skillEffectInUse.id),
+});
+
+export const petSkin = sqliteTable("pet_skin", {
+	id: integer().primaryKey(),
+	name: text().notNull(),
+	resourceId: integer("resource_id").notNull(),
+	enemyResourceId: integer("enemy_resource_id"),
+	cardPrice: integer("card_price"),
+	petId: integer("pet_id").notNull().references(() => pet.id),
+	categoryId: integer("category_id").notNull().references(() => petSkinCategory.id),
+	seriesId: integer("series_id").references(() => petSkinSeries.id),
+	subTypeId: integer("sub_type_id").references(() => petSkinSeriesSubType.id),
 });
 
 export const soulmark = sqliteTable("soulmark", {

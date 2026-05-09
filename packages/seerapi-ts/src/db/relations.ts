@@ -70,9 +70,9 @@ export const relations = defineRelations(schema, (r) => ({
 			to: r.elementTypeCombination.id
 		}),
 		glossaryEntries: r.many.glossaryEntry(),
-		petSkinCategories: r.many.petSkinCategory(),
 		petEncyclopediaEntries: r.many.petEncyclopediaEntry(),
 		petArchiveStoryBooks: r.many.petArchiveStoryBook(),
+		petSkins: r.many.petSkin(),
 		mintmarks: r.many.mintmark(),
 		suitBonuses: r.many.suitBonus(),
 		soulmarksViaPetAdvance: r.many.soulmark({
@@ -234,11 +234,16 @@ export const relations = defineRelations(schema, (r) => ({
 		gemCategories: r.many.gemCategory(),
 		gems: r.many.gem(),
 	},
-	petSkinCategory: {
-		pets: r.many.pet({
-			from: r.petSkinCategory.id.through(r.petSkin.categoryId),
-			to: r.pet.id.through(r.petSkin.petId)
+	petSkinSeriesSubType: {
+		petSkinSery: r.one.petSkinSeries({
+			from: r.petSkinSeriesSubType.seriesId,
+			to: r.petSkinSeries.id
 		}),
+		petSkins: r.many.petSkin(),
+	},
+	petSkinSeries: {
+		petSkinSeriesSubTypes: r.many.petSkinSeriesSubType(),
+		petSkins: r.many.petSkin(),
 	},
 	petEncyclopediaEntry: {
 		pet: r.one.pet({
@@ -382,6 +387,27 @@ export const relations = defineRelations(schema, (r) => ({
 		}),
 		gemGen1Parts: r.many.gemGen1Part(),
 		gemGen2Parts: r.many.gemGen2Part(),
+	},
+	petSkin: {
+		petSkinSeriesSubType: r.one.petSkinSeriesSubType({
+			from: r.petSkin.subTypeId,
+			to: r.petSkinSeriesSubType.id
+		}),
+		petSkinSery: r.one.petSkinSeries({
+			from: r.petSkin.seriesId,
+			to: r.petSkinSeries.id
+		}),
+		petSkinCategory: r.one.petSkinCategory({
+			from: r.petSkin.categoryId,
+			to: r.petSkinCategory.id
+		}),
+		pet: r.one.pet({
+			from: r.petSkin.petId,
+			to: r.pet.id
+		}),
+	},
+	petSkinCategory: {
+		petSkins: r.many.petSkin(),
 	},
 	soulmark: {
 		eidEffectInUses: r.many.eidEffectInUse({

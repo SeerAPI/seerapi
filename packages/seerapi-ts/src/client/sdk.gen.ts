@@ -3,9 +3,9 @@
 import { client } from './client.gen.js';
 import type { Client, Options as Options2, TDataShape } from './client/index.js';
 import { getPeakExpertPoolByIdResponseTransformer, getPeakPoolByIdResponseTransformer, getPeakPoolVoteByIdResponseTransformer, getPeakSeasonByIdResponseTransformer } from './transformers.gen.js';
-import type { GetAbilityMintmarkByIdData, GetAbilityMintmarkByIdResponses, GetAbilityMintmarkByNameData, GetAbilityMintmarkByNameResponses, GetAbilityMintmarkListData, GetAbilityMintmarkListResponses, GetAchievementBranchByIdData, GetAchievementBranchByIdResponses, GetAchievementBranchByNameData, GetAchievementBranchByNameResponses, GetAchievementBranchListData, GetAchievementBranchListResponses, GetAchievementByIdData, GetAchievementByIdResponses, GetAchievementByNameData, GetAchievementByNameResponses, GetAchievementCategoryByIdData, GetAchievementCategoryByIdResponses, GetAchievementCategoryByNameData, GetAchievementCategoryByNameResponses, GetAchievementCategoryListData, GetAchievementCategoryListResponses, GetAchievementListData, GetAchievementListResponses, GetAchievementTypeByIdData, GetAchievementTypeByIdResponses, GetAchievementTypeByNameData, GetAchievementTypeByNameResponses, GetAchievementTypeListData, GetAchievementTypeListResponses, GetAvatarFrameByIdData, GetAvatarFrameByIdResponses, GetAvatarFrameByNameData, GetAvatarFrameByNameResponses, GetAvatarFrameListData, GetAvatarFrameListResponses, GetAvatarHeadByIdData, GetAvatarHeadByIdResponses, GetAvatarHeadByNameData, GetAvatarHeadByNameResponses, GetAvatarHeadListData, GetAvatarHeadListResponses, GetBattleEffectByIdData, GetBattleEffectByIdResponses, GetBattleEffectByNameData, GetBattleEffectByNameResponses, GetBattleEffectListData, GetBattleEffectListResponses, GetBattleEffectTypeByIdData, GetBattleEffectTypeByIdResponses, GetBattleEffectTypeByNameData, GetBattleEffectTypeByNameResponses, GetBattleEffectTypeListData, GetBattleEffectTypeListResponses, GetEidEffectByIdData, GetEidEffectByIdResponses, GetEidEffectListData, GetEidEffectListResponses, GetElementTypeByIdData, GetElementTypeByIdResponses, GetElementTypeByNameData, GetElementTypeByNameResponses, GetElementTypeCombinationByIdData, GetElementTypeCombinationByIdResponses, GetElementTypeCombinationByNameData, GetElementTypeCombinationByNameResponses, GetElementTypeCombinationListData, GetElementTypeCombinationListResponses, GetElementTypeListData, GetElementTypeListResponses, GetEnergyBeadByIdData, GetEnergyBeadByIdResponses, GetEnergyBeadByNameData, GetEnergyBeadByNameResponses, GetEnergyBeadListData, GetEnergyBeadListResponses, GetEquipByIdData, GetEquipByIdResponses, GetEquipByNameData, GetEquipByNameResponses, GetEquipEffectiveOccasionByIdData, GetEquipEffectiveOccasionByIdResponses, GetEquipEffectiveOccasionListData, GetEquipEffectiveOccasionListResponses, GetEquipListData, GetEquipListResponses, GetEquipTypeByIdData, GetEquipTypeByIdResponses, GetEquipTypeByNameData, GetEquipTypeByNameResponses, GetEquipTypeListData, GetEquipTypeListResponses, GetErrorCodeByIdData, GetErrorCodeByIdResponses, GetErrorCodeByNameData, GetErrorCodeByNameResponses, GetErrorCodeListData, GetErrorCodeListResponses, GetGemByIdData, GetGemByIdResponses, GetGemByNameData, GetGemByNameResponses, GetGemCategoryByIdData, GetGemCategoryByIdResponses, GetGemCategoryByNameData, GetGemCategoryByNameResponses, GetGemCategoryListData, GetGemCategoryListResponses, GetGemGen1ByIdData, GetGemGen1ByIdResponses, GetGemGen1ByNameData, GetGemGen1ByNameResponses, GetGemGen1ListData, GetGemGen1ListResponses, GetGemGen2ByIdData, GetGemGen2ByIdResponses, GetGemGen2ByNameData, GetGemGen2ByNameResponses, GetGemGen2ListData, GetGemGen2ListResponses, GetGemGenerationCategoryByIdData, GetGemGenerationCategoryByIdResponses, GetGemGenerationCategoryListData, GetGemGenerationCategoryListResponses, GetGemListData, GetGemListResponses, GetGlossaryEntryByIdData, GetGlossaryEntryByIdResponses, GetGlossaryEntryByNameData, GetGlossaryEntryByNameResponses, GetGlossaryEntryListData, GetGlossaryEntryListResponses, GetHomepageBackgroundByIdData, GetHomepageBackgroundByIdResponses, GetHomepageBackgroundByNameData, GetHomepageBackgroundByNameResponses, GetHomepageBackgroundListData, GetHomepageBackgroundListResponses, GetMintmarkByIdData, GetMintmarkByIdResponses, GetMintmarkByNameData, GetMintmarkByNameResponses, GetMintmarkClassByIdData, GetMintmarkClassByIdResponses, GetMintmarkClassByNameData, GetMintmarkClassByNameResponses, GetMintmarkClassListData, GetMintmarkClassListResponses, GetMintmarkListData, GetMintmarkListResponses, GetMintmarkRarityByIdData, GetMintmarkRarityByIdResponses, GetMintmarkRarityListData, GetMintmarkRarityListResponses, GetMintmarkTypeByIdData, GetMintmarkTypeByIdResponses, GetMintmarkTypeByNameData, GetMintmarkTypeByNameResponses, GetMintmarkTypeListData, GetMintmarkTypeListResponses, GetNamecardBackgroundByIdData, GetNamecardBackgroundByIdResponses, GetNamecardBackgroundByNameData, GetNamecardBackgroundByNameResponses, GetNamecardBackgroundListData, GetNamecardBackgroundListResponses, GetNatureByIdData, GetNatureByIdResponses, GetNatureByNameData, GetNatureByNameResponses, GetNatureListData, GetNatureListResponses, GetNicknameBackgroundByIdData, GetNicknameBackgroundByIdResponses, GetNicknameBackgroundByNameData, GetNicknameBackgroundByNameResponses, GetNicknameBackgroundListData, GetNicknameBackgroundListResponses, GetPeakExpertPoolByIdData, GetPeakExpertPoolByIdResponses, GetPeakExpertPoolListData, GetPeakExpertPoolListResponses, GetPeakPoolByIdData, GetPeakPoolByIdResponses, GetPeakPoolListData, GetPeakPoolListResponses, GetPeakPoolVoteByIdData, GetPeakPoolVoteByIdResponses, GetPeakPoolVoteListData, GetPeakPoolVoteListResponses, GetPeakSeasonByIdData, GetPeakSeasonByIdResponses, GetPeakSeasonListData, GetPeakSeasonListResponses, GetPetAdvanceByIdData, GetPetAdvanceByIdResponses, GetPetAdvanceListData, GetPetAdvanceListResponses, GetPetArchiveStoryBookByIdData, GetPetArchiveStoryBookByIdResponses, GetPetArchiveStoryBookByNameData, GetPetArchiveStoryBookByNameResponses, GetPetArchiveStoryBookListData, GetPetArchiveStoryBookListResponses, GetPetByIdData, GetPetByIdResponses, GetPetByNameData, GetPetByNameResponses, GetPetClassByIdData, GetPetClassByIdResponses, GetPetClassListData, GetPetClassListResponses, GetPetEffectByIdData, GetPetEffectByIdResponses, GetPetEffectByNameData, GetPetEffectByNameResponses, GetPetEffectGroupByIdData, GetPetEffectGroupByIdResponses, GetPetEffectGroupByNameData, GetPetEffectGroupByNameResponses, GetPetEffectGroupListData, GetPetEffectGroupListResponses, GetPetEffectListData, GetPetEffectListResponses, GetPetEncyclopediaEntryByIdData, GetPetEncyclopediaEntryByIdResponses, GetPetEncyclopediaEntryByNameData, GetPetEncyclopediaEntryByNameResponses, GetPetEncyclopediaEntryListData, GetPetEncyclopediaEntryListResponses, GetPetGenderByIdData, GetPetGenderByIdResponses, GetPetGenderByNameData, GetPetGenderByNameResponses, GetPetGenderListData, GetPetGenderListResponses, GetPetListData, GetPetListResponses, GetPetMountTypeByIdData, GetPetMountTypeByIdResponses, GetPetMountTypeByNameData, GetPetMountTypeByNameResponses, GetPetMountTypeListData, GetPetMountTypeListResponses, GetPetSkinByIdData, GetPetSkinByIdResponses, GetPetSkinByNameData, GetPetSkinByNameResponses, GetPetSkinCategoryByIdData, GetPetSkinCategoryByIdResponses, GetPetSkinCategoryListData, GetPetSkinCategoryListResponses, GetPetSkinListData, GetPetSkinListResponses, GetPetVariationByIdData, GetPetVariationByIdResponses, GetPetVariationByNameData, GetPetVariationByNameResponses, GetPetVariationListData, GetPetVariationListResponses, GetPetVipbuffByIdData, GetPetVipbuffByIdResponses, GetPetVipbuffByNameData, GetPetVipbuffByNameResponses, GetPetVipbuffListData, GetPetVipbuffListResponses, GetSkillActivationItemByIdData, GetSkillActivationItemByIdResponses, GetSkillActivationItemByNameData, GetSkillActivationItemByNameResponses, GetSkillActivationItemListData, GetSkillActivationItemListResponses, GetSkillByIdData, GetSkillByIdResponses, GetSkillByNameData, GetSkillByNameResponses, GetSkillCategoryByIdData, GetSkillCategoryByIdResponses, GetSkillCategoryByNameData, GetSkillCategoryByNameResponses, GetSkillCategoryListData, GetSkillCategoryListResponses, GetSkillEffectParamByIdData, GetSkillEffectParamByIdResponses, GetSkillEffectParamListData, GetSkillEffectParamListResponses, GetSkillEffectTypeByIdData, GetSkillEffectTypeByIdResponses, GetSkillEffectTypeListData, GetSkillEffectTypeListResponses, GetSkillEffectTypeTagByIdData, GetSkillEffectTypeTagByIdResponses, GetSkillEffectTypeTagByNameData, GetSkillEffectTypeTagByNameResponses, GetSkillEffectTypeTagListData, GetSkillEffectTypeTagListResponses, GetSkillHideEffectByIdData, GetSkillHideEffectByIdResponses, GetSkillHideEffectByNameData, GetSkillHideEffectByNameResponses, GetSkillHideEffectListData, GetSkillHideEffectListResponses, GetSkillListData, GetSkillListResponses, GetSkillMintmarkByIdData, GetSkillMintmarkByIdResponses, GetSkillMintmarkByNameData, GetSkillMintmarkByNameResponses, GetSkillMintmarkListData, GetSkillMintmarkListResponses, GetSkillStoneByIdData, GetSkillStoneByIdResponses, GetSkillStoneByNameData, GetSkillStoneByNameResponses, GetSkillStoneCategoryByIdData, GetSkillStoneCategoryByIdResponses, GetSkillStoneCategoryByNameData, GetSkillStoneCategoryByNameResponses, GetSkillStoneCategoryListData, GetSkillStoneCategoryListResponses, GetSkillStoneListData, GetSkillStoneListResponses, GetSoulmarkByIdData, GetSoulmarkByIdResponses, GetSoulmarkByNameData, GetSoulmarkByNameResponses, GetSoulmarkListData, GetSoulmarkListResponses, GetSoulmarkTagByIdData, GetSoulmarkTagByIdResponses, GetSoulmarkTagByNameData, GetSoulmarkTagByNameResponses, GetSoulmarkTagListData, GetSoulmarkTagListResponses, GetSuitByIdData, GetSuitByIdResponses, GetSuitByNameData, GetSuitByNameResponses, GetSuitListData, GetSuitListResponses, GetTitleByIdData, GetTitleByIdResponses, GetTitleByNameData, GetTitleByNameResponses, GetTitleListData, GetTitleListResponses, GetUniversalMintmarkByIdData, GetUniversalMintmarkByIdResponses, GetUniversalMintmarkByNameData, GetUniversalMintmarkByNameResponses, GetUniversalMintmarkListData, GetUniversalMintmarkListResponses } from './types.gen.js';
+import type { GetAbilityMintmarkByIdData, GetAbilityMintmarkByIdResponses, GetAbilityMintmarkListData, GetAbilityMintmarkListResponses, GetAchievementBranchByIdData, GetAchievementBranchByIdResponses, GetAchievementBranchListData, GetAchievementBranchListResponses, GetAchievementByIdData, GetAchievementByIdResponses, GetAchievementCategoryByIdData, GetAchievementCategoryByIdResponses, GetAchievementCategoryListData, GetAchievementCategoryListResponses, GetAchievementListData, GetAchievementListResponses, GetAchievementTypeByIdData, GetAchievementTypeByIdResponses, GetAchievementTypeListData, GetAchievementTypeListResponses, GetAvatarFrameByIdData, GetAvatarFrameByIdResponses, GetAvatarFrameListData, GetAvatarFrameListResponses, GetAvatarHeadByIdData, GetAvatarHeadByIdResponses, GetAvatarHeadListData, GetAvatarHeadListResponses, GetBattleEffectByIdData, GetBattleEffectByIdResponses, GetBattleEffectListData, GetBattleEffectListResponses, GetBattleEffectTypeByIdData, GetBattleEffectTypeByIdResponses, GetBattleEffectTypeListData, GetBattleEffectTypeListResponses, GetEidEffectByIdData, GetEidEffectByIdResponses, GetEidEffectListData, GetEidEffectListResponses, GetElementTypeByIdData, GetElementTypeByIdResponses, GetElementTypeCombinationByIdData, GetElementTypeCombinationByIdResponses, GetElementTypeCombinationListData, GetElementTypeCombinationListResponses, GetElementTypeListData, GetElementTypeListResponses, GetEnergyBeadByIdData, GetEnergyBeadByIdResponses, GetEnergyBeadListData, GetEnergyBeadListResponses, GetEquipByIdData, GetEquipByIdResponses, GetEquipEffectiveOccasionByIdData, GetEquipEffectiveOccasionByIdResponses, GetEquipEffectiveOccasionListData, GetEquipEffectiveOccasionListResponses, GetEquipListData, GetEquipListResponses, GetEquipTypeByIdData, GetEquipTypeByIdResponses, GetEquipTypeListData, GetEquipTypeListResponses, GetErrorCodeByIdData, GetErrorCodeByIdResponses, GetErrorCodeListData, GetErrorCodeListResponses, GetGemByIdData, GetGemByIdResponses, GetGemCategoryByIdData, GetGemCategoryByIdResponses, GetGemCategoryListData, GetGemCategoryListResponses, GetGemGen1ByIdData, GetGemGen1ByIdResponses, GetGemGen1ListData, GetGemGen1ListResponses, GetGemGen2ByIdData, GetGemGen2ByIdResponses, GetGemGen2ListData, GetGemGen2ListResponses, GetGemGenerationCategoryByIdData, GetGemGenerationCategoryByIdResponses, GetGemGenerationCategoryListData, GetGemGenerationCategoryListResponses, GetGemListData, GetGemListResponses, GetGlossaryEntryByIdData, GetGlossaryEntryByIdResponses, GetGlossaryEntryListData, GetGlossaryEntryListResponses, GetHomepageBackgroundByIdData, GetHomepageBackgroundByIdResponses, GetHomepageBackgroundListData, GetHomepageBackgroundListResponses, GetMintmarkByIdData, GetMintmarkByIdResponses, GetMintmarkClassByIdData, GetMintmarkClassByIdResponses, GetMintmarkClassListData, GetMintmarkClassListResponses, GetMintmarkListData, GetMintmarkListResponses, GetMintmarkRarityByIdData, GetMintmarkRarityByIdResponses, GetMintmarkRarityListData, GetMintmarkRarityListResponses, GetMintmarkTypeByIdData, GetMintmarkTypeByIdResponses, GetMintmarkTypeListData, GetMintmarkTypeListResponses, GetNamecardBackgroundByIdData, GetNamecardBackgroundByIdResponses, GetNamecardBackgroundListData, GetNamecardBackgroundListResponses, GetNatureByIdData, GetNatureByIdResponses, GetNatureListData, GetNatureListResponses, GetNicknameBackgroundByIdData, GetNicknameBackgroundByIdResponses, GetNicknameBackgroundListData, GetNicknameBackgroundListResponses, GetPeakExpertPoolByIdData, GetPeakExpertPoolByIdResponses, GetPeakExpertPoolListData, GetPeakExpertPoolListResponses, GetPeakPoolByIdData, GetPeakPoolByIdResponses, GetPeakPoolListData, GetPeakPoolListResponses, GetPeakPoolVoteByIdData, GetPeakPoolVoteByIdResponses, GetPeakPoolVoteListData, GetPeakPoolVoteListResponses, GetPeakSeasonByIdData, GetPeakSeasonByIdResponses, GetPeakSeasonListData, GetPeakSeasonListResponses, GetPetAdvanceByIdData, GetPetAdvanceByIdResponses, GetPetAdvanceListData, GetPetAdvanceListResponses, GetPetArchiveStoryBookByIdData, GetPetArchiveStoryBookByIdResponses, GetPetArchiveStoryBookListData, GetPetArchiveStoryBookListResponses, GetPetByIdData, GetPetByIdResponses, GetPetClassByIdData, GetPetClassByIdResponses, GetPetClassListData, GetPetClassListResponses, GetPetEffectByIdData, GetPetEffectByIdResponses, GetPetEffectGroupByIdData, GetPetEffectGroupByIdResponses, GetPetEffectGroupListData, GetPetEffectGroupListResponses, GetPetEffectListData, GetPetEffectListResponses, GetPetEncyclopediaEntryByIdData, GetPetEncyclopediaEntryByIdResponses, GetPetEncyclopediaEntryListData, GetPetEncyclopediaEntryListResponses, GetPetGenderByIdData, GetPetGenderByIdResponses, GetPetGenderListData, GetPetGenderListResponses, GetPetListData, GetPetListResponses, GetPetMountTypeByIdData, GetPetMountTypeByIdResponses, GetPetMountTypeListData, GetPetMountTypeListResponses, GetPetSkinByIdData, GetPetSkinByIdResponses, GetPetSkinCategoryByIdData, GetPetSkinCategoryByIdResponses, GetPetSkinCategoryListData, GetPetSkinCategoryListResponses, GetPetSkinListData, GetPetSkinListResponses, GetPetSkinSeriesByIdData, GetPetSkinSeriesByIdResponses, GetPetSkinSeriesListData, GetPetSkinSeriesListResponses, GetPetSkinSeriesSubTypeByIdData, GetPetSkinSeriesSubTypeByIdResponses, GetPetSkinSeriesSubTypeListData, GetPetSkinSeriesSubTypeListResponses, GetPetVariationByIdData, GetPetVariationByIdResponses, GetPetVariationListData, GetPetVariationListResponses, GetPetVipbuffByIdData, GetPetVipbuffByIdResponses, GetPetVipbuffListData, GetPetVipbuffListResponses, GetSkillActivationItemByIdData, GetSkillActivationItemByIdResponses, GetSkillActivationItemListData, GetSkillActivationItemListResponses, GetSkillByIdData, GetSkillByIdResponses, GetSkillCategoryByIdData, GetSkillCategoryByIdResponses, GetSkillCategoryListData, GetSkillCategoryListResponses, GetSkillEffectParamByIdData, GetSkillEffectParamByIdResponses, GetSkillEffectParamListData, GetSkillEffectParamListResponses, GetSkillEffectTypeByIdData, GetSkillEffectTypeByIdResponses, GetSkillEffectTypeListData, GetSkillEffectTypeListResponses, GetSkillEffectTypeTagByIdData, GetSkillEffectTypeTagByIdResponses, GetSkillEffectTypeTagListData, GetSkillEffectTypeTagListResponses, GetSkillHideEffectByIdData, GetSkillHideEffectByIdResponses, GetSkillHideEffectListData, GetSkillHideEffectListResponses, GetSkillListData, GetSkillListResponses, GetSkillMintmarkByIdData, GetSkillMintmarkByIdResponses, GetSkillMintmarkListData, GetSkillMintmarkListResponses, GetSkillStoneByIdData, GetSkillStoneByIdResponses, GetSkillStoneCategoryByIdData, GetSkillStoneCategoryByIdResponses, GetSkillStoneCategoryListData, GetSkillStoneCategoryListResponses, GetSkillStoneListData, GetSkillStoneListResponses, GetSoulmarkByIdData, GetSoulmarkByIdResponses, GetSoulmarkListData, GetSoulmarkListResponses, GetSoulmarkTagByIdData, GetSoulmarkTagByIdResponses, GetSoulmarkTagListData, GetSoulmarkTagListResponses, GetSuitByIdData, GetSuitByIdResponses, GetSuitListData, GetSuitListResponses, GetTitleByIdData, GetTitleByIdResponses, GetTitleListData, GetTitleListResponses, GetUniversalMintmarkByIdData, GetUniversalMintmarkByIdResponses, GetUniversalMintmarkListData, GetUniversalMintmarkListResponses } from './types.gen.js';
 
-export type Options<TData extends TDataShape = TDataShape, ThrowOnError extends boolean = boolean> = Options2<TData, ThrowOnError> & {
+export type Options<TData extends TDataShape = TDataShape, ThrowOnError extends boolean = boolean, TResponse = unknown> = Options2<TData, ThrowOnError, TResponse> & {
     /**
      * You can provide a client instance returned by `createClient()` instead of
      * individual options. This might be also useful if you want to implement a
@@ -27,17 +27,6 @@ export type Options<TData extends TDataShape = TDataShape, ThrowOnError extends 
 export const getAchievementById = <ThrowOnError extends boolean = false>(options: Options<GetAchievementByIdData, ThrowOnError>) => (options.client ?? client).get<GetAchievementByIdResponses, unknown, ThrowOnError>({
     responseType: 'json',
     url: 'v1/achievement/{id}',
-    ...options
-});
-
-/**
- * 通过名称获取成就资源
- *
- * 成就资源。该模型同时集成了具有能力加成的成就称号数据，通过is_ability_bonus字段区分。<br>**注意**：该资源的ID字段是通过计算得出的，因为游戏内数据中没有提供ID。<br>计算公式为：`(类型ID + 1) * 1000000 + 分支ID * 1000 + 成就ID`
- */
-export const getAchievementByName = <ThrowOnError extends boolean = false>(options: Options<GetAchievementByNameData, ThrowOnError>) => (options.client ?? client).get<GetAchievementByNameResponses, unknown, ThrowOnError>({
-    responseType: 'json',
-    url: 'v1/achievement/{name}',
     ...options
 });
 
@@ -64,17 +53,6 @@ export const getAchievementBranchById = <ThrowOnError extends boolean = false>(o
 });
 
 /**
- * 通过名称获取成就分支资源
- *
- * 成就嵌套结构的中间层，没什么实际意义，仅用于还原游戏内数据结构。
- */
-export const getAchievementBranchByName = <ThrowOnError extends boolean = false>(options: Options<GetAchievementBranchByNameData, ThrowOnError>) => (options.client ?? client).get<GetAchievementBranchByNameResponses, unknown, ThrowOnError>({
-    responseType: 'json',
-    url: 'v1/achievement_branch/{name}',
-    ...options
-});
-
-/**
  * 获取成就分支资源列表
  *
  * 成就嵌套结构的中间层，没什么实际意义，仅用于还原游戏内数据结构。
@@ -93,17 +71,6 @@ export const getAchievementBranchList = <ThrowOnError extends boolean = false>(o
 export const getAchievementTypeById = <ThrowOnError extends boolean = false>(options: Options<GetAchievementTypeByIdData, ThrowOnError>) => (options.client ?? client).get<GetAchievementTypeByIdResponses, unknown, ThrowOnError>({
     responseType: 'json',
     url: 'v1/achievement_type/{id}',
-    ...options
-});
-
-/**
- * 通过名称获取成就类型资源
- *
- * 成就类型分类。
- */
-export const getAchievementTypeByName = <ThrowOnError extends boolean = false>(options: Options<GetAchievementTypeByNameData, ThrowOnError>) => (options.client ?? client).get<GetAchievementTypeByNameResponses, unknown, ThrowOnError>({
-    responseType: 'json',
-    url: 'v1/achievement_type/{name}',
     ...options
 });
 
@@ -130,17 +97,6 @@ export const getAchievementCategoryById = <ThrowOnError extends boolean = false>
 });
 
 /**
- * 通过名称获取成就分类资源
- *
- * 成就分类，目前只有一个隐藏成就的分类。
- */
-export const getAchievementCategoryByName = <ThrowOnError extends boolean = false>(options: Options<GetAchievementCategoryByNameData, ThrowOnError>) => (options.client ?? client).get<GetAchievementCategoryByNameResponses, unknown, ThrowOnError>({
-    responseType: 'json',
-    url: 'v1/achievement_category/{name}',
-    ...options
-});
-
-/**
  * 获取成就分类资源列表
  *
  * 成就分类，目前只有一个隐藏成就的分类。
@@ -159,17 +115,6 @@ export const getAchievementCategoryList = <ThrowOnError extends boolean = false>
 export const getTitleById = <ThrowOnError extends boolean = false>(options: Options<GetTitleByIdData, ThrowOnError>) => (options.client ?? client).get<GetTitleByIdResponses, unknown, ThrowOnError>({
     responseType: 'json',
     url: 'v1/title/{id}',
-    ...options
-});
-
-/**
- * 通过名称获取成就称号资源
- *
- * 成就称号资源，包含具有能力加成的成就称号数据。
- */
-export const getTitleByName = <ThrowOnError extends boolean = false>(options: Options<GetTitleByNameData, ThrowOnError>) => (options.client ?? client).get<GetTitleByNameResponses, unknown, ThrowOnError>({
-    responseType: 'json',
-    url: 'v1/title/{name}',
     ...options
 });
 
@@ -196,17 +141,6 @@ export const getBattleEffectById = <ThrowOnError extends boolean = false>(option
 });
 
 /**
- * 通过名称获取状态资源
- *
- * 战斗状态资源，包含所有战斗状态（也就是异常状态）数据。
- */
-export const getBattleEffectByName = <ThrowOnError extends boolean = false>(options: Options<GetBattleEffectByNameData, ThrowOnError>) => (options.client ?? client).get<GetBattleEffectByNameResponses, unknown, ThrowOnError>({
-    responseType: 'json',
-    url: 'v1/battle_effect/{name}',
-    ...options
-});
-
-/**
  * 获取状态资源列表
  *
  * 战斗状态资源，包含所有战斗状态（也就是异常状态）数据。
@@ -225,17 +159,6 @@ export const getBattleEffectList = <ThrowOnError extends boolean = false>(option
 export const getBattleEffectTypeById = <ThrowOnError extends boolean = false>(options: Options<GetBattleEffectTypeByIdData, ThrowOnError>) => (options.client ?? client).get<GetBattleEffectTypeByIdResponses, unknown, ThrowOnError>({
     responseType: 'json',
     url: 'v1/battle_effect_type/{id}',
-    ...options
-});
-
-/**
- * 通过名称获取状态类型资源
- *
- * 战斗状态分类，用于分类不同类型的战斗状态。
- */
-export const getBattleEffectTypeByName = <ThrowOnError extends boolean = false>(options: Options<GetBattleEffectTypeByNameData, ThrowOnError>) => (options.client ?? client).get<GetBattleEffectTypeByNameResponses, unknown, ThrowOnError>({
-    responseType: 'json',
-    url: 'v1/battle_effect_type/{name}',
     ...options
 });
 
@@ -262,17 +185,6 @@ export const getAvatarHeadById = <ThrowOnError extends boolean = false>(options:
 });
 
 /**
- * 通过名称获取头像资源
- *
- * 头像资源，用于表示玩家头像信息。
- */
-export const getAvatarHeadByName = <ThrowOnError extends boolean = false>(options: Options<GetAvatarHeadByNameData, ThrowOnError>) => (options.client ?? client).get<GetAvatarHeadByNameResponses, unknown, ThrowOnError>({
-    responseType: 'json',
-    url: 'v1/avatar_head/{name}',
-    ...options
-});
-
-/**
  * 获取头像资源列表
  *
  * 头像资源，用于表示玩家头像信息。
@@ -291,17 +203,6 @@ export const getAvatarHeadList = <ThrowOnError extends boolean = false>(options?
 export const getAvatarFrameById = <ThrowOnError extends boolean = false>(options: Options<GetAvatarFrameByIdData, ThrowOnError>) => (options.client ?? client).get<GetAvatarFrameByIdResponses, unknown, ThrowOnError>({
     responseType: 'json',
     url: 'v1/avatar_frame/{id}',
-    ...options
-});
-
-/**
- * 通过名称获取头像框资源
- *
- * 头像框资源，用于表示玩家头像框信息。
- */
-export const getAvatarFrameByName = <ThrowOnError extends boolean = false>(options: Options<GetAvatarFrameByNameData, ThrowOnError>) => (options.client ?? client).get<GetAvatarFrameByNameResponses, unknown, ThrowOnError>({
-    responseType: 'json',
-    url: 'v1/avatar_frame/{name}',
     ...options
 });
 
@@ -328,17 +229,6 @@ export const getNamecardBackgroundById = <ThrowOnError extends boolean = false>(
 });
 
 /**
- * 通过名称获取名片背景资源
- *
- * 名片背景资源，用于表示用于Unity端玩家信息页面的背景资源。
- */
-export const getNamecardBackgroundByName = <ThrowOnError extends boolean = false>(options: Options<GetNamecardBackgroundByNameData, ThrowOnError>) => (options.client ?? client).get<GetNamecardBackgroundByNameResponses, unknown, ThrowOnError>({
-    responseType: 'json',
-    url: 'v1/namecard_background/{name}',
-    ...options
-});
-
-/**
  * 获取名片背景资源列表
  *
  * 名片背景资源，用于表示用于Unity端玩家信息页面的背景资源。
@@ -357,17 +247,6 @@ export const getNamecardBackgroundList = <ThrowOnError extends boolean = false>(
 export const getNicknameBackgroundById = <ThrowOnError extends boolean = false>(options: Options<GetNicknameBackgroundByIdData, ThrowOnError>) => (options.client ?? client).get<GetNicknameBackgroundByIdResponses, unknown, ThrowOnError>({
     responseType: 'json',
     url: 'v1/nickname_background/{id}',
-    ...options
-});
-
-/**
- * 通过名称获取昵称背景资源
- *
- * 昵称背景资源，用于表示玩家昵称背景信息。
- */
-export const getNicknameBackgroundByName = <ThrowOnError extends boolean = false>(options: Options<GetNicknameBackgroundByNameData, ThrowOnError>) => (options.client ?? client).get<GetNicknameBackgroundByNameResponses, unknown, ThrowOnError>({
-    responseType: 'json',
-    url: 'v1/nickname_background/{name}',
     ...options
 });
 
@@ -394,17 +273,6 @@ export const getHomepageBackgroundById = <ThrowOnError extends boolean = false>(
 });
 
 /**
- * 通过名称获取主页背景资源
- *
- * 主页背景资源，用于表示用于Unity端主页的背景资源。
- */
-export const getHomepageBackgroundByName = <ThrowOnError extends boolean = false>(options: Options<GetHomepageBackgroundByNameData, ThrowOnError>) => (options.client ?? client).get<GetHomepageBackgroundByNameResponses, unknown, ThrowOnError>({
-    responseType: 'json',
-    url: 'v1/homepage_background/{name}',
-    ...options
-});
-
-/**
  * 获取主页背景资源列表
  *
  * 主页背景资源，用于表示用于Unity端主页的背景资源。
@@ -423,17 +291,6 @@ export const getHomepageBackgroundList = <ThrowOnError extends boolean = false>(
 export const getPetEffectById = <ThrowOnError extends boolean = false>(options: Options<GetPetEffectByIdData, ThrowOnError>) => (options.client ?? client).get<GetPetEffectByIdResponses, unknown, ThrowOnError>({
     responseType: 'json',
     url: 'v1/pet_effect/{id}',
-    ...options
-});
-
-/**
- * 通过名称获取特性资源
- *
- * 精灵特性，该资源的ID字段不一定连续。
- */
-export const getPetEffectByName = <ThrowOnError extends boolean = false>(options: Options<GetPetEffectByNameData, ThrowOnError>) => (options.client ?? client).get<GetPetEffectByNameResponses, unknown, ThrowOnError>({
-    responseType: 'json',
-    url: 'v1/pet_effect/{name}',
     ...options
 });
 
@@ -460,17 +317,6 @@ export const getPetEffectGroupById = <ThrowOnError extends boolean = false>(opti
 });
 
 /**
- * 通过名称获取特性组资源
- *
- * 特性组，用于分组同名特性（0~5星）。
- */
-export const getPetEffectGroupByName = <ThrowOnError extends boolean = false>(options: Options<GetPetEffectGroupByNameData, ThrowOnError>) => (options.client ?? client).get<GetPetEffectGroupByNameResponses, unknown, ThrowOnError>({
-    responseType: 'json',
-    url: 'v1/pet_effect_group/{name}',
-    ...options
-});
-
-/**
  * 获取特性组资源列表
  *
  * 特性组，用于分组同名特性（0~5星）。
@@ -489,17 +335,6 @@ export const getPetEffectGroupList = <ThrowOnError extends boolean = false>(opti
 export const getPetVariationById = <ThrowOnError extends boolean = false>(options: Options<GetPetVariationByIdData, ThrowOnError>) => (options.client ?? client).get<GetPetVariationByIdResponses, unknown, ThrowOnError>({
     responseType: 'json',
     url: 'v1/pet_variation/{id}',
-    ...options
-});
-
-/**
- * 通过名称获取特质效果资源
- *
- * 异能精灵特质效果，该资源的ID字段是一段为特质分配的特性ID区段，从1072开始。
- */
-export const getPetVariationByName = <ThrowOnError extends boolean = false>(options: Options<GetPetVariationByNameData, ThrowOnError>) => (options.client ?? client).get<GetPetVariationByNameResponses, unknown, ThrowOnError>({
-    responseType: 'json',
-    url: 'v1/pet_variation/{name}',
     ...options
 });
 
@@ -548,17 +383,6 @@ export const getEnergyBeadById = <ThrowOnError extends boolean = false>(options:
 });
 
 /**
- * 通过名称获取能量珠资源
- *
- * 能量珠资源。
- */
-export const getEnergyBeadByName = <ThrowOnError extends boolean = false>(options: Options<GetEnergyBeadByNameData, ThrowOnError>) => (options.client ?? client).get<GetEnergyBeadByNameResponses, unknown, ThrowOnError>({
-    responseType: 'json',
-    url: 'v1/energy_bead/{name}',
-    ...options
-});
-
-/**
  * 获取能量珠资源列表
  *
  * 能量珠资源。
@@ -577,17 +401,6 @@ export const getEnergyBeadList = <ThrowOnError extends boolean = false>(options?
 export const getEquipById = <ThrowOnError extends boolean = false>(options: Options<GetEquipByIdData, ThrowOnError>) => (options.client ?? client).get<GetEquipByIdResponses, unknown, ThrowOnError>({
     responseType: 'json',
     url: 'v1/equip/{id}',
-    ...options
-});
-
-/**
- * 通过名称获取部件资源
- *
- * 赛尔装备部件资源。
- */
-export const getEquipByName = <ThrowOnError extends boolean = false>(options: Options<GetEquipByNameData, ThrowOnError>) => (options.client ?? client).get<GetEquipByNameResponses, unknown, ThrowOnError>({
-    responseType: 'json',
-    url: 'v1/equip/{name}',
     ...options
 });
 
@@ -614,17 +427,6 @@ export const getSuitById = <ThrowOnError extends boolean = false>(options: Optio
 });
 
 /**
- * 通过名称获取套装资源
- *
- * 赛尔套装资源。
- */
-export const getSuitByName = <ThrowOnError extends boolean = false>(options: Options<GetSuitByNameData, ThrowOnError>) => (options.client ?? client).get<GetSuitByNameResponses, unknown, ThrowOnError>({
-    responseType: 'json',
-    url: 'v1/suit/{name}',
-    ...options
-});
-
-/**
  * 获取套装资源列表
  *
  * 赛尔套装资源。
@@ -643,17 +445,6 @@ export const getSuitList = <ThrowOnError extends boolean = false>(options?: Opti
 export const getEquipTypeById = <ThrowOnError extends boolean = false>(options: Options<GetEquipTypeByIdData, ThrowOnError>) => (options.client ?? client).get<GetEquipTypeByIdResponses, unknown, ThrowOnError>({
     responseType: 'json',
     url: 'v1/equip_type/{id}',
-    ...options
-});
-
-/**
- * 通过名称获取部件类型资源
- *
- * 赛尔装备部件类型，分为头部，手部，腰部，脚部，背景，星际座驾。
- */
-export const getEquipTypeByName = <ThrowOnError extends boolean = false>(options: Options<GetEquipTypeByNameData, ThrowOnError>) => (options.client ?? client).get<GetEquipTypeByNameResponses, unknown, ThrowOnError>({
-    responseType: 'json',
-    url: 'v1/equip_type/{name}',
     ...options
 });
 
@@ -702,17 +493,6 @@ export const getSoulmarkById = <ThrowOnError extends boolean = false>(options: O
 });
 
 /**
- * 通过名称获取魂印资源
- *
- * 魂印资源，该资源还整理了魂印的强化关系。
- */
-export const getSoulmarkByName = <ThrowOnError extends boolean = false>(options: Options<GetSoulmarkByNameData, ThrowOnError>) => (options.client ?? client).get<GetSoulmarkByNameResponses, unknown, ThrowOnError>({
-    responseType: 'json',
-    url: 'v1/soulmark/{name}',
-    ...options
-});
-
-/**
  * 获取魂印资源列表
  *
  * 魂印资源，该资源还整理了魂印的强化关系。
@@ -735,17 +515,6 @@ export const getSoulmarkTagById = <ThrowOnError extends boolean = false>(options
 });
 
 /**
- * 通过名称获取魂印标签资源
- *
- * 魂印标签，例如强攻，断回合等。
- */
-export const getSoulmarkTagByName = <ThrowOnError extends boolean = false>(options: Options<GetSoulmarkTagByNameData, ThrowOnError>) => (options.client ?? client).get<GetSoulmarkTagByNameResponses, unknown, ThrowOnError>({
-    responseType: 'json',
-    url: 'v1/soulmark_tag/{name}',
-    ...options
-});
-
-/**
  * 获取魂印标签资源列表
  *
  * 魂印标签，例如强攻，断回合等。
@@ -759,7 +528,7 @@ export const getSoulmarkTagList = <ThrowOnError extends boolean = false>(options
 /**
  * 获取属性资源
  *
- * 属性资源，该资源仅作为基础资源，保存属性克制关系（TODO）等数据。不包含双属性数据，实际使用时请使用 TypeCombination 资源。
+ * 属性资源，该资源仅作为基础资源，保存属性克制关系等数据。本资源仅包含单属性数据，推荐仅用于属性关系计算，如需获取完整属性信息（包括双属性），请优先使用 TypeCombination 资源。
  */
 export const getElementTypeById = <ThrowOnError extends boolean = false>(options: Options<GetElementTypeByIdData, ThrowOnError>) => (options.client ?? client).get<GetElementTypeByIdResponses, unknown, ThrowOnError>({
     responseType: 'json',
@@ -768,20 +537,9 @@ export const getElementTypeById = <ThrowOnError extends boolean = false>(options
 });
 
 /**
- * 通过名称获取属性资源
- *
- * 属性资源，该资源仅作为基础资源，保存属性克制关系（TODO）等数据。不包含双属性数据，实际使用时请使用 TypeCombination 资源。
- */
-export const getElementTypeByName = <ThrowOnError extends boolean = false>(options: Options<GetElementTypeByNameData, ThrowOnError>) => (options.client ?? client).get<GetElementTypeByNameResponses, unknown, ThrowOnError>({
-    responseType: 'json',
-    url: 'v1/element_type/{name}',
-    ...options
-});
-
-/**
  * 获取属性资源列表
  *
- * 属性资源，该资源仅作为基础资源，保存属性克制关系（TODO）等数据。不包含双属性数据，实际使用时请使用 TypeCombination 资源。
+ * 属性资源，该资源仅作为基础资源，保存属性克制关系等数据。本资源仅包含单属性数据，推荐仅用于属性关系计算，如需获取完整属性信息（包括双属性），请优先使用 TypeCombination 资源。
  */
 export const getElementTypeList = <ThrowOnError extends boolean = false>(options?: Options<GetElementTypeListData, ThrowOnError>) => (options?.client ?? client).get<GetElementTypeListResponses, unknown, ThrowOnError>({
     responseType: 'json',
@@ -797,17 +555,6 @@ export const getElementTypeList = <ThrowOnError extends boolean = false>(options
 export const getElementTypeCombinationById = <ThrowOnError extends boolean = false>(options: Options<GetElementTypeCombinationByIdData, ThrowOnError>) => (options.client ?? client).get<GetElementTypeCombinationByIdResponses, unknown, ThrowOnError>({
     responseType: 'json',
     url: 'v1/element_type_combination/{id}',
-    ...options
-});
-
-/**
- * 通过名称获取属性组合资源
- *
- * 属性组合资源，所有包含所有的单属性和双属性数据。注意"第一属性"和"第二属性"仅为了区分两个属性，游戏内并无主次之分。
- */
-export const getElementTypeCombinationByName = <ThrowOnError extends boolean = false>(options: Options<GetElementTypeCombinationByNameData, ThrowOnError>) => (options.client ?? client).get<GetElementTypeCombinationByNameResponses, unknown, ThrowOnError>({
-    responseType: 'json',
-    url: 'v1/element_type_combination/{name}',
     ...options
 });
 
@@ -834,17 +581,6 @@ export const getErrorCodeById = <ThrowOnError extends boolean = false>(options: 
 });
 
 /**
- * 通过名称获取错误码资源
- *
- * Socket通信中返回的错误码，用于表示一个错误码的详细信息。
- */
-export const getErrorCodeByName = <ThrowOnError extends boolean = false>(options: Options<GetErrorCodeByNameData, ThrowOnError>) => (options.client ?? client).get<GetErrorCodeByNameResponses, unknown, ThrowOnError>({
-    responseType: 'json',
-    url: 'v1/error_code/{name}',
-    ...options
-});
-
-/**
  * 获取错误码资源列表
  *
  * Socket通信中返回的错误码，用于表示一个错误码的详细信息。
@@ -863,17 +599,6 @@ export const getErrorCodeList = <ThrowOnError extends boolean = false>(options?:
 export const getGlossaryEntryById = <ThrowOnError extends boolean = false>(options: Options<GetGlossaryEntryByIdData, ThrowOnError>) => (options.client ?? client).get<GetGlossaryEntryByIdResponses, unknown, ThrowOnError>({
     responseType: 'json',
     url: 'v1/glossary_entry/{id}',
-    ...options
-});
-
-/**
- * 通过名称获取术语条目资源
- *
- * 术语条目，用于表示一个术语的详细信息。在Unity端的新版魂印/技能面板中显示。
- */
-export const getGlossaryEntryByName = <ThrowOnError extends boolean = false>(options: Options<GetGlossaryEntryByNameData, ThrowOnError>) => (options.client ?? client).get<GetGlossaryEntryByNameResponses, unknown, ThrowOnError>({
-    responseType: 'json',
-    url: 'v1/glossary_entry/{name}',
     ...options
 });
 
@@ -900,17 +625,6 @@ export const getGemById = <ThrowOnError extends boolean = false>(options: Option
 });
 
 /**
- * 通过名称获取宝石资源
- *
- * 刻印宝石，返回的模型中同时包含一代和二代宝石的相关字段，可通过generation_id字段区分。
- */
-export const getGemByName = <ThrowOnError extends boolean = false>(options: Options<GetGemByNameData, ThrowOnError>) => (options.client ?? client).get<GetGemByNameResponses, unknown, ThrowOnError>({
-    responseType: 'json',
-    url: 'v1/gem/{name}',
-    ...options
-});
-
-/**
  * 获取宝石资源列表
  *
  * 刻印宝石，返回的模型中同时包含一代和二代宝石的相关字段，可通过generation_id字段区分。
@@ -929,17 +643,6 @@ export const getGemList = <ThrowOnError extends boolean = false>(options?: Optio
 export const getGemCategoryById = <ThrowOnError extends boolean = false>(options: Options<GetGemCategoryByIdData, ThrowOnError>) => (options.client ?? client).get<GetGemCategoryByIdResponses, unknown, ThrowOnError>({
     responseType: 'json',
     url: 'v1/gem_category/{id}',
-    ...options
-});
-
-/**
- * 通过名称获取宝石类别资源
- *
- * 宝石类别，用于分类同一效果的不同等级宝石。
- */
-export const getGemCategoryByName = <ThrowOnError extends boolean = false>(options: Options<GetGemCategoryByNameData, ThrowOnError>) => (options.client ?? client).get<GetGemCategoryByNameResponses, unknown, ThrowOnError>({
-    responseType: 'json',
-    url: 'v1/gem_category/{name}',
     ...options
 });
 
@@ -988,17 +691,6 @@ export const getGemGen1ById = <ThrowOnError extends boolean = false>(options: Op
 });
 
 /**
- * 通过名称获取一代刻印宝石资源
- *
- * 一代刻印宝石资源。
- */
-export const getGemGen1ByName = <ThrowOnError extends boolean = false>(options: Options<GetGemGen1ByNameData, ThrowOnError>) => (options.client ?? client).get<GetGemGen1ByNameResponses, unknown, ThrowOnError>({
-    responseType: 'json',
-    url: 'v1/gem_gen1/{name}',
-    ...options
-});
-
-/**
  * 获取一代刻印宝石资源列表
  *
  * 一代刻印宝石资源。
@@ -1017,17 +709,6 @@ export const getGemGen1List = <ThrowOnError extends boolean = false>(options?: O
 export const getGemGen2ById = <ThrowOnError extends boolean = false>(options: Options<GetGemGen2ByIdData, ThrowOnError>) => (options.client ?? client).get<GetGemGen2ByIdResponses, unknown, ThrowOnError>({
     responseType: 'json',
     url: 'v1/gem_gen2/{id}',
-    ...options
-});
-
-/**
- * 通过名称获取二代刻印宝石资源
- *
- * 二代刻印宝石资源。
- */
-export const getGemGen2ByName = <ThrowOnError extends boolean = false>(options: Options<GetGemGen2ByNameData, ThrowOnError>) => (options.client ?? client).get<GetGemGen2ByNameResponses, unknown, ThrowOnError>({
-    responseType: 'json',
-    url: 'v1/gem_gen2/{name}',
     ...options
 });
 
@@ -1054,17 +735,6 @@ export const getSkillActivationItemById = <ThrowOnError extends boolean = false>
 });
 
 /**
- * 通过名称获取精灵技能激活道具资源
- *
- * 精灵技能激活道具，返回的模型中包含技能和精灵相关的引用，以及激活该技能所需的道具数量。
- */
-export const getSkillActivationItemByName = <ThrowOnError extends boolean = false>(options: Options<GetSkillActivationItemByNameData, ThrowOnError>) => (options.client ?? client).get<GetSkillActivationItemByNameResponses, unknown, ThrowOnError>({
-    responseType: 'json',
-    url: 'v1/skill_activation_item/{name}',
-    ...options
-});
-
-/**
  * 获取精灵技能激活道具资源列表
  *
  * 精灵技能激活道具，返回的模型中包含技能和精灵相关的引用，以及激活该技能所需的道具数量。
@@ -1083,17 +753,6 @@ export const getSkillActivationItemList = <ThrowOnError extends boolean = false>
 export const getSkillStoneById = <ThrowOnError extends boolean = false>(options: Options<GetSkillStoneByIdData, ThrowOnError>) => (options.client ?? client).get<GetSkillStoneByIdResponses, unknown, ThrowOnError>({
     responseType: 'json',
     url: 'v1/skill_stone/{id}',
-    ...options
-});
-
-/**
- * 通过名称获取技能石资源
- *
- * 技能石资源。
- */
-export const getSkillStoneByName = <ThrowOnError extends boolean = false>(options: Options<GetSkillStoneByNameData, ThrowOnError>) => (options.client ?? client).get<GetSkillStoneByNameResponses, unknown, ThrowOnError>({
-    responseType: 'json',
-    url: 'v1/skill_stone/{name}',
     ...options
 });
 
@@ -1120,17 +779,6 @@ export const getSkillStoneCategoryById = <ThrowOnError extends boolean = false>(
 });
 
 /**
- * 通过名称获取技能石分类资源
- *
- * 技能石分类，按属性分类。
- */
-export const getSkillStoneCategoryByName = <ThrowOnError extends boolean = false>(options: Options<GetSkillStoneCategoryByNameData, ThrowOnError>) => (options.client ?? client).get<GetSkillStoneCategoryByNameResponses, unknown, ThrowOnError>({
-    responseType: 'json',
-    url: 'v1/skill_stone_category/{name}',
-    ...options
-});
-
-/**
  * 获取技能石分类资源列表
  *
  * 技能石分类，按属性分类。
@@ -1149,17 +797,6 @@ export const getSkillStoneCategoryList = <ThrowOnError extends boolean = false>(
 export const getMintmarkById = <ThrowOnError extends boolean = false>(options: Options<GetMintmarkByIdData, ThrowOnError>) => (options.client ?? client).get<GetMintmarkByIdResponses, unknown, ThrowOnError>({
     responseType: 'json',
     url: 'v1/mintmark/{id}',
-    ...options
-});
-
-/**
- * 通过名称获取刻印资源
- *
- * 刻印资源。该模型同时集成了能力刻印、技能刻印和全能刻印三种类型的刻印数据，通过type字段区分，使用时请参考对应的细分模型。
- */
-export const getMintmarkByName = <ThrowOnError extends boolean = false>(options: Options<GetMintmarkByNameData, ThrowOnError>) => (options.client ?? client).get<GetMintmarkByNameResponses, unknown, ThrowOnError>({
-    responseType: 'json',
-    url: 'v1/mintmark/{name}',
     ...options
 });
 
@@ -1186,17 +823,6 @@ export const getAbilityMintmarkById = <ThrowOnError extends boolean = false>(opt
 });
 
 /**
- * 通过名称获取能力刻印资源
- *
- * 能力刻印资源。
- */
-export const getAbilityMintmarkByName = <ThrowOnError extends boolean = false>(options: Options<GetAbilityMintmarkByNameData, ThrowOnError>) => (options.client ?? client).get<GetAbilityMintmarkByNameResponses, unknown, ThrowOnError>({
-    responseType: 'json',
-    url: 'v1/ability_mintmark/{name}',
-    ...options
-});
-
-/**
  * 获取能力刻印资源列表
  *
  * 能力刻印资源。
@@ -1215,17 +841,6 @@ export const getAbilityMintmarkList = <ThrowOnError extends boolean = false>(opt
 export const getSkillMintmarkById = <ThrowOnError extends boolean = false>(options: Options<GetSkillMintmarkByIdData, ThrowOnError>) => (options.client ?? client).get<GetSkillMintmarkByIdResponses, unknown, ThrowOnError>({
     responseType: 'json',
     url: 'v1/skill_mintmark/{id}',
-    ...options
-});
-
-/**
- * 通过名称获取技能刻印资源
- *
- * 技能刻印资源。
- */
-export const getSkillMintmarkByName = <ThrowOnError extends boolean = false>(options: Options<GetSkillMintmarkByNameData, ThrowOnError>) => (options.client ?? client).get<GetSkillMintmarkByNameResponses, unknown, ThrowOnError>({
-    responseType: 'json',
-    url: 'v1/skill_mintmark/{name}',
     ...options
 });
 
@@ -1252,17 +867,6 @@ export const getUniversalMintmarkById = <ThrowOnError extends boolean = false>(o
 });
 
 /**
- * 通过名称获取全能刻印资源
- *
- * 全能刻印资源。
- */
-export const getUniversalMintmarkByName = <ThrowOnError extends boolean = false>(options: Options<GetUniversalMintmarkByNameData, ThrowOnError>) => (options.client ?? client).get<GetUniversalMintmarkByNameResponses, unknown, ThrowOnError>({
-    responseType: 'json',
-    url: 'v1/universal_mintmark/{name}',
-    ...options
-});
-
-/**
  * 获取全能刻印资源列表
  *
  * 全能刻印资源。
@@ -1285,17 +889,6 @@ export const getMintmarkClassById = <ThrowOnError extends boolean = false>(optio
 });
 
 /**
- * 通过名称获取刻印系列分类资源
- *
- * 刻印系列分类，用于分类全能刻印系列，例如和平星系列、创世兵魂系列等。
- */
-export const getMintmarkClassByName = <ThrowOnError extends boolean = false>(options: Options<GetMintmarkClassByNameData, ThrowOnError>) => (options.client ?? client).get<GetMintmarkClassByNameResponses, unknown, ThrowOnError>({
-    responseType: 'json',
-    url: 'v1/mintmark_class/{name}',
-    ...options
-});
-
-/**
  * 获取刻印系列分类资源列表
  *
  * 刻印系列分类，用于分类全能刻印系列，例如和平星系列、创世兵魂系列等。
@@ -1314,17 +907,6 @@ export const getMintmarkClassList = <ThrowOnError extends boolean = false>(optio
 export const getMintmarkTypeById = <ThrowOnError extends boolean = false>(options: Options<GetMintmarkTypeByIdData, ThrowOnError>) => (options.client ?? client).get<GetMintmarkTypeByIdResponses, unknown, ThrowOnError>({
     responseType: 'json',
     url: 'v1/mintmark_type/{id}',
-    ...options
-});
-
-/**
- * 通过名称获取刻印类型分类资源
- *
- * 刻印类型分类，分类能力/技能/全能刻印。
- */
-export const getMintmarkTypeByName = <ThrowOnError extends boolean = false>(options: Options<GetMintmarkTypeByNameData, ThrowOnError>) => (options.client ?? client).get<GetMintmarkTypeByNameResponses, unknown, ThrowOnError>({
-    responseType: 'json',
-    url: 'v1/mintmark_type/{name}',
     ...options
 });
 
@@ -1369,17 +951,6 @@ export const getMintmarkRarityList = <ThrowOnError extends boolean = false>(opti
 export const getNatureById = <ThrowOnError extends boolean = false>(options: Options<GetNatureByIdData, ThrowOnError>) => (options.client ?? client).get<GetNatureByIdResponses, unknown, ThrowOnError>({
     responseType: 'json',
     url: 'v1/nature/{id}',
-    ...options
-});
-
-/**
- * 通过名称获取性格资源
- *
- * 精灵性格，包含性格对属性的影响。
- */
-export const getNatureByName = <ThrowOnError extends boolean = false>(options: Options<GetNatureByNameData, ThrowOnError>) => (options.client ?? client).get<GetNatureByNameResponses, unknown, ThrowOnError>({
-    responseType: 'json',
-    url: 'v1/nature/{name}',
     ...options
 });
 
@@ -1498,17 +1069,6 @@ export const getPetById = <ThrowOnError extends boolean = false>(options: Option
 });
 
 /**
- * 通过名称获取精灵资源
- *
- * 精灵资源，如果要通过该资源获取立绘/头像等，请使用 resource_id 字段作为资源ID。
- */
-export const getPetByName = <ThrowOnError extends boolean = false>(options: Options<GetPetByNameData, ThrowOnError>) => (options.client ?? client).get<GetPetByNameResponses, unknown, ThrowOnError>({
-    responseType: 'json',
-    url: 'v1/pet/{name}',
-    ...options
-});
-
-/**
  * 获取精灵资源列表
  *
  * 精灵资源，如果要通过该资源获取立绘/头像等，请使用 resource_id 字段作为资源ID。
@@ -1553,17 +1113,6 @@ export const getPetGenderById = <ThrowOnError extends boolean = false>(options: 
 });
 
 /**
- * 通过名称获取精灵性别分类资源
- *
- * 精灵性别分类。
- */
-export const getPetGenderByName = <ThrowOnError extends boolean = false>(options: Options<GetPetGenderByNameData, ThrowOnError>) => (options.client ?? client).get<GetPetGenderByNameResponses, unknown, ThrowOnError>({
-    responseType: 'json',
-    url: 'v1/pet_gender/{name}',
-    ...options
-});
-
-/**
  * 获取精灵性别分类资源列表
  *
  * 精灵性别分类。
@@ -1586,17 +1135,6 @@ export const getPetVipbuffById = <ThrowOnError extends boolean = false>(options:
 });
 
 /**
- * 通过名称获取精灵VIP加成分类资源
- *
- * 精灵VIP加成分类，用于分类闪光/暗黑加成。
- */
-export const getPetVipbuffByName = <ThrowOnError extends boolean = false>(options: Options<GetPetVipbuffByNameData, ThrowOnError>) => (options.client ?? client).get<GetPetVipbuffByNameResponses, unknown, ThrowOnError>({
-    responseType: 'json',
-    url: 'v1/pet_vipbuff/{name}',
-    ...options
-});
-
-/**
  * 获取精灵VIP加成分类资源列表
  *
  * 精灵VIP加成分类，用于分类闪光/暗黑加成。
@@ -1615,17 +1153,6 @@ export const getPetVipbuffList = <ThrowOnError extends boolean = false>(options?
 export const getPetMountTypeById = <ThrowOnError extends boolean = false>(options: Options<GetPetMountTypeByIdData, ThrowOnError>) => (options.client ?? client).get<GetPetMountTypeByIdResponses, unknown, ThrowOnError>({
     responseType: 'json',
     url: 'v1/pet_mount_type/{id}',
-    ...options
-});
-
-/**
- * 通过名称获取精灵坐骑类型分类资源
- *
- * 精灵坐骑类型分类。
- */
-export const getPetMountTypeByName = <ThrowOnError extends boolean = false>(options: Options<GetPetMountTypeByNameData, ThrowOnError>) => (options.client ?? client).get<GetPetMountTypeByNameResponses, unknown, ThrowOnError>({
-    responseType: 'json',
-    url: 'v1/pet_mount_type/{name}',
     ...options
 });
 
@@ -1674,17 +1201,6 @@ export const getPetSkinById = <ThrowOnError extends boolean = false>(options: Op
 });
 
 /**
- * 通过名称获取精灵皮肤资源
- *
- * 精灵皮肤资源，如果要通过该资源获取立绘/头像等，请使用 resource_id 字段作为资源ID。
- */
-export const getPetSkinByName = <ThrowOnError extends boolean = false>(options: Options<GetPetSkinByNameData, ThrowOnError>) => (options.client ?? client).get<GetPetSkinByNameResponses, unknown, ThrowOnError>({
-    responseType: 'json',
-    url: 'v1/pet_skin/{name}',
-    ...options
-});
-
-/**
  * 获取精灵皮肤资源列表
  *
  * 精灵皮肤资源，如果要通过该资源获取立绘/头像等，请使用 resource_id 字段作为资源ID。
@@ -1696,9 +1212,9 @@ export const getPetSkinList = <ThrowOnError extends boolean = false>(options?: O
 });
 
 /**
- * 获取精灵皮肤系列资源
+ * 获取精灵皮肤类型资源
  *
- * 精灵皮肤系列，用于分类不同系列的精灵皮肤。由于皮肤分类的名称在游戏内是硬编码的，暂不支持获取。
+ * 精灵皮肤类型，由于皮肤类型的名称在游戏内是硬编码的，暂不支持获取。
  */
 export const getPetSkinCategoryById = <ThrowOnError extends boolean = false>(options: Options<GetPetSkinCategoryByIdData, ThrowOnError>) => (options.client ?? client).get<GetPetSkinCategoryByIdResponses, unknown, ThrowOnError>({
     responseType: 'json',
@@ -1707,13 +1223,57 @@ export const getPetSkinCategoryById = <ThrowOnError extends boolean = false>(opt
 });
 
 /**
- * 获取精灵皮肤系列资源列表
+ * 获取精灵皮肤类型资源列表
  *
- * 精灵皮肤系列，用于分类不同系列的精灵皮肤。由于皮肤分类的名称在游戏内是硬编码的，暂不支持获取。
+ * 精灵皮肤类型，由于皮肤类型的名称在游戏内是硬编码的，暂不支持获取。
  */
 export const getPetSkinCategoryList = <ThrowOnError extends boolean = false>(options?: Options<GetPetSkinCategoryListData, ThrowOnError>) => (options?.client ?? client).get<GetPetSkinCategoryListResponses, unknown, ThrowOnError>({
     responseType: 'json',
     url: 'v1/pet_skin_category/',
+    ...options
+});
+
+/**
+ * 获取精灵皮肤系列资源
+ *
+ * 精灵皮肤系列，该资源对应Unity端皮肤图鉴中的系列信息。
+ */
+export const getPetSkinSeriesById = <ThrowOnError extends boolean = false>(options: Options<GetPetSkinSeriesByIdData, ThrowOnError>) => (options.client ?? client).get<GetPetSkinSeriesByIdResponses, unknown, ThrowOnError>({
+    responseType: 'json',
+    url: 'v1/pet_skin_series/{id}',
+    ...options
+});
+
+/**
+ * 获取精灵皮肤系列资源列表
+ *
+ * 精灵皮肤系列，该资源对应Unity端皮肤图鉴中的系列信息。
+ */
+export const getPetSkinSeriesList = <ThrowOnError extends boolean = false>(options?: Options<GetPetSkinSeriesListData, ThrowOnError>) => (options?.client ?? client).get<GetPetSkinSeriesListResponses, unknown, ThrowOnError>({
+    responseType: 'json',
+    url: 'v1/pet_skin_series/',
+    ...options
+});
+
+/**
+ * 获取精灵皮肤系列子类型资源
+ *
+ * 精灵皮肤系列子类型，该资源对应Unity端皮肤图鉴中的系列子类型信息（例如巅峰战姬-2016）。
+ */
+export const getPetSkinSeriesSubTypeById = <ThrowOnError extends boolean = false>(options: Options<GetPetSkinSeriesSubTypeByIdData, ThrowOnError>) => (options.client ?? client).get<GetPetSkinSeriesSubTypeByIdResponses, unknown, ThrowOnError>({
+    responseType: 'json',
+    url: 'v1/pet_skin_series_sub_type/{id}',
+    ...options
+});
+
+/**
+ * 获取精灵皮肤系列子类型资源列表
+ *
+ * 精灵皮肤系列子类型，该资源对应Unity端皮肤图鉴中的系列子类型信息（例如巅峰战姬-2016）。
+ */
+export const getPetSkinSeriesSubTypeList = <ThrowOnError extends boolean = false>(options?: Options<GetPetSkinSeriesSubTypeListData, ThrowOnError>) => (options?.client ?? client).get<GetPetSkinSeriesSubTypeListResponses, unknown, ThrowOnError>({
+    responseType: 'json',
+    url: 'v1/pet_skin_series_sub_type/',
     ...options
 });
 
@@ -1725,17 +1285,6 @@ export const getPetSkinCategoryList = <ThrowOnError extends boolean = false>(opt
 export const getPetEncyclopediaEntryById = <ThrowOnError extends boolean = false>(options: Options<GetPetEncyclopediaEntryByIdData, ThrowOnError>) => (options.client ?? client).get<GetPetEncyclopediaEntryByIdResponses, unknown, ThrowOnError>({
     responseType: 'json',
     url: 'v1/pet_encyclopedia_entry/{id}',
-    ...options
-});
-
-/**
- * 通过名称获取精灵图鉴条目资源
- *
- * 精灵图鉴条目，该资源部分字段来源于旧版图鉴。
- */
-export const getPetEncyclopediaEntryByName = <ThrowOnError extends boolean = false>(options: Options<GetPetEncyclopediaEntryByNameData, ThrowOnError>) => (options.client ?? client).get<GetPetEncyclopediaEntryByNameResponses, unknown, ThrowOnError>({
-    responseType: 'json',
-    url: 'v1/pet_encyclopedia_entry/{name}',
     ...options
 });
 
@@ -1762,17 +1311,6 @@ export const getPetArchiveStoryBookById = <ThrowOnError extends boolean = false>
 });
 
 /**
- * 通过名称获取精灵故事系列资源
- *
- * 精灵故事系列（永夜纪年/莱达物语）。
- */
-export const getPetArchiveStoryBookByName = <ThrowOnError extends boolean = false>(options: Options<GetPetArchiveStoryBookByNameData, ThrowOnError>) => (options.client ?? client).get<GetPetArchiveStoryBookByNameResponses, unknown, ThrowOnError>({
-    responseType: 'json',
-    url: 'v1/pet_archive_story_book/{name}',
-    ...options
-});
-
-/**
  * 获取精灵故事系列资源列表
  *
  * 精灵故事系列（永夜纪年/莱达物语）。
@@ -1791,17 +1329,6 @@ export const getPetArchiveStoryBookList = <ThrowOnError extends boolean = false>
 export const getSkillById = <ThrowOnError extends boolean = false>(options: Options<GetSkillByIdData, ThrowOnError>) => (options.client ?? client).get<GetSkillByIdResponses, unknown, ThrowOnError>({
     responseType: 'json',
     url: 'v1/skill/{id}',
-    ...options
-});
-
-/**
- * 通过名称获取技能资源
- *
- * 技能资源。
- */
-export const getSkillByName = <ThrowOnError extends boolean = false>(options: Options<GetSkillByNameData, ThrowOnError>) => (options.client ?? client).get<GetSkillByNameResponses, unknown, ThrowOnError>({
-    responseType: 'json',
-    url: 'v1/skill/{name}',
     ...options
 });
 
@@ -1872,17 +1399,6 @@ export const getSkillHideEffectById = <ThrowOnError extends boolean = false>(opt
 });
 
 /**
- * 通过名称获取技能隐藏效果资源
- *
- * 技能隐藏效果，该资源描述了技能的特殊隐藏效果，例如精灵"速度史莱姆"的技能"迅捷撞击"，效果为"若先出手则必定打出致命一击（CritAtkFirst）"。
- */
-export const getSkillHideEffectByName = <ThrowOnError extends boolean = false>(options: Options<GetSkillHideEffectByNameData, ThrowOnError>) => (options.client ?? client).get<GetSkillHideEffectByNameResponses, unknown, ThrowOnError>({
-    responseType: 'json',
-    url: 'v1/skill_hide_effect/{name}',
-    ...options
-});
-
-/**
  * 获取技能隐藏效果资源列表
  *
  * 技能隐藏效果，该资源描述了技能的特殊隐藏效果，例如精灵"速度史莱姆"的技能"迅捷撞击"，效果为"若先出手则必定打出致命一击（CritAtkFirst）"。
@@ -1905,17 +1421,6 @@ export const getSkillCategoryById = <ThrowOnError extends boolean = false>(optio
 });
 
 /**
- * 通过名称获取技能分类资源
- *
- * 技能分类，用于分类物理/特殊/属性技能。
- */
-export const getSkillCategoryByName = <ThrowOnError extends boolean = false>(options: Options<GetSkillCategoryByNameData, ThrowOnError>) => (options.client ?? client).get<GetSkillCategoryByNameResponses, unknown, ThrowOnError>({
-    responseType: 'json',
-    url: 'v1/skill_category/{name}',
-    ...options
-});
-
-/**
  * 获取技能分类资源列表
  *
  * 技能分类，用于分类物理/特殊/属性技能。
@@ -1934,17 +1439,6 @@ export const getSkillCategoryList = <ThrowOnError extends boolean = false>(optio
 export const getSkillEffectTypeTagById = <ThrowOnError extends boolean = false>(options: Options<GetSkillEffectTypeTagByIdData, ThrowOnError>) => (options.client ?? client).get<GetSkillEffectTypeTagByIdResponses, unknown, ThrowOnError>({
     responseType: 'json',
     url: 'v1/skill_effect_type_tag/{id}',
-    ...options
-});
-
-/**
- * 通过名称获取技能效果类型标签资源
- *
- * 技能效果类型标签，用于标记技能效果的类型，<br>**注意**：该资源的ID字段是标签名称的CRC16 Hash值，因为游戏内数据中没有提供ID。
- */
-export const getSkillEffectTypeTagByName = <ThrowOnError extends boolean = false>(options: Options<GetSkillEffectTypeTagByNameData, ThrowOnError>) => (options.client ?? client).get<GetSkillEffectTypeTagByNameResponses, unknown, ThrowOnError>({
-    responseType: 'json',
-    url: 'v1/skill_effect_type_tag/{name}',
     ...options
 });
 
