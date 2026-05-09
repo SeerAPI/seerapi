@@ -310,15 +310,6 @@ export type Achievement = HashPartial & {
 };
 
 /**
- * 名称映射成就资源
- */
-export type AchievementNamedData = HashPartial & {
-    data: {
-        [key: string]: Achievement;
-    };
-};
-
-/**
  * 成就资源列表
  */
 export type AchievementList = CommonApiResourceList;
@@ -358,15 +349,6 @@ export type AchievementBranch = HashPartial & {
      */
     achievement?: Array<CommonResourceRef>;
     type: CommonResourceRef;
-};
-
-/**
- * 名称映射成就分支资源
- */
-export type AchievementBranchNamedData = HashPartial & {
-    data: {
-        [key: string]: AchievementBranch;
-    };
 };
 
 /**
@@ -411,15 +393,6 @@ export type AchievementType = HashPartial & {
 };
 
 /**
- * 名称映射成就类型资源
- */
-export type AchievementTypeNamedData = HashPartial & {
-    data: {
-        [key: string]: AchievementType;
-    };
-};
-
-/**
  * 成就类型资源列表
  */
 export type AchievementTypeList = CommonApiResourceList;
@@ -444,15 +417,6 @@ export type AchievementCategory = HashPartial & {
      * 该分类下的成就
      */
     achievement?: Array<CommonResourceRef>;
-};
-
-/**
- * 名称映射成就分类资源
- */
-export type AchievementCategoryNamedData = HashPartial & {
-    data: {
-        [key: string]: AchievementCategory;
-    };
 };
 
 /**
@@ -539,15 +503,6 @@ export type Title = HashPartial & {
 };
 
 /**
- * 名称映射成就称号资源
- */
-export type TitleNamedData = HashPartial & {
-    data: {
-        [key: string]: Title;
-    };
-};
-
-/**
  * 成就称号资源列表
  */
 export type TitleList = CommonApiResourceList;
@@ -583,15 +538,6 @@ export type BattleEffect = HashPartial & {
 };
 
 /**
- * 名称映射状态资源
- */
-export type BattleEffectNamedData = HashPartial & {
-    data: {
-        [key: string]: BattleEffect;
-    };
-};
-
-/**
  * 状态资源列表
  */
 export type BattleEffectList = CommonApiResourceList;
@@ -618,15 +564,6 @@ export type BattleEffectType = HashPartial & {
      * 异常状态列表
      */
     effect?: Array<CommonResourceRef>;
-};
-
-/**
- * 名称映射状态类型资源
- */
-export type BattleEffectTypeNamedData = HashPartial & {
-    data: {
-        [key: string]: BattleEffectType;
-    };
 };
 
 /**
@@ -665,15 +602,6 @@ export type AvatarHead = HashPartial & {
 };
 
 /**
- * 名称映射头像资源
- */
-export type AvatarHeadNamedData = HashPartial & {
-    data: {
-        [key: string]: AvatarHead;
-    };
-};
-
-/**
  * 头像资源列表
  */
 export type AvatarHeadList = CommonApiResourceList;
@@ -706,15 +634,6 @@ export type AvatarFrame = HashPartial & {
      * 资源ID（对应profilephoto配置中的icon字段）
      */
     icon_id: number;
-};
-
-/**
- * 名称映射头像框资源
- */
-export type AvatarFrameNamedData = HashPartial & {
-    data: {
-        [key: string]: AvatarFrame;
-    };
 };
 
 /**
@@ -753,15 +672,6 @@ export type NamecardBackground = HashPartial & {
 };
 
 /**
- * 名称映射名片背景资源
- */
-export type NamecardBackgroundNamedData = HashPartial & {
-    data: {
-        [key: string]: NamecardBackground;
-    };
-};
-
-/**
  * 名片背景资源列表
  */
 export type NamecardBackgroundList = CommonApiResourceList;
@@ -797,15 +707,6 @@ export type NicknameBackground = HashPartial & {
 };
 
 /**
- * 名称映射昵称背景资源
- */
-export type NicknameBackgroundNamedData = HashPartial & {
-    data: {
-        [key: string]: NicknameBackground;
-    };
-};
-
-/**
  * 昵称背景资源列表
  */
 export type NicknameBackgroundList = CommonApiResourceList;
@@ -838,15 +739,6 @@ export type HomepageBackground = HashPartial & {
      * 资源ID（对应profilephoto配置中的icon字段）
      */
     icon_id: number;
-};
-
-/**
- * 名称映射主页背景资源
- */
-export type HomepageBackgroundNamedData = HashPartial & {
-    data: {
-        [key: string]: HomepageBackground;
-    };
 };
 
 /**
@@ -893,15 +785,6 @@ export type PetEffect = HashPartial & {
 };
 
 /**
- * 名称映射特性资源
- */
-export type PetEffectNamedData = HashPartial & {
-    data: {
-        [key: string]: PetEffect;
-    };
-};
-
-/**
  * 特性资源列表
  */
 export type PetEffectList = CommonApiResourceList;
@@ -928,15 +811,6 @@ export type PetEffectGroup = HashPartial & {
      * 特性列表
      */
     effect?: Array<CommonResourceRef>;
-};
-
-/**
- * 名称映射特性组资源
- */
-export type PetEffectGroupNamedData = HashPartial & {
-    data: {
-        [key: string]: PetEffectGroup;
-    };
 };
 
 /**
@@ -973,15 +847,6 @@ export type PetVariation = HashPartial & {
      * 效果别名，命名规则为：[效果名称]_[参数1]_[参数2]_…
      */
     effect_alias: string;
-};
-
-/**
- * 名称映射特质效果资源
- */
-export type PetVariationNamedData = HashPartial & {
-    data: {
-        [key: string]: PetVariation;
-    };
 };
 
 /**
@@ -1052,15 +917,6 @@ export type EnergyBead = HashPartial & {
      * 能力加成数值，仅当能量珠效果为属性加成时有效
      */
     ability_buff?: CommonSixAttributes | null;
-};
-
-/**
- * 名称映射能量珠资源
- */
-export type EnergyBeadNamedData = HashPartial & {
-    data: {
-        [key: string]: EnergyBead;
-    };
 };
 
 /**
@@ -1178,15 +1034,6 @@ export type Equip = HashPartial & {
 };
 
 /**
- * 名称映射部件资源
- */
-export type EquipNamedData = HashPartial & {
-    data: {
-        [key: string]: Equip;
-    };
-};
-
-/**
  * 部件资源列表
  */
 export type EquipList = CommonApiResourceList;
@@ -1271,15 +1118,6 @@ export type Suit = HashPartial & {
 };
 
 /**
- * 名称映射套装资源
- */
-export type SuitNamedData = HashPartial & {
-    data: {
-        [key: string]: Suit;
-    };
-};
-
-/**
  * 套装资源列表
  */
 export type SuitList = CommonApiResourceList;
@@ -1306,15 +1144,6 @@ export type EquipType = HashPartial & {
      * 部件列表
      */
     equip?: Array<CommonResourceRef>;
-};
-
-/**
- * 名称映射部件类型资源
- */
-export type EquipTypeNamedData = HashPartial & {
-    data: {
-        [key: string]: EquipType;
-    };
 };
 
 /**
@@ -1410,7 +1239,7 @@ export type Soulmark = HashPartial & {
     /**
      * Effect Alias
      *
-     * 效果别名，命名规则为：[效果名称]_[参数1]_[参数2]_…
+     * 效果别名，命名规则为：alias_[效果ID]_[参数1]_[参数2]_…
      */
     effect_alias?: string | null;
     /**
@@ -1431,15 +1260,6 @@ export type Soulmark = HashPartial & {
      * 觉醒后的魂印资源，该字段仅在该魂印是神谕觉醒魂印时有效
      */
     advance?: CommonResourceRef | null;
-};
-
-/**
- * 名称映射魂印资源
- */
-export type SoulmarkNamedData = HashPartial & {
-    data: {
-        [key: string]: Soulmark;
-    };
 };
 
 /**
@@ -1472,15 +1292,6 @@ export type SoulmarkTag = HashPartial & {
 };
 
 /**
- * 名称映射魂印标签资源
- */
-export type SoulmarkTagNamedData = HashPartial & {
-    data: {
-        [key: string]: SoulmarkTag;
-    };
-};
-
-/**
  * 魂印标签资源列表
  */
 export type SoulmarkTagList = CommonApiResourceList;
@@ -1507,15 +1318,24 @@ export type ElementType = HashPartial & {
      * 属性英文名
      */
     name_en: string;
-};
-
-/**
- * 名称映射属性资源
- */
-export type ElementTypeNamedData = HashPartial & {
-    data: {
-        [key: string]: ElementType;
-    };
+    /**
+     * Relations
+     *
+     * 属性克制关系
+     */
+    relations?: Array<{
+        /**
+         * Id
+         */
+        id?: number | null;
+        target_type: CommonResourceRef;
+        /**
+         * Multiple
+         *
+         * 克制倍率
+         */
+        multiple: number;
+    }>;
 };
 
 /**
@@ -1553,15 +1373,6 @@ export type ElementTypeCombination = HashPartial & {
 };
 
 /**
- * 名称映射属性组合资源
- */
-export type ElementTypeCombinationNamedData = HashPartial & {
-    data: {
-        [key: string]: ElementTypeCombination;
-    };
-};
-
-/**
  * 属性组合资源列表
  */
 export type ElementTypeCombinationList = CommonApiResourceList;
@@ -1588,15 +1399,6 @@ export type ErrorCode = HashPartial & {
      * 错误消息
      */
     message: string;
-};
-
-/**
- * 名称映射错误码资源
- */
-export type ErrorCodeNamedData = HashPartial & {
-    data: {
-        [key: string]: ErrorCode;
-    };
 };
 
 /**
@@ -1644,15 +1446,6 @@ export type GlossaryEntry = HashPartial & {
      * 用于指示该术语是否是特定精灵专属的
      */
     pet?: Array<CommonResourceRef> | null;
-};
-
-/**
- * 名称映射术语条目资源
- */
-export type GlossaryEntryNamedData = HashPartial & {
-    data: {
-        [key: string]: GlossaryEntry;
-    };
 };
 
 /**
@@ -1734,15 +1527,6 @@ export type Gem = HashPartial & {
 };
 
 /**
- * 名称映射宝石资源
- */
-export type GemNamedData = HashPartial & {
-    data: {
-        [key: string]: Gem;
-    };
-};
-
-/**
  * 宝石资源列表
  */
 export type GemList = CommonApiResourceList;
@@ -1775,15 +1559,6 @@ export type GemCategory = HashPartial & {
      * 宝石列表
      */
     gem?: Array<CommonResourceRef>;
-};
-
-/**
- * 名称映射宝石类别资源
- */
-export type GemCategoryNamedData = HashPartial & {
-    data: {
-        [key: string]: GemCategory;
-    };
 };
 
 /**
@@ -1882,15 +1657,6 @@ export type GemGen1 = HashPartial & {
 };
 
 /**
- * 名称映射一代刻印宝石资源
- */
-export type GemGen1NamedData = HashPartial & {
-    data: {
-        [key: string]: GemGen1;
-    };
-};
-
-/**
  * 一代刻印宝石资源列表
  */
 export type GemGen1List = CommonApiResourceList;
@@ -1948,15 +1714,6 @@ export type GemGen2 = HashPartial & {
 };
 
 /**
- * 名称映射二代刻印宝石资源
- */
-export type GemGen2NamedData = HashPartial & {
-    data: {
-        [key: string]: GemGen2;
-    };
-};
-
-/**
  * 二代刻印宝石资源列表
  */
 export type GemGen2List = CommonApiResourceList;
@@ -1986,15 +1743,6 @@ export type SkillActivationItem = HashPartial & {
     item: CommonResourceRef;
     skill: CommonResourceRef;
     pet: CommonResourceRef;
-};
-
-/**
- * 名称映射精灵技能激活道具资源
- */
-export type SkillActivationItemNamedData = HashPartial & {
-    data: {
-        [key: string]: SkillActivationItem;
-    };
 };
 
 /**
@@ -2076,15 +1824,6 @@ export type SkillStone = HashPartial & {
 };
 
 /**
- * 名称映射技能石资源
- */
-export type SkillStoneNamedData = HashPartial & {
-    data: {
-        [key: string]: SkillStone;
-    };
-};
-
-/**
  * 技能石资源列表
  */
 export type SkillStoneList = CommonApiResourceList;
@@ -2112,15 +1851,6 @@ export type SkillStoneCategory = HashPartial & {
      */
     skill_stone?: Array<CommonResourceRef>;
     type: CommonResourceRef;
-};
-
-/**
- * 名称映射技能石分类资源
- */
-export type SkillStoneCategoryNamedData = HashPartial & {
-    data: {
-        [key: string]: SkillStoneCategory;
-    };
 };
 
 /**
@@ -2200,15 +1930,6 @@ export type Mintmark = HashPartial & {
 };
 
 /**
- * 名称映射刻印资源
- */
-export type MintmarkNamedData = HashPartial & {
-    data: {
-        [key: string]: Mintmark;
-    };
-};
-
-/**
  * 刻印资源列表
  */
 export type MintmarkList = CommonApiResourceList;
@@ -2244,15 +1965,6 @@ export type AbilityMintmark = HashPartial & {
      */
     desc: string;
     max_attr_value: CommonSixAttributes;
-};
-
-/**
- * 名称映射能力刻印资源
- */
-export type AbilityMintmarkNamedData = HashPartial & {
-    data: {
-        [key: string]: AbilityMintmark;
-    };
 };
 
 /**
@@ -2316,15 +2028,6 @@ export type SkillMintmark = HashPartial & {
 };
 
 /**
- * 名称映射技能刻印资源
- */
-export type SkillMintmarkNamedData = HashPartial & {
-    data: {
-        [key: string]: SkillMintmark;
-    };
-};
-
-/**
  * 技能刻印资源列表
  */
 export type SkillMintmarkList = CommonApiResourceList;
@@ -2372,15 +2075,6 @@ export type UniversalMintmark = HashPartial & {
 };
 
 /**
- * 名称映射全能刻印资源
- */
-export type UniversalMintmarkNamedData = HashPartial & {
-    data: {
-        [key: string]: UniversalMintmark;
-    };
-};
-
-/**
  * 全能刻印资源列表
  */
 export type UniversalMintmarkList = CommonApiResourceList;
@@ -2410,15 +2104,6 @@ export type MintmarkClass = HashPartial & {
 };
 
 /**
- * 名称映射刻印系列分类资源
- */
-export type MintmarkClassNamedData = HashPartial & {
-    data: {
-        [key: string]: MintmarkClass;
-    };
-};
-
-/**
  * 刻印系列分类资源列表
  */
 export type MintmarkClassList = CommonApiResourceList;
@@ -2445,15 +2130,6 @@ export type MintmarkType = HashPartial & {
      * 刻印列表
      */
     mintmark?: Array<CommonResourceRef>;
-};
-
-/**
- * 名称映射刻印类型分类资源
- */
-export type MintmarkTypeNamedData = HashPartial & {
-    data: {
-        [key: string]: MintmarkType;
-    };
 };
 
 /**
@@ -2513,15 +2189,6 @@ export type Nature = HashPartial & {
      */
     des2: string;
     attributes: CommonSixAttributes;
-};
-
-/**
- * 名称映射性格资源
- */
-export type NatureNamedData = HashPartial & {
-    data: {
-        [key: string]: Nature;
-    };
 };
 
 /**
@@ -2857,15 +2524,6 @@ export type Pet = HashPartial & {
 };
 
 /**
- * 名称映射精灵资源
- */
-export type PetNamedData = HashPartial & {
-    data: {
-        [key: string]: Pet;
-    };
-};
-
-/**
  * 精灵资源列表
  */
 export type PetList = CommonApiResourceList;
@@ -2960,15 +2618,6 @@ export type PetGender = HashPartial & {
 };
 
 /**
- * 名称映射精灵性别分类资源
- */
-export type PetGenderNamedData = HashPartial & {
-    data: {
-        [key: string]: PetGender;
-    };
-};
-
-/**
  * 精灵性别分类资源列表
  */
 export type PetGenderList = CommonApiResourceList;
@@ -3004,15 +2653,6 @@ export type PetVipbuff = HashPartial & {
 };
 
 /**
- * 名称映射精灵VIP加成分类资源
- */
-export type PetVipbuffNamedData = HashPartial & {
-    data: {
-        [key: string]: PetVipbuff;
-    };
-};
-
-/**
  * 精灵VIP加成分类资源列表
  */
 export type PetVipbuffList = CommonApiResourceList;
@@ -3045,15 +2685,6 @@ export type PetMountType = HashPartial & {
      * 描述
      */
     description: string;
-};
-
-/**
- * 名称映射精灵坐骑类型分类资源
- */
-export type PetMountTypeNamedData = HashPartial & {
-    data: {
-        [key: string]: PetMountType;
-    };
 };
 
 /**
@@ -3113,17 +2744,22 @@ export type PetSkin = HashPartial & {
      * 该皮肤在对手侧时使用的资源的ID，仅少数皮肤存在这种资源
      */
     enemy_resource_id?: number | null;
+    /**
+     * Card Price
+     *
+     * 皮肤礼卡价格，当皮肤未上架礼卡商店时为null
+     */
+    card_price?: number | null;
     pet: CommonResourceRef;
     category: CommonResourceRef;
-};
-
-/**
- * 名称映射精灵皮肤资源
- */
-export type PetSkinNamedData = HashPartial & {
-    data: {
-        [key: string]: PetSkin;
-    };
+    /**
+     * 该皮肤所属的图鉴收集系列（在Unity端图鉴面板中显示），为null时表示该皮肤不属于任何图鉴收集系列
+     */
+    series?: CommonResourceRef | null;
+    /**
+     * 该皮肤所属的系列子类型，为null时表示该皮肤直接归属主系列
+     */
+    sub_type?: CommonResourceRef | null;
 };
 
 /**
@@ -3132,7 +2768,7 @@ export type PetSkinNamedData = HashPartial & {
 export type PetSkinList = CommonApiResourceList;
 
 /**
- * 精灵皮肤系列资源
+ * 精灵皮肤类型资源
  */
 export type PetSkinCategory = HashPartial & {
     /**
@@ -3150,9 +2786,74 @@ export type PetSkinCategory = HashPartial & {
 };
 
 /**
- * 精灵皮肤系列资源列表
+ * 精灵皮肤类型资源列表
  */
 export type PetSkinCategoryList = CommonApiResourceList;
+
+/**
+ * 精灵皮肤系列资源
+ */
+export type PetSkinSeries = HashPartial & {
+    /**
+     * Id
+     *
+     * 系列ID
+     */
+    id: number;
+    /**
+     * Name
+     *
+     * 系列名称
+     */
+    name: string;
+    /**
+     * Skins
+     *
+     * 该系列的皮肤列表
+     */
+    skins?: Array<CommonResourceRef>;
+    /**
+     * Sub Types
+     *
+     * 该系列的子类型列表
+     */
+    sub_types?: Array<CommonResourceRef>;
+};
+
+/**
+ * 精灵皮肤系列资源列表
+ */
+export type PetSkinSeriesList = CommonApiResourceList;
+
+/**
+ * 精灵皮肤系列子类型资源
+ */
+export type PetSkinSeriesSubType = HashPartial & {
+    /**
+     * Id
+     *
+     * 子类型ID，该值是由 SeerAPI 计算得出的，公式为（系列ID * 1000 + 子类型ID）
+     */
+    id: number;
+    /**
+     * Name
+     *
+     * 子类型名称
+     */
+    name: string;
+    series: CommonResourceRef;
+    /**
+     * Skins
+     *
+     * 该子类型对应的皮肤列表
+     */
+    skins?: Array<CommonResourceRef>;
+};
+
+/**
+ * 精灵皮肤系列子类型资源列表
+ */
+export type PetSkinSeriesSubTypeList = CommonApiResourceList;
 
 /**
  * 精灵图鉴条目资源
@@ -3210,15 +2911,6 @@ export type PetEncyclopediaEntry = HashPartial & {
 };
 
 /**
- * 名称映射精灵图鉴条目资源
- */
-export type PetEncyclopediaEntryNamedData = HashPartial & {
-    data: {
-        [key: string]: PetEncyclopediaEntry;
-    };
-};
-
-/**
  * 精灵图鉴条目资源列表
  */
 export type PetEncyclopediaEntryList = CommonApiResourceList;
@@ -3245,15 +2937,6 @@ export type PetArchiveStoryBook = HashPartial & {
      * 故事条目
      */
     entries?: Array<CommonResourceRef>;
-};
-
-/**
- * 名称映射精灵故事系列资源
- */
-export type PetArchiveStoryBookNamedData = HashPartial & {
-    data: {
-        [key: string]: PetArchiveStoryBook;
-    };
 };
 
 /**
@@ -3353,15 +3036,6 @@ export type Skill = HashPartial & {
      * 技能觉醒信息，仅在该技能是通过神谕觉醒开启的技能时生效
      */
     advance?: CommonResourceRef | null;
-};
-
-/**
- * 名称映射技能资源
- */
-export type SkillNamedData = HashPartial & {
-    data: {
-        [key: string]: Skill;
-    };
 };
 
 /**
@@ -3500,15 +3174,6 @@ export type SkillHideEffect = HashPartial & {
 };
 
 /**
- * 名称映射技能隐藏效果资源
- */
-export type SkillHideEffectNamedData = HashPartial & {
-    data: {
-        [key: string]: SkillHideEffect;
-    };
-};
-
-/**
  * 技能隐藏效果资源列表
  */
 export type SkillHideEffectList = CommonApiResourceList;
@@ -3538,15 +3203,6 @@ export type SkillCategory = HashPartial & {
 };
 
 /**
- * 名称映射技能分类资源
- */
-export type SkillCategoryNamedData = HashPartial & {
-    data: {
-        [key: string]: SkillCategory;
-    };
-};
-
-/**
  * 技能分类资源列表
  */
 export type SkillCategoryList = CommonApiResourceList;
@@ -3573,15 +3229,6 @@ export type SkillEffectTypeTag = HashPartial & {
      * 技能效果类型列表
      */
     effect?: Array<CommonResourceRef>;
-};
-
-/**
- * 名称映射技能效果类型标签资源
- */
-export type SkillEffectTypeTagNamedData = HashPartial & {
-    data: {
-        [key: string]: SkillEffectTypeTag;
-    };
 };
 
 /**
@@ -3868,6 +3515,14 @@ export type RootIndex = HashPartial & {
      */
     pet_skin_category: string;
     /**
+     * pet_skin_series Path
+     */
+    pet_skin_series: string;
+    /**
+     * pet_skin_series_sub_type Path
+     */
+    pet_skin_series_sub_type: string;
+    /**
      * pet_encyclopedia_entry Path
      */
     pet_encyclopedia_entry: string;
@@ -3942,27 +3597,6 @@ export type GetAchievementByIdResponses = {
 
 export type GetAchievementByIdResponse = GetAchievementByIdResponses[keyof GetAchievementByIdResponses];
 
-export type GetAchievementByNameData = {
-    body?: never;
-    path: {
-        /**
-         * 资源名称
-         */
-        name: string;
-    };
-    query?: never;
-    url: 'v1/achievement/{name}';
-};
-
-export type GetAchievementByNameResponses = {
-    /**
-     * OK
-     */
-    200: AchievementNamedData;
-};
-
-export type GetAchievementByNameResponse = GetAchievementByNameResponses[keyof GetAchievementByNameResponses];
-
 export type GetAchievementListData = {
     body?: never;
     path?: never;
@@ -4008,27 +3642,6 @@ export type GetAchievementBranchByIdResponses = {
 };
 
 export type GetAchievementBranchByIdResponse = GetAchievementBranchByIdResponses[keyof GetAchievementBranchByIdResponses];
-
-export type GetAchievementBranchByNameData = {
-    body?: never;
-    path: {
-        /**
-         * 资源名称
-         */
-        name: string;
-    };
-    query?: never;
-    url: 'v1/achievement_branch/{name}';
-};
-
-export type GetAchievementBranchByNameResponses = {
-    /**
-     * OK
-     */
-    200: AchievementBranchNamedData;
-};
-
-export type GetAchievementBranchByNameResponse = GetAchievementBranchByNameResponses[keyof GetAchievementBranchByNameResponses];
 
 export type GetAchievementBranchListData = {
     body?: never;
@@ -4076,27 +3689,6 @@ export type GetAchievementTypeByIdResponses = {
 
 export type GetAchievementTypeByIdResponse = GetAchievementTypeByIdResponses[keyof GetAchievementTypeByIdResponses];
 
-export type GetAchievementTypeByNameData = {
-    body?: never;
-    path: {
-        /**
-         * 资源名称
-         */
-        name: string;
-    };
-    query?: never;
-    url: 'v1/achievement_type/{name}';
-};
-
-export type GetAchievementTypeByNameResponses = {
-    /**
-     * OK
-     */
-    200: AchievementTypeNamedData;
-};
-
-export type GetAchievementTypeByNameResponse = GetAchievementTypeByNameResponses[keyof GetAchievementTypeByNameResponses];
-
 export type GetAchievementTypeListData = {
     body?: never;
     path?: never;
@@ -4142,27 +3734,6 @@ export type GetAchievementCategoryByIdResponses = {
 };
 
 export type GetAchievementCategoryByIdResponse = GetAchievementCategoryByIdResponses[keyof GetAchievementCategoryByIdResponses];
-
-export type GetAchievementCategoryByNameData = {
-    body?: never;
-    path: {
-        /**
-         * 资源名称
-         */
-        name: string;
-    };
-    query?: never;
-    url: 'v1/achievement_category/{name}';
-};
-
-export type GetAchievementCategoryByNameResponses = {
-    /**
-     * OK
-     */
-    200: AchievementCategoryNamedData;
-};
-
-export type GetAchievementCategoryByNameResponse = GetAchievementCategoryByNameResponses[keyof GetAchievementCategoryByNameResponses];
 
 export type GetAchievementCategoryListData = {
     body?: never;
@@ -4210,27 +3781,6 @@ export type GetTitleByIdResponses = {
 
 export type GetTitleByIdResponse = GetTitleByIdResponses[keyof GetTitleByIdResponses];
 
-export type GetTitleByNameData = {
-    body?: never;
-    path: {
-        /**
-         * 资源名称
-         */
-        name: string;
-    };
-    query?: never;
-    url: 'v1/title/{name}';
-};
-
-export type GetTitleByNameResponses = {
-    /**
-     * OK
-     */
-    200: TitleNamedData;
-};
-
-export type GetTitleByNameResponse = GetTitleByNameResponses[keyof GetTitleByNameResponses];
-
 export type GetTitleListData = {
     body?: never;
     path?: never;
@@ -4276,27 +3826,6 @@ export type GetBattleEffectByIdResponses = {
 };
 
 export type GetBattleEffectByIdResponse = GetBattleEffectByIdResponses[keyof GetBattleEffectByIdResponses];
-
-export type GetBattleEffectByNameData = {
-    body?: never;
-    path: {
-        /**
-         * 资源名称
-         */
-        name: string;
-    };
-    query?: never;
-    url: 'v1/battle_effect/{name}';
-};
-
-export type GetBattleEffectByNameResponses = {
-    /**
-     * OK
-     */
-    200: BattleEffectNamedData;
-};
-
-export type GetBattleEffectByNameResponse = GetBattleEffectByNameResponses[keyof GetBattleEffectByNameResponses];
 
 export type GetBattleEffectListData = {
     body?: never;
@@ -4344,27 +3873,6 @@ export type GetBattleEffectTypeByIdResponses = {
 
 export type GetBattleEffectTypeByIdResponse = GetBattleEffectTypeByIdResponses[keyof GetBattleEffectTypeByIdResponses];
 
-export type GetBattleEffectTypeByNameData = {
-    body?: never;
-    path: {
-        /**
-         * 资源名称
-         */
-        name: string;
-    };
-    query?: never;
-    url: 'v1/battle_effect_type/{name}';
-};
-
-export type GetBattleEffectTypeByNameResponses = {
-    /**
-     * OK
-     */
-    200: BattleEffectTypeNamedData;
-};
-
-export type GetBattleEffectTypeByNameResponse = GetBattleEffectTypeByNameResponses[keyof GetBattleEffectTypeByNameResponses];
-
 export type GetBattleEffectTypeListData = {
     body?: never;
     path?: never;
@@ -4410,27 +3918,6 @@ export type GetAvatarHeadByIdResponses = {
 };
 
 export type GetAvatarHeadByIdResponse = GetAvatarHeadByIdResponses[keyof GetAvatarHeadByIdResponses];
-
-export type GetAvatarHeadByNameData = {
-    body?: never;
-    path: {
-        /**
-         * 资源名称
-         */
-        name: string;
-    };
-    query?: never;
-    url: 'v1/avatar_head/{name}';
-};
-
-export type GetAvatarHeadByNameResponses = {
-    /**
-     * OK
-     */
-    200: AvatarHeadNamedData;
-};
-
-export type GetAvatarHeadByNameResponse = GetAvatarHeadByNameResponses[keyof GetAvatarHeadByNameResponses];
 
 export type GetAvatarHeadListData = {
     body?: never;
@@ -4478,27 +3965,6 @@ export type GetAvatarFrameByIdResponses = {
 
 export type GetAvatarFrameByIdResponse = GetAvatarFrameByIdResponses[keyof GetAvatarFrameByIdResponses];
 
-export type GetAvatarFrameByNameData = {
-    body?: never;
-    path: {
-        /**
-         * 资源名称
-         */
-        name: string;
-    };
-    query?: never;
-    url: 'v1/avatar_frame/{name}';
-};
-
-export type GetAvatarFrameByNameResponses = {
-    /**
-     * OK
-     */
-    200: AvatarFrameNamedData;
-};
-
-export type GetAvatarFrameByNameResponse = GetAvatarFrameByNameResponses[keyof GetAvatarFrameByNameResponses];
-
 export type GetAvatarFrameListData = {
     body?: never;
     path?: never;
@@ -4544,27 +4010,6 @@ export type GetNamecardBackgroundByIdResponses = {
 };
 
 export type GetNamecardBackgroundByIdResponse = GetNamecardBackgroundByIdResponses[keyof GetNamecardBackgroundByIdResponses];
-
-export type GetNamecardBackgroundByNameData = {
-    body?: never;
-    path: {
-        /**
-         * 资源名称
-         */
-        name: string;
-    };
-    query?: never;
-    url: 'v1/namecard_background/{name}';
-};
-
-export type GetNamecardBackgroundByNameResponses = {
-    /**
-     * OK
-     */
-    200: NamecardBackgroundNamedData;
-};
-
-export type GetNamecardBackgroundByNameResponse = GetNamecardBackgroundByNameResponses[keyof GetNamecardBackgroundByNameResponses];
 
 export type GetNamecardBackgroundListData = {
     body?: never;
@@ -4612,27 +4057,6 @@ export type GetNicknameBackgroundByIdResponses = {
 
 export type GetNicknameBackgroundByIdResponse = GetNicknameBackgroundByIdResponses[keyof GetNicknameBackgroundByIdResponses];
 
-export type GetNicknameBackgroundByNameData = {
-    body?: never;
-    path: {
-        /**
-         * 资源名称
-         */
-        name: string;
-    };
-    query?: never;
-    url: 'v1/nickname_background/{name}';
-};
-
-export type GetNicknameBackgroundByNameResponses = {
-    /**
-     * OK
-     */
-    200: NicknameBackgroundNamedData;
-};
-
-export type GetNicknameBackgroundByNameResponse = GetNicknameBackgroundByNameResponses[keyof GetNicknameBackgroundByNameResponses];
-
 export type GetNicknameBackgroundListData = {
     body?: never;
     path?: never;
@@ -4678,27 +4102,6 @@ export type GetHomepageBackgroundByIdResponses = {
 };
 
 export type GetHomepageBackgroundByIdResponse = GetHomepageBackgroundByIdResponses[keyof GetHomepageBackgroundByIdResponses];
-
-export type GetHomepageBackgroundByNameData = {
-    body?: never;
-    path: {
-        /**
-         * 资源名称
-         */
-        name: string;
-    };
-    query?: never;
-    url: 'v1/homepage_background/{name}';
-};
-
-export type GetHomepageBackgroundByNameResponses = {
-    /**
-     * OK
-     */
-    200: HomepageBackgroundNamedData;
-};
-
-export type GetHomepageBackgroundByNameResponse = GetHomepageBackgroundByNameResponses[keyof GetHomepageBackgroundByNameResponses];
 
 export type GetHomepageBackgroundListData = {
     body?: never;
@@ -4746,27 +4149,6 @@ export type GetPetEffectByIdResponses = {
 
 export type GetPetEffectByIdResponse = GetPetEffectByIdResponses[keyof GetPetEffectByIdResponses];
 
-export type GetPetEffectByNameData = {
-    body?: never;
-    path: {
-        /**
-         * 资源名称
-         */
-        name: string;
-    };
-    query?: never;
-    url: 'v1/pet_effect/{name}';
-};
-
-export type GetPetEffectByNameResponses = {
-    /**
-     * OK
-     */
-    200: PetEffectNamedData;
-};
-
-export type GetPetEffectByNameResponse = GetPetEffectByNameResponses[keyof GetPetEffectByNameResponses];
-
 export type GetPetEffectListData = {
     body?: never;
     path?: never;
@@ -4813,27 +4195,6 @@ export type GetPetEffectGroupByIdResponses = {
 
 export type GetPetEffectGroupByIdResponse = GetPetEffectGroupByIdResponses[keyof GetPetEffectGroupByIdResponses];
 
-export type GetPetEffectGroupByNameData = {
-    body?: never;
-    path: {
-        /**
-         * 资源名称
-         */
-        name: string;
-    };
-    query?: never;
-    url: 'v1/pet_effect_group/{name}';
-};
-
-export type GetPetEffectGroupByNameResponses = {
-    /**
-     * OK
-     */
-    200: PetEffectGroupNamedData;
-};
-
-export type GetPetEffectGroupByNameResponse = GetPetEffectGroupByNameResponses[keyof GetPetEffectGroupByNameResponses];
-
 export type GetPetEffectGroupListData = {
     body?: never;
     path?: never;
@@ -4879,27 +4240,6 @@ export type GetPetVariationByIdResponses = {
 };
 
 export type GetPetVariationByIdResponse = GetPetVariationByIdResponses[keyof GetPetVariationByIdResponses];
-
-export type GetPetVariationByNameData = {
-    body?: never;
-    path: {
-        /**
-         * 资源名称
-         */
-        name: string;
-    };
-    query?: never;
-    url: 'v1/pet_variation/{name}';
-};
-
-export type GetPetVariationByNameResponses = {
-    /**
-     * OK
-     */
-    200: PetVariationNamedData;
-};
-
-export type GetPetVariationByNameResponse = GetPetVariationByNameResponses[keyof GetPetVariationByNameResponses];
 
 export type GetPetVariationListData = {
     body?: never;
@@ -4993,27 +4333,6 @@ export type GetEnergyBeadByIdResponses = {
 
 export type GetEnergyBeadByIdResponse = GetEnergyBeadByIdResponses[keyof GetEnergyBeadByIdResponses];
 
-export type GetEnergyBeadByNameData = {
-    body?: never;
-    path: {
-        /**
-         * 资源名称
-         */
-        name: string;
-    };
-    query?: never;
-    url: 'v1/energy_bead/{name}';
-};
-
-export type GetEnergyBeadByNameResponses = {
-    /**
-     * OK
-     */
-    200: EnergyBeadNamedData;
-};
-
-export type GetEnergyBeadByNameResponse = GetEnergyBeadByNameResponses[keyof GetEnergyBeadByNameResponses];
-
 export type GetEnergyBeadListData = {
     body?: never;
     path?: never;
@@ -5059,27 +4378,6 @@ export type GetEquipByIdResponses = {
 };
 
 export type GetEquipByIdResponse = GetEquipByIdResponses[keyof GetEquipByIdResponses];
-
-export type GetEquipByNameData = {
-    body?: never;
-    path: {
-        /**
-         * 资源名称
-         */
-        name: string;
-    };
-    query?: never;
-    url: 'v1/equip/{name}';
-};
-
-export type GetEquipByNameResponses = {
-    /**
-     * OK
-     */
-    200: EquipNamedData;
-};
-
-export type GetEquipByNameResponse = GetEquipByNameResponses[keyof GetEquipByNameResponses];
 
 export type GetEquipListData = {
     body?: never;
@@ -5127,27 +4425,6 @@ export type GetSuitByIdResponses = {
 
 export type GetSuitByIdResponse = GetSuitByIdResponses[keyof GetSuitByIdResponses];
 
-export type GetSuitByNameData = {
-    body?: never;
-    path: {
-        /**
-         * 资源名称
-         */
-        name: string;
-    };
-    query?: never;
-    url: 'v1/suit/{name}';
-};
-
-export type GetSuitByNameResponses = {
-    /**
-     * OK
-     */
-    200: SuitNamedData;
-};
-
-export type GetSuitByNameResponse = GetSuitByNameResponses[keyof GetSuitByNameResponses];
-
 export type GetSuitListData = {
     body?: never;
     path?: never;
@@ -5193,27 +4470,6 @@ export type GetEquipTypeByIdResponses = {
 };
 
 export type GetEquipTypeByIdResponse = GetEquipTypeByIdResponses[keyof GetEquipTypeByIdResponses];
-
-export type GetEquipTypeByNameData = {
-    body?: never;
-    path: {
-        /**
-         * 资源名称
-         */
-        name: string;
-    };
-    query?: never;
-    url: 'v1/equip_type/{name}';
-};
-
-export type GetEquipTypeByNameResponses = {
-    /**
-     * OK
-     */
-    200: EquipTypeNamedData;
-};
-
-export type GetEquipTypeByNameResponse = GetEquipTypeByNameResponses[keyof GetEquipTypeByNameResponses];
 
 export type GetEquipTypeListData = {
     body?: never;
@@ -5307,27 +4563,6 @@ export type GetSoulmarkByIdResponses = {
 
 export type GetSoulmarkByIdResponse = GetSoulmarkByIdResponses[keyof GetSoulmarkByIdResponses];
 
-export type GetSoulmarkByNameData = {
-    body?: never;
-    path: {
-        /**
-         * 资源名称
-         */
-        name: string;
-    };
-    query?: never;
-    url: 'v1/soulmark/{name}';
-};
-
-export type GetSoulmarkByNameResponses = {
-    /**
-     * OK
-     */
-    200: SoulmarkNamedData;
-};
-
-export type GetSoulmarkByNameResponse = GetSoulmarkByNameResponses[keyof GetSoulmarkByNameResponses];
-
 export type GetSoulmarkListData = {
     body?: never;
     path?: never;
@@ -5373,27 +4608,6 @@ export type GetSoulmarkTagByIdResponses = {
 };
 
 export type GetSoulmarkTagByIdResponse = GetSoulmarkTagByIdResponses[keyof GetSoulmarkTagByIdResponses];
-
-export type GetSoulmarkTagByNameData = {
-    body?: never;
-    path: {
-        /**
-         * 资源名称
-         */
-        name: string;
-    };
-    query?: never;
-    url: 'v1/soulmark_tag/{name}';
-};
-
-export type GetSoulmarkTagByNameResponses = {
-    /**
-     * OK
-     */
-    200: SoulmarkTagNamedData;
-};
-
-export type GetSoulmarkTagByNameResponse = GetSoulmarkTagByNameResponses[keyof GetSoulmarkTagByNameResponses];
 
 export type GetSoulmarkTagListData = {
     body?: never;
@@ -5441,27 +4655,6 @@ export type GetElementTypeByIdResponses = {
 
 export type GetElementTypeByIdResponse = GetElementTypeByIdResponses[keyof GetElementTypeByIdResponses];
 
-export type GetElementTypeByNameData = {
-    body?: never;
-    path: {
-        /**
-         * 资源名称
-         */
-        name: string;
-    };
-    query?: never;
-    url: 'v1/element_type/{name}';
-};
-
-export type GetElementTypeByNameResponses = {
-    /**
-     * OK
-     */
-    200: ElementTypeNamedData;
-};
-
-export type GetElementTypeByNameResponse = GetElementTypeByNameResponses[keyof GetElementTypeByNameResponses];
-
 export type GetElementTypeListData = {
     body?: never;
     path?: never;
@@ -5507,27 +4700,6 @@ export type GetElementTypeCombinationByIdResponses = {
 };
 
 export type GetElementTypeCombinationByIdResponse = GetElementTypeCombinationByIdResponses[keyof GetElementTypeCombinationByIdResponses];
-
-export type GetElementTypeCombinationByNameData = {
-    body?: never;
-    path: {
-        /**
-         * 资源名称
-         */
-        name: string;
-    };
-    query?: never;
-    url: 'v1/element_type_combination/{name}';
-};
-
-export type GetElementTypeCombinationByNameResponses = {
-    /**
-     * OK
-     */
-    200: ElementTypeCombinationNamedData;
-};
-
-export type GetElementTypeCombinationByNameResponse = GetElementTypeCombinationByNameResponses[keyof GetElementTypeCombinationByNameResponses];
 
 export type GetElementTypeCombinationListData = {
     body?: never;
@@ -5575,27 +4747,6 @@ export type GetErrorCodeByIdResponses = {
 
 export type GetErrorCodeByIdResponse = GetErrorCodeByIdResponses[keyof GetErrorCodeByIdResponses];
 
-export type GetErrorCodeByNameData = {
-    body?: never;
-    path: {
-        /**
-         * 资源名称
-         */
-        name: string;
-    };
-    query?: never;
-    url: 'v1/error_code/{name}';
-};
-
-export type GetErrorCodeByNameResponses = {
-    /**
-     * OK
-     */
-    200: ErrorCodeNamedData;
-};
-
-export type GetErrorCodeByNameResponse = GetErrorCodeByNameResponses[keyof GetErrorCodeByNameResponses];
-
 export type GetErrorCodeListData = {
     body?: never;
     path?: never;
@@ -5641,27 +4792,6 @@ export type GetGlossaryEntryByIdResponses = {
 };
 
 export type GetGlossaryEntryByIdResponse = GetGlossaryEntryByIdResponses[keyof GetGlossaryEntryByIdResponses];
-
-export type GetGlossaryEntryByNameData = {
-    body?: never;
-    path: {
-        /**
-         * 资源名称
-         */
-        name: string;
-    };
-    query?: never;
-    url: 'v1/glossary_entry/{name}';
-};
-
-export type GetGlossaryEntryByNameResponses = {
-    /**
-     * OK
-     */
-    200: GlossaryEntryNamedData;
-};
-
-export type GetGlossaryEntryByNameResponse = GetGlossaryEntryByNameResponses[keyof GetGlossaryEntryByNameResponses];
 
 export type GetGlossaryEntryListData = {
     body?: never;
@@ -5709,27 +4839,6 @@ export type GetGemByIdResponses = {
 
 export type GetGemByIdResponse = GetGemByIdResponses[keyof GetGemByIdResponses];
 
-export type GetGemByNameData = {
-    body?: never;
-    path: {
-        /**
-         * 资源名称
-         */
-        name: string;
-    };
-    query?: never;
-    url: 'v1/gem/{name}';
-};
-
-export type GetGemByNameResponses = {
-    /**
-     * OK
-     */
-    200: GemNamedData;
-};
-
-export type GetGemByNameResponse = GetGemByNameResponses[keyof GetGemByNameResponses];
-
 export type GetGemListData = {
     body?: never;
     path?: never;
@@ -5775,27 +4884,6 @@ export type GetGemCategoryByIdResponses = {
 };
 
 export type GetGemCategoryByIdResponse = GetGemCategoryByIdResponses[keyof GetGemCategoryByIdResponses];
-
-export type GetGemCategoryByNameData = {
-    body?: never;
-    path: {
-        /**
-         * 资源名称
-         */
-        name: string;
-    };
-    query?: never;
-    url: 'v1/gem_category/{name}';
-};
-
-export type GetGemCategoryByNameResponses = {
-    /**
-     * OK
-     */
-    200: GemCategoryNamedData;
-};
-
-export type GetGemCategoryByNameResponse = GetGemCategoryByNameResponses[keyof GetGemCategoryByNameResponses];
 
 export type GetGemCategoryListData = {
     body?: never;
@@ -5889,27 +4977,6 @@ export type GetGemGen1ByIdResponses = {
 
 export type GetGemGen1ByIdResponse = GetGemGen1ByIdResponses[keyof GetGemGen1ByIdResponses];
 
-export type GetGemGen1ByNameData = {
-    body?: never;
-    path: {
-        /**
-         * 资源名称
-         */
-        name: string;
-    };
-    query?: never;
-    url: 'v1/gem_gen1/{name}';
-};
-
-export type GetGemGen1ByNameResponses = {
-    /**
-     * OK
-     */
-    200: GemGen1NamedData;
-};
-
-export type GetGemGen1ByNameResponse = GetGemGen1ByNameResponses[keyof GetGemGen1ByNameResponses];
-
 export type GetGemGen1ListData = {
     body?: never;
     path?: never;
@@ -5955,27 +5022,6 @@ export type GetGemGen2ByIdResponses = {
 };
 
 export type GetGemGen2ByIdResponse = GetGemGen2ByIdResponses[keyof GetGemGen2ByIdResponses];
-
-export type GetGemGen2ByNameData = {
-    body?: never;
-    path: {
-        /**
-         * 资源名称
-         */
-        name: string;
-    };
-    query?: never;
-    url: 'v1/gem_gen2/{name}';
-};
-
-export type GetGemGen2ByNameResponses = {
-    /**
-     * OK
-     */
-    200: GemGen2NamedData;
-};
-
-export type GetGemGen2ByNameResponse = GetGemGen2ByNameResponses[keyof GetGemGen2ByNameResponses];
 
 export type GetGemGen2ListData = {
     body?: never;
@@ -6023,27 +5069,6 @@ export type GetSkillActivationItemByIdResponses = {
 
 export type GetSkillActivationItemByIdResponse = GetSkillActivationItemByIdResponses[keyof GetSkillActivationItemByIdResponses];
 
-export type GetSkillActivationItemByNameData = {
-    body?: never;
-    path: {
-        /**
-         * 资源名称
-         */
-        name: string;
-    };
-    query?: never;
-    url: 'v1/skill_activation_item/{name}';
-};
-
-export type GetSkillActivationItemByNameResponses = {
-    /**
-     * OK
-     */
-    200: SkillActivationItemNamedData;
-};
-
-export type GetSkillActivationItemByNameResponse = GetSkillActivationItemByNameResponses[keyof GetSkillActivationItemByNameResponses];
-
 export type GetSkillActivationItemListData = {
     body?: never;
     path?: never;
@@ -6089,27 +5114,6 @@ export type GetSkillStoneByIdResponses = {
 };
 
 export type GetSkillStoneByIdResponse = GetSkillStoneByIdResponses[keyof GetSkillStoneByIdResponses];
-
-export type GetSkillStoneByNameData = {
-    body?: never;
-    path: {
-        /**
-         * 资源名称
-         */
-        name: string;
-    };
-    query?: never;
-    url: 'v1/skill_stone/{name}';
-};
-
-export type GetSkillStoneByNameResponses = {
-    /**
-     * OK
-     */
-    200: SkillStoneNamedData;
-};
-
-export type GetSkillStoneByNameResponse = GetSkillStoneByNameResponses[keyof GetSkillStoneByNameResponses];
 
 export type GetSkillStoneListData = {
     body?: never;
@@ -6157,27 +5161,6 @@ export type GetSkillStoneCategoryByIdResponses = {
 
 export type GetSkillStoneCategoryByIdResponse = GetSkillStoneCategoryByIdResponses[keyof GetSkillStoneCategoryByIdResponses];
 
-export type GetSkillStoneCategoryByNameData = {
-    body?: never;
-    path: {
-        /**
-         * 资源名称
-         */
-        name: string;
-    };
-    query?: never;
-    url: 'v1/skill_stone_category/{name}';
-};
-
-export type GetSkillStoneCategoryByNameResponses = {
-    /**
-     * OK
-     */
-    200: SkillStoneCategoryNamedData;
-};
-
-export type GetSkillStoneCategoryByNameResponse = GetSkillStoneCategoryByNameResponses[keyof GetSkillStoneCategoryByNameResponses];
-
 export type GetSkillStoneCategoryListData = {
     body?: never;
     path?: never;
@@ -6223,27 +5206,6 @@ export type GetMintmarkByIdResponses = {
 };
 
 export type GetMintmarkByIdResponse = GetMintmarkByIdResponses[keyof GetMintmarkByIdResponses];
-
-export type GetMintmarkByNameData = {
-    body?: never;
-    path: {
-        /**
-         * 资源名称
-         */
-        name: string;
-    };
-    query?: never;
-    url: 'v1/mintmark/{name}';
-};
-
-export type GetMintmarkByNameResponses = {
-    /**
-     * OK
-     */
-    200: MintmarkNamedData;
-};
-
-export type GetMintmarkByNameResponse = GetMintmarkByNameResponses[keyof GetMintmarkByNameResponses];
 
 export type GetMintmarkListData = {
     body?: never;
@@ -6291,27 +5253,6 @@ export type GetAbilityMintmarkByIdResponses = {
 
 export type GetAbilityMintmarkByIdResponse = GetAbilityMintmarkByIdResponses[keyof GetAbilityMintmarkByIdResponses];
 
-export type GetAbilityMintmarkByNameData = {
-    body?: never;
-    path: {
-        /**
-         * 资源名称
-         */
-        name: string;
-    };
-    query?: never;
-    url: 'v1/ability_mintmark/{name}';
-};
-
-export type GetAbilityMintmarkByNameResponses = {
-    /**
-     * OK
-     */
-    200: AbilityMintmarkNamedData;
-};
-
-export type GetAbilityMintmarkByNameResponse = GetAbilityMintmarkByNameResponses[keyof GetAbilityMintmarkByNameResponses];
-
 export type GetAbilityMintmarkListData = {
     body?: never;
     path?: never;
@@ -6357,27 +5298,6 @@ export type GetSkillMintmarkByIdResponses = {
 };
 
 export type GetSkillMintmarkByIdResponse = GetSkillMintmarkByIdResponses[keyof GetSkillMintmarkByIdResponses];
-
-export type GetSkillMintmarkByNameData = {
-    body?: never;
-    path: {
-        /**
-         * 资源名称
-         */
-        name: string;
-    };
-    query?: never;
-    url: 'v1/skill_mintmark/{name}';
-};
-
-export type GetSkillMintmarkByNameResponses = {
-    /**
-     * OK
-     */
-    200: SkillMintmarkNamedData;
-};
-
-export type GetSkillMintmarkByNameResponse = GetSkillMintmarkByNameResponses[keyof GetSkillMintmarkByNameResponses];
 
 export type GetSkillMintmarkListData = {
     body?: never;
@@ -6425,27 +5345,6 @@ export type GetUniversalMintmarkByIdResponses = {
 
 export type GetUniversalMintmarkByIdResponse = GetUniversalMintmarkByIdResponses[keyof GetUniversalMintmarkByIdResponses];
 
-export type GetUniversalMintmarkByNameData = {
-    body?: never;
-    path: {
-        /**
-         * 资源名称
-         */
-        name: string;
-    };
-    query?: never;
-    url: 'v1/universal_mintmark/{name}';
-};
-
-export type GetUniversalMintmarkByNameResponses = {
-    /**
-     * OK
-     */
-    200: UniversalMintmarkNamedData;
-};
-
-export type GetUniversalMintmarkByNameResponse = GetUniversalMintmarkByNameResponses[keyof GetUniversalMintmarkByNameResponses];
-
 export type GetUniversalMintmarkListData = {
     body?: never;
     path?: never;
@@ -6492,27 +5391,6 @@ export type GetMintmarkClassByIdResponses = {
 
 export type GetMintmarkClassByIdResponse = GetMintmarkClassByIdResponses[keyof GetMintmarkClassByIdResponses];
 
-export type GetMintmarkClassByNameData = {
-    body?: never;
-    path: {
-        /**
-         * 资源名称
-         */
-        name: string;
-    };
-    query?: never;
-    url: 'v1/mintmark_class/{name}';
-};
-
-export type GetMintmarkClassByNameResponses = {
-    /**
-     * OK
-     */
-    200: MintmarkClassNamedData;
-};
-
-export type GetMintmarkClassByNameResponse = GetMintmarkClassByNameResponses[keyof GetMintmarkClassByNameResponses];
-
 export type GetMintmarkClassListData = {
     body?: never;
     path?: never;
@@ -6558,27 +5436,6 @@ export type GetMintmarkTypeByIdResponses = {
 };
 
 export type GetMintmarkTypeByIdResponse = GetMintmarkTypeByIdResponses[keyof GetMintmarkTypeByIdResponses];
-
-export type GetMintmarkTypeByNameData = {
-    body?: never;
-    path: {
-        /**
-         * 资源名称
-         */
-        name: string;
-    };
-    query?: never;
-    url: 'v1/mintmark_type/{name}';
-};
-
-export type GetMintmarkTypeByNameResponses = {
-    /**
-     * OK
-     */
-    200: MintmarkTypeNamedData;
-};
-
-export type GetMintmarkTypeByNameResponse = GetMintmarkTypeByNameResponses[keyof GetMintmarkTypeByNameResponses];
 
 export type GetMintmarkTypeListData = {
     body?: never;
@@ -6671,27 +5528,6 @@ export type GetNatureByIdResponses = {
 };
 
 export type GetNatureByIdResponse = GetNatureByIdResponses[keyof GetNatureByIdResponses];
-
-export type GetNatureByNameData = {
-    body?: never;
-    path: {
-        /**
-         * 资源名称
-         */
-        name: string;
-    };
-    query?: never;
-    url: 'v1/nature/{name}';
-};
-
-export type GetNatureByNameResponses = {
-    /**
-     * OK
-     */
-    200: NatureNamedData;
-};
-
-export type GetNatureByNameResponse = GetNatureByNameResponses[keyof GetNatureByNameResponses];
 
 export type GetNatureListData = {
     body?: never;
@@ -6923,27 +5759,6 @@ export type GetPetByIdResponses = {
 
 export type GetPetByIdResponse = GetPetByIdResponses[keyof GetPetByIdResponses];
 
-export type GetPetByNameData = {
-    body?: never;
-    path: {
-        /**
-         * 资源名称
-         */
-        name: string;
-    };
-    query?: never;
-    url: 'v1/pet/{name}';
-};
-
-export type GetPetByNameResponses = {
-    /**
-     * OK
-     */
-    200: PetNamedData;
-};
-
-export type GetPetByNameResponse = GetPetByNameResponses[keyof GetPetByNameResponses];
-
 export type GetPetListData = {
     body?: never;
     path?: never;
@@ -7036,27 +5851,6 @@ export type GetPetGenderByIdResponses = {
 
 export type GetPetGenderByIdResponse = GetPetGenderByIdResponses[keyof GetPetGenderByIdResponses];
 
-export type GetPetGenderByNameData = {
-    body?: never;
-    path: {
-        /**
-         * 资源名称
-         */
-        name: string;
-    };
-    query?: never;
-    url: 'v1/pet_gender/{name}';
-};
-
-export type GetPetGenderByNameResponses = {
-    /**
-     * OK
-     */
-    200: PetGenderNamedData;
-};
-
-export type GetPetGenderByNameResponse = GetPetGenderByNameResponses[keyof GetPetGenderByNameResponses];
-
 export type GetPetGenderListData = {
     body?: never;
     path?: never;
@@ -7103,27 +5897,6 @@ export type GetPetVipbuffByIdResponses = {
 
 export type GetPetVipbuffByIdResponse = GetPetVipbuffByIdResponses[keyof GetPetVipbuffByIdResponses];
 
-export type GetPetVipbuffByNameData = {
-    body?: never;
-    path: {
-        /**
-         * 资源名称
-         */
-        name: string;
-    };
-    query?: never;
-    url: 'v1/pet_vipbuff/{name}';
-};
-
-export type GetPetVipbuffByNameResponses = {
-    /**
-     * OK
-     */
-    200: PetVipbuffNamedData;
-};
-
-export type GetPetVipbuffByNameResponse = GetPetVipbuffByNameResponses[keyof GetPetVipbuffByNameResponses];
-
 export type GetPetVipbuffListData = {
     body?: never;
     path?: never;
@@ -7169,27 +5942,6 @@ export type GetPetMountTypeByIdResponses = {
 };
 
 export type GetPetMountTypeByIdResponse = GetPetMountTypeByIdResponses[keyof GetPetMountTypeByIdResponses];
-
-export type GetPetMountTypeByNameData = {
-    body?: never;
-    path: {
-        /**
-         * 资源名称
-         */
-        name: string;
-    };
-    query?: never;
-    url: 'v1/pet_mount_type/{name}';
-};
-
-export type GetPetMountTypeByNameResponses = {
-    /**
-     * OK
-     */
-    200: PetMountTypeNamedData;
-};
-
-export type GetPetMountTypeByNameResponse = GetPetMountTypeByNameResponses[keyof GetPetMountTypeByNameResponses];
 
 export type GetPetMountTypeListData = {
     body?: never;
@@ -7283,27 +6035,6 @@ export type GetPetSkinByIdResponses = {
 
 export type GetPetSkinByIdResponse = GetPetSkinByIdResponses[keyof GetPetSkinByIdResponses];
 
-export type GetPetSkinByNameData = {
-    body?: never;
-    path: {
-        /**
-         * 资源名称
-         */
-        name: string;
-    };
-    query?: never;
-    url: 'v1/pet_skin/{name}';
-};
-
-export type GetPetSkinByNameResponses = {
-    /**
-     * OK
-     */
-    200: PetSkinNamedData;
-};
-
-export type GetPetSkinByNameResponse = GetPetSkinByNameResponses[keyof GetPetSkinByNameResponses];
-
 export type GetPetSkinListData = {
     body?: never;
     path?: never;
@@ -7375,6 +6106,98 @@ export type GetPetSkinCategoryListResponses = {
 
 export type GetPetSkinCategoryListResponse = GetPetSkinCategoryListResponses[keyof GetPetSkinCategoryListResponses];
 
+export type GetPetSkinSeriesByIdData = {
+    body?: never;
+    path: {
+        /**
+         * 资源 ID
+         */
+        id: number;
+    };
+    query?: never;
+    url: 'v1/pet_skin_series/{id}';
+};
+
+export type GetPetSkinSeriesByIdResponses = {
+    /**
+     * OK
+     */
+    200: PetSkinSeries;
+};
+
+export type GetPetSkinSeriesByIdResponse = GetPetSkinSeriesByIdResponses[keyof GetPetSkinSeriesByIdResponses];
+
+export type GetPetSkinSeriesListData = {
+    body?: never;
+    path?: never;
+    query?: {
+        /**
+         * 从哪个位置开始返回结果
+         */
+        offset?: number;
+        /**
+         * 每页返回的最大结果数
+         */
+        limit?: number;
+    };
+    url: 'v1/pet_skin_series/';
+};
+
+export type GetPetSkinSeriesListResponses = {
+    /**
+     * OK
+     */
+    200: PetSkinSeriesList;
+};
+
+export type GetPetSkinSeriesListResponse = GetPetSkinSeriesListResponses[keyof GetPetSkinSeriesListResponses];
+
+export type GetPetSkinSeriesSubTypeByIdData = {
+    body?: never;
+    path: {
+        /**
+         * 资源 ID
+         */
+        id: number;
+    };
+    query?: never;
+    url: 'v1/pet_skin_series_sub_type/{id}';
+};
+
+export type GetPetSkinSeriesSubTypeByIdResponses = {
+    /**
+     * OK
+     */
+    200: PetSkinSeriesSubType;
+};
+
+export type GetPetSkinSeriesSubTypeByIdResponse = GetPetSkinSeriesSubTypeByIdResponses[keyof GetPetSkinSeriesSubTypeByIdResponses];
+
+export type GetPetSkinSeriesSubTypeListData = {
+    body?: never;
+    path?: never;
+    query?: {
+        /**
+         * 从哪个位置开始返回结果
+         */
+        offset?: number;
+        /**
+         * 每页返回的最大结果数
+         */
+        limit?: number;
+    };
+    url: 'v1/pet_skin_series_sub_type/';
+};
+
+export type GetPetSkinSeriesSubTypeListResponses = {
+    /**
+     * OK
+     */
+    200: PetSkinSeriesSubTypeList;
+};
+
+export type GetPetSkinSeriesSubTypeListResponse = GetPetSkinSeriesSubTypeListResponses[keyof GetPetSkinSeriesSubTypeListResponses];
+
 export type GetPetEncyclopediaEntryByIdData = {
     body?: never;
     path: {
@@ -7395,27 +6218,6 @@ export type GetPetEncyclopediaEntryByIdResponses = {
 };
 
 export type GetPetEncyclopediaEntryByIdResponse = GetPetEncyclopediaEntryByIdResponses[keyof GetPetEncyclopediaEntryByIdResponses];
-
-export type GetPetEncyclopediaEntryByNameData = {
-    body?: never;
-    path: {
-        /**
-         * 资源名称
-         */
-        name: string;
-    };
-    query?: never;
-    url: 'v1/pet_encyclopedia_entry/{name}';
-};
-
-export type GetPetEncyclopediaEntryByNameResponses = {
-    /**
-     * OK
-     */
-    200: PetEncyclopediaEntryNamedData;
-};
-
-export type GetPetEncyclopediaEntryByNameResponse = GetPetEncyclopediaEntryByNameResponses[keyof GetPetEncyclopediaEntryByNameResponses];
 
 export type GetPetEncyclopediaEntryListData = {
     body?: never;
@@ -7463,27 +6265,6 @@ export type GetPetArchiveStoryBookByIdResponses = {
 
 export type GetPetArchiveStoryBookByIdResponse = GetPetArchiveStoryBookByIdResponses[keyof GetPetArchiveStoryBookByIdResponses];
 
-export type GetPetArchiveStoryBookByNameData = {
-    body?: never;
-    path: {
-        /**
-         * 资源名称
-         */
-        name: string;
-    };
-    query?: never;
-    url: 'v1/pet_archive_story_book/{name}';
-};
-
-export type GetPetArchiveStoryBookByNameResponses = {
-    /**
-     * OK
-     */
-    200: PetArchiveStoryBookNamedData;
-};
-
-export type GetPetArchiveStoryBookByNameResponse = GetPetArchiveStoryBookByNameResponses[keyof GetPetArchiveStoryBookByNameResponses];
-
 export type GetPetArchiveStoryBookListData = {
     body?: never;
     path?: never;
@@ -7529,27 +6310,6 @@ export type GetSkillByIdResponses = {
 };
 
 export type GetSkillByIdResponse = GetSkillByIdResponses[keyof GetSkillByIdResponses];
-
-export type GetSkillByNameData = {
-    body?: never;
-    path: {
-        /**
-         * 资源名称
-         */
-        name: string;
-    };
-    query?: never;
-    url: 'v1/skill/{name}';
-};
-
-export type GetSkillByNameResponses = {
-    /**
-     * OK
-     */
-    200: SkillNamedData;
-};
-
-export type GetSkillByNameResponse = GetSkillByNameResponses[keyof GetSkillByNameResponses];
 
 export type GetSkillListData = {
     body?: never;
@@ -7689,27 +6449,6 @@ export type GetSkillHideEffectByIdResponses = {
 
 export type GetSkillHideEffectByIdResponse = GetSkillHideEffectByIdResponses[keyof GetSkillHideEffectByIdResponses];
 
-export type GetSkillHideEffectByNameData = {
-    body?: never;
-    path: {
-        /**
-         * 资源名称
-         */
-        name: string;
-    };
-    query?: never;
-    url: 'v1/skill_hide_effect/{name}';
-};
-
-export type GetSkillHideEffectByNameResponses = {
-    /**
-     * OK
-     */
-    200: SkillHideEffectNamedData;
-};
-
-export type GetSkillHideEffectByNameResponse = GetSkillHideEffectByNameResponses[keyof GetSkillHideEffectByNameResponses];
-
 export type GetSkillHideEffectListData = {
     body?: never;
     path?: never;
@@ -7756,27 +6495,6 @@ export type GetSkillCategoryByIdResponses = {
 
 export type GetSkillCategoryByIdResponse = GetSkillCategoryByIdResponses[keyof GetSkillCategoryByIdResponses];
 
-export type GetSkillCategoryByNameData = {
-    body?: never;
-    path: {
-        /**
-         * 资源名称
-         */
-        name: string;
-    };
-    query?: never;
-    url: 'v1/skill_category/{name}';
-};
-
-export type GetSkillCategoryByNameResponses = {
-    /**
-     * OK
-     */
-    200: SkillCategoryNamedData;
-};
-
-export type GetSkillCategoryByNameResponse = GetSkillCategoryByNameResponses[keyof GetSkillCategoryByNameResponses];
-
 export type GetSkillCategoryListData = {
     body?: never;
     path?: never;
@@ -7822,27 +6540,6 @@ export type GetSkillEffectTypeTagByIdResponses = {
 };
 
 export type GetSkillEffectTypeTagByIdResponse = GetSkillEffectTypeTagByIdResponses[keyof GetSkillEffectTypeTagByIdResponses];
-
-export type GetSkillEffectTypeTagByNameData = {
-    body?: never;
-    path: {
-        /**
-         * 资源名称
-         */
-        name: string;
-    };
-    query?: never;
-    url: 'v1/skill_effect_type_tag/{name}';
-};
-
-export type GetSkillEffectTypeTagByNameResponses = {
-    /**
-     * OK
-     */
-    200: SkillEffectTypeTagNamedData;
-};
-
-export type GetSkillEffectTypeTagByNameResponse = GetSkillEffectTypeTagByNameResponses[keyof GetSkillEffectTypeTagByNameResponses];
 
 export type GetSkillEffectTypeTagListData = {
     body?: never;
