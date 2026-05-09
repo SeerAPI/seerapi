@@ -4,6 +4,7 @@ import seerapi_models as M
 from seerapi_models.build_model import BaseResModel
 from seerapi_models.common import ResourceRef
 
+# 所有可用的命名模型路径名称
 NamedModelName: TypeAlias = Literal[
     'achievement',
     'achievement_branch',
@@ -40,6 +41,8 @@ NamedModelName: TypeAlias = Literal[
     'pet_vipbuff',
     'pet_mount_type',
     'pet_skin',
+    'pet_skin_series',
+    'pet_skin_series_sub_type',
     'pet_archive_story_book',
     'pet_encyclopedia_entry',
     'nature',
@@ -115,6 +118,8 @@ NamedModelInstance: TypeAlias = (
     | M.PetVipBuffCategory
     | M.PetMountTypeCategory
     | M.PetSkin
+    | M.PetSkinSeries
+    | M.PetSkinSeriesSubType
     | M.PetArchiveStoryBook
     | M.PetEncyclopediaEntry
     | M.Nature

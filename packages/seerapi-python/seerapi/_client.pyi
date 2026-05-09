@@ -169,6 +169,14 @@ class SeerAPI:
     async def get(self, resource_name: Literal['pet_skin'], id: int) -> M.PetSkin: ...
     @overload
     async def get(
+        self, resource_name: Literal['pet_skin_series'], id: int
+    ) -> M.PetSkinSeries: ...
+    @overload
+    async def get(
+        self, resource_name: Literal['pet_skin_series_sub_type'], id: int
+    ) -> M.PetSkinSeriesSubType: ...
+    @overload
+    async def get(
         self, resource_name: Literal['pet_skin_category'], id: int
     ) -> M.PetSkinCategory: ...
     @overload
@@ -434,6 +442,14 @@ class SeerAPI:
     ) -> PagedResponse[M.PetSkinCategory]: ...
     @overload
     async def paginated_list(
+        self, resource_name: Literal['pet_skin_series'], page_info: PageInfo
+    ) -> PagedResponse[M.PetSkinSeries]: ...
+    @overload
+    async def paginated_list(
+        self, resource_name: Literal['pet_skin_series_sub_type'], page_info: PageInfo
+    ) -> PagedResponse[M.PetSkinSeriesSubType]: ...
+    @overload
+    async def paginated_list(
         self, resource_name: Literal['pet_archive_story_entry'], page_info: PageInfo
     ) -> PagedResponse[M.PetArchiveStoryEntry]: ...
     @overload
@@ -694,6 +710,14 @@ class SeerAPI:
     ) -> AsyncGenerator[M.PetSkinCategory]: ...
     @overload
     async def list(
+        self, resource_name: Literal['pet_skin_series']
+    ) -> AsyncGenerator[M.PetSkinSeries]: ...
+    @overload
+    async def list(
+        self, resource_name: Literal['pet_skin_series_sub_type']
+    ) -> AsyncGenerator[M.PetSkinSeriesSubType]: ...
+    @overload
+    async def list(
         self, resource_name: Literal['pet_archive_story_entry']
     ) -> AsyncGenerator[M.PetArchiveStoryEntry]: ...
     @overload
@@ -936,6 +960,14 @@ class SeerAPI:
     async def get_by_name(
         self, resource_name: Literal['pet_skin'], name: str
     ) -> NamedData[M.PetSkin]: ...
+    @overload
+    async def get_by_name(
+        self, resource_name: Literal['pet_skin_series'], name: str
+    ) -> NamedData[M.PetSkinSeries]: ...
+    @overload
+    async def get_by_name(
+        self, resource_name: Literal['pet_skin_series_sub_type'], name: str
+    ) -> NamedData[M.PetSkinSeriesSubType]: ...
     @overload
     async def get_by_name(
         self, resource_name: Literal['pet_archive_story_book'], name: str
