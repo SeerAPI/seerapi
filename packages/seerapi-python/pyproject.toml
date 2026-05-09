@@ -4,7 +4,7 @@ build-backend = "uv_build"
 
 [project]
 name = "seerapi"
-version = "106.0.0"
+version = "106.1.0"
 description = "SeerAPI Python Client"
 authors = [{ name = "Nattsu39", email = "Nattsu39@outlook.com" }]
 license = { file = "LICENSE" }
@@ -24,7 +24,7 @@ requires-python = ">=3.10"
 dependencies = [
 	"hishel[httpx]>=1.1.5",
 	"httpx>=0.28.1",
-	"seerapi-models>=106.0.0,<107.0.0",
+	"seerapi-models>=106.1.0,<107.0.0",
 	"typing-extensions>=4.15.0",
 ]
 

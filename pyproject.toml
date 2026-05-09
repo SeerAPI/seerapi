@@ -1,6 +1,6 @@
 [project]
 name = "seerapi-monorepo"
-version = "106.0.0"
+version = "106.1.0"
 description = "SeerAPI Monorepo"
 requires-python = ">=3.10"
 
