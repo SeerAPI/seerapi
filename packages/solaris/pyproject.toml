@@ -4,7 +4,7 @@ build-backend = "uv_build"
 
 [project]
 name = "seerapi-solaris"
-version = "106.0.0"
+version = "106.1.0"
 description = "支持Unity端解析的赛尔号客户端数据解析/整理工具"
 authors = [{ name = "Nattsu39", email = "Nattsu39@outlook.com" }]
 readme = "README.md"
@@ -28,7 +28,7 @@ dependencies = [
   "openapi-pydantic>=0.5.1",
   "pydantic>=2.11.7",
   "pydantic-settings>=2.10.1",
-  "seerapi-models>=106.0.0,<107.0.0",
+  "seerapi-models>=106.1.0,<107.0.0",
   "sqlmodel>=0.0.24",
   "tqdm>=4.67.1",
   "xmltodict>=1.0.2",

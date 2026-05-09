@@ -4,7 +4,7 @@ build-backend = "uv_build"
 
 [project]
 name = "seerapi-models"
-version = "106.0.0"
+version = "106.1.0"
 description = "SeerAPI 数据模型/ORM 定义"
 authors = [{ name = "Nattsu39", email = "Nattsu39@outlook.com" }]
 license = { file = "LICENSE" }
