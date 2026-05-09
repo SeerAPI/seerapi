@@ -286,7 +286,7 @@ class SchemaOutputter(SchemaOutputterProtocol):
             schemas[schema_path] = self._merge_to_schema(schema, hash_schema)
 
             # ApiResourceList schema
-            api_resource_list_schema = model_json_schema(
+            api_resource_list_schema: dict[str, Any] = model_json_schema(
                 ApiResourceList,
                 schema_generator=self.normal_generator,
             ) | create_extra_schema(model_name=resource_name)
@@ -554,7 +554,7 @@ class OpenAPISchemaOutputter(SchemaOutputterProtocol):
             self.openapi_builder.add_ref(index_schema, name='root_index')
 
         openapi = self.openapi_builder.build()
-        with open(self.output_filepath, 'w') as f:
+        with open(self.output_filepath, 'w', encoding='utf-8') as f:
             f.write(openapi.model_dump_json(by_alias=True, exclude_none=True, indent=2))
 
 
