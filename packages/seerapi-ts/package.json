@@ -26,15 +26,14 @@
   "scripts": {
     "prepublishOnly": "npm run build",
     "openapi-ts": "openapi-ts",
-    "orm-sync": "drizzle-kit pull && mv drizzle/*.ts src/db/",
+    "orm-sync": "drizzle-kit pull && shx mv drizzle/*.ts src/db/ && node scripts/fix-esm-imports.mjs",
     "build": "npm run clean && npm run openapi-ts && npm run orm-sync && tsc",
-    "clean": "rimraf dist"
+    "clean": "shx rm -rf dist"
   },
   "devDependencies": {
     "@hey-api/openapi-ts": "0.97.0",
     "@types/node": "^24.1.0",
     "drizzle-kit": "^1.0.0-beta.14-a36c63d",
-    "rimraf": "^6.0.1",
     "tsx": "^4.21.0",
     "typescript": "^5.9.3"
   },
