@@ -15,7 +15,7 @@ if TYPE_CHECKING:
 class PetSkinAnalyzer(BasePetAnalyzer):
     @classmethod
     def get_result_res_models(cls):
-        return (PetSkin, PetSkinCategory)
+        return (PetSkin, PetSkinCategory, PetSkinSeries, PetSkinSeriesSubType)
 
     def analyze(self):
         pet_skin_data = self.pet_skin_data
