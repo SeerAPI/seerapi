@@ -43,6 +43,8 @@ MODEL_MAP: dict[ModelName, ModelType] = {
     'pet_mount_type': M.PetMountTypeCategory,
     'pet_skin': M.PetSkin,
     'pet_skin_category': M.PetSkinCategory,
+    'pet_skin_series': M.PetSkinSeries,
+    'pet_skin_series_sub_type': M.PetSkinSeriesSubType,
     'pet_archive_story_entry': M.PetArchiveStoryEntry,
     'pet_archive_story_book': M.PetArchiveStoryBook,
     'pet_encyclopedia_entry': M.PetEncyclopediaEntry,
