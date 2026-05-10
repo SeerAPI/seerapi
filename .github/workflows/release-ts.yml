@@ -90,8 +90,6 @@ jobs:
           name: solaris-schema-data
 
       - uses: pnpm/action-setup@v4
-        with:
-          version: "latest"
 
       - uses: actions/setup-node@v6
         with:
@@ -124,13 +122,13 @@ jobs:
         working-directory: packages/seerapi-ts
         run: pnpm publish --access public --no-git-checks
 
-      - name: Create GitHub Release
-        uses: softprops/action-gh-release@v2
-        with:
-          name: "@seerapi/client v${{ needs.parse-tag.outputs.version }}"
-          tag_name: ${{ github.ref_name }}
-          files: packages/seerapi-ts/dist/*
-          draft: false
-          prerelease: false
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # - name: Create GitHub Release
+      #   uses: softprops/action-gh-release@v2
+      #   with:
+      #     name: "@seerapi/client v${{ needs.parse-tag.outputs.version }}"
+      #     tag_name: ${{ github.ref_name }}
+      #     files: packages/seerapi-ts/dist/*
+      #     draft: false
+      #     prerelease: false
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

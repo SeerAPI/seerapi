@@ -76,19 +76,19 @@ jobs:
 
       - name: Build
         working-directory: packages/${{ matrix.package }}
-        run: uv build
+        run: uv build --out-dir dist
 
       - name: Publish to PyPI
         working-directory: packages/${{ matrix.package }}
         run: uv publish
 
-      - name: Create GitHub Release
-        uses: softprops/action-gh-release@v2
-        with:
-          name: "${{ matrix.package }} v${{ needs.parse-tag.outputs.version }}"
-          tag_name: ${{ github.ref_name }}
-          files: packages/${{ matrix.package }}/dist/*
-          draft: false
-          prerelease: false
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # - name: Create GitHub Release
+      #   uses: softprops/action-gh-release@v2
+      #   with:
+      #     name: "${{ matrix.package }} v${{ needs.parse-tag.outputs.version }}"
+      #     tag_name: ${{ github.ref_name }}
+      #     files: packages/${{ matrix.package }}/dist/*
+      #     draft: false
+      #     prerelease: false
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
