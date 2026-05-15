@@ -1,5 +1,3 @@
-from typing import TYPE_CHECKING
-
 from seerapi_models import PetSkinSeries, PetSkinSeriesSubType
 from seerapi_models.common import ResourceRef
 from seerapi_models.pet import Pet, PetSkin, PetSkinCategory
@@ -7,9 +5,6 @@ from solaris.analyze.base import AnalyzeResult
 from solaris.analyze.utils import CategoryMap
 
 from ._general import BasePetAnalyzer
-
-if TYPE_CHECKING:
-    pass
 
 
 class PetSkinAnalyzer(BasePetAnalyzer):
@@ -73,6 +68,8 @@ class PetSkinAnalyzer(BasePetAnalyzer):
                 series=ResourceRef.from_model(PetSkinSeries, id=series_id)
                 if series_id
                 else None,
+                card_price=self.skin_shop_data.get(skin_id, {}).get('card_price')
+                or None,
             )
             pet_skin_map[skin_id] = pet_skin_model
 
