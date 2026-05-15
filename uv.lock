@@ -1289,7 +1289,7 @@ tests = [{ name = "pytest", specifier = ">=9.0.1" }]
 
 [[package]]
 name = "seerapi-solaris"
-version = "106.1.1"
+version = "106.1.2"
 source = { editable = "packages/solaris" }
 dependencies = [
     { name = "anycrc" },
