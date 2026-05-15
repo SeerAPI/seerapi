@@ -1200,7 +1200,7 @@ wheels = [
 
 [[package]]
 name = "seerapi"
-version = "106.0.0"
+version = "106.1.0"
 source = { editable = "packages/seerapi-python" }
 dependencies = [
     { name = "hishel", extra = ["httpx"] },
@@ -1219,7 +1219,7 @@ requires-dist = [
 
 [[package]]
 name = "seerapi-models"
-version = "106.0.0"
+version = "106.1.0"
 source = { editable = "packages/seerapi-models" }
 dependencies = [
     { name = "pydantic" },
@@ -1242,7 +1242,7 @@ dev = [{ name = "pytest", specifier = ">=9.0.1" }]
 
 [[package]]
 name = "seerapi-monorepo"
-version = "106.0.0"
+version = "106.1.0"
 source = { virtual = "." }
 
 [package.dev-dependencies]
@@ -1289,7 +1289,7 @@ tests = [{ name = "pytest", specifier = ">=9.0.1" }]
 
 [[package]]
 name = "seerapi-solaris"
-version = "106.0.0"
+version = "106.1.1"
 source = { editable = "packages/solaris" }
 dependencies = [
     { name = "anycrc" },

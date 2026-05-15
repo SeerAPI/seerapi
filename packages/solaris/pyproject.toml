@@ -4,7 +4,7 @@ build-backend = "uv_build"
 
 [project]
 name = "seerapi-solaris"
-version = "106.1.0"
+version = "106.1.1"
 description = "支持Unity端解析的赛尔号客户端数据解析/整理工具"
 authors = [{ name = "Nattsu39", email = "Nattsu39@outlook.com" }]
 readme = "README.md"
