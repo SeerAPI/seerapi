@@ -6,6 +6,7 @@ from ..bytes_reader import BytesReader
 
 class AurumEndgameOptionsConfigInfo(TypedDict):
     attritube: str
+    branchid: int
     desc: str
     group: int
     id: int
@@ -14,6 +15,7 @@ class AurumEndgameOptionsConfigInfo(TypedDict):
     rarity: int
     related: int
     root: int
+    treeid: int
     type: int
     value: int
 
@@ -46,6 +48,7 @@ class AurumEndgameOptionsConfigParser(BaseParser[AurumEndgameOptionsConfigConfig
         for _ in range(num):
             item: AurumEndgameOptionsConfigInfo = {
                 'attritube': reader.ReadUTFBytesWithLength(),
+                'branchid': reader.ReadSignedInt(),
                 'desc': reader.ReadUTFBytesWithLength(),
                 'group': reader.ReadSignedInt(),
                 'id': reader.ReadSignedInt(),
@@ -54,6 +57,7 @@ class AurumEndgameOptionsConfigParser(BaseParser[AurumEndgameOptionsConfigConfig
                 'rarity': reader.ReadSignedInt(),
                 'related': reader.ReadSignedInt(),
                 'root': reader.ReadSignedInt(),
+                'treeid': reader.ReadSignedInt(),
                 'type': reader.ReadSignedInt(),
                 'value': reader.ReadSignedInt(),
             }
