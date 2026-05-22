@@ -15,6 +15,8 @@ class AutocardPlayerInfo(TypedDict):
     des: str
     name: str
     resource: str
+    skin: str
+    tag: str
     id: int
     jumpinfo: int
     move_speed: int
@@ -57,6 +59,8 @@ class AutocardPlayerParser(BaseParser[AutocardPlayerConfig]):
             name = reader.ReadUTFBytesWithLength()
             rarity = reader.ReadSignedInt()
             resource = reader.ReadUTFBytesWithLength()
+            skin = reader.ReadUTFBytesWithLength()
+            tag = reader.ReadUTFBytesWithLength()
 
             result['data'].append(
                 AutocardPlayerInfo(
@@ -66,6 +70,8 @@ class AutocardPlayerParser(BaseParser[AutocardPlayerConfig]):
                     des=des,
                     name=name,
                     resource=resource,
+                    skin=skin,
+                    tag=tag,
                     id=id_val,
                     jumpinfo=jumpinfo,
                     move_speed=move_speed,

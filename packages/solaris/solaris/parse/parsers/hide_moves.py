@@ -12,7 +12,6 @@ class _HideMoveItem(TypedDict):
 
 
 class _Root(TypedDict):
-    _text: str
     item: list[_HideMoveItem]
 
 
@@ -31,12 +30,10 @@ class HideMovesParser(BaseParser[HideMovesConfig]):
 
     def parse(self, data: bytes) -> HideMovesConfig:
         reader = BytesReader(data)
-        result: HideMovesConfig = {'root': {'_text': '', 'item': []}}
+        result: HideMovesConfig = {'root': {'item': []}}
 
         if not reader.ReadBoolean():
             return result
-
-        result['root']['_text'] = reader.ReadUTFBytesWithLength()
 
         if not reader.ReadBoolean():
             return result
@@ -45,10 +42,10 @@ class HideMovesParser(BaseParser[HideMovesConfig]):
 
         for _ in range(count):
             item: _HideMoveItem = {
-                'move_id': reader.read_i32(),
+                'move_id': reader.ReadSignedInt(),
                 'move_name1': reader.ReadUTFBytesWithLength(),
                 'move_name2': reader.ReadUTFBytesWithLength(),
-                'pet_id': reader.read_i32(),
+                'pet_id': reader.ReadSignedInt(),
             }
             result['root']['item'].append(item)
 

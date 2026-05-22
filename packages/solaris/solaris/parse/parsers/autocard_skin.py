@@ -9,11 +9,13 @@ from ..bytes_reader import BytesReader
 class AutocardSkinInfo(TypedDict):
     """Autocard Skin 信息条目"""
 
-    name: str
-    skin_name: str
     content_id: int
+    get_des: str
     id: int
+    jump_id: int
+    name: str
     series: int
+    skin_name: str
     type: int
 
 
@@ -44,7 +46,9 @@ class AutocardSkinParser(BaseParser[AutocardSkinConfig]):
         count = reader.ReadSignedInt()
         for _ in range(count):
             content_id = reader.ReadSignedInt()
+            get_des = reader.ReadUTFBytesWithLength()
             id_val = reader.ReadSignedInt()
+            jump_id = reader.ReadSignedInt()
             name = reader.ReadUTFBytesWithLength()
             series = reader.ReadSignedInt()
             skin_name = reader.ReadUTFBytesWithLength()
@@ -52,11 +56,13 @@ class AutocardSkinParser(BaseParser[AutocardSkinConfig]):
 
             result['data'].append(
                 AutocardSkinInfo(
-                    name=name,
-                    skin_name=skin_name,
                     content_id=content_id,
+                    get_des=get_des,
                     id=id_val,
+                    jump_id=jump_id,
+                    name=name,
                     series=series,
+                    skin_name=skin_name,
                     type=type_val,
                 )
             )
