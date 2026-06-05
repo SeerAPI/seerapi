@@ -52,7 +52,7 @@ class ActivityShopConfigParser(BaseParser[_ActivityShopConfigData]):
                 'quantity': reader.ReadSignedInt(),
                 'shoptype': reader.ReadUTFBytesWithLength(),
                 'sort': reader.ReadSignedInt(),
-                'timeend': reader.ReadSignedInt(),
+                'timeend': reader.ReadLong(),
                 'timelimit': reader.ReadSignedInt(),
                 'timestart': reader.ReadSignedInt(),
                 'userinfo': reader.ReadSignedInt(),
