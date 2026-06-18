@@ -14,12 +14,15 @@ class AutocardContentInfo(TypedDict):
     card_txt: str
     des: str
     name: str
+    skins: str
     attack: int
     compose: int
     compose_to: int
     cost: int
     count_num: int
+    count_type: int
     display: int
+    headpic_id: int
     health: int
     id: int
     is_use: int
@@ -59,6 +62,7 @@ class AutocardContentParser(BaseParser[AutocardContentConfig]):
             buff_id = reader.ReadUTFBytesWithLength()
             buff_param = reader.ReadUTFBytesWithLength()
             count_num = reader.ReadSignedInt()
+            count_type = reader.ReadSignedInt()
             display = reader.ReadSignedInt()
             attack = reader.ReadSignedInt()
             card_txt = reader.ReadUTFBytesWithLength()
@@ -66,6 +70,7 @@ class AutocardContentParser(BaseParser[AutocardContentConfig]):
             compose_to = reader.ReadSignedInt()
             cost = reader.ReadSignedInt()
             des = reader.ReadUTFBytesWithLength()
+            headpic_id = reader.ReadSignedInt()
             health = reader.ReadSignedInt()
             id_val = reader.ReadSignedInt()
             is_use = reader.ReadSignedInt()
@@ -73,6 +78,7 @@ class AutocardContentParser(BaseParser[AutocardContentConfig]):
             name = reader.ReadUTFBytesWithLength()
             nature = reader.ReadSignedInt()
             pic_id = reader.ReadSignedInt()
+            skins = reader.ReadUTFBytesWithLength()
             subtype = reader.ReadSignedInt()
             type_val = reader.ReadSignedInt()
 
@@ -83,12 +89,15 @@ class AutocardContentParser(BaseParser[AutocardContentConfig]):
                     card_txt=card_txt,
                     des=des,
                     name=name,
+                    skins=skins,
                     attack=attack,
                     compose=compose,
                     compose_to=compose_to,
                     cost=cost,
                     count_num=count_num,
+                    count_type=count_type,
                     display=display,
+                    headpic_id=headpic_id,
                     health=health,
                     id=id_val,
                     is_use=is_use,

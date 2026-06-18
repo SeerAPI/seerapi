@@ -184,6 +184,7 @@ class Item25(BaseItemData):
 
     hide: int
     life_time: int
+    purpose: int
     rarity: int
     sort: int
     use_max: int
@@ -212,6 +213,7 @@ class ItemsOptimizeCatItems25Parser(BaseItemParser[Item25]):
             sort=reader.ReadSignedInt(),
             use_max=reader.ReadSignedInt(),
             cat_id=reader.ReadSignedInt(),
+            purpose=reader.ReadSignedInt(),
             wd=reader.ReadSignedInt(),
         )
 

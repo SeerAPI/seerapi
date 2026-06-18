@@ -12,10 +12,16 @@ class AutocardSkinInfo(TypedDict):
     content_id: int
     get_des: str
     id: int
+    ishow: int
     jump_id: int
     name: str
+    position: str
+    rarity: int
+    resource: str
     series: int
     skin_name: str
+    stat: int
+    tag: str
     type: int
 
 
@@ -48,10 +54,16 @@ class AutocardSkinParser(BaseParser[AutocardSkinConfig]):
             content_id = reader.ReadSignedInt()
             get_des = reader.ReadUTFBytesWithLength()
             id_val = reader.ReadSignedInt()
+            ishow = reader.ReadSignedInt()
             jump_id = reader.ReadSignedInt()
             name = reader.ReadUTFBytesWithLength()
+            position = reader.ReadUTFBytesWithLength()
+            rarity = reader.ReadSignedInt()
+            resource = reader.ReadUTFBytesWithLength()
             series = reader.ReadSignedInt()
             skin_name = reader.ReadUTFBytesWithLength()
+            stat = reader.ReadSignedInt()
+            tag = reader.ReadUTFBytesWithLength()
             type_val = reader.ReadSignedInt()
 
             result['data'].append(
@@ -59,10 +71,16 @@ class AutocardSkinParser(BaseParser[AutocardSkinConfig]):
                     content_id=content_id,
                     get_des=get_des,
                     id=id_val,
+                    ishow=ishow,
                     jump_id=jump_id,
                     name=name,
+                    position=position,
+                    rarity=rarity,
+                    resource=resource,
                     series=series,
                     skin_name=skin_name,
+                    stat=stat,
+                    tag=tag,
                     type=type_val,
                 )
             )
