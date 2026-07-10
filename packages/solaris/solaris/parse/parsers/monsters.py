@@ -24,6 +24,7 @@ class SpMoveItem(TypedDict):
     """特殊技能项"""
 
     id: int
+    learning_lv: int
     rec: int
     tag: int
     tag2: int  # C# 中有两个 Tag 字段，一个大写一个小写
@@ -110,6 +111,7 @@ class MonstersParser(BaseParser[MonstersConfig]):
             for _ in range(adv_count):
                 adv_item: SpMoveItem = {
                     'id': reader.ReadSignedInt(),
+                    'learning_lv': reader.ReadSignedInt(),
                     'rec': reader.ReadSignedInt(),
                     'tag': reader.ReadSignedInt(),
                     'tag2': reader.ReadSignedInt(),
@@ -134,6 +136,7 @@ class MonstersParser(BaseParser[MonstersConfig]):
             for _ in range(sp_count):
                 sp_item: SpMoveItem = {
                     'id': reader.ReadSignedInt(),
+                    'learning_lv': reader.ReadSignedInt(),
                     'rec': reader.ReadSignedInt(),
                     'tag': reader.ReadSignedInt(),
                     'tag2': reader.ReadSignedInt(),
