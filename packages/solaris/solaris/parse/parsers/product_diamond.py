@@ -7,7 +7,6 @@ from ..bytes_reader import BytesReader
 class ProductDiamondItem(TypedDict):
     """钻石产品项"""
 
-    icon: str
     name: str
     item_id: list[int]  # 对应 C# 的 itemID[]
     price: int
@@ -52,13 +51,12 @@ class ProductDiamondParser(BaseParser[ProductDiamondConfig]):
 
             for _ in range(count):
                 # 按照IItemItem.Parse的顺序读取字段
-                icon = reader.ReadUTFBytesWithLength()
-
                 # 读取可选的itemID数组
                 item_id: list[int] = []
                 if reader.ReadBoolean():
                     item_id_count = reader.ReadSignedInt()
-                    item_id = [reader.ReadSignedInt() for _ in range(item_id_count)]
+                    if item_id_count > 0:
+                        item_id = [reader.ReadSignedInt() for _ in range(item_id_count)]
 
                 name = reader.ReadUTFBytesWithLength()
                 price = reader.ReadSignedInt()
@@ -66,7 +64,6 @@ class ProductDiamondParser(BaseParser[ProductDiamondConfig]):
                 vip = reader.ReadFloat()
 
                 item = ProductDiamondItem(
-                    icon=icon,
                     name=name,
                     item_id=item_id,
                     price=price,
