@@ -16,6 +16,21 @@ export const activityType = sqliteTable("activity_type", {
 	id: integer().primaryKey(),
 });
 
+export const autocardElementType = sqliteTable("autocard_element_type", {
+	id: integer().primaryKey(),
+	name: text().notNull(),
+});
+
+export const autocardCardtype = sqliteTable("autocard_cardtype", {
+	id: integer().primaryKey(),
+	name: text().notNull(),
+});
+
+export const autocardField = sqliteTable("autocard_field", {
+	id: integer().primaryKey(),
+	name: text().notNull(),
+});
+
 export const battleEffectType = sqliteTable("battle_effect_type", {
 	id: integer().primaryKey(),
 	name: text().notNull(),
@@ -426,6 +441,43 @@ export const activity = sqliteTable("activity", {
 	isShow: numeric("is_show").notNull(),
 	sortOrder: integer("sort_order").notNull(),
 	typeId: integer("type_id").notNull().references(() => activityType.id),
+});
+
+export const autocard = sqliteTable("autocard", {
+	id: integer().primaryKey(),
+	name: text().notNull(),
+	description: text().notNull(),
+	level: integer().notNull(),
+	cost: integer().notNull(),
+	isToken: numeric("is_token").notNull(),
+	attack: integer(),
+	health: integer(),
+	isAwakened: numeric("is_awakened").notNull(),
+	typeId: integer("type_id").notNull().references(() => autocardCardtype.id),
+	elementTypeId: integer("element_type_id").notNull().references(() => autocardElementType.id),
+	awakenCardId: integer("awaken_card_id").references((): AnySQLiteColumn => autocard.id),
+});
+
+export const autocardFieldBuff = sqliteTable("autocard_field_buff", {
+	name: text().notNull(),
+	description: text().notNull(),
+	openTurn: integer("open_turn").notNull(),
+	id: integer().primaryKey(),
+	stage: integer().notNull(),
+	fieldId: integer("field_id").notNull().references(() => autocardField.id),
+});
+
+export const autocardRole = sqliteTable("autocard_role", {
+	id: integer().primaryKey(),
+	name: text().notNull(),
+	description: text().notNull(),
+	health: integer().notNull(),
+	skillDesc: text("skill_desc").notNull(),
+	isPassiveSkill: numeric("is_passive_skill").notNull(),
+	skillCost: integer("skill_cost"),
+	skillGameLimit: integer("skill_game_limit"),
+	skillRoundLimit: integer("skill_round_limit"),
+	elementTypeId: integer("element_type_id").notNull().references(() => autocardElementType.id),
 });
 
 export const battleEffect = sqliteTable("battle_effect", {

@@ -253,6 +253,262 @@ API_COMMENTS: dict[type[BaseResModel], APIComment] = {
         tags=['成就', '分类'],
         description='成就分类，目前只有一个隐藏成就的分类。',
     ),
+    M.Autocard: APIComment(
+        name_en='autocard',
+        name_cn='群星牌卡牌',
+        examples=[
+            {
+                'type': {
+                    'id': 1,
+                    'url': 'https://api.seerapi.com/v1/autocard_cardtype/1',
+                },
+                'element_type': {
+                    'id': 4,
+                    'url': 'https://api.seerapi.com/v1/autocard_element_type/4',
+                },
+                'id': 105,
+                'name': '灵翼蜂',
+                'description': '战斗开始时立刻发动1次攻击，攻击时获得+2攻击值，攻击后排精灵时额外获得+2生命值',
+                'level': 2,
+                'cost': 3,
+                'is_token': False,
+                'attack': 3,
+                'health': 2,
+                'is_awakened': False,
+                'awaken_card': {
+                    'id': 10105,
+                    'url': 'https://api.seerapi.com/v1/autocard/10105',
+                },
+                'non_awaken_card': None,
+                'hash': '146bdb1d',
+            }
+        ],
+        tags=['群星牌'],
+        description='群星牌卡牌资源，包含所有群星牌卡牌数据，当然也包括衍生卡。',
+    ),
+    M.AutocardCardType: APIComment(
+        name_en='autocard_cardtype',
+        name_cn='群星牌卡牌类型',
+        examples=[
+            {
+                'id': 4,
+                'name': '衍生魔法卡',
+                'autocard': [
+                    {'id': 20006, 'url': 'https://api.seerapi.com/v1/autocard/20006'},
+                    {'id': 20015, 'url': 'https://api.seerapi.com/v1/autocard/20015'},
+                    {'id': 20016, 'url': 'https://api.seerapi.com/v1/autocard/20016'},
+                    {'id': 20017, 'url': 'https://api.seerapi.com/v1/autocard/20017'},
+                    {'id': 20021, 'url': 'https://api.seerapi.com/v1/autocard/20021'},
+                    {'id': 20022, 'url': 'https://api.seerapi.com/v1/autocard/20022'},
+                    {'id': 20023, 'url': 'https://api.seerapi.com/v1/autocard/20023'},
+                    {'id': 20024, 'url': 'https://api.seerapi.com/v1/autocard/20024'},
+                    {'id': 20025, 'url': 'https://api.seerapi.com/v1/autocard/20025'},
+                    {'id': 20031, 'url': 'https://api.seerapi.com/v1/autocard/20031'},
+                    {'id': 20032, 'url': 'https://api.seerapi.com/v1/autocard/20032'},
+                ],
+                'hash': '9154c6ce',
+            }
+        ],
+        tags=['群星牌', '分类'],
+        description='群星牌卡牌类型资源。',
+    ),
+    M.AutocardElementType: APIComment(
+        name_en='autocard_element_type',
+        name_cn='卡牌元素类型',
+        examples=[
+            {
+                'id': 6,
+                'name': '机械',
+                'autocard': [
+                    {'id': 121, 'url': 'https://api.seerapi.com/v1/autocard/121'},
+                    {'id': 122, 'url': 'https://api.seerapi.com/v1/autocard/122'},
+                    {'id': 123, 'url': 'https://api.seerapi.com/v1/autocard/123'},
+                    {'id': 124, 'url': 'https://api.seerapi.com/v1/autocard/124'},
+                    {'id': 125, 'url': 'https://api.seerapi.com/v1/autocard/125'},
+                    {'id': 126, 'url': 'https://api.seerapi.com/v1/autocard/126'},
+                    {'id': 127, 'url': 'https://api.seerapi.com/v1/autocard/127'},
+                    {'id': 128, 'url': 'https://api.seerapi.com/v1/autocard/128'},
+                    {'id': 129, 'url': 'https://api.seerapi.com/v1/autocard/129'},
+                    {'id': 130, 'url': 'https://api.seerapi.com/v1/autocard/130'},
+                    {'id': 131, 'url': 'https://api.seerapi.com/v1/autocard/131'},
+                    {'id': 132, 'url': 'https://api.seerapi.com/v1/autocard/132'},
+                    {'id': 133, 'url': 'https://api.seerapi.com/v1/autocard/133'},
+                    {'id': 134, 'url': 'https://api.seerapi.com/v1/autocard/134'},
+                    {'id': 135, 'url': 'https://api.seerapi.com/v1/autocard/135'},
+                    {'id': 136, 'url': 'https://api.seerapi.com/v1/autocard/136'},
+                    {'id': 137, 'url': 'https://api.seerapi.com/v1/autocard/137'},
+                    {'id': 138, 'url': 'https://api.seerapi.com/v1/autocard/138'},
+                    {'id': 139, 'url': 'https://api.seerapi.com/v1/autocard/139'},
+                    {'id': 140, 'url': 'https://api.seerapi.com/v1/autocard/140'},
+                    {'id': 10121, 'url': 'https://api.seerapi.com/v1/autocard/10121'},
+                    {'id': 10122, 'url': 'https://api.seerapi.com/v1/autocard/10122'},
+                    {'id': 10123, 'url': 'https://api.seerapi.com/v1/autocard/10123'},
+                    {'id': 10124, 'url': 'https://api.seerapi.com/v1/autocard/10124'},
+                    {'id': 10125, 'url': 'https://api.seerapi.com/v1/autocard/10125'},
+                    {'id': 10126, 'url': 'https://api.seerapi.com/v1/autocard/10126'},
+                    {'id': 10127, 'url': 'https://api.seerapi.com/v1/autocard/10127'},
+                    {'id': 10128, 'url': 'https://api.seerapi.com/v1/autocard/10128'},
+                    {'id': 10129, 'url': 'https://api.seerapi.com/v1/autocard/10129'},
+                    {'id': 10130, 'url': 'https://api.seerapi.com/v1/autocard/10130'},
+                    {'id': 10131, 'url': 'https://api.seerapi.com/v1/autocard/10131'},
+                    {'id': 10132, 'url': 'https://api.seerapi.com/v1/autocard/10132'},
+                    {'id': 10133, 'url': 'https://api.seerapi.com/v1/autocard/10133'},
+                    {'id': 10134, 'url': 'https://api.seerapi.com/v1/autocard/10134'},
+                    {'id': 10135, 'url': 'https://api.seerapi.com/v1/autocard/10135'},
+                    {'id': 10136, 'url': 'https://api.seerapi.com/v1/autocard/10136'},
+                    {'id': 10137, 'url': 'https://api.seerapi.com/v1/autocard/10137'},
+                    {'id': 10138, 'url': 'https://api.seerapi.com/v1/autocard/10138'},
+                    {'id': 10139, 'url': 'https://api.seerapi.com/v1/autocard/10139'},
+                    {'id': 10140, 'url': 'https://api.seerapi.com/v1/autocard/10140'},
+                    {'id': 20016, 'url': 'https://api.seerapi.com/v1/autocard/20016'},
+                    {'id': 20017, 'url': 'https://api.seerapi.com/v1/autocard/20017'},
+                    {'id': 30005, 'url': 'https://api.seerapi.com/v1/autocard/30005'},
+                    {'id': 40005, 'url': 'https://api.seerapi.com/v1/autocard/40005'},
+                ],
+                'hash': '3973130b',
+            }
+        ],
+        tags=['群星牌', '分类'],
+        description='群星牌卡牌元素类型资源。',
+    ),
+    M.SpellAutocard: APIComment(
+        name_en='autocard_spellcard',
+        name_cn='群星牌魔法卡',
+        examples=[
+            {
+                'type': {
+                    'id': 4,
+                    'url': 'https://api.seerapi.com/v1/autocard_cardtype/4',
+                },
+                'element_type': {
+                    'id': 0,
+                    'url': 'https://api.seerapi.com/v1/autocard_element_type/0',
+                },
+                'id': 20024,
+                'name': '觉醒奖励',
+                'description': '招募一张等级5的精灵牌',
+                'level': 0,
+                'cost': 0,
+                'is_token': True,
+                'hash': '24941800',
+            }
+        ],
+        tags=['群星牌'],
+        description='群星牌魔法卡资源，包含所有群星牌魔法卡数据，包括衍生卡。',
+    ),
+    M.PetAutocard: APIComment(
+        name_en='autocard_petcard',
+        name_cn='群星牌精灵卡',
+        examples=[
+            {
+                'type': {
+                    'id': 1,
+                    'url': 'https://api.seerapi.com/v1/autocard_cardtype/1',
+                },
+                'element_type': {
+                    'id': 1,
+                    'url': 'https://api.seerapi.com/v1/autocard_element_type/1',
+                },
+                'id': 19,
+                'name': '魔灵仙女',
+                'description': '自身属性提升时，使己方其他草系精灵获得+1/+1',
+                'level': 5,
+                'cost': 3,
+                'is_token': False,
+                'attack': 3,
+                'health': 6,
+                'is_awakened': False,
+                'awaken_card': {
+                    'id': 10019,
+                    'url': 'https://api.seerapi.com/v1/autocard/10019',
+                },
+                'non_awaken_card': None,
+                'hash': 'adb5439f',
+            }
+        ],
+        tags=['群星牌'],
+        description='群星牌精灵卡资源，包含所有群星牌精灵卡数据，包括衍生卡。',
+    ),
+    M.AutocardRole: APIComment(
+        name_en='autocard_role',
+        name_cn='群星牌角色',
+        examples=[
+            {
+                'id': 19,
+                'name': '卫兵·雅各布',
+                'description': '常年驻守于精灵太空站的卫兵雅各布，在枯燥的环境下磨练出了强大的牌技！呃…玩忽职守什么的绝对是没有的！',
+                'health': 50,
+                'skill_desc': '招募一张精灵牌，其中存在一张上一次对战的对手阵容精灵牌的普通原始复制，选择正确则获得该精灵牌，选择错误则无法获得，每回合限1次（游戏开始2回合后可使用）',
+                'is_passive_skill': False,
+                'skill_cost': 0,
+                'skill_game_limit': 0,
+                'skill_round_limit': 1,
+                'element_type': {
+                    'id': 999,
+                    'url': 'https://api.seerapi.com/v1/autocard_element_type/999',
+                },
+                'hash': 'ad378aef',
+            }
+        ],
+        tags=['群星牌'],
+        description='群星牌角色资源，包含所有可以选择的群星牌角色数据。',
+    ),
+    M.AutocardField: APIComment(
+        name_en='autocard_field',
+        name_cn='群星牌场地',
+        examples=[
+            {
+                'id': 8,
+                'name': '乔特鲁德',
+                'buff_stage': {
+                    '0': [
+                        {
+                            'name': '乔特鲁德',
+                            'description': '游戏开始时，所有玩家开局时拥有“龙蛋”（无法攻击；无法出售、觉醒、偷取、复制或移回手牌，无法成为卡牌和技能的目标）\r\n升级商店时，龙蛋获得+3/+3',
+                            'open_turn': 0,
+                        }
+                    ],
+                    '1': [
+                        {
+                            'name': '潜龙勿用',
+                            'description': '商店阶段结束时，龙蛋额外获得+4/+4',
+                            'open_turn': 5,
+                        },
+                        {
+                            'name': '暗龙出世',
+                            'description': '立刻移除龙蛋，并召唤1只索兰特；索兰特的属性值为龙蛋的两倍，并获得【护盾】、【强毒】，无法觉醒、偷取、复制或移回手牌，无法成为卡牌和技能的目标',
+                            'open_turn': 5,
+                        },
+                        {
+                            'name': '龙脉滋养',
+                            'description': '商店阶段开始时，若龙蛋存活，获得2枚金币',
+                            'open_turn': 5,
+                        },
+                    ],
+                    '2': [
+                        {
+                            'name': '龙啸九天',
+                            'description': '若龙蛋存活，立刻移除龙蛋，并召唤1只索西斯；索西斯的属性为龙蛋的两倍，被视为拥有所有系别，并获得【连击】、【护盾】、【强毒】，无法觉醒、偷取、复制或移回手牌，无法成为卡牌和技能的目标，龙蛋不存在时无法选择',
+                            'open_turn': 10,
+                        },
+                        {
+                            'name': '龙魂庇佑',
+                            'description': '若己方没有龙蛋存活，商店阶段结束时，己方随机3只精灵获得+5/+5',
+                            'open_turn': 10,
+                        },
+                        {
+                            'name': '金玉龙祥',
+                            'description': '若龙蛋存活，立刻移除龙蛋，并召唤1只黄金圣龙；黄金圣龙的属性与龙蛋相同，且在商店阶段开始时，若黄金圣龙在场，己方获得3枚金币，无法觉醒、偷取、复制或移回手牌，无法成为卡牌和技能的目标，龙蛋不存在时无法选择',
+                            'open_turn': 10,
+                        },
+                    ],
+                },
+                'hash': '44204d3a',
+            }
+        ],
+        tags=['群星牌'],
+        description='群星牌场地资源，包含所有群星牌场地数据。',
+    ),
     # 战斗效果相关
     M.BattleEffect: APIComment(
         name_en='battle_effect',

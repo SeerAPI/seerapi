@@ -11,6 +11,13 @@ NamedModelName: TypeAlias = Literal[
     'achievement_branch',
     'achievement_category',
     'achievement_type',
+    'autocard',
+    'autocard_cardtype',
+    'autocard_element_type',
+    'autocard_spellcard',
+    'autocard_petcard',
+    'autocard_role',
+    'autocard_field',
     'title',
     'battle_effect',
     'battle_effect_type',
@@ -90,6 +97,11 @@ NamedModelInstance: TypeAlias = (
     | M.AchievementBranch
     | M.AchievementCategory
     | M.AchievementType
+    | M.Autocard
+    | M.AutocardCardType
+    | M.AutocardElementType
+    | M.SpellAutocard
+    | M.PetAutocard
     | M.Title
     | M.BattleEffect
     | M.BattleEffectCategory

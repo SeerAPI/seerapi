@@ -803,6 +803,609 @@ export type ActivityTypeListExpanded = {
 };
 
 /**
+ * 群星牌卡牌资源
+ */
+export type Autocard = HashPartial & {
+    type: CommonResourceRef;
+    element_type: CommonResourceRef;
+    /**
+     * Id
+     *
+     * 资源ID
+     */
+    id: number;
+    /**
+     * Name
+     *
+     * 卡牌名称
+     */
+    name: string;
+    /**
+     * Description
+     *
+     * 卡牌描述
+     */
+    description: string;
+    /**
+     * Level
+     *
+     * 卡牌等级
+     */
+    level: number;
+    /**
+     * Cost
+     *
+     * 卡牌费用
+     */
+    cost: number;
+    /**
+     * Is Token
+     *
+     * 该卡牌是否是衍生卡
+     */
+    is_token: boolean;
+    /**
+     * Attack
+     *
+     * 卡牌攻击力，仅当该卡牌为精灵卡时有效
+     */
+    attack?: number | null;
+    /**
+     * Health
+     *
+     * 卡牌生命值，仅当该卡牌为精灵卡时有效
+     */
+    health?: number | null;
+    /**
+     * Is Awakened
+     *
+     * 该卡牌是否是觉醒后的卡牌，仅当该卡牌为精灵卡时有效
+     */
+    is_awakened?: boolean;
+    /**
+     * 该卡牌的觉醒版本，仅当该卡牌为精灵卡时有效
+     */
+    awaken_card?: CommonResourceRef | null;
+    /**
+     * 该卡牌的非觉醒版本，仅当该卡牌为觉醒后的精灵卡时有效
+     */
+    non_awaken_card?: CommonResourceRef | null;
+};
+
+/**
+ * 群星牌卡牌资源列表
+ */
+export type AutocardList = CommonApiResourceList;
+
+/**
+ * 群星牌卡牌资源列表（expand=true）
+ *
+ * expand=true 时返回完整资源对象列表
+ */
+export type AutocardListExpanded = {
+    /**
+     * 资源数量
+     */
+    count: number;
+    /**
+     * 下一页URL
+     */
+    next?: string | null;
+    /**
+     * 上一页URL
+     */
+    previous?: string | null;
+    /**
+     * 第一页URL
+     */
+    first?: string | null;
+    /**
+     * 最后一页URL
+     */
+    last?: string | null;
+    /**
+     * 资源列表
+     */
+    results: Array<Autocard>;
+};
+
+/**
+ * 群星牌精灵卡资源
+ */
+export type AutocardPetcard = HashPartial & {
+    type: CommonResourceRef;
+    element_type: CommonResourceRef;
+    /**
+     * Id
+     *
+     * 资源ID
+     */
+    id: number;
+    /**
+     * Name
+     *
+     * 卡牌名称
+     */
+    name: string;
+    /**
+     * Description
+     *
+     * 卡牌描述
+     */
+    description: string;
+    /**
+     * Level
+     *
+     * 卡牌等级
+     */
+    level: number;
+    /**
+     * Cost
+     *
+     * 卡牌费用
+     */
+    cost: number;
+    /**
+     * Is Token
+     *
+     * 该卡牌是否是衍生卡
+     */
+    is_token: boolean;
+    /**
+     * Attack
+     *
+     * 卡牌攻击力
+     */
+    attack: number;
+    /**
+     * Health
+     *
+     * 卡牌生命值
+     */
+    health: number;
+    /**
+     * Is Awakened
+     *
+     * 该卡牌是否是觉醒后的卡牌
+     */
+    is_awakened: boolean;
+    /**
+     * 该卡牌的觉醒版本，当卡牌不能觉醒时为null
+     */
+    awaken_card?: CommonResourceRef | null;
+    /**
+     * 该卡牌的非觉醒版本，仅当该卡牌为觉醒后的精灵卡时有效
+     */
+    non_awaken_card?: CommonResourceRef | null;
+};
+
+/**
+ * 群星牌精灵卡资源列表
+ */
+export type AutocardPetcardList = CommonApiResourceList;
+
+/**
+ * 群星牌精灵卡资源列表（expand=true）
+ *
+ * expand=true 时返回完整资源对象列表
+ */
+export type AutocardPetcardListExpanded = {
+    /**
+     * 资源数量
+     */
+    count: number;
+    /**
+     * 下一页URL
+     */
+    next?: string | null;
+    /**
+     * 上一页URL
+     */
+    previous?: string | null;
+    /**
+     * 第一页URL
+     */
+    first?: string | null;
+    /**
+     * 最后一页URL
+     */
+    last?: string | null;
+    /**
+     * 资源列表
+     */
+    results: Array<AutocardPetcard>;
+};
+
+/**
+ * 群星牌魔法卡资源
+ */
+export type AutocardSpellcard = HashPartial & {
+    type: CommonResourceRef;
+    element_type: CommonResourceRef;
+    /**
+     * Id
+     *
+     * 资源ID
+     */
+    id: number;
+    /**
+     * Name
+     *
+     * 卡牌名称
+     */
+    name: string;
+    /**
+     * Description
+     *
+     * 卡牌描述
+     */
+    description: string;
+    /**
+     * Level
+     *
+     * 卡牌等级
+     */
+    level: number;
+    /**
+     * Cost
+     *
+     * 卡牌费用
+     */
+    cost: number;
+    /**
+     * Is Token
+     *
+     * 该卡牌是否是衍生卡
+     */
+    is_token: boolean;
+};
+
+/**
+ * 群星牌魔法卡资源列表
+ */
+export type AutocardSpellcardList = CommonApiResourceList;
+
+/**
+ * 群星牌魔法卡资源列表（expand=true）
+ *
+ * expand=true 时返回完整资源对象列表
+ */
+export type AutocardSpellcardListExpanded = {
+    /**
+     * 资源数量
+     */
+    count: number;
+    /**
+     * 下一页URL
+     */
+    next?: string | null;
+    /**
+     * 上一页URL
+     */
+    previous?: string | null;
+    /**
+     * 第一页URL
+     */
+    first?: string | null;
+    /**
+     * 最后一页URL
+     */
+    last?: string | null;
+    /**
+     * 资源列表
+     */
+    results: Array<AutocardSpellcard>;
+};
+
+/**
+ * 群星牌卡牌类型资源
+ */
+export type AutocardCardtype = HashPartial & {
+    /**
+     * Id
+     *
+     * 资源ID
+     */
+    id: number;
+    /**
+     * Name
+     *
+     * 类型名称
+     */
+    name: string;
+    /**
+     * Autocard
+     *
+     * 卡牌列表
+     */
+    autocard: Array<CommonResourceRef>;
+};
+
+/**
+ * 群星牌卡牌类型资源列表
+ */
+export type AutocardCardtypeList = CommonApiResourceList;
+
+/**
+ * 群星牌卡牌类型资源列表（expand=true）
+ *
+ * expand=true 时返回完整资源对象列表
+ */
+export type AutocardCardtypeListExpanded = {
+    /**
+     * 资源数量
+     */
+    count: number;
+    /**
+     * 下一页URL
+     */
+    next?: string | null;
+    /**
+     * 上一页URL
+     */
+    previous?: string | null;
+    /**
+     * 第一页URL
+     */
+    first?: string | null;
+    /**
+     * 最后一页URL
+     */
+    last?: string | null;
+    /**
+     * 资源列表
+     */
+    results: Array<AutocardCardtype>;
+};
+
+/**
+ * 卡牌元素类型资源
+ */
+export type AutocardElementType = HashPartial & {
+    /**
+     * Id
+     *
+     * 资源ID
+     */
+    id: number;
+    /**
+     * Name
+     *
+     * 类型名称
+     */
+    name: string;
+    /**
+     * Autocard
+     *
+     * 卡牌列表
+     */
+    autocard: Array<CommonResourceRef>;
+    /**
+     * Role
+     *
+     * 角色列表
+     */
+    role: Array<CommonResourceRef>;
+};
+
+/**
+ * 卡牌元素类型资源列表
+ */
+export type AutocardElementTypeList = CommonApiResourceList;
+
+/**
+ * 卡牌元素类型资源列表（expand=true）
+ *
+ * expand=true 时返回完整资源对象列表
+ */
+export type AutocardElementTypeListExpanded = {
+    /**
+     * 资源数量
+     */
+    count: number;
+    /**
+     * 下一页URL
+     */
+    next?: string | null;
+    /**
+     * 上一页URL
+     */
+    previous?: string | null;
+    /**
+     * 第一页URL
+     */
+    first?: string | null;
+    /**
+     * 最后一页URL
+     */
+    last?: string | null;
+    /**
+     * 资源列表
+     */
+    results: Array<AutocardElementType>;
+};
+
+/**
+ * 群星牌角色资源
+ */
+export type AutocardRole = HashPartial & {
+    /**
+     * Id
+     *
+     * 资源ID
+     */
+    id: number;
+    /**
+     * Name
+     *
+     * 角色名称
+     */
+    name: string;
+    /**
+     * Description
+     *
+     * 角色描述
+     */
+    description: string;
+    /**
+     * Health
+     *
+     * 角色初始生命值
+     */
+    health: number;
+    /**
+     * Skill Desc
+     *
+     * 角色技能描述
+     */
+    skill_desc: string;
+    /**
+     * Is Passive Skill
+     *
+     * 角色技能是否为被动技能
+     */
+    is_passive_skill: boolean;
+    /**
+     * Skill Cost
+     *
+     * 使用技能消耗的金币数量，None表示该技能为被动技能，此字段无效
+     */
+    skill_cost?: number | null;
+    /**
+     * Skill Game Limit
+     *
+     * 技能在游戏中的使用次数限制，0表示无限制，None表示该技能为被动技能，此字段无效
+     */
+    skill_game_limit?: number | null;
+    /**
+     * Skill Round Limit
+     *
+     * 技能在回合中的使用次数限制，0表示无限制，None表示该技能为被动技能，此字段无效
+     */
+    skill_round_limit?: number | null;
+    element_type: CommonResourceRef;
+};
+
+/**
+ * 群星牌角色资源列表
+ */
+export type AutocardRoleList = CommonApiResourceList;
+
+/**
+ * 群星牌角色资源列表（expand=true）
+ *
+ * expand=true 时返回完整资源对象列表
+ */
+export type AutocardRoleListExpanded = {
+    /**
+     * 资源数量
+     */
+    count: number;
+    /**
+     * 下一页URL
+     */
+    next?: string | null;
+    /**
+     * 上一页URL
+     */
+    previous?: string | null;
+    /**
+     * 第一页URL
+     */
+    first?: string | null;
+    /**
+     * 最后一页URL
+     */
+    last?: string | null;
+    /**
+     * 资源列表
+     */
+    results: Array<AutocardRole>;
+};
+
+/**
+ * 群星牌场地资源
+ */
+export type AutocardField = HashPartial & {
+    /**
+     * Id
+     *
+     * 资源ID
+     */
+    id: number;
+    /**
+     * Name
+     *
+     * 圣域名称
+     */
+    name: string;
+    /**
+     * Buff Stage
+     *
+     * Buff阶段，包含每个阶段的所有可选项
+     */
+    buff_stage: {
+        [key: string]: Array<{
+            /**
+             * Name
+             *
+             * Buff名称
+             */
+            name: string;
+            /**
+             * Description
+             *
+             * Buff描述
+             */
+            description: string;
+            /**
+             * Open Turn
+             *
+             * 该Buff可被选择的最早回合（即从第几回合起可开放选择）
+             */
+            open_turn: number;
+        }>;
+    };
+};
+
+/**
+ * 群星牌场地资源列表
+ */
+export type AutocardFieldList = CommonApiResourceList;
+
+/**
+ * 群星牌场地资源列表（expand=true）
+ *
+ * expand=true 时返回完整资源对象列表
+ */
+export type AutocardFieldListExpanded = {
+    /**
+     * 资源数量
+     */
+    count: number;
+    /**
+     * 下一页URL
+     */
+    next?: string | null;
+    /**
+     * 上一页URL
+     */
+    previous?: string | null;
+    /**
+     * 第一页URL
+     */
+    first?: string | null;
+    /**
+     * 最后一页URL
+     */
+    last?: string | null;
+    /**
+     * 资源列表
+     */
+    results: Array<AutocardField>;
+};
+
+/**
  * 状态资源
  */
 export type BattleEffect = HashPartial & {
@@ -5839,6 +6442,34 @@ export type RootIndex = HashPartial & {
      */
     activity_type: string;
     /**
+     * autocard Path
+     */
+    autocard: string;
+    /**
+     * autocard_petcard Path
+     */
+    autocard_petcard: string;
+    /**
+     * autocard_spellcard Path
+     */
+    autocard_spellcard: string;
+    /**
+     * autocard_cardtype Path
+     */
+    autocard_cardtype: string;
+    /**
+     * autocard_element_type Path
+     */
+    autocard_element_type: string;
+    /**
+     * autocard_role Path
+     */
+    autocard_role: string;
+    /**
+     * autocard_field Path
+     */
+    autocard_field: string;
+    /**
      * battle_effect Path
      */
     battle_effect: string;
@@ -6486,6 +7117,370 @@ export type GetActivityTypeListResponses = {
 };
 
 export type GetActivityTypeListResponse = GetActivityTypeListResponses[keyof GetActivityTypeListResponses];
+
+export type GetAutocardByIdData = {
+    body?: never;
+    path: {
+        /**
+         * 资源 ID
+         */
+        id: number;
+    };
+    query?: never;
+    url: 'v1/autocard/{id}';
+};
+
+export type GetAutocardByIdResponses = {
+    /**
+     * OK
+     */
+    200: Autocard;
+};
+
+export type GetAutocardByIdResponse = GetAutocardByIdResponses[keyof GetAutocardByIdResponses];
+
+export type GetAutocardListData = {
+    body?: never;
+    path?: never;
+    query?: {
+        /**
+         * 从哪个位置开始返回结果
+         */
+        offset?: number;
+        /**
+         * 每页返回的最大结果数
+         */
+        limit?: number;
+        /**
+         * 控制 results 的返回格式：
+         * - `false`（默认）：返回轻量引用（NamedResourceRef）
+         * - `true`：返回完整资源对象
+         */
+        expand?: boolean;
+    };
+    url: 'v1/autocard/';
+};
+
+export type GetAutocardListResponses = {
+    /**
+     * 实际返回格式由 expand 查询参数决定，见 expand 参数说明。
+     */
+    200: AutocardList | AutocardListExpanded;
+};
+
+export type GetAutocardListResponse = GetAutocardListResponses[keyof GetAutocardListResponses];
+
+export type GetAutocardPetcardByIdData = {
+    body?: never;
+    path: {
+        /**
+         * 资源 ID
+         */
+        id: number;
+    };
+    query?: never;
+    url: 'v1/autocard_petcard/{id}';
+};
+
+export type GetAutocardPetcardByIdResponses = {
+    /**
+     * OK
+     */
+    200: AutocardPetcard;
+};
+
+export type GetAutocardPetcardByIdResponse = GetAutocardPetcardByIdResponses[keyof GetAutocardPetcardByIdResponses];
+
+export type GetAutocardPetcardListData = {
+    body?: never;
+    path?: never;
+    query?: {
+        /**
+         * 从哪个位置开始返回结果
+         */
+        offset?: number;
+        /**
+         * 每页返回的最大结果数
+         */
+        limit?: number;
+        /**
+         * 控制 results 的返回格式：
+         * - `false`（默认）：返回轻量引用（NamedResourceRef）
+         * - `true`：返回完整资源对象
+         */
+        expand?: boolean;
+    };
+    url: 'v1/autocard_petcard/';
+};
+
+export type GetAutocardPetcardListResponses = {
+    /**
+     * 实际返回格式由 expand 查询参数决定，见 expand 参数说明。
+     */
+    200: AutocardPetcardList | AutocardPetcardListExpanded;
+};
+
+export type GetAutocardPetcardListResponse = GetAutocardPetcardListResponses[keyof GetAutocardPetcardListResponses];
+
+export type GetAutocardSpellcardByIdData = {
+    body?: never;
+    path: {
+        /**
+         * 资源 ID
+         */
+        id: number;
+    };
+    query?: never;
+    url: 'v1/autocard_spellcard/{id}';
+};
+
+export type GetAutocardSpellcardByIdResponses = {
+    /**
+     * OK
+     */
+    200: AutocardSpellcard;
+};
+
+export type GetAutocardSpellcardByIdResponse = GetAutocardSpellcardByIdResponses[keyof GetAutocardSpellcardByIdResponses];
+
+export type GetAutocardSpellcardListData = {
+    body?: never;
+    path?: never;
+    query?: {
+        /**
+         * 从哪个位置开始返回结果
+         */
+        offset?: number;
+        /**
+         * 每页返回的最大结果数
+         */
+        limit?: number;
+        /**
+         * 控制 results 的返回格式：
+         * - `false`（默认）：返回轻量引用（NamedResourceRef）
+         * - `true`：返回完整资源对象
+         */
+        expand?: boolean;
+    };
+    url: 'v1/autocard_spellcard/';
+};
+
+export type GetAutocardSpellcardListResponses = {
+    /**
+     * 实际返回格式由 expand 查询参数决定，见 expand 参数说明。
+     */
+    200: AutocardSpellcardList | AutocardSpellcardListExpanded;
+};
+
+export type GetAutocardSpellcardListResponse = GetAutocardSpellcardListResponses[keyof GetAutocardSpellcardListResponses];
+
+export type GetAutocardCardtypeByIdData = {
+    body?: never;
+    path: {
+        /**
+         * 资源 ID
+         */
+        id: number;
+    };
+    query?: never;
+    url: 'v1/autocard_cardtype/{id}';
+};
+
+export type GetAutocardCardtypeByIdResponses = {
+    /**
+     * OK
+     */
+    200: AutocardCardtype;
+};
+
+export type GetAutocardCardtypeByIdResponse = GetAutocardCardtypeByIdResponses[keyof GetAutocardCardtypeByIdResponses];
+
+export type GetAutocardCardtypeListData = {
+    body?: never;
+    path?: never;
+    query?: {
+        /**
+         * 从哪个位置开始返回结果
+         */
+        offset?: number;
+        /**
+         * 每页返回的最大结果数
+         */
+        limit?: number;
+        /**
+         * 控制 results 的返回格式：
+         * - `false`（默认）：返回轻量引用（NamedResourceRef）
+         * - `true`：返回完整资源对象
+         */
+        expand?: boolean;
+    };
+    url: 'v1/autocard_cardtype/';
+};
+
+export type GetAutocardCardtypeListResponses = {
+    /**
+     * 实际返回格式由 expand 查询参数决定，见 expand 参数说明。
+     */
+    200: AutocardCardtypeList | AutocardCardtypeListExpanded;
+};
+
+export type GetAutocardCardtypeListResponse = GetAutocardCardtypeListResponses[keyof GetAutocardCardtypeListResponses];
+
+export type GetAutocardElementTypeByIdData = {
+    body?: never;
+    path: {
+        /**
+         * 资源 ID
+         */
+        id: number;
+    };
+    query?: never;
+    url: 'v1/autocard_element_type/{id}';
+};
+
+export type GetAutocardElementTypeByIdResponses = {
+    /**
+     * OK
+     */
+    200: AutocardElementType;
+};
+
+export type GetAutocardElementTypeByIdResponse = GetAutocardElementTypeByIdResponses[keyof GetAutocardElementTypeByIdResponses];
+
+export type GetAutocardElementTypeListData = {
+    body?: never;
+    path?: never;
+    query?: {
+        /**
+         * 从哪个位置开始返回结果
+         */
+        offset?: number;
+        /**
+         * 每页返回的最大结果数
+         */
+        limit?: number;
+        /**
+         * 控制 results 的返回格式：
+         * - `false`（默认）：返回轻量引用（NamedResourceRef）
+         * - `true`：返回完整资源对象
+         */
+        expand?: boolean;
+    };
+    url: 'v1/autocard_element_type/';
+};
+
+export type GetAutocardElementTypeListResponses = {
+    /**
+     * 实际返回格式由 expand 查询参数决定，见 expand 参数说明。
+     */
+    200: AutocardElementTypeList | AutocardElementTypeListExpanded;
+};
+
+export type GetAutocardElementTypeListResponse = GetAutocardElementTypeListResponses[keyof GetAutocardElementTypeListResponses];
+
+export type GetAutocardRoleByIdData = {
+    body?: never;
+    path: {
+        /**
+         * 资源 ID
+         */
+        id: number;
+    };
+    query?: never;
+    url: 'v1/autocard_role/{id}';
+};
+
+export type GetAutocardRoleByIdResponses = {
+    /**
+     * OK
+     */
+    200: AutocardRole;
+};
+
+export type GetAutocardRoleByIdResponse = GetAutocardRoleByIdResponses[keyof GetAutocardRoleByIdResponses];
+
+export type GetAutocardRoleListData = {
+    body?: never;
+    path?: never;
+    query?: {
+        /**
+         * 从哪个位置开始返回结果
+         */
+        offset?: number;
+        /**
+         * 每页返回的最大结果数
+         */
+        limit?: number;
+        /**
+         * 控制 results 的返回格式：
+         * - `false`（默认）：返回轻量引用（NamedResourceRef）
+         * - `true`：返回完整资源对象
+         */
+        expand?: boolean;
+    };
+    url: 'v1/autocard_role/';
+};
+
+export type GetAutocardRoleListResponses = {
+    /**
+     * 实际返回格式由 expand 查询参数决定，见 expand 参数说明。
+     */
+    200: AutocardRoleList | AutocardRoleListExpanded;
+};
+
+export type GetAutocardRoleListResponse = GetAutocardRoleListResponses[keyof GetAutocardRoleListResponses];
+
+export type GetAutocardFieldByIdData = {
+    body?: never;
+    path: {
+        /**
+         * 资源 ID
+         */
+        id: number;
+    };
+    query?: never;
+    url: 'v1/autocard_field/{id}';
+};
+
+export type GetAutocardFieldByIdResponses = {
+    /**
+     * OK
+     */
+    200: AutocardField;
+};
+
+export type GetAutocardFieldByIdResponse = GetAutocardFieldByIdResponses[keyof GetAutocardFieldByIdResponses];
+
+export type GetAutocardFieldListData = {
+    body?: never;
+    path?: never;
+    query?: {
+        /**
+         * 从哪个位置开始返回结果
+         */
+        offset?: number;
+        /**
+         * 每页返回的最大结果数
+         */
+        limit?: number;
+        /**
+         * 控制 results 的返回格式：
+         * - `false`（默认）：返回轻量引用（NamedResourceRef）
+         * - `true`：返回完整资源对象
+         */
+        expand?: boolean;
+    };
+    url: 'v1/autocard_field/';
+};
+
+export type GetAutocardFieldListResponses = {
+    /**
+     * 实际返回格式由 expand 查询参数决定，见 expand 参数说明。
+     */
+    200: AutocardFieldList | AutocardFieldListExpanded;
+};
+
+export type GetAutocardFieldListResponse = GetAutocardFieldListResponses[keyof GetAutocardFieldListResponses];
 
 export type GetBattleEffectByIdData = {
     body?: never;

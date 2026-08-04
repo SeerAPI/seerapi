@@ -200,6 +200,46 @@ export const relations = defineRelations(schema, (r) => ({
 	activityType: {
 		activities: r.many.activity(),
 	},
+	autocard: {
+		autocard: r.one.autocard({
+			from: r.autocard.awakenCardId,
+			to: r.autocard.id,
+			alias: "autocard_awakenCardId_autocard_id"
+		}),
+		autocards: r.many.autocard({
+			alias: "autocard_awakenCardId_autocard_id"
+		}),
+		autocardElementType: r.one.autocardElementType({
+			from: r.autocard.elementTypeId,
+			to: r.autocardElementType.id
+		}),
+		autocardCardtype: r.one.autocardCardtype({
+			from: r.autocard.typeId,
+			to: r.autocardCardtype.id
+		}),
+	},
+	autocardElementType: {
+		autocards: r.many.autocard(),
+		autocardRoles: r.many.autocardRole(),
+	},
+	autocardCardtype: {
+		autocards: r.many.autocard(),
+	},
+	autocardFieldBuff: {
+		autocardField: r.one.autocardField({
+			from: r.autocardFieldBuff.fieldId,
+			to: r.autocardField.id
+		}),
+	},
+	autocardField: {
+		autocardFieldBuffs: r.many.autocardFieldBuff(),
+	},
+	autocardRole: {
+		autocardElementType: r.one.autocardElementType({
+			from: r.autocardRole.elementTypeId,
+			to: r.autocardElementType.id
+		}),
+	},
 	battleEffect: {
 		resistanceCategory: r.one.resistanceCategory({
 			from: r.battleEffect.resistanceId,

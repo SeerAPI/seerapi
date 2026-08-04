@@ -3,7 +3,7 @@
 import { client } from './client.gen.js';
 import type { Client, Options as Options2, TDataShape } from './client/index.js';
 import { getActivityByIdResponseTransformer, getPeakExpertPoolByIdResponseTransformer, getPeakPoolByIdResponseTransformer, getPeakPoolVoteByIdResponseTransformer, getPeakSeasonByIdResponseTransformer } from './transformers.gen.js';
-import type { GetAbilityMintmarkByIdData, GetAbilityMintmarkByIdResponses, GetAbilityMintmarkListData, GetAbilityMintmarkListResponses, GetAchievementBranchByIdData, GetAchievementBranchByIdResponses, GetAchievementBranchListData, GetAchievementBranchListResponses, GetAchievementByIdData, GetAchievementByIdResponses, GetAchievementCategoryByIdData, GetAchievementCategoryByIdResponses, GetAchievementCategoryListData, GetAchievementCategoryListResponses, GetAchievementListData, GetAchievementListResponses, GetAchievementTypeByIdData, GetAchievementTypeByIdResponses, GetAchievementTypeListData, GetAchievementTypeListResponses, GetActivityByIdData, GetActivityByIdResponses, GetActivityListData, GetActivityListResponses, GetActivityTypeByIdData, GetActivityTypeByIdResponses, GetActivityTypeListData, GetActivityTypeListResponses, GetAvatarFrameByIdData, GetAvatarFrameByIdResponses, GetAvatarFrameListData, GetAvatarFrameListResponses, GetAvatarHeadByIdData, GetAvatarHeadByIdResponses, GetAvatarHeadListData, GetAvatarHeadListResponses, GetBattleEffectByIdData, GetBattleEffectByIdResponses, GetBattleEffectListData, GetBattleEffectListResponses, GetBattleEffectTypeByIdData, GetBattleEffectTypeByIdResponses, GetBattleEffectTypeListData, GetBattleEffectTypeListResponses, GetEidEffectByIdData, GetEidEffectByIdResponses, GetEidEffectListData, GetEidEffectListResponses, GetElementTypeByIdData, GetElementTypeByIdResponses, GetElementTypeCombinationByIdData, GetElementTypeCombinationByIdResponses, GetElementTypeCombinationListData, GetElementTypeCombinationListResponses, GetElementTypeListData, GetElementTypeListResponses, GetEnergyBeadByIdData, GetEnergyBeadByIdResponses, GetEnergyBeadListData, GetEnergyBeadListResponses, GetEquipByIdData, GetEquipByIdResponses, GetEquipEffectiveOccasionByIdData, GetEquipEffectiveOccasionByIdResponses, GetEquipEffectiveOccasionListData, GetEquipEffectiveOccasionListResponses, GetEquipListData, GetEquipListResponses, GetEquipTypeByIdData, GetEquipTypeByIdResponses, GetEquipTypeListData, GetEquipTypeListResponses, GetErrorCodeByIdData, GetErrorCodeByIdResponses, GetErrorCodeListData, GetErrorCodeListResponses, GetGemByIdData, GetGemByIdResponses, GetGemCategoryByIdData, GetGemCategoryByIdResponses, GetGemCategoryListData, GetGemCategoryListResponses, GetGemGen1ByIdData, GetGemGen1ByIdResponses, GetGemGen1ListData, GetGemGen1ListResponses, GetGemGen2ByIdData, GetGemGen2ByIdResponses, GetGemGen2ListData, GetGemGen2ListResponses, GetGemGenerationCategoryByIdData, GetGemGenerationCategoryByIdResponses, GetGemGenerationCategoryListData, GetGemGenerationCategoryListResponses, GetGemListData, GetGemListResponses, GetGlossaryEntryByIdData, GetGlossaryEntryByIdResponses, GetGlossaryEntryListData, GetGlossaryEntryListResponses, GetHomepageBackgroundByIdData, GetHomepageBackgroundByIdResponses, GetHomepageBackgroundListData, GetHomepageBackgroundListResponses, GetItemByIdData, GetItemByIdResponses, GetItemCategoryByIdData, GetItemCategoryByIdResponses, GetItemCategoryListData, GetItemCategoryListResponses, GetItemListData, GetItemListResponses, GetMintmarkByIdData, GetMintmarkByIdResponses, GetMintmarkClassByIdData, GetMintmarkClassByIdResponses, GetMintmarkClassListData, GetMintmarkClassListResponses, GetMintmarkListData, GetMintmarkListResponses, GetMintmarkRarityByIdData, GetMintmarkRarityByIdResponses, GetMintmarkRarityListData, GetMintmarkRarityListResponses, GetMintmarkTypeByIdData, GetMintmarkTypeByIdResponses, GetMintmarkTypeListData, GetMintmarkTypeListResponses, GetNamecardBackgroundByIdData, GetNamecardBackgroundByIdResponses, GetNamecardBackgroundListData, GetNamecardBackgroundListResponses, GetNatureByIdData, GetNatureByIdResponses, GetNatureListData, GetNatureListResponses, GetNicknameBackgroundByIdData, GetNicknameBackgroundByIdResponses, GetNicknameBackgroundListData, GetNicknameBackgroundListResponses, GetPeakExpertPoolByIdData, GetPeakExpertPoolByIdResponses, GetPeakExpertPoolListData, GetPeakExpertPoolListResponses, GetPeakPoolByIdData, GetPeakPoolByIdResponses, GetPeakPoolListData, GetPeakPoolListResponses, GetPeakPoolVoteByIdData, GetPeakPoolVoteByIdResponses, GetPeakPoolVoteListData, GetPeakPoolVoteListResponses, GetPeakSeasonByIdData, GetPeakSeasonByIdResponses, GetPeakSeasonListData, GetPeakSeasonListResponses, GetPetAdvanceByIdData, GetPetAdvanceByIdResponses, GetPetAdvanceListData, GetPetAdvanceListResponses, GetPetArchiveStoryBookByIdData, GetPetArchiveStoryBookByIdResponses, GetPetArchiveStoryBookListData, GetPetArchiveStoryBookListResponses, GetPetArchiveStoryEntryByIdData, GetPetArchiveStoryEntryByIdResponses, GetPetArchiveStoryEntryListData, GetPetArchiveStoryEntryListResponses, GetPetByIdData, GetPetByIdResponses, GetPetClassByIdData, GetPetClassByIdResponses, GetPetClassListData, GetPetClassListResponses, GetPetEffectByIdData, GetPetEffectByIdResponses, GetPetEffectGroupByIdData, GetPetEffectGroupByIdResponses, GetPetEffectGroupListData, GetPetEffectGroupListResponses, GetPetEffectListData, GetPetEffectListResponses, GetPetEncyclopediaEntryByIdData, GetPetEncyclopediaEntryByIdResponses, GetPetEncyclopediaEntryListData, GetPetEncyclopediaEntryListResponses, GetPetGenderByIdData, GetPetGenderByIdResponses, GetPetGenderListData, GetPetGenderListResponses, GetPetListData, GetPetListResponses, GetPetMountTypeByIdData, GetPetMountTypeByIdResponses, GetPetMountTypeListData, GetPetMountTypeListResponses, GetPetSkinByIdData, GetPetSkinByIdResponses, GetPetSkinCategoryByIdData, GetPetSkinCategoryByIdResponses, GetPetSkinCategoryListData, GetPetSkinCategoryListResponses, GetPetSkinListData, GetPetSkinListResponses, GetPetSkinSeriesByIdData, GetPetSkinSeriesByIdResponses, GetPetSkinSeriesListData, GetPetSkinSeriesListResponses, GetPetSkinSeriesSubTypeByIdData, GetPetSkinSeriesSubTypeByIdResponses, GetPetSkinSeriesSubTypeListData, GetPetSkinSeriesSubTypeListResponses, GetPetVariationByIdData, GetPetVariationByIdResponses, GetPetVariationListData, GetPetVariationListResponses, GetPetVipbuffByIdData, GetPetVipbuffByIdResponses, GetPetVipbuffListData, GetPetVipbuffListResponses, GetResistanceCategoryByIdData, GetResistanceCategoryByIdResponses, GetResistanceCategoryListData, GetResistanceCategoryListResponses, GetSkillActivationItemByIdData, GetSkillActivationItemByIdResponses, GetSkillActivationItemListData, GetSkillActivationItemListResponses, GetSkillByIdData, GetSkillByIdResponses, GetSkillCategoryByIdData, GetSkillCategoryByIdResponses, GetSkillCategoryListData, GetSkillCategoryListResponses, GetSkillEffectParamByIdData, GetSkillEffectParamByIdResponses, GetSkillEffectParamListData, GetSkillEffectParamListResponses, GetSkillEffectTypeByIdData, GetSkillEffectTypeByIdResponses, GetSkillEffectTypeListData, GetSkillEffectTypeListResponses, GetSkillEffectTypeTagByIdData, GetSkillEffectTypeTagByIdResponses, GetSkillEffectTypeTagListData, GetSkillEffectTypeTagListResponses, GetSkillHideEffectByIdData, GetSkillHideEffectByIdResponses, GetSkillHideEffectListData, GetSkillHideEffectListResponses, GetSkillListData, GetSkillListResponses, GetSkillMintmarkByIdData, GetSkillMintmarkByIdResponses, GetSkillMintmarkListData, GetSkillMintmarkListResponses, GetSkillStoneByIdData, GetSkillStoneByIdResponses, GetSkillStoneCategoryByIdData, GetSkillStoneCategoryByIdResponses, GetSkillStoneCategoryListData, GetSkillStoneCategoryListResponses, GetSkillStoneListData, GetSkillStoneListResponses, GetSoulmarkByIdData, GetSoulmarkByIdResponses, GetSoulmarkListData, GetSoulmarkListResponses, GetSoulmarkTagByIdData, GetSoulmarkTagByIdResponses, GetSoulmarkTagListData, GetSoulmarkTagListResponses, GetSuitByIdData, GetSuitByIdResponses, GetSuitListData, GetSuitListResponses, GetTitleByIdData, GetTitleByIdResponses, GetTitleListData, GetTitleListResponses, GetUniversalMintmarkByIdData, GetUniversalMintmarkByIdResponses, GetUniversalMintmarkListData, GetUniversalMintmarkListResponses } from './types.gen.js';
+import type { GetAbilityMintmarkByIdData, GetAbilityMintmarkByIdResponses, GetAbilityMintmarkListData, GetAbilityMintmarkListResponses, GetAchievementBranchByIdData, GetAchievementBranchByIdResponses, GetAchievementBranchListData, GetAchievementBranchListResponses, GetAchievementByIdData, GetAchievementByIdResponses, GetAchievementCategoryByIdData, GetAchievementCategoryByIdResponses, GetAchievementCategoryListData, GetAchievementCategoryListResponses, GetAchievementListData, GetAchievementListResponses, GetAchievementTypeByIdData, GetAchievementTypeByIdResponses, GetAchievementTypeListData, GetAchievementTypeListResponses, GetActivityByIdData, GetActivityByIdResponses, GetActivityListData, GetActivityListResponses, GetActivityTypeByIdData, GetActivityTypeByIdResponses, GetActivityTypeListData, GetActivityTypeListResponses, GetAutocardByIdData, GetAutocardByIdResponses, GetAutocardCardtypeByIdData, GetAutocardCardtypeByIdResponses, GetAutocardCardtypeListData, GetAutocardCardtypeListResponses, GetAutocardElementTypeByIdData, GetAutocardElementTypeByIdResponses, GetAutocardElementTypeListData, GetAutocardElementTypeListResponses, GetAutocardFieldByIdData, GetAutocardFieldByIdResponses, GetAutocardFieldListData, GetAutocardFieldListResponses, GetAutocardListData, GetAutocardListResponses, GetAutocardPetcardByIdData, GetAutocardPetcardByIdResponses, GetAutocardPetcardListData, GetAutocardPetcardListResponses, GetAutocardRoleByIdData, GetAutocardRoleByIdResponses, GetAutocardRoleListData, GetAutocardRoleListResponses, GetAutocardSpellcardByIdData, GetAutocardSpellcardByIdResponses, GetAutocardSpellcardListData, GetAutocardSpellcardListResponses, GetAvatarFrameByIdData, GetAvatarFrameByIdResponses, GetAvatarFrameListData, GetAvatarFrameListResponses, GetAvatarHeadByIdData, GetAvatarHeadByIdResponses, GetAvatarHeadListData, GetAvatarHeadListResponses, GetBattleEffectByIdData, GetBattleEffectByIdResponses, GetBattleEffectListData, GetBattleEffectListResponses, GetBattleEffectTypeByIdData, GetBattleEffectTypeByIdResponses, GetBattleEffectTypeListData, GetBattleEffectTypeListResponses, GetEidEffectByIdData, GetEidEffectByIdResponses, GetEidEffectListData, GetEidEffectListResponses, GetElementTypeByIdData, GetElementTypeByIdResponses, GetElementTypeCombinationByIdData, GetElementTypeCombinationByIdResponses, GetElementTypeCombinationListData, GetElementTypeCombinationListResponses, GetElementTypeListData, GetElementTypeListResponses, GetEnergyBeadByIdData, GetEnergyBeadByIdResponses, GetEnergyBeadListData, GetEnergyBeadListResponses, GetEquipByIdData, GetEquipByIdResponses, GetEquipEffectiveOccasionByIdData, GetEquipEffectiveOccasionByIdResponses, GetEquipEffectiveOccasionListData, GetEquipEffectiveOccasionListResponses, GetEquipListData, GetEquipListResponses, GetEquipTypeByIdData, GetEquipTypeByIdResponses, GetEquipTypeListData, GetEquipTypeListResponses, GetErrorCodeByIdData, GetErrorCodeByIdResponses, GetErrorCodeListData, GetErrorCodeListResponses, GetGemByIdData, GetGemByIdResponses, GetGemCategoryByIdData, GetGemCategoryByIdResponses, GetGemCategoryListData, GetGemCategoryListResponses, GetGemGen1ByIdData, GetGemGen1ByIdResponses, GetGemGen1ListData, GetGemGen1ListResponses, GetGemGen2ByIdData, GetGemGen2ByIdResponses, GetGemGen2ListData, GetGemGen2ListResponses, GetGemGenerationCategoryByIdData, GetGemGenerationCategoryByIdResponses, GetGemGenerationCategoryListData, GetGemGenerationCategoryListResponses, GetGemListData, GetGemListResponses, GetGlossaryEntryByIdData, GetGlossaryEntryByIdResponses, GetGlossaryEntryListData, GetGlossaryEntryListResponses, GetHomepageBackgroundByIdData, GetHomepageBackgroundByIdResponses, GetHomepageBackgroundListData, GetHomepageBackgroundListResponses, GetItemByIdData, GetItemByIdResponses, GetItemCategoryByIdData, GetItemCategoryByIdResponses, GetItemCategoryListData, GetItemCategoryListResponses, GetItemListData, GetItemListResponses, GetMintmarkByIdData, GetMintmarkByIdResponses, GetMintmarkClassByIdData, GetMintmarkClassByIdResponses, GetMintmarkClassListData, GetMintmarkClassListResponses, GetMintmarkListData, GetMintmarkListResponses, GetMintmarkRarityByIdData, GetMintmarkRarityByIdResponses, GetMintmarkRarityListData, GetMintmarkRarityListResponses, GetMintmarkTypeByIdData, GetMintmarkTypeByIdResponses, GetMintmarkTypeListData, GetMintmarkTypeListResponses, GetNamecardBackgroundByIdData, GetNamecardBackgroundByIdResponses, GetNamecardBackgroundListData, GetNamecardBackgroundListResponses, GetNatureByIdData, GetNatureByIdResponses, GetNatureListData, GetNatureListResponses, GetNicknameBackgroundByIdData, GetNicknameBackgroundByIdResponses, GetNicknameBackgroundListData, GetNicknameBackgroundListResponses, GetPeakExpertPoolByIdData, GetPeakExpertPoolByIdResponses, GetPeakExpertPoolListData, GetPeakExpertPoolListResponses, GetPeakPoolByIdData, GetPeakPoolByIdResponses, GetPeakPoolListData, GetPeakPoolListResponses, GetPeakPoolVoteByIdData, GetPeakPoolVoteByIdResponses, GetPeakPoolVoteListData, GetPeakPoolVoteListResponses, GetPeakSeasonByIdData, GetPeakSeasonByIdResponses, GetPeakSeasonListData, GetPeakSeasonListResponses, GetPetAdvanceByIdData, GetPetAdvanceByIdResponses, GetPetAdvanceListData, GetPetAdvanceListResponses, GetPetArchiveStoryBookByIdData, GetPetArchiveStoryBookByIdResponses, GetPetArchiveStoryBookListData, GetPetArchiveStoryBookListResponses, GetPetArchiveStoryEntryByIdData, GetPetArchiveStoryEntryByIdResponses, GetPetArchiveStoryEntryListData, GetPetArchiveStoryEntryListResponses, GetPetByIdData, GetPetByIdResponses, GetPetClassByIdData, GetPetClassByIdResponses, GetPetClassListData, GetPetClassListResponses, GetPetEffectByIdData, GetPetEffectByIdResponses, GetPetEffectGroupByIdData, GetPetEffectGroupByIdResponses, GetPetEffectGroupListData, GetPetEffectGroupListResponses, GetPetEffectListData, GetPetEffectListResponses, GetPetEncyclopediaEntryByIdData, GetPetEncyclopediaEntryByIdResponses, GetPetEncyclopediaEntryListData, GetPetEncyclopediaEntryListResponses, GetPetGenderByIdData, GetPetGenderByIdResponses, GetPetGenderListData, GetPetGenderListResponses, GetPetListData, GetPetListResponses, GetPetMountTypeByIdData, GetPetMountTypeByIdResponses, GetPetMountTypeListData, GetPetMountTypeListResponses, GetPetSkinByIdData, GetPetSkinByIdResponses, GetPetSkinCategoryByIdData, GetPetSkinCategoryByIdResponses, GetPetSkinCategoryListData, GetPetSkinCategoryListResponses, GetPetSkinListData, GetPetSkinListResponses, GetPetSkinSeriesByIdData, GetPetSkinSeriesByIdResponses, GetPetSkinSeriesListData, GetPetSkinSeriesListResponses, GetPetSkinSeriesSubTypeByIdData, GetPetSkinSeriesSubTypeByIdResponses, GetPetSkinSeriesSubTypeListData, GetPetSkinSeriesSubTypeListResponses, GetPetVariationByIdData, GetPetVariationByIdResponses, GetPetVariationListData, GetPetVariationListResponses, GetPetVipbuffByIdData, GetPetVipbuffByIdResponses, GetPetVipbuffListData, GetPetVipbuffListResponses, GetResistanceCategoryByIdData, GetResistanceCategoryByIdResponses, GetResistanceCategoryListData, GetResistanceCategoryListResponses, GetSkillActivationItemByIdData, GetSkillActivationItemByIdResponses, GetSkillActivationItemListData, GetSkillActivationItemListResponses, GetSkillByIdData, GetSkillByIdResponses, GetSkillCategoryByIdData, GetSkillCategoryByIdResponses, GetSkillCategoryListData, GetSkillCategoryListResponses, GetSkillEffectParamByIdData, GetSkillEffectParamByIdResponses, GetSkillEffectParamListData, GetSkillEffectParamListResponses, GetSkillEffectTypeByIdData, GetSkillEffectTypeByIdResponses, GetSkillEffectTypeListData, GetSkillEffectTypeListResponses, GetSkillEffectTypeTagByIdData, GetSkillEffectTypeTagByIdResponses, GetSkillEffectTypeTagListData, GetSkillEffectTypeTagListResponses, GetSkillHideEffectByIdData, GetSkillHideEffectByIdResponses, GetSkillHideEffectListData, GetSkillHideEffectListResponses, GetSkillListData, GetSkillListResponses, GetSkillMintmarkByIdData, GetSkillMintmarkByIdResponses, GetSkillMintmarkListData, GetSkillMintmarkListResponses, GetSkillStoneByIdData, GetSkillStoneByIdResponses, GetSkillStoneCategoryByIdData, GetSkillStoneCategoryByIdResponses, GetSkillStoneCategoryListData, GetSkillStoneCategoryListResponses, GetSkillStoneListData, GetSkillStoneListResponses, GetSoulmarkByIdData, GetSoulmarkByIdResponses, GetSoulmarkListData, GetSoulmarkListResponses, GetSoulmarkTagByIdData, GetSoulmarkTagByIdResponses, GetSoulmarkTagListData, GetSoulmarkTagListResponses, GetSuitByIdData, GetSuitByIdResponses, GetSuitListData, GetSuitListResponses, GetTitleByIdData, GetTitleByIdResponses, GetTitleListData, GetTitleListResponses, GetUniversalMintmarkByIdData, GetUniversalMintmarkByIdResponses, GetUniversalMintmarkListData, GetUniversalMintmarkListResponses } from './types.gen.js';
 
 export type Options<TData extends TDataShape = TDataShape, ThrowOnError extends boolean = boolean, TResponse = unknown> = Options2<TData, ThrowOnError, TResponse> & {
     /**
@@ -171,6 +171,160 @@ export const getActivityTypeById = <ThrowOnError extends boolean = false>(option
 export const getActivityTypeList = <ThrowOnError extends boolean = false>(options?: Options<GetActivityTypeListData, ThrowOnError>) => (options?.client ?? client).get<GetActivityTypeListResponses, unknown, ThrowOnError>({
     responseType: 'json',
     url: 'v1/activity_type/',
+    ...options
+});
+
+/**
+ * 获取群星牌卡牌资源
+ *
+ * 群星牌卡牌资源，包含所有群星牌卡牌数据，当然也包括衍生卡。
+ */
+export const getAutocardById = <ThrowOnError extends boolean = false>(options: Options<GetAutocardByIdData, ThrowOnError>) => (options.client ?? client).get<GetAutocardByIdResponses, unknown, ThrowOnError>({
+    responseType: 'json',
+    url: 'v1/autocard/{id}',
+    ...options
+});
+
+/**
+ * 获取群星牌卡牌资源列表
+ *
+ * 群星牌卡牌资源，包含所有群星牌卡牌数据，当然也包括衍生卡。
+ */
+export const getAutocardList = <ThrowOnError extends boolean = false>(options?: Options<GetAutocardListData, ThrowOnError>) => (options?.client ?? client).get<GetAutocardListResponses, unknown, ThrowOnError>({
+    responseType: 'json',
+    url: 'v1/autocard/',
+    ...options
+});
+
+/**
+ * 获取群星牌精灵卡资源
+ *
+ * 群星牌精灵卡资源，包含所有群星牌精灵卡数据，包括衍生卡。
+ */
+export const getAutocardPetcardById = <ThrowOnError extends boolean = false>(options: Options<GetAutocardPetcardByIdData, ThrowOnError>) => (options.client ?? client).get<GetAutocardPetcardByIdResponses, unknown, ThrowOnError>({
+    responseType: 'json',
+    url: 'v1/autocard_petcard/{id}',
+    ...options
+});
+
+/**
+ * 获取群星牌精灵卡资源列表
+ *
+ * 群星牌精灵卡资源，包含所有群星牌精灵卡数据，包括衍生卡。
+ */
+export const getAutocardPetcardList = <ThrowOnError extends boolean = false>(options?: Options<GetAutocardPetcardListData, ThrowOnError>) => (options?.client ?? client).get<GetAutocardPetcardListResponses, unknown, ThrowOnError>({
+    responseType: 'json',
+    url: 'v1/autocard_petcard/',
+    ...options
+});
+
+/**
+ * 获取群星牌魔法卡资源
+ *
+ * 群星牌魔法卡资源，包含所有群星牌魔法卡数据，包括衍生卡。
+ */
+export const getAutocardSpellcardById = <ThrowOnError extends boolean = false>(options: Options<GetAutocardSpellcardByIdData, ThrowOnError>) => (options.client ?? client).get<GetAutocardSpellcardByIdResponses, unknown, ThrowOnError>({
+    responseType: 'json',
+    url: 'v1/autocard_spellcard/{id}',
+    ...options
+});
+
+/**
+ * 获取群星牌魔法卡资源列表
+ *
+ * 群星牌魔法卡资源，包含所有群星牌魔法卡数据，包括衍生卡。
+ */
+export const getAutocardSpellcardList = <ThrowOnError extends boolean = false>(options?: Options<GetAutocardSpellcardListData, ThrowOnError>) => (options?.client ?? client).get<GetAutocardSpellcardListResponses, unknown, ThrowOnError>({
+    responseType: 'json',
+    url: 'v1/autocard_spellcard/',
+    ...options
+});
+
+/**
+ * 获取群星牌卡牌类型资源
+ *
+ * 群星牌卡牌类型资源。
+ */
+export const getAutocardCardtypeById = <ThrowOnError extends boolean = false>(options: Options<GetAutocardCardtypeByIdData, ThrowOnError>) => (options.client ?? client).get<GetAutocardCardtypeByIdResponses, unknown, ThrowOnError>({
+    responseType: 'json',
+    url: 'v1/autocard_cardtype/{id}',
+    ...options
+});
+
+/**
+ * 获取群星牌卡牌类型资源列表
+ *
+ * 群星牌卡牌类型资源。
+ */
+export const getAutocardCardtypeList = <ThrowOnError extends boolean = false>(options?: Options<GetAutocardCardtypeListData, ThrowOnError>) => (options?.client ?? client).get<GetAutocardCardtypeListResponses, unknown, ThrowOnError>({
+    responseType: 'json',
+    url: 'v1/autocard_cardtype/',
+    ...options
+});
+
+/**
+ * 获取卡牌元素类型资源
+ *
+ * 群星牌卡牌元素类型资源。
+ */
+export const getAutocardElementTypeById = <ThrowOnError extends boolean = false>(options: Options<GetAutocardElementTypeByIdData, ThrowOnError>) => (options.client ?? client).get<GetAutocardElementTypeByIdResponses, unknown, ThrowOnError>({
+    responseType: 'json',
+    url: 'v1/autocard_element_type/{id}',
+    ...options
+});
+
+/**
+ * 获取卡牌元素类型资源列表
+ *
+ * 群星牌卡牌元素类型资源。
+ */
+export const getAutocardElementTypeList = <ThrowOnError extends boolean = false>(options?: Options<GetAutocardElementTypeListData, ThrowOnError>) => (options?.client ?? client).get<GetAutocardElementTypeListResponses, unknown, ThrowOnError>({
+    responseType: 'json',
+    url: 'v1/autocard_element_type/',
+    ...options
+});
+
+/**
+ * 获取群星牌角色资源
+ *
+ * 群星牌角色资源，包含所有可以选择的群星牌角色数据。
+ */
+export const getAutocardRoleById = <ThrowOnError extends boolean = false>(options: Options<GetAutocardRoleByIdData, ThrowOnError>) => (options.client ?? client).get<GetAutocardRoleByIdResponses, unknown, ThrowOnError>({
+    responseType: 'json',
+    url: 'v1/autocard_role/{id}',
+    ...options
+});
+
+/**
+ * 获取群星牌角色资源列表
+ *
+ * 群星牌角色资源，包含所有可以选择的群星牌角色数据。
+ */
+export const getAutocardRoleList = <ThrowOnError extends boolean = false>(options?: Options<GetAutocardRoleListData, ThrowOnError>) => (options?.client ?? client).get<GetAutocardRoleListResponses, unknown, ThrowOnError>({
+    responseType: 'json',
+    url: 'v1/autocard_role/',
+    ...options
+});
+
+/**
+ * 获取群星牌场地资源
+ *
+ * 群星牌场地资源，包含所有群星牌场地数据。
+ */
+export const getAutocardFieldById = <ThrowOnError extends boolean = false>(options: Options<GetAutocardFieldByIdData, ThrowOnError>) => (options.client ?? client).get<GetAutocardFieldByIdResponses, unknown, ThrowOnError>({
+    responseType: 'json',
+    url: 'v1/autocard_field/{id}',
+    ...options
+});
+
+/**
+ * 获取群星牌场地资源列表
+ *
+ * 群星牌场地资源，包含所有群星牌场地数据。
+ */
+export const getAutocardFieldList = <ThrowOnError extends boolean = false>(options?: Options<GetAutocardFieldListData, ThrowOnError>) => (options?.client ?? client).get<GetAutocardFieldListResponses, unknown, ThrowOnError>({
+    responseType: 'json',
+    url: 'v1/autocard_field/',
     ...options
 });
 

@@ -54,6 +54,32 @@ class SeerAPI:
         self, resource_name: Literal['achievement_type'], id: int
     ) -> M.AchievementType: ...
     @overload
+    async def get(self, resource_name: Literal['autocard'], id: int) -> M.Autocard: ...
+    @overload
+    async def get(
+        self, resource_name: Literal['autocard_cardtype'], id: int
+    ) -> M.AutocardCardType: ...
+    @overload
+    async def get(
+        self, resource_name: Literal['autocard_element_type'], id: int
+    ) -> M.AutocardElementType: ...
+    @overload
+    async def get(
+        self, resource_name: Literal['autocard_spellcard'], id: int
+    ) -> M.SpellAutocard: ...
+    @overload
+    async def get(
+        self, resource_name: Literal['autocard_petcard'], id: int
+    ) -> M.PetAutocard: ...
+    @overload
+    async def get(
+        self, resource_name: Literal['autocard_role'], id: int
+    ) -> M.AutocardRole: ...
+    @overload
+    async def get(
+        self, resource_name: Literal['autocard_field'], id: int
+    ) -> M.AutocardField: ...
+    @overload
     async def get(self, resource_name: Literal['title'], id: int) -> M.Title: ...
     @overload
     async def get(
@@ -314,6 +340,34 @@ class SeerAPI:
     async def paginated_list(
         self, resource_name: Literal['achievement_type'], page_info: PageInfo
     ) -> PagedResponse[M.AchievementType]: ...
+    @overload
+    async def paginated_list(
+        self, resource_name: Literal['autocard'], page_info: PageInfo
+    ) -> PagedResponse[M.Autocard]: ...
+    @overload
+    async def paginated_list(
+        self, resource_name: Literal['autocard_cardtype'], page_info: PageInfo
+    ) -> PagedResponse[M.AutocardCardType]: ...
+    @overload
+    async def paginated_list(
+        self, resource_name: Literal['autocard_element_type'], page_info: PageInfo
+    ) -> PagedResponse[M.AutocardElementType]: ...
+    @overload
+    async def paginated_list(
+        self, resource_name: Literal['autocard_spellcard'], page_info: PageInfo
+    ) -> PagedResponse[M.SpellAutocard]: ...
+    @overload
+    async def paginated_list(
+        self, resource_name: Literal['autocard_petcard'], page_info: PageInfo
+    ) -> PagedResponse[M.PetAutocard]: ...
+    @overload
+    async def paginated_list(
+        self, resource_name: Literal['autocard_role'], page_info: PageInfo
+    ) -> PagedResponse[M.AutocardRole]: ...
+    @overload
+    async def paginated_list(
+        self, resource_name: Literal['autocard_field'], page_info: PageInfo
+    ) -> PagedResponse[M.AutocardField]: ...
     @overload
     async def paginated_list(
         self, resource_name: Literal['title'], page_info: PageInfo
@@ -605,6 +659,34 @@ class SeerAPI:
     ) -> AsyncGenerator[M.AchievementType]: ...
     @overload
     def list(
+        self, resource_name: Literal['autocard'], *, expand: bool = True
+    ) -> AsyncGenerator[M.Autocard]: ...
+    @overload
+    def list(
+        self, resource_name: Literal['autocard_cardtype'], *, expand: bool = True
+    ) -> AsyncGenerator[M.AutocardCardType]: ...
+    @overload
+    def list(
+        self, resource_name: Literal['autocard_element_type'], *, expand: bool = True
+    ) -> AsyncGenerator[M.AutocardElementType]: ...
+    @overload
+    def list(
+        self, resource_name: Literal['autocard_spellcard'], *, expand: bool = True
+    ) -> AsyncGenerator[M.SpellAutocard]: ...
+    @overload
+    def list(
+        self, resource_name: Literal['autocard_petcard'], *, expand: bool = True
+    ) -> AsyncGenerator[M.PetAutocard]: ...
+    @overload
+    def list(
+        self, resource_name: Literal['autocard_role'], *, expand: bool = True
+    ) -> AsyncGenerator[M.AutocardRole]: ...
+    @overload
+    def list(
+        self, resource_name: Literal['autocard_field'], *, expand: bool = True
+    ) -> AsyncGenerator[M.AutocardField]: ...
+    @overload
+    def list(
         self, resource_name: Literal['title'], *, expand: bool = True
     ) -> AsyncGenerator[M.Title]: ...
     @overload
@@ -887,6 +969,34 @@ class SeerAPI:
     async def get_by_name(
         self, resource_name: Literal['achievement_type'], name: str
     ) -> NamedData[M.AchievementType]: ...
+    @overload
+    async def get_by_name(
+        self, resource_name: Literal['autocard'], name: str
+    ) -> NamedData[M.Autocard]: ...
+    @overload
+    async def get_by_name(
+        self, resource_name: Literal['autocard_cardtype'], name: str
+    ) -> NamedData[M.AutocardCardType]: ...
+    @overload
+    async def get_by_name(
+        self, resource_name: Literal['autocard_element_type'], name: str
+    ) -> NamedData[M.AutocardElementType]: ...
+    @overload
+    async def get_by_name(
+        self, resource_name: Literal['autocard_spellcard'], name: str
+    ) -> NamedData[M.SpellAutocard]: ...
+    @overload
+    async def get_by_name(
+        self, resource_name: Literal['autocard_petcard'], name: str
+    ) -> NamedData[M.PetAutocard]: ...
+    @overload
+    async def get_by_name(
+        self, resource_name: Literal['autocard_role'], name: str
+    ) -> NamedData[M.AutocardRole]: ...
+    @overload
+    async def get_by_name(
+        self, resource_name: Literal['autocard_field'], name: str
+    ) -> NamedData[M.AutocardField]: ...
     @overload
     async def get_by_name(
         self, resource_name: Literal['title'], name: str
