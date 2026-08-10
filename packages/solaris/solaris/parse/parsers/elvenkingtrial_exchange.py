@@ -22,16 +22,13 @@ class SwapItem(TypedDict):
 class ItemItem(TypedDict):
     """物品项目"""
 
-    new_stat_log: str
     bosslist: int
     bosstitle: str
     bsreward: int
     difficulty: int
     exreward: list[int]
-    exrewardpro: str
     id: int
     mon: int
-    sebossid: int
     unlimite: int
 
 
@@ -97,7 +94,6 @@ class ElvenKingTrialExchangeParser(BaseParser[ElvenKingTrialExchangeConfig]):
                 count = reader.ReadSignedInt()
                 for _ in range(count):
                     # 按照C#代码中的字段顺序读取
-                    new_stat_log = reader.ReadUTFBytesWithLength()
                     bosslist = reader.ReadSignedInt()
                     bosstitle = reader.ReadUTFBytesWithLength()
                     bsreward = reader.ReadSignedInt()
@@ -112,23 +108,18 @@ class ElvenKingTrialExchangeParser(BaseParser[ElvenKingTrialExchangeConfig]):
                             reader.ReadSignedInt() for _ in range(exreward_count)
                         ]
 
-                    exrewardpro = reader.ReadUTFBytesWithLength()
                     item_id = reader.ReadSignedInt()
                     mon = reader.ReadSignedInt()
-                    sebossid = reader.ReadSignedInt()
                     unlimite = reader.ReadSignedInt()
 
                     item: ItemItem = {
-                        'new_stat_log': new_stat_log,
                         'bosslist': bosslist,
                         'bosstitle': bosstitle,
                         'bsreward': bsreward,
                         'difficulty': difficulty,
                         'exreward': exreward,
-                        'exrewardpro': exrewardpro,
                         'id': item_id,
                         'mon': mon,
-                        'sebossid': sebossid,
                         'unlimite': unlimite,
                     }
                     items_data.append(item)
