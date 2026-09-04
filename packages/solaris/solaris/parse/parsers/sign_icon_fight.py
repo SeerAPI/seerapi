@@ -21,7 +21,7 @@ class ItemItem(TypedDict):
     tips: str
     id: int
     is_show_num: int
-    show_monster: int
+    show_monster: list[str]
     show_time: int
     sort: int
 
@@ -80,7 +80,16 @@ class SignIconFightParser(BaseParser[_SignIconFightConfig]):
                 # 读取整数字段
                 item_id = reader.ReadSignedInt()
                 is_show_num = reader.ReadSignedInt()
-                show_monster = reader.ReadSignedInt()
+
+                # 可选的 showmonster 数组
+                show_monster: list[str] = []
+                if reader.ReadBoolean():
+                    show_monster_count = reader.ReadSignedInt()
+                    show_monster = [
+                        reader.ReadUTFBytesWithLength()
+                        for _ in range(show_monster_count)
+                    ]
+
                 show_time = reader.ReadSignedInt()
                 sort = reader.ReadSignedInt()
 
