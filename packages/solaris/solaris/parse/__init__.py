@@ -155,9 +155,9 @@ def run_all_parser(
             )
         )
     with change_workdir(output_dir):
-        for parser_cls in parser_classes:
+        for parser_cls, data in parsed_data.items():
             parser = parser_cls()
-            parser.save_parsed_config(parsed_data[parser_cls])
+            parser.save_parsed_config(data)
 
 
 __all__ = [
