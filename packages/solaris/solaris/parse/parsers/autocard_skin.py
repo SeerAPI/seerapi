@@ -19,6 +19,7 @@ class AutocardSkinInfo(TypedDict):
     rarity: int
     resource: str
     series: int
+    session: int
     skin_name: str
     stat: int
     tag: str
@@ -61,6 +62,7 @@ class AutocardSkinParser(BaseParser[AutocardSkinConfig]):
             rarity = reader.ReadSignedInt()
             resource = reader.ReadUTFBytesWithLength()
             series = reader.ReadSignedInt()
+            session = reader.ReadSignedInt()
             skin_name = reader.ReadUTFBytesWithLength()
             stat = reader.ReadSignedInt()
             tag = reader.ReadUTFBytesWithLength()
@@ -78,6 +80,7 @@ class AutocardSkinParser(BaseParser[AutocardSkinConfig]):
                     rarity=rarity,
                     resource=resource,
                     series=series,
+                    session=session,
                     skin_name=skin_name,
                     stat=stat,
                     tag=tag,
