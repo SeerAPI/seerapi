@@ -87,9 +87,14 @@ def parse(
 ) -> None:
     """批量解析赛尔号 Unity 端二进制数据"""
 
+    # 同 analyze：重复的包会让同一个 parser 被导入并执行多次
     parser_classes = []
+    seen_parsers: set[type[BaseParser]] = set()
     for name in package_name:
-        parser_classes.extend(import_parser_classes(name))
+        for parser_class in import_parser_classes(name):
+            if parser_class not in seen_parsers:
+                seen_parsers.add(parser_class)
+                parser_classes.append(parser_class)
 
     if parser_names:
         parser_classes, not_found = filter_parser_classes(parser_classes, parser_names)

@@ -20,8 +20,14 @@ class DataSourceDirSettings(BaseSettings):
 
     @model_validator(mode='after')
     def combine_dirs(self) -> Self:
-        self.HTML5_DIR = self.HTML5_DIR
-        self.PATCH_DIR = self.PATCH_DIR
-        self.UNITY_DIR = self.UNITY_DIR
-        self.FLASH_DIR = self.FLASH_DIR
+        # 分类目录未显式指定（环境变量或构造参数）时，一律从当前 BASE_DIR 派生，
+        # 保证 BASE_DIR 来自 -w/--source-dir 或环境变量时子目录跟随变化
+        for field_name, sub_dir in (
+            ('PATCH_DIR', 'patch'),
+            ('HTML5_DIR', 'html5'),
+            ('UNITY_DIR', 'unity'),
+            ('FLASH_DIR', 'flash'),
+        ):
+            if field_name not in self.model_fields_set:
+                setattr(self, field_name, self.BASE_DIR / sub_dir)
         return self

@@ -76,9 +76,15 @@ def analyze(
     """分析赛尔号客户端数据并生成API数据或文档。"""
 
     ctx.ensure_object(dict)
+    # 不同的包可能导出同一个分析器类（例如同时指定父包与其子包），
+    # 重复的类会让拓扑排序的入度统计失配，误报循环依赖
     analyzer_classes: list[type[BaseAnalyzer]] = []
+    seen_analyzers: set[type[BaseAnalyzer]] = set()
     for name in package_name:
-        analyzer_classes.extend(import_analyzer_classes(name))
+        for analyzer_class in import_analyzer_classes(name):
+            if analyzer_class not in seen_analyzers:
+                seen_analyzers.add(analyzer_class)
+                analyzer_classes.append(analyzer_class)
 
     ctx.obj['analyzer_classes'] = analyzer_classes
 
@@ -91,9 +97,10 @@ def analyze(
         ctx.exit()
 
     # 设置数据源目录
-    settings = DataSourceDirSettings()
     if source_dir:
-        settings.BASE_DIR = Path(source_dir)
+        settings = DataSourceDirSettings(BASE_DIR=source_dir)
+    else:
+        settings = DataSourceDirSettings()
     DataImportConfig.set_source_dir(settings)
     ctx.obj['data_source_settings'] = settings
 
