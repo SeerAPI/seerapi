@@ -8,6 +8,7 @@ class LanguageInfo(TypedDict):
     content: str
     id: int
     key: str
+    showType: int
 
 
 class _Root(TypedDict):
@@ -40,6 +41,7 @@ class LanguageParser(BaseParser[LanguageConfig]):
                 'content': reader.ReadUTFBytesWithLength(),
                 'id': reader.ReadSignedInt(),
                 'key': reader.ReadUTFBytesWithLength(),
+                'showType': reader.ReadSignedInt(),
             }
             result['root']['item'].append(item)
 
