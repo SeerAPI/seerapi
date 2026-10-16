@@ -5,6 +5,8 @@ from ..bytes_reader import BytesReader
 
 
 class JackPotShopItem(TypedDict):
+    commodity: str
+    petinfo: str
     product_name: str
     product_id: list[int]
     batch: int
@@ -63,8 +65,10 @@ class JackPotShopParser(BaseParser[JackPotShopConfig]):
                 item_id = reader.ReadSignedInt()
                 opentime = reader.ReadSignedInt()
                 batch = reader.ReadSignedInt()
+                commodity = reader.ReadUTFBytesWithLength()
                 exchange_id = reader.ReadSignedInt()
                 forever = reader.ReadSignedInt()
+                petinfo = reader.ReadUTFBytesWithLength()
                 product_id: list[int] = []
                 if reader.ReadBoolean():
                     pid_count = reader.ReadSignedInt()
@@ -73,6 +77,8 @@ class JackPotShopParser(BaseParser[JackPotShopConfig]):
                 product_price = reader.ReadSignedInt()
                 shopkind = reader.ReadSignedInt()
                 item: JackPotShopItem = {
+                    'commodity': commodity,
+                    'petinfo': petinfo,
                     'product_name': product_name,
                     'product_id': product_id,
                     'batch': batch,
@@ -93,7 +99,35 @@ class JackPotShopParser(BaseParser[JackPotShopConfig]):
         return {'root': {'blue_chip_shops': shops}}
 
 
-class JackPotShopTempParser(BaseParser[JackPotShopConfig]):
+class JackPotShopTempItem(TypedDict):
+    product_name: str
+    product_id: list[int]
+    batch: int
+    endtime: int
+    exchange_id: int
+    forever: int
+    id: int
+    opentime: int
+    product_price: int
+    shopkind: int
+
+
+class _JackPotShopTempBlueChipShops(TypedDict):
+    bulechip_shop: list[JackPotShopTempItem]
+    endday: str
+    endtime: str
+    openday: str
+
+
+class _JackPotShopTempRoot(TypedDict):
+    blue_chip_shops: _JackPotShopTempBlueChipShops
+
+
+class JackPotShopTempConfig(TypedDict):
+    root: _JackPotShopTempRoot
+
+
+class JackPotShopTempParser(BaseParser[JackPotShopTempConfig]):
     @classmethod
     def source_config_filename(cls) -> str:
         return 'JackPotShop_temp.bytes'
@@ -102,9 +136,9 @@ class JackPotShopTempParser(BaseParser[JackPotShopConfig]):
     def parsed_config_filename(cls) -> str:
         return 'jackPotShopTemp.json'
 
-    def parse(self, data: bytes) -> JackPotShopConfig:
+    def parse(self, data: bytes) -> JackPotShopTempConfig:
         reader = BytesReader(data)
-        shops: _JackPotShopBlueChipShops = {
+        shops: _JackPotShopTempBlueChipShops = {
             'bulechip_shop': [],
             'endday': '',
             'endtime': '',
@@ -133,7 +167,7 @@ class JackPotShopTempParser(BaseParser[JackPotShopConfig]):
                 product_name = reader.ReadUTFBytesWithLength()
                 product_price = reader.ReadSignedInt()
                 shopkind = reader.ReadSignedInt()
-                item: JackPotShopItem = {
+                item: JackPotShopTempItem = {
                     'product_name': product_name,
                     'product_id': product_id,
                     'batch': batch,
