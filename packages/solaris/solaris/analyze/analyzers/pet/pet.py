@@ -3,7 +3,7 @@ from typing import Any
 from seerapi_models import PeakPoolVote, PetAdvance
 from seerapi_models.common import ResourceRef, SixAttributes
 from seerapi_models.element_type import TypeCombination
-from seerapi_models.items import SkillActivationItem
+from seerapi_models.items import Factor, SkillActivationItem
 from seerapi_models.peak_cost import PeakCostPool
 from seerapi_models.peak_pool import PeakExpertPool, PeakPool
 from seerapi_models.pet import (
@@ -19,8 +19,10 @@ from seerapi_models.pet import (
 )
 from seerapi_models.pet.pet import DiyStatsRange
 from seerapi_models.skill import Skill
+from solaris.analyze.analyzers.items.factor import FactorAnalyzer
 from solaris.analyze.analyzers.peak_cost import PeakCostAnalyzer
 from solaris.analyze.analyzers.peak_pool import PeakPoolAnalyzer
+from solaris.analyze.base import BaseAnalyzer
 from solaris.analyze.typing_ import AnalyzeResult, CsvTable
 from solaris.analyze.utils import CategoryMap, create_category_map
 from solaris.utils import get_nested_value
@@ -54,6 +56,10 @@ def _deduplicate_pet_skills_by_id(
 
 
 class PetAnalyzer(BasePetAnalyzer):
+    @classmethod
+    def get_input_analyzers(cls) -> tuple[type[BaseAnalyzer], ...]:
+        return (*super().get_input_analyzers(), FactorAnalyzer)
+
     @classmethod
     def get_result_res_models(cls):
         return (
@@ -156,6 +162,11 @@ class PetAnalyzer(BasePetAnalyzer):
             for k, v in self._get_input_data(PeakPoolAnalyzer, PeakPoolVote).items()
             for pet_ref in v.pet
         }
+        pet_factor_refs: dict[int, list[ResourceRef[Factor]]] = {}
+        for factor in self._get_input_data(FactorAnalyzer, Factor).values():
+            pet_factor_refs.setdefault(factor.pet.id, []).append(
+                ResourceRef.from_model(factor)
+            )
 
         pet_map = {}
         for pet_id, pet_dict in self.pet_origin_data.items():
@@ -334,6 +345,7 @@ class PetAnalyzer(BasePetAnalyzer):
                 encyclopedia_entry=encyclopedia_entry,
                 archive_story_entry=archive_story_entry,
                 advance=advance,
+                factor=pet_factor_refs.get(pet_id, []),
             )
             pet_map[pet_id] = pet_resource
             if (peak_pool_id := id_to_peak_pool_map.get(pet_id)) is not None:
