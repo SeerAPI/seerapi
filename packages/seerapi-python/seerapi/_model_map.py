@@ -33,6 +33,8 @@ MODEL_MAP: dict[ModelName, ModelType] = {
     'equip_effective_occasion': M.EquipEffectiveOccasion,
     'equip_type': M.EquipType,
     'error_code': M.ErrorCode,
+    'factor': M.Factor,
+    'factor_design': M.FactorDesign,
     'field_effect': M.FieldEffect,
     'field_effect_type': M.FieldEffectType,
     'gem': M.Gem,

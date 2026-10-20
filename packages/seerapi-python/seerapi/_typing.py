@@ -30,6 +30,7 @@ NamedModelName: TypeAlias = Literal[
     'equip',
     'equip_type',
     'error_code',
+    'factor',
     'field_effect',
     'gem',
     'gem_category',
@@ -104,6 +105,8 @@ ModelName: TypeAlias = Literal[
     'equip_effective_occasion',
     'equip_type',
     'error_code',
+    'factor',
+    'factor_design',
     'field_effect',
     'field_effect_type',
     'gem',
@@ -188,6 +191,7 @@ NamedModelInstance: TypeAlias = (
     | M.Equip
     | M.EquipType
     | M.ErrorCode
+    | M.Factor
     | M.FieldEffect
     | M.Gem
     | M.GemCategory

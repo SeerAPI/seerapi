@@ -3480,6 +3480,152 @@ export type ErrorCodeListExpanded = {
 };
 
 /**
+ * 因子关卡资源
+ */
+export type FactorDesign = HashPartial & {
+    /**
+     * Id
+     *
+     * 资源ID
+     */
+    id: number;
+    /**
+     * 可通过该因子关卡获得的成就
+     */
+    achievement?: CommonResourceRef | null;
+    /**
+     * Difficulties
+     *
+     * 难度列表
+     */
+    difficulties: Array<{
+        /**
+         * Id
+         */
+        id?: number | null;
+        /**
+         * FactorDesignLevel
+         */
+        level: 'easy' | 'normal' | 'hard';
+        /**
+         * Reward Count
+         *
+         * 通关全部关卡后奖励的道具数量
+         */
+        reward_count: number;
+        /**
+         * Tasks
+         *
+         * BOSS列表
+         */
+        tasks: Array<{
+            /**
+             * Id
+             */
+            id?: number | null;
+            /**
+             * Desc
+             *
+             * BOSS描述
+             */
+            desc: string;
+            /**
+             * Is Single Pet
+             *
+             * 该BOSS是否为单精灵对战
+             */
+            is_single_pet: boolean;
+            boss_pet: CommonResourceRef;
+        }>;
+        /**
+         * Banned Pets
+         *
+         * 该难度禁用的精灵
+         */
+        banned_pets: Array<CommonResourceRef>;
+        /**
+         * Rules
+         *
+         * 当前难度使用的规则
+         */
+        rules: Array<{
+            /**
+             * Tips
+             *
+             * 规则提示
+             */
+            tips: string;
+            /**
+             * Fail Tips
+             *
+             * 规则验证失败时的提示
+             */
+            fail_tips: string;
+            /**
+             * Args
+             *
+             * 规则参数
+             */
+            args: Array<number>;
+            /**
+             * User Info
+             *
+             * 玩家状态查询参数
+             */
+            user_info: Array<number>;
+            /**
+             * Id
+             *
+             * 关卡内的规则ID
+             */
+            id: number;
+        }>;
+    }>;
+    reward: CommonResourceRef;
+    /**
+     * 可在该关卡页面兑换的刻印，当该关卡不支持兑换刻印时为 null
+     */
+    mintmark_reward?: CommonResourceRef | null;
+};
+
+/**
+ * 因子关卡资源列表
+ */
+export type FactorDesignList = CommonApiResourceList;
+
+/**
+ * 因子关卡资源列表（expand=true）
+ *
+ * expand=true 时返回完整资源对象列表
+ */
+export type FactorDesignListExpanded = {
+    /**
+     * 资源数量
+     */
+    count: number;
+    /**
+     * 下一页URL
+     */
+    next?: string | null;
+    /**
+     * 上一页URL
+     */
+    previous?: string | null;
+    /**
+     * 第一页URL
+     */
+    first?: string | null;
+    /**
+     * 最后一页URL
+     */
+    last?: string | null;
+    /**
+     * 资源列表
+     */
+    results: Array<FactorDesign>;
+};
+
+/**
  * 场地效果资源
  */
 export type FieldEffect = HashPartial & {
@@ -3844,6 +3990,112 @@ export type ItemCategoryListExpanded = {
      * 资源列表
      */
     results: Array<ItemCategory>;
+};
+
+/**
+ * 因子道具资源
+ */
+export type Factor = HashPartial & {
+    /**
+     * Id
+     *
+     * 因子道具ID
+     */
+    id: number;
+    /**
+     * Name
+     *
+     * 因子道具名称
+     */
+    name: string;
+    /**
+     * Pet Limit
+     *
+     * 该因子兑换的精灵是否具有唯一性
+     */
+    pet_limit: boolean;
+    /**
+     * Pet Consume
+     *
+     * 兑换精灵所需因子数量
+     */
+    pet_consume: number;
+    /**
+     * Skill Consume
+     *
+     * 兑换技能所需因子数量，当因子不可兑换技能时为null
+     */
+    skill_consume?: number | null;
+    /**
+     * Soulmark Consume
+     *
+     * 兑换魂印所需因子数量，当因子不可兑换魂印时为null
+     */
+    soulmark_consume?: number | null;
+    item: CommonResourceRef;
+    /**
+     * 因子关卡设计资源引用
+     */
+    design?: CommonResourceRef | null;
+    /**
+     * 兑换该精灵所需的前置精灵，当不需要前置时为 null
+     */
+    need_pet?: CommonResourceRef | null;
+    pet?: CommonResourceRef;
+    /**
+     * 因子可兑换的技能资源引用，当因子不可兑换技能时为null
+     */
+    skill?: CommonResourceRef | null;
+    /**
+     * 因子可兑换的魂印资源引用，当因子不可兑换魂印时为null
+     */
+    soulmark?: CommonResourceRef | null;
+};
+
+/**
+ * 名称映射因子道具资源
+ */
+export type FactorNamedData = HashPartial & {
+    data: {
+        [key: string]: Factor;
+    };
+};
+
+/**
+ * 因子道具资源列表
+ */
+export type FactorList = CommonApiResourceList;
+
+/**
+ * 因子道具资源列表（expand=true）
+ *
+ * expand=true 时返回完整资源对象列表
+ */
+export type FactorListExpanded = {
+    /**
+     * 资源数量
+     */
+    count: number;
+    /**
+     * 下一页URL
+     */
+    next?: string | null;
+    /**
+     * 上一页URL
+     */
+    previous?: string | null;
+    /**
+     * 第一页URL
+     */
+    first?: string | null;
+    /**
+     * 最后一页URL
+     */
+    last?: string | null;
+    /**
+     * 资源列表
+     */
+    results: Array<Factor>;
 };
 
 /**
@@ -5763,6 +6015,12 @@ export type Pet = HashPartial & {
      */
     soulmark?: Array<CommonResourceRef> | null;
     /**
+     * Factor
+     *
+     * 精灵对应的因子列表
+     */
+    factor?: Array<CommonResourceRef>;
+    /**
      * 精灵图鉴条目
      */
     encyclopedia_entry?: CommonResourceRef | null;
@@ -7613,6 +7871,10 @@ export type RootIndex = HashPartial & {
      */
     error_code: string;
     /**
+     * factor_design Path
+     */
+    factor_design: string;
+    /**
      * field_effect Path
      */
     field_effect: string;
@@ -7632,6 +7894,10 @@ export type RootIndex = HashPartial & {
      * item_category Path
      */
     item_category: string;
+    /**
+     * factor Path
+     */
+    factor: string;
     /**
      * gem Path
      */
@@ -10631,6 +10897,58 @@ export type GetErrorCodeListResponses = {
 
 export type GetErrorCodeListResponse = GetErrorCodeListResponses[keyof GetErrorCodeListResponses];
 
+export type GetFactorDesignByIdData = {
+    body?: never;
+    path: {
+        /**
+         * 资源 ID
+         */
+        id: number;
+    };
+    query?: never;
+    url: 'v1/factor_design/{id}';
+};
+
+export type GetFactorDesignByIdResponses = {
+    /**
+     * OK
+     */
+    200: FactorDesign;
+};
+
+export type GetFactorDesignByIdResponse = GetFactorDesignByIdResponses[keyof GetFactorDesignByIdResponses];
+
+export type GetFactorDesignListData = {
+    body?: never;
+    path?: never;
+    query?: {
+        /**
+         * 从哪个位置开始返回结果
+         */
+        offset?: number;
+        /**
+         * 每页返回的最大结果数
+         */
+        limit?: number;
+        /**
+         * 控制 results 的返回格式：
+         * - `false`（默认）：返回轻量引用（NamedResourceRef）
+         * - `true`：返回完整资源对象
+         */
+        expand?: boolean;
+    };
+    url: 'v1/factor_design/';
+};
+
+export type GetFactorDesignListResponses = {
+    /**
+     * 实际返回格式由 expand 查询参数决定，见 expand 参数说明。
+     */
+    200: FactorDesignList | FactorDesignListExpanded;
+};
+
+export type GetFactorDesignListResponse = GetFactorDesignListResponses[keyof GetFactorDesignListResponses];
+
 export type GetFieldEffectByIdData = {
     body?: never;
     path: {
@@ -10990,6 +11308,83 @@ export type GetItemCategoryListResponses = {
 };
 
 export type GetItemCategoryListResponse = GetItemCategoryListResponses[keyof GetItemCategoryListResponses];
+
+export type GetFactorByIdData = {
+    body?: never;
+    path: {
+        /**
+         * 资源 ID
+         */
+        id: number;
+    };
+    query?: never;
+    url: 'v1/factor/{id}';
+};
+
+export type GetFactorByIdResponses = {
+    /**
+     * OK
+     */
+    200: Factor;
+};
+
+export type GetFactorByIdResponse = GetFactorByIdResponses[keyof GetFactorByIdResponses];
+
+export type GetFactorByNameData = {
+    body?: never;
+    path: {
+        /**
+         * 资源名称
+         */
+        name: string;
+    };
+    query?: never;
+    url: 'v1/factor/{name}';
+};
+
+export type GetFactorByNameResponses = {
+    /**
+     * OK
+     */
+    200: FactorNamedData;
+};
+
+export type GetFactorByNameResponse = GetFactorByNameResponses[keyof GetFactorByNameResponses];
+
+export type GetFactorListData = {
+    body?: never;
+    path?: never;
+    query?: {
+        /**
+         * 从哪个位置开始返回结果
+         */
+        offset?: number;
+        /**
+         * 每页返回的最大结果数
+         */
+        limit?: number;
+        /**
+         * 控制 results 的返回格式：
+         * - `false`（默认）：返回轻量引用（NamedResourceRef）
+         * - `true`：返回完整资源对象
+         */
+        expand?: boolean;
+        /**
+         * 用于筛选资源的名称
+         */
+        name_query?: string;
+    };
+    url: 'v1/factor/';
+};
+
+export type GetFactorListResponses = {
+    /**
+     * 实际返回格式由 expand 查询参数决定，见 expand 参数说明。
+     */
+    200: FactorList | FactorListExpanded;
+};
+
+export type GetFactorListResponse = GetFactorListResponses[keyof GetFactorListResponses];
 
 export type GetGemByIdData = {
     body?: never;

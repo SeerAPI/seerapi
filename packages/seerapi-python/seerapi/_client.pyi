@@ -148,6 +148,12 @@ class SeerAPI:
         self, resource_name: Literal['error_code'], id: int
     ) -> M.ErrorCode: ...
     @overload
+    async def get(self, resource_name: Literal['factor'], id: int) -> M.Factor: ...
+    @overload
+    async def get(
+        self, resource_name: Literal['factor_design'], id: int
+    ) -> M.FactorDesign: ...
+    @overload
     async def get(
         self, resource_name: Literal['field_effect'], id: int
     ) -> M.FieldEffect: ...
@@ -581,6 +587,22 @@ class SeerAPI:
         *,
         name: str | None = None,
     ) -> PagedResponse[M.ErrorCode]: ...
+    @overload
+    async def paginated_list(
+        self,
+        resource_name: Literal['factor'],
+        page_info: PageInfo,
+        *,
+        name: str | None = None,
+    ) -> PagedResponse[M.Factor]: ...
+    @overload
+    async def paginated_list(
+        self,
+        resource_name: Literal['factor_design'],
+        page_info: PageInfo,
+        *,
+        name: None = None,
+    ) -> PagedResponse[M.FactorDesign]: ...
     @overload
     async def paginated_list(
         self,
@@ -1300,6 +1322,22 @@ class SeerAPI:
     @overload
     def list(
         self,
+        resource_name: Literal['factor'],
+        *,
+        expand: bool = True,
+        name: str | None = None,
+    ) -> AsyncIterator[M.Factor]: ...
+    @overload
+    def list(
+        self,
+        resource_name: Literal['factor_design'],
+        *,
+        expand: bool = True,
+        name: None = None,
+    ) -> AsyncIterator[M.FactorDesign]: ...
+    @overload
+    def list(
+        self,
         resource_name: Literal['field_effect'],
         *,
         expand: bool = True,
@@ -1934,6 +1972,10 @@ class SeerAPI:
     ) -> AsyncIterator[M.ErrorCode]: ...
     @overload
     def search_by_name(
+        self, resource_name: Literal['factor'], name: str, *, expand: bool = True
+    ) -> AsyncIterator[M.Factor]: ...
+    @overload
+    def search_by_name(
         self, resource_name: Literal['field_effect'], name: str, *, expand: bool = True
     ) -> AsyncIterator[M.FieldEffect]: ...
     @overload
@@ -2296,6 +2338,10 @@ class SeerAPI:
     async def get_by_name(
         self, resource_name: Literal['error_code'], name: str
     ) -> NamedData[M.ErrorCode]: ...
+    @overload
+    async def get_by_name(
+        self, resource_name: Literal['factor'], name: str
+    ) -> NamedData[M.Factor]: ...
     @overload
     async def get_by_name(
         self, resource_name: Literal['field_effect'], name: str

@@ -931,6 +931,19 @@ export const skillStoneEffect = sqliteTable("skill_stone_effect", {
 	skillStoneId: integer("skill_stone_id").notNull().references(() => skillStone.id),
 });
 
+export const factor = sqliteTable("factor", {
+	id: integer().primaryKey().references(() => item.id),
+	name: text().notNull(),
+	petLimit: numeric("pet_limit").notNull(),
+	petConsume: integer("pet_consume").notNull(),
+	skillConsume: integer("skill_consume"),
+	soulmarkConsume: integer("soulmark_consume"),
+	needPetId: integer("need_pet_id").references(() => pet.id),
+	petId: integer("pet_id").notNull().references(() => pet.id),
+	skillId: integer("skill_id").references(() => skill.id),
+	soulmarkId: integer("soulmark_id").references(() => soulmark.id),
+});
+
 export const skillinpetorm = sqliteTable("skillinpetorm", {
 	learningLevel: integer("learning_level"),
 	isSpecial: numeric("is_special").notNull(),
@@ -969,5 +982,55 @@ export const skillmintmarklink = sqliteTable("skillmintmarklink", {
 	mintmarkId: integer("mintmark_id").notNull().references(() => mintmark.id),
 },
 (table) => [primaryKey({ columns: [table.skillId, table.mintmarkId], name: "skillmintmarklink_pk"}),
+]);
+
+export const factorDesign = sqliteTable("factor_design", {
+	id: integer().primaryKey(),
+	achievementId: integer("achievement_id").references(() => achievement.id),
+	rewardId: integer("reward_id").notNull().references(() => factor.id),
+	mintmarkRewardId: integer("mintmark_reward_id").references(() => mintmark.id),
+});
+
+export const factorDesignDifficulty = sqliteTable("factor_design_difficulty", {
+	id: integer().primaryKey(),
+	level: text().notNull(),
+	rewardCount: integer("reward_count").notNull(),
+	designId: integer("design_id").notNull().references(() => factorDesign.id),
+	position: integer().notNull(),
+});
+
+export const factorDesignRule = sqliteTable("factor_design_rule", {
+	id: integer().primaryKey(),
+	tips: text().notNull(),
+	failTips: text("fail_tips").notNull(),
+	args: customType({ dataType: () => 'JSON' })().notNull(),
+	userInfo: customType({ dataType: () => 'JSON' })("user_info").notNull(),
+	designId: integer("design_id").notNull().references(() => factorDesign.id),
+	ruleId: integer("rule_id").notNull(),
+});
+
+export const factorDesignTask = sqliteTable("factor_design_task", {
+	id: integer().primaryKey(),
+	desc: text().notNull(),
+	isSinglePet: numeric("is_single_pet").notNull(),
+	difficultyId: integer("difficulty_id").notNull().references(() => factorDesignDifficulty.id),
+	position: integer().notNull(),
+	bossPetId: integer("boss_pet_id").notNull().references(() => pet.id),
+});
+
+export const factordesigndifficultyrulelink = sqliteTable("factordesigndifficultyrulelink", {
+	difficultyId: integer("difficulty_id").notNull().references(() => factorDesignDifficulty.id),
+	ruleId: integer("rule_id").notNull().references(() => factorDesignRule.id),
+	position: integer().notNull(),
+},
+(table) => [primaryKey({ columns: [table.difficultyId, table.ruleId], name: "factordesigndifficultyrulelink_pk"}),
+]);
+
+export const factordesigndifficultybannedpetlink = sqliteTable("factordesigndifficultybannedpetlink", {
+	difficultyId: integer("difficulty_id").notNull().references(() => factorDesignDifficulty.id),
+	petId: integer("pet_id").notNull().references(() => pet.id),
+	position: integer().notNull(),
+},
+(table) => [primaryKey({ columns: [table.difficultyId, table.petId], name: "factordesigndifficultybannedpetlink_pk"}),
 ]);
 

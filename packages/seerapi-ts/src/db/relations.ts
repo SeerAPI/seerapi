@@ -85,7 +85,23 @@ export const relations = defineRelations(schema, (r) => ({
 		soulmarksViaPetsoulmarklink: r.many.soulmark({
 			alias: "soulmark_id_pet_id_via_petsoulmarklink"
 		}),
+		factorsPetId: r.many.factor({
+			alias: "factor_petId_pet_id"
+		}),
+		factorsNeedPetId: r.many.factor({
+			alias: "factor_needPetId_pet_id"
+		}),
 		skillinpetorms: r.many.skillinpetorm(),
+		factorDesignDifficultiesViaFactorDesignTask: r.many.factorDesignDifficulty({
+			from: r.pet.id.through(r.factorDesignTask.bossPetId),
+			to: r.factorDesignDifficulty.id.through(r.factorDesignTask.difficultyId),
+			alias: "pet_id_factorDesignDifficulty_id_via_factorDesignTask"
+		}),
+		factorDesignDifficultiesViaFactordesigndifficultybannedpetlink: r.many.factorDesignDifficulty({
+			from: r.pet.id.through(r.factordesigndifficultybannedpetlink.petId),
+			to: r.factorDesignDifficulty.id.through(r.factordesigndifficultybannedpetlink.difficultyId),
+			alias: "pet_id_factorDesignDifficulty_id_via_factordesigndifficultybannedpetlink"
+		}),
 	},
 	petYieldingEv: {
 		pet: r.one.pet({
@@ -294,6 +310,7 @@ export const relations = defineRelations(schema, (r) => ({
 			from: r.item.id.through(r.skillStone.itemId),
 			to: r.skillStoneCategory.id.through(r.skillStone.categoryId)
 		}),
+		factors: r.many.factor(),
 	},
 	itemCategory: {
 		items: r.many.item(),
@@ -396,6 +413,7 @@ export const relations = defineRelations(schema, (r) => ({
 			to: r.achievementType.id
 		}),
 		titleParts: r.many.titlePart(),
+		factorDesigns: r.many.factorDesign(),
 	},
 	battleEffectType: {
 		battleEffects: r.many.battleEffect({
@@ -515,6 +533,7 @@ export const relations = defineRelations(schema, (r) => ({
 			alias: "soulmark_id_pet_id_via_petsoulmarklink"
 		}),
 		soulmarkTags: r.many.soulmarkTag(),
+		factors: r.many.factor(),
 	},
 	skillActivationItem: {
 		item: r.one.item({
@@ -547,6 +566,7 @@ export const relations = defineRelations(schema, (r) => ({
 			from: r.mintmark.id.through(r.skillmintmarklink.mintmarkId),
 			to: r.skill.id.through(r.skillmintmarklink.skillId)
 		}),
+		factorDesigns: r.many.factorDesign(),
 	},
 	mintmarkMaxAttr: {
 		mintmarks: r.many.mintmark({
@@ -696,6 +716,7 @@ export const relations = defineRelations(schema, (r) => ({
 			from: r.skill.categoryId,
 			to: r.skillCategory.id
 		}),
+		factors: r.many.factor(),
 		skillinpetorms: r.many.skillinpetorm(),
 		skillEffectInUsesViaSkilleffectlink: r.many.skillEffectInUse({
 			alias: "skillEffectInUse_id_skill_id_via_skilleffectlink"
@@ -721,6 +742,31 @@ export const relations = defineRelations(schema, (r) => ({
 	skillStone: {
 		skillStoneEffects: r.many.skillStoneEffect(),
 	},
+	factor: {
+		soulmark: r.one.soulmark({
+			from: r.factor.soulmarkId,
+			to: r.soulmark.id
+		}),
+		skill: r.one.skill({
+			from: r.factor.skillId,
+			to: r.skill.id
+		}),
+		petPetId: r.one.pet({
+			from: r.factor.petId,
+			to: r.pet.id,
+			alias: "factor_petId_pet_id"
+		}),
+		petNeedPetId: r.one.pet({
+			from: r.factor.needPetId,
+			to: r.pet.id,
+			alias: "factor_needPetId_pet_id"
+		}),
+		item: r.one.item({
+			from: r.factor.id,
+			to: r.item.id
+		}),
+		factorDesigns: r.many.factorDesign(),
+	},
 	skillinpetorm: {
 		skillActivationItem: r.one.skillActivationItem({
 			from: r.skillinpetorm.skillActivationItemId,
@@ -733,6 +779,45 @@ export const relations = defineRelations(schema, (r) => ({
 		skill: r.one.skill({
 			from: r.skillinpetorm.skillId,
 			to: r.skill.id
+		}),
+	},
+	factorDesign: {
+		mintmark: r.one.mintmark({
+			from: r.factorDesign.mintmarkRewardId,
+			to: r.mintmark.id
+		}),
+		factor: r.one.factor({
+			from: r.factorDesign.rewardId,
+			to: r.factor.id
+		}),
+		achievement: r.one.achievement({
+			from: r.factorDesign.achievementId,
+			to: r.achievement.id
+		}),
+		factorDesignDifficulties: r.many.factorDesignDifficulty(),
+		factorDesignRules: r.many.factorDesignRule(),
+	},
+	factorDesignDifficulty: {
+		factorDesign: r.one.factorDesign({
+			from: r.factorDesignDifficulty.designId,
+			to: r.factorDesign.id
+		}),
+		petsViaFactorDesignTask: r.many.pet({
+			alias: "pet_id_factorDesignDifficulty_id_via_factorDesignTask"
+		}),
+		factorDesignRules: r.many.factorDesignRule(),
+		petsViaFactordesigndifficultybannedpetlink: r.many.pet({
+			alias: "pet_id_factorDesignDifficulty_id_via_factordesigndifficultybannedpetlink"
+		}),
+	},
+	factorDesignRule: {
+		factorDesign: r.one.factorDesign({
+			from: r.factorDesignRule.designId,
+			to: r.factorDesign.id
+		}),
+		factorDesignDifficulties: r.many.factorDesignDifficulty({
+			from: r.factorDesignRule.id.through(r.factordesigndifficultyrulelink.ruleId),
+			to: r.factorDesignDifficulty.id.through(r.factordesigndifficultyrulelink.difficultyId)
 		}),
 	},
 }))
