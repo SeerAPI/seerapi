@@ -66,6 +66,19 @@ from .element_type import (
     TypeCombinationORM,
 )
 from .error_code import ErrorCode, ErrorCodeORM
+from .factor_design import (
+    FactorDesign,
+    FactorDesignDifficulty,
+    FactorDesignDifficultyBannedPetLink,
+    FactorDesignDifficultyORM,
+    FactorDesignDifficultyRuleLink,
+    FactorDesignLevel,
+    FactorDesignORM,
+    FactorDesignRule,
+    FactorDesignRuleORM,
+    FactorDesignTask,
+    FactorDesignTaskORM,
+)
 from .field_effect import (
     FieldEffect,
     FieldEffectORM,
@@ -86,6 +99,8 @@ from .items import (
     EquipORM,
     EquipType,
     EquipTypeORM,
+    Factor,
+    FactorORM,
     Gem,
     GemCategory,
     GemCategoryORM,
@@ -207,6 +222,10 @@ SkillEffectInUse.model_rebuild(
     _types_namespace={'SkillEffectType': SkillEffectType},
 )
 Skill.model_rebuild()
+FactorDesignTask.model_rebuild()
+FactorDesignDifficulty.model_rebuild()
+FactorDesign.model_rebuild()
+Factor.model_rebuild()
 
 __all__ = [
     'AbilityMintmark',
@@ -267,6 +286,19 @@ __all__ = [
     'EquipTypeORM',
     'ErrorCode',
     'ErrorCodeORM',
+    'Factor',
+    'FactorDesign',
+    'FactorDesignDifficulty',
+    'FactorDesignDifficultyBannedPetLink',
+    'FactorDesignDifficultyORM',
+    'FactorDesignDifficultyRuleLink',
+    'FactorDesignLevel',
+    'FactorDesignORM',
+    'FactorDesignRule',
+    'FactorDesignRuleORM',
+    'FactorDesignTask',
+    'FactorDesignTaskORM',
+    'FactorORM',
     'FieldEffect',
     'FieldEffectORM',
     'FieldEffectType',

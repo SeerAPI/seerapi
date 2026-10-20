@@ -11,6 +11,8 @@ from seerapi_models.build_model import (
 from seerapi_models.common import EidEffectInUse, EidEffectInUseORM, ResourceRef
 
 if TYPE_CHECKING:
+    from seerapi_models.items import FactorORM
+
     from .pet import Pet, PetAdvance, PetAdvanceORM, PetORM
 
 
@@ -98,6 +100,7 @@ class Soulmark(SoulmarkBase, ConvertToORM['SoulmarkORM']):
 
 
 class SoulmarkORM(SoulmarkBase, table=True):
+    factor: list['FactorORM'] = Relationship(back_populates='soulmark')
     pet: list['PetORM'] = Relationship(
         back_populates='soulmark', link_model=PetSoulmarkLink
     )

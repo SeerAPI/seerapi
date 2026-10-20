@@ -14,6 +14,8 @@ if TYPE_CHECKING:
     from seerapi_models.element_type import TypeCombination, TypeCombinationORM
     from seerapi_models.glossary import GlossaryEntryORM
     from seerapi_models.items import (
+        Factor,
+        FactorORM,
         SkillActivationItem,
         SkillActivationItemORM,
         SuitBonusORM,
@@ -209,6 +211,9 @@ class Pet(PetBase, ConvertToORM['PetORM']):
         default=None, description='精灵可持有的魂印'
     )
     # 其他数据
+    factor: list[ResourceRef['Factor']] = Field(
+        default_factory=list, description='精灵对应的因子列表'
+    )
     encyclopedia_entry: ResourceRef['PetEncyclopediaEntry'] | None = Field(
         default=None, description='精灵图鉴条目'
     )
@@ -329,6 +334,19 @@ class PetORM(PetBase, table=True):
         back_populates='pet',
         sa_relationship_kwargs={
             'secondary': 'petsoulmarklink',
+        },
+    )
+    # 因子相关
+    factor: list['FactorORM'] = Relationship(
+        back_populates='pet',
+        sa_relationship_kwargs={
+            'foreign_keys': '[FactorORM.pet_id]',
+        },
+    )
+    required_by_factor: list['FactorORM'] = Relationship(
+        back_populates='need_pet',
+        sa_relationship_kwargs={
+            'foreign_keys': '[FactorORM.need_pet_id]',
         },
     )
     # 杂项分类

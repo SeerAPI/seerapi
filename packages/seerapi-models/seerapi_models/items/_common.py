@@ -8,6 +8,7 @@ from seerapi_models.common import ResourceRef
 if TYPE_CHECKING:
     from .enegry_bead import EnergyBeadORM
     from .equip import EquipORM
+    from .factor import FactorORM
     from .mintmark_gem import GemORM
     from .skill_activation_item import SkillActivationItemORM
     from .skill_stone import SkillStoneORM
@@ -56,6 +57,9 @@ class ItemORM(ItemBase, table=True):
         back_populates='item',
     )
     gem: Optional['GemORM'] = Relationship(
+        back_populates='item',
+    )
+    factor: Optional['FactorORM'] = Relationship(
         back_populates='item',
     )
 

@@ -12,6 +12,7 @@ from .common import ResourceRef, SkillEffectInUse, SkillEffectInUseORM
 
 if TYPE_CHECKING:
     from .element_type import TypeCombination, TypeCombinationORM
+    from .items import FactorORM
     from .mintmark import MintmarkORM
     from .pet import Pet, PetAdvance, PetAdvanceORM, SkillInPetORM
 
@@ -316,6 +317,7 @@ class Skill(SkillBase, ConvertToORM['SkillORM']):
 
 
 class SkillORM(SkillBase, table=True):
+    factor: list['FactorORM'] = Relationship(back_populates='skill')
     category_id: int = Field(foreign_key='skill_category.id')
     category: SkillCategoryORM = Relationship(back_populates='skill')
     type_id: int = Field(foreign_key='element_type_combination.id')

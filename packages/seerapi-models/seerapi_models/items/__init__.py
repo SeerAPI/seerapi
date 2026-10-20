@@ -16,6 +16,7 @@ from .equip import (
     SuitBonusORM,
     SuitORM,
 )
+from .factor import Factor, FactorORM
 from .mintmark_gem import (
     Gem,
     GemCategory,
@@ -51,6 +52,8 @@ __all__ = [
     'EquipORM',
     'EquipType',
     'EquipTypeORM',
+    'Factor',
+    'FactorORM',
     'Gem',
     'GemCategory',
     'GemCategoryORM',
