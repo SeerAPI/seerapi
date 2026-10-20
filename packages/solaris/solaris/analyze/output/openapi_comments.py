@@ -365,6 +365,7 @@ API_COMMENTS: dict[type[BaseResModel], APIComment] = {
                     {'id': 30005, 'url': 'https://api.seerapi.com/v1/autocard/30005'},
                     {'id': 40005, 'url': 'https://api.seerapi.com/v1/autocard/40005'},
                 ],
+                'role': [],
                 'hash': '3973130b',
             }
         ],
@@ -524,6 +525,10 @@ API_COMMENTS: dict[type[BaseResModel], APIComment] = {
                         'url': 'https://api.seerapi.com/v1/battle_effect_type/1',
                     }
                 ],
+                'resistance': {
+                    'id': 1,
+                    'url': 'https://api.seerapi.com/v1/resistance_category/1',
+                },
                 'hash': 'fa7cf7b',
             }
         ],
@@ -605,6 +610,7 @@ API_COMMENTS: dict[type[BaseResModel], APIComment] = {
                     'id': 0,
                     'url': 'https://api.seerapi.com/v1/buff_type/0',
                 },
+                'desc_tag': 'roundnext, abst',
                 'hash': 'f3a2c1d0',
             },
             {
@@ -617,6 +623,7 @@ API_COMMENTS: dict[type[BaseResModel], APIComment] = {
                     'id': 0,
                     'url': 'https://api.seerapi.com/v1/buff_type/0',
                 },
+                'desc_tag': None,
                 'hash': 'b8e7f6a5',
             },
         ],
@@ -919,6 +926,7 @@ API_COMMENTS: dict[type[BaseResModel], APIComment] = {
                         'url': 'https://api.seerapi.com/v1/eid_effect/404',
                     },
                 },
+                'effect_alias': '404_3_0',
                 'hash': 'fd1200eb',
             }
         ],
@@ -945,6 +953,7 @@ API_COMMENTS: dict[type[BaseResModel], APIComment] = {
                     'id': 4,
                     'url': 'https://api.seerapi.com/v1/pet_effect_group/4',
                 },
+                'effect_alias': '28_4_5',
                 'hash': 'd7952756',
             }
         ],
@@ -1097,6 +1106,7 @@ API_COMMENTS: dict[type[BaseResModel], APIComment] = {
                 },
                 'is_hidden': False,
                 'connect': None,
+                'extra_attr_value': None,
                 'hash': '84g9d7ak',
             }
         ],
@@ -1136,6 +1146,7 @@ API_COMMENTS: dict[type[BaseResModel], APIComment] = {
                 'skill': [],
                 'is_hidden': False,
                 'connect': None,
+                'extra_attr_value': None,
                 'hash': '7d5f8c9e',
             }
         ],
@@ -1646,6 +1657,7 @@ API_COMMENTS: dict[type[BaseResModel], APIComment] = {
                     'id': 20,
                     'url': 'https://api.seerapi.com/v1/pet_advance/20',
                 },
+                'factor': [],
                 'hash': '367a7cde',
             }
         ],
@@ -1690,6 +1702,7 @@ API_COMMENTS: dict[type[BaseResModel], APIComment] = {
                     {'id': 5, 'url': 'https://api.seerapi.com/v1/pet/5'},
                     {'id': 6, 'url': 'https://api.seerapi.com/v1/pet/6'},
                 ],
+                'description': '雄性',
                 'hash': '69bd7249',
             }
         ],
@@ -2005,6 +2018,8 @@ API_COMMENTS: dict[type[BaseResModel], APIComment] = {
                 'intensified_to': None,
                 'from': None,
                 'advance': None,
+                'analyze_desc': '',
+                'from_': None,
                 'hash': '17abd989',
             }
         ],
@@ -2246,6 +2261,8 @@ API_COMMENTS: dict[type[BaseResModel], APIComment] = {
                 ],
                 'skill': [],
                 'tag': [],
+                'analyze_info': '[sprite '
+                'name=iconHit]命中则{0}%使对手[color=#57c975]{1}[/color]，[color=#52a5f2]未触发[/color]则附加{2}点[color=#52a5f2]固定伤害[/color]',
                 'hash': 'e73d9b1e',
             }
         ],
@@ -2387,6 +2404,7 @@ API_COMMENTS: dict[type[BaseResModel], APIComment] = {
                 ],
                 'friend_skill_effect': [],
                 'hide_effect': None,
+                'advance': None,
                 'hash': '5254529c',
             }
         ],
@@ -2394,6 +2412,324 @@ API_COMMENTS: dict[type[BaseResModel], APIComment] = {
         description='技能资源。',
     ),
     # 道具相关
+    M.Factor: APIComment(
+        name_en='factor',
+        name_cn='因子道具',
+        examples=[
+            {
+                'id': 2400021,
+                'name': '墨纪拉因子',
+                'pet_limit': True,
+                'pet_consume': 540,
+                'skill_consume': 108,
+                'soulmark_consume': 270,
+                'item': {
+                    'id': 2400021,
+                    'url': 'https://api.seerapi.com/v1/item/2400021',
+                },
+                'design': {
+                    'id': 5,
+                    'url': 'https://api.seerapi.com/v1/factor_design/5',
+                },
+                'need_pet': None,
+                'pet': {'id': 4246, 'url': 'https://api.seerapi.com/v1/pet/4246'},
+                'skill': {'id': 35220, 'url': 'https://api.seerapi.com/v1/skill/35220'},
+                'soulmark': {
+                    'id': 1466,
+                    'url': 'https://api.seerapi.com/v1/soulmark/1466',
+                },
+                'hash': '358d3b0',
+            },
+            {
+                'id': 2400317,
+                'name': '鲁迪诺斯因子',
+                'pet_limit': False,
+                'pet_consume': 200,
+                'skill_consume': None,
+                'soulmark_consume': None,
+                'item': {
+                    'id': 2400317,
+                    'url': 'https://api.seerapi.com/v1/item/2400317',
+                },
+                'design': None,
+                'need_pet': {'id': 55, 'url': 'https://api.seerapi.com/v1/pet/55'},
+                'pet': {'id': 1143, 'url': 'https://api.seerapi.com/v1/pet/1143'},
+                'skill': None,
+                'soulmark': None,
+                'hash': '929f85a0',
+            },
+        ],
+        tags=['因子', '道具', '精灵'],
+        description='因子道具资源，包含兑换精灵、第五技能和魂印所需的数量及关联资源。pet_limit 表示兑换的精灵是否具有唯一性；need_pet 表示兑换所需的前置精灵。不可兑换的技能、魂印及其消耗数量为 null，未关联因子关卡时 design 为 null。',
+    ),
+    M.FactorDesign: APIComment(
+        name_en='factor_design',
+        name_cn='因子关卡',
+        examples=[
+            {
+                'id': 5,
+                'achievement': {
+                    'id': 3145004,
+                    'url': 'https://api.seerapi.com/v1/achievement/3145004',
+                },
+                'difficulties': [
+                    {
+                        'level': 'easy',
+                        'reward_count': 12,
+                        'tasks': [
+                            {
+                                'desc': '【简单的敌人，伤害提升100%】',
+                                'is_single_pet': False,
+                                'boss_pet': {
+                                    'id': 4189,
+                                    'url': 'https://api.seerapi.com/v1/pet/4189',
+                                },
+                            },
+                            {
+                                'desc': '【简单的敌人，先制+1，伤害提升100%】',
+                                'is_single_pet': False,
+                                'boss_pet': {
+                                    'id': 4078,
+                                    'url': 'https://api.seerapi.com/v1/pet/4078',
+                                },
+                            },
+                            {
+                                'desc': '【有点难度的敌人，先制+2，伤害提升200%，每回合使对手随机2项属性-1且吸取对手一定体力】',
+                                'is_single_pet': True,
+                                'boss_pet': {
+                                    'id': 4163,
+                                    'url': 'https://api.seerapi.com/v1/pet/4163',
+                                },
+                            },
+                            {
+                                'desc': '【有点难度的敌人，先制+3，伤害提升200%，攻击有概率使对手害怕，每回合使对手随机3项属性-1且吸取对手一定体力】',
+                                'is_single_pet': False,
+                                'boss_pet': {
+                                    'id': 4200,
+                                    'url': 'https://api.seerapi.com/v1/pet/4200',
+                                },
+                            },
+                            {
+                                'desc': '【有点难度的敌人，无法探知能力】',
+                                'is_single_pet': False,
+                                'boss_pet': {
+                                    'id': 4208,
+                                    'url': 'https://api.seerapi.com/v1/pet/4208',
+                                },
+                            },
+                        ],
+                        'banned_pets': [],
+                        'rules': [],
+                    },
+                    {
+                        'level': 'normal',
+                        'reward_count': 18,
+                        'tasks': [
+                            {
+                                'desc': '【比较简单的敌人，先制+2，伤害提升200%，每回合附带一定固伤，受到伤害超出一定程度时恢复自身全部体力】',
+                                'is_single_pet': False,
+                                'boss_pet': {
+                                    'id': 4189,
+                                    'url': 'https://api.seerapi.com/v1/pet/4189',
+                                },
+                            },
+                            {
+                                'desc': '【比较简单的敌人，先制+2，伤害提升200%，每回合附带一定固伤，受到伤害超出一定程度时恢复自身全部体力，有概率使对手1个技能PP值归零】',
+                                'is_single_pet': False,
+                                'boss_pet': {
+                                    'id': 4078,
+                                    'url': 'https://api.seerapi.com/v1/pet/4078',
+                                },
+                            },
+                            {
+                                'desc': '【有点强的敌人，先制+3，伤害提升300%，可以消除对手能力提升状态，每回合使对手随机2项属性-1，免疫过低的伤害】',
+                                'is_single_pet': True,
+                                'boss_pet': {
+                                    'id': 4163,
+                                    'url': 'https://api.seerapi.com/v1/pet/4163',
+                                },
+                            },
+                            {
+                                'desc': '【较强的敌人，伤害提升300%，对手无法强化自己，无法探知其他能力】',
+                                'is_single_pet': False,
+                                'boss_pet': {
+                                    'id': 4200,
+                                    'url': 'https://api.seerapi.com/v1/pet/4200',
+                                },
+                            },
+                            {
+                                'desc': '【有点强的敌人，无法探知能力】',
+                                'is_single_pet': False,
+                                'boss_pet': {
+                                    'id': 4208,
+                                    'url': 'https://api.seerapi.com/v1/pet/4208',
+                                },
+                            },
+                        ],
+                        'banned_pets': [],
+                        'rules': [
+                            {
+                                'tips': '每场battle都需要在6回合内击败BOSS，否则battle按失败结算',
+                                'fail_tips': '战斗未在6回合内结束，结算为失败',
+                                'args': [6],
+                                'user_info': [],
+                                'id': 2,
+                            },
+                            {
+                                'tips': '本关卡在挑战中，不可重复上阵（出战背包派出过的）精灵',
+                                'fail_tips': '',
+                                'args': [],
+                                'user_info': [
+                                    200699,
+                                    200700,
+                                    200701,
+                                    200702,
+                                    200703,
+                                    200704,
+                                    200705,
+                                    200706,
+                                    200707,
+                                    200708,
+                                    200709,
+                                    200710,
+                                    200711,
+                                    200712,
+                                    200713,
+                                    200714,
+                                    200715,
+                                    200716,
+                                    200717,
+                                    200718,
+                                    200719,
+                                    200728,
+                                    200729,
+                                    200730,
+                                ],
+                                'id': 1,
+                            },
+                        ],
+                    },
+                    {
+                        'level': 'hard',
+                        'reward_count': 36,
+                        'tasks': [
+                            {
+                                'desc': '【有点强的敌人，先制+3，伤害提升300%，对手无法强化自己，可以消除对手能力提升状态，每回合有概率免疫所有伤害且附带一定固伤】',
+                                'is_single_pet': False,
+                                'boss_pet': {
+                                    'id': 4189,
+                                    'url': 'https://api.seerapi.com/v1/pet/4189',
+                                },
+                            },
+                            {
+                                'desc': '【较强的敌人，每回合有概率免疫所有伤害，无法探知其他能力】',
+                                'is_single_pet': False,
+                                'boss_pet': {
+                                    'id': 4078,
+                                    'url': 'https://api.seerapi.com/v1/pet/4078',
+                                },
+                            },
+                            {
+                                'desc': '【较强的敌人，无法探知能力】',
+                                'is_single_pet': False,
+                                'boss_pet': {
+                                    'id': 4163,
+                                    'url': 'https://api.seerapi.com/v1/pet/4163',
+                                },
+                            },
+                            {
+                                'desc': '【较强的敌人，无法探知能力】',
+                                'is_single_pet': False,
+                                'boss_pet': {
+                                    'id': 4200,
+                                    'url': 'https://api.seerapi.com/v1/pet/4200',
+                                },
+                            },
+                            {
+                                'desc': '【强的敌人，无法探知能力】',
+                                'is_single_pet': False,
+                                'boss_pet': {
+                                    'id': 4208,
+                                    'url': 'https://api.seerapi.com/v1/pet/4208',
+                                },
+                            },
+                        ],
+                        'banned_pets': [
+                            {'id': 3022, 'url': 'https://api.seerapi.com/v1/pet/3022'},
+                            {'id': 3460, 'url': 'https://api.seerapi.com/v1/pet/3460'},
+                            {'id': 3437, 'url': 'https://api.seerapi.com/v1/pet/3437'},
+                        ],
+                        'rules': [
+                            {
+                                'tips': '本关卡在挑战中，不可重复上阵（出战背包派出过的）精灵',
+                                'fail_tips': '',
+                                'args': [],
+                                'user_info': [
+                                    200699,
+                                    200700,
+                                    200701,
+                                    200702,
+                                    200703,
+                                    200704,
+                                    200705,
+                                    200706,
+                                    200707,
+                                    200708,
+                                    200709,
+                                    200710,
+                                    200711,
+                                    200712,
+                                    200713,
+                                    200714,
+                                    200715,
+                                    200716,
+                                    200717,
+                                    200718,
+                                    200719,
+                                    200728,
+                                    200729,
+                                    200730,
+                                ],
+                                'id': 1,
+                            },
+                            {
+                                'tips': '本关卡不可使用精灵：王之哈莫、幻境界皇、艾欧丽娅',
+                                'fail_tips': '',
+                                'args': [3022, 3460, 3437],
+                                'user_info': [],
+                                'id': 3,
+                            },
+                            {
+                                'tips': '出战精灵需等于100级',
+                                'fail_tips': '',
+                                'args': [100],
+                                'user_info': [],
+                                'id': 4,
+                            },
+                            {
+                                'tips': '关卡挑战中的对战累计失败次数＞3次，则本轮关卡挑战自动放弃',
+                                'fail_tips': '本关卡中对战累计失败次数已大于3次，挑战失败',
+                                'args': [3],
+                                'user_info': [200720],
+                                'id': 5,
+                            },
+                        ],
+                    },
+                ],
+                'reward': {
+                    'id': 2400021,
+                    'url': 'https://api.seerapi.com/v1/factor/2400021',
+                },
+                'mintmark_reward': {
+                    'id': 42055,
+                    'url': 'https://api.seerapi.com/v1/mintmark/42055',
+                },
+                'hash': '31ea0fd5',
+            }
+        ],
+        tags=['因子', '关卡', '精灵'],
+        description='因子关卡资源，包含通关奖励、可兑换刻印、关联成就和各难度的挑战信息。difficulties 按简单、普通、困难排列，每个难度内嵌有序的 BOSS 列表、禁用精灵和规则。规则 ID 仅在当前关卡内有效。',
+    ),
     M.Item: APIComment(
         name_en='item',
         name_cn='道具',
@@ -2586,6 +2922,15 @@ API_COMMENTS: dict[type[BaseResModel], APIComment] = {
                     'url': 'https://api.seerapi.com/v1/equip_effective_occasion/0',
                 },
                 'suit': [{'id': 208, 'url': 'https://api.seerapi.com/v1/suit/208'}],
+                'occasion': {
+                    'id': 0,
+                    'url': 'https://api.seerapi.com/v1/equip_effective_occasion/0',
+                },
+                'part_type': {
+                    'id': 0,
+                    'url': 'https://api.seerapi.com/v1/equip_type/0',
+                },
+                'pk_attribute': {'pk_hp': 60, 'pk_atk': 25, 'pk_fire_range': 0},
                 'hash': 'd6e0c3f9',
             }
         ],
@@ -2797,6 +3142,7 @@ API_COMMENTS: dict[type[BaseResModel], APIComment] = {
                 'inlay_rate': 0.85,
                 'equivalent_level1_count': 1,
                 'fail_compensate_range': [1, 1],
+                'generation_id': 1,
                 'hash': 'c9a7b3ed',
             }
         ],
