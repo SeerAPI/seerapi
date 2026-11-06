@@ -1721,7 +1721,7 @@ wheels = [
 
 [[package]]
 name = "seerapi"
-version = "106.11.0"
+version = "106.12.0"
 source = { editable = "packages/seerapi-python" }
 dependencies = [
     { name = "click" },
@@ -1742,7 +1742,7 @@ requires-dist = [
 
 [[package]]
 name = "seerapi-models"
-version = "106.11.0"
+version = "106.12.0"
 source = { editable = "packages/seerapi-models" }
 dependencies = [
     { name = "pydantic" },
@@ -1816,7 +1816,7 @@ tests = [{ name = "pytest", specifier = ">=9.0.1" }]
 
 [[package]]
 name = "seerapi-solaris"
-version = "106.11.0"
+version = "106.12.1"
 source = { editable = "packages/solaris" }
 dependencies = [
     { name = "anycrc" },
