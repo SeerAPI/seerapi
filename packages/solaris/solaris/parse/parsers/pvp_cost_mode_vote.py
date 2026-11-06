@@ -15,7 +15,6 @@ class PvpCostModeVoteInfo(TypedDict):
     subkey: int
     time1: int
     time2: int
-    time3: int
     type: int
     votenumber: int
     votepet: str
@@ -54,7 +53,6 @@ class PvpCostModeVoteParser(BaseParser[PvpCostModeVoteConfig]):
                 'subkey': reader.ReadSignedInt(),
                 'time1': reader.ReadSignedInt(),
                 'time2': reader.ReadSignedInt(),
-                'time3': reader.ReadSignedInt(),
                 'type': reader.ReadSignedInt(),
                 'votenumber': reader.ReadSignedInt(),
                 'votepet': reader.ReadUTFBytesWithLength(),

@@ -22,6 +22,7 @@ class UnityMoveItem(TypedDict):
     priority: int
     side_effect: list[int]
     side_effect_arg: list[int]
+    soercemove: int
     type: int
     info: str
     ordinary: int
@@ -105,6 +106,7 @@ class MovesParser(BaseParser[MovesConfig]):
                             'priority': 0,
                             'side_effect': [],
                             'side_effect_arg': [],
+                            'soercemove': 0,
                             'type': 0,
                             'info': '',
                             'ordinary': 0,
@@ -148,6 +150,7 @@ class MovesParser(BaseParser[MovesConfig]):
                             ]
 
                         # 完成剩余字段
+                        move_item['soercemove'] = reader.ReadSignedInt()
                         move_item['type'] = reader.ReadSignedInt()
                         move_item['info'] = reader.ReadUTFBytesWithLength()
                         move_item['ordinary'] = reader.ReadSignedInt()
