@@ -100,7 +100,7 @@ class BasePetAnalyzer(BaseDataSourcePostAnalyzer, ABC):
         result = {}
         for pet in unity_data:
             pet_id = pet['id']
-            if pet_id > 9999:
+            if pet_id > 5001 and pet_id != 13311:
                 break
 
             for key in keys:

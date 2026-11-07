@@ -170,7 +170,7 @@ class PetAnalyzer(BasePetAnalyzer):
 
         pet_map = {}
         for pet_id, pet_dict in self.pet_origin_data.items():
-            if pet_id > 9999:
+            if pet_id > 5001 and pet_id != 13311:
                 break
             pet_name = pet_dict['def_name']
             pet_ref = ResourceRef.from_model(Pet, id=pet_id)
