@@ -21,6 +21,7 @@ class SpMovesItem(TypedDict):
     monster: int
     moves: int
     movetype: int
+    newse: int
 
 
 # 特殊隐藏技能配置结构
@@ -70,6 +71,7 @@ class SpHideMovesParser(BaseParser[SpHideMovesConfig]):
                 moves = reader.ReadSignedInt()
                 movesname = reader.ReadUTFBytesWithLength()
                 movetype = reader.ReadSignedInt()
+                newse = reader.ReadSignedInt()
 
                 show_moves_item: SpMovesItem = {
                     'itemname': itemname,
@@ -80,6 +82,7 @@ class SpHideMovesParser(BaseParser[SpHideMovesConfig]):
                     'monster': monster,
                     'moves': moves,
                     'movetype': movetype,
+                    'newse': newse,
                 }
                 result['config']['show_moves'].append(show_moves_item)
 
@@ -96,6 +99,7 @@ class SpHideMovesParser(BaseParser[SpHideMovesConfig]):
                 moves = reader.ReadSignedInt()
                 movesname = reader.ReadUTFBytesWithLength()
                 movetype = reader.ReadSignedInt()
+                newse = reader.ReadSignedInt()
 
                 sp_moves_item: SpMovesItem = {
                     'itemname': itemname,
@@ -106,6 +110,7 @@ class SpHideMovesParser(BaseParser[SpHideMovesConfig]):
                     'monster': monster,
                     'moves': moves,
                     'movetype': movetype,
+                    'newse': newse,
                 }
                 result['config']['sp_moves'].append(sp_moves_item)
 
